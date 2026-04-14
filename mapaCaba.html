@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dra. Suana Vighi | Mapa de Buenos Aires</title>
+
+  <link rel="stylesheet" href="./mapa.css">
+</head>
+<body>
+  <div class="app-container">
+
+    <!-- Header solo en mobile -->
+    <header class="mobile-header">
+      <span class="mobile-header-title">Dra. Suana Vighi | Mapa de Buenos Aires</span>
+    </header>
+
+    <!-- Panel lateral / bottom sheet en mobile -->
+    <div class="side-panel" id="sidePanel">
+      <!-- Handle para arrastrar en mobile -->
+      <div class="panel-handle" id="panelHandle">
+        <div class="drag-bar"></div>
+      </div>
+      <div class="panel-header">
+        <h2>Mapa de Buenos Aires</h2>
+        <p>Hacé click en una comuna para ver los sanatorios que eligen trabajan con Vighi.</p>
+        <div class="search-wrapper">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="Buscar sanatorio o dirección..."
+            autocomplete="off"
+          >
+          <button class="search-clear" id="searchClear" title="Limpiar">✕</button>
+        </div>
+      </div>
+      <div class="panel-body" id="panelBody">
+        <div class="placeholder">
+          <div class="placeholder-icon">🗺️</div>
+          <p>Seleccioná una<br>comuna en el mapa</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mapa -->
+
+    <div class="map-wrapper">
+      <div id="map"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="./mapa.js"></script>
+
+  <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASQBz2j2svQxE2qpAIt-H1-eHQqFIfRaM&callback=initMap">
+  </script>
+</body>
+</html>

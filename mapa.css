@@ -1,0 +1,416 @@
+/* ============================================
+   RESET
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================
+   LAYOUT GENERAL
+   ============================================ */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  background: #f0f2f5;
+}
+
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* ============================================
+   MOBILE HEADER (oculto en desktop)
+   ============================================ */
+.mobile-header {
+  display: none;
+}
+
+/* ============================================
+   PANEL HANDLE (oculto en desktop)
+   ============================================ */
+.panel-handle {
+  display: none;
+  justify-content: center;
+  padding: 14px 0 10px;
+  cursor: pointer;
+  flex-shrink: 0;
+  touch-action: none;
+}
+
+.drag-bar {
+  width: 36px;
+  height: 4px;
+  background: #ccc;
+  border-radius: 2px;
+}
+
+/* ============================================
+   PANEL LATERAL
+   ============================================ */
+.side-panel {
+  width: 340px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  box-shadow: 2px 0 15px rgba(0,0,0,0.12);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.panel-header {
+  padding: 24px 20px 16px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.panel-header h2 {
+  color: #2c3e50;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.panel-header p {
+  color: #7f8c8d;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* ── Buscador ── */
+.search-wrapper {
+  position: relative;
+  margin-top: 12px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 9px 36px 9px 12px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #2c3e50;
+  background: #f8f9fa;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.search-input:focus {
+  border-color: #d534db;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(213, 52, 219, 0.1);
+}
+
+.search-input::placeholder {
+  color: #b0b7bf;
+}
+
+.search-clear {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #b0b7bf;
+  font-size: 13px;
+  padding: 2px 4px;
+  display: none;
+}
+
+.search-clear:hover {
+  color: #7f8c8d;
+}
+
+/* ── Resultados de búsqueda ── */
+.search-result-item {
+  background: #f8f9fa;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border-left: 4px solid #d534db;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.search-result-item:hover {
+  background: #faf0fb;
+  transform: translateX(3px);
+}
+
+.search-result-item strong {
+  color: #2c3e50;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 3px;
+}
+
+.search-result-item small {
+  color: #7f8c8d;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.search-result-item .result-comuna {
+  display: inline-block;
+  background: #f0e4f7;
+  color: #9b2ca8;
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  margin-top: 5px;
+  font-weight: 600;
+}
+
+.search-sin-resultados {
+  color: #bdc3c7;
+  font-size: 13px;
+  text-align: center;
+  padding: 24px 0;
+}
+
+.panel-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px 20px;
+}
+
+/* ── Placeholder ── */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #bdc3c7;
+  text-align: center;
+  gap: 12px;
+}
+
+.placeholder-icon {
+  font-size: 48px;
+}
+
+.placeholder p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── Info de la comuna ── */
+.comuna-header {
+  margin-bottom: 16px;
+}
+
+.comuna-header h3 {
+  color: #2c3e50;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.barrios-tag {
+  font-size: 12px;
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+.seccion-titulo {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #95a5a6;
+  margin: 16px 0 10px;
+}
+
+/* ── Tarjetas de localidad ── */
+.localidad-item {
+  background: #f8f9fa;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border-left: 4px solid #d534db;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.localidad-item:hover {
+  background: #faf0fb;
+  transform: translateX(3px);
+}
+
+.localidad-item img {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 8px;
+}
+
+.localidad-item strong {
+  color: #2c3e50;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.localidad-item small {
+  color: #7f8c8d;
+  font-size: 12px;
+}
+
+.badge {
+  display: inline-block;
+  background: #f9e6fa;
+  color: #d534db;
+  font-size: 11px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  margin-left: 6px;
+  font-weight: 600;
+}
+
+.sin-datos {
+  color: #bdc3c7;
+  font-size: 13px;
+  text-align: center;
+  padding: 16px 0;
+}
+
+/* ============================================
+   MAPA
+   ============================================ */
+.map-wrapper {
+  flex: 1;
+  position: relative;
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Leyenda ── */
+.legend {
+  position: absolute;
+  bottom: 28px;
+  right: 12px;
+  background: white;
+  padding: 12px 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+  font-size: 13px;
+}
+
+.legend h4 {
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-size: 13px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+}
+
+.legend-color {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  border-radius: 3px;
+  border: 1.5px solid #555;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET (≤ 1024px)
+   ============================================ */
+@media (max-width: 1024px) {
+  .side-panel {
+    width: 280px;
+  }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE (≤ 768px)
+   ============================================ */
+@media (max-width: 768px) {
+  body {
+    overflow: hidden;
+  }
+
+  /* Header móvil */
+  .mobile-header {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+    flex-shrink: 0;
+  }
+
+  .mobile-header-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+
+  /* Layout en columna: mapa ocupa todo el espacio disponible */
+  .app-container {
+    flex-direction: column;
+  }
+
+  .map-wrapper {
+    flex: 1;
+    min-height: 0;
+    order: -1; /* Mapa arriba, panel como bottom sheet abajo */
+  }
+
+  /* Panel → bottom sheet */
+  .side-panel {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 68vh;
+    max-height: 68vh;
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+    /* Colapsado: solo asoma el handle (52px) */
+    transform: translateY(calc(100% - 52px));
+    transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+    z-index: 1000;
+    overflow: hidden;
+  }
+
+  /* Panel abierto */
+  .side-panel.panel-abierto {
+    transform: translateY(0);
+  }
+
+  /* Mostrar el handle en mobile */
+  .panel-handle {
+    display: flex;
+  }
+
+  /* Reducir padding del header para aprovechar espacio */
+  .panel-header {
+    padding: 6px 20px 14px;
+  }
+
+  .panel-header h2 {
+    font-size: 17px;
+  }
+
+  /* Leyenda sube para no quedar tapada por el handle */
+  .legend {
+    bottom: 60px;
+    right: 10px;
+  }
+}
