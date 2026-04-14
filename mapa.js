@@ -11,7 +11,8 @@ const comunasData = {
     nombre: "Comuna 1",
     barrios: ["Retiro", "San Nicolás", "Puerto Madero", "San Telmo", "Montserrat", "Constitución"],
     localidades: [
-      { nombre: "Instituto Quirúrgico del Callao", direccion: "Av. Callao 499, C1022AAE Cdad. Autónoma de Buenos Aires", lat: -34.6013, lng: -58.3921, tipo: "Sanatorio", imagen:"Imagenes/callao.jpg"}
+      { nombre: "Instituto Quirúrgico del Callao", direccion: "Av. Callao 499, C1022AAE Cdad. Autónoma de Buenos Aires", lat: -34.6013, lng: -58.3921, tipo: "Sanatorio", imagen:"Imagenes/callao.jpg"},
+      { nombre: "IDIM", direccion: "Libertad 836, C1012AAR Cdad. Autónoma de Buenos Aires", lat: -34.5987, lng: -58.3841, tipo: "Centro Médico", imagen:"Imagenes/IDIM.jpg"}
     ]
   },
   2: {
@@ -30,7 +31,9 @@ const comunasData = {
     barrios: ["Balvanera", "San Cristóbal"],
     localidades: [
       { nombre: "Sanatorio de La Trinidad Mitre", direccion: "Bartolomé Mitre 2553, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6078, lng: -58.4025, tipo: "Sanatorio", imagen:"Imagenes/trinidad_mitre.jpeg" },
-      { nombre: "Clínica AMEBPBA", direccion: "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6079, lng: -58.3956, tipo: "Sanatorio", imagen:"Imagenes/amebpba.jpg" }
+      { nombre: "Clínica AMEBPBA", direccion: "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6079, lng: -58.3956, tipo: "Sanatorio", imagen:"Imagenes/amebpba.jpg" },
+      { nombre: "Obra Social Luis Pasteur - Centro Médico Congreso", direccion: "Tte. Gral. Juan Domingo Perón 1830, C1040AAB Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen:"Imagenes/LpCongreso.jpg"},
+      { nombre: "Centro Médico Monserrat", direccion: "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen:"Imagenes/cmMonserrat.jpg"}
     ]
   },
   4: {
@@ -53,7 +56,8 @@ const comunasData = {
     barrios: ["Belgrano", "Colegiales","Núñez"],
     localidades: [
       { nombre: "Clínica Zabala Swiss Medical", direccion: "Av. Cabildo 1295, C1426AAM Cdad. Autónoma de Buenos Aires", lat: -34.5671, lng: -58.4497, tipo: "Sanatorio", imagen: "Imagenes/zabala.jpg" },
-      { nombre: "Centro Médico Vilella", direccion: "Av. de los Incas 3536, C1426 Cdad. Autónoma de Buenos Aires", lat: -34.5740, lng: -58.4629, tipo: "Sanatorio", imagen: "Imagenes/vilella.jpg" }
+      { nombre: "Centro Médico Vilella", direccion: "Av. de los Incas 3536, C1426 Cdad. Autónoma de Buenos Aires", lat: -34.5740, lng: -58.4629, tipo: "Sanatorio", imagen: "Imagenes/vilella.jpg" },
+      { nombre: "Obra Social Luis Pasteur - Centro Médico Belgrano", direccion: "11 de Septiembre de 1888 2139, C1428 AIG, Cdad. Autónoma de Buenos Aires", lat: -34.5582, lng: -58.4513, tipo: "Centro Médico", imagen: "Imagenes/LpBelgrano.jpg" }
     ]
   },
 
@@ -416,6 +420,22 @@ function getLocalidadesDeComuna(comunaId) {
 }
 
 // ============================================
+// VOLVER AL LISTADO COMPLETO
+// ============================================
+function volverAlListado() {
+  comunaSeleccionadaId = null;
+
+  // Limpiar marcadores
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+
+  // Restaurar estilo base del mapa
+  aplicarEstiloBase();
+
+  mostrarTodasLasLocalidades();
+}
+
+// ============================================
 // MOSTRAR INFO EN EL PANEL LATERAL
 // ============================================
 function mostrarInfoPanel(comunaId) {
@@ -438,7 +458,10 @@ const localidadesHtml = localidades.length > 0
 
   document.getElementById("panelBody").innerHTML = `
     <div class="comuna-header">
-      <h3>📍 ${nombre}</h3>
+      <div class="comuna-header-top">
+        <h3>📍 ${nombre}</h3>
+        <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
+      </div>
       ${barriosHtml}
     </div>
     <div class="seccion-titulo">Localidades de interés</div>
