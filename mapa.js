@@ -86,15 +86,11 @@ function initBuscador() {
     clearBtn.style.display = query.length > 0 ? "block" : "none";
 
     if (query.length === 0) {
-      // Volver al estado anterior o placeholder
+      // Volver al estado anterior o listado completo
       if (comunaSeleccionadaId !== null) {
         mostrarInfoPanel(comunaSeleccionadaId);
       } else {
-        document.getElementById("panelBody").innerHTML = `
-          <div class="placeholder">
-            <div class="placeholder-icon">🗺️</div>
-            <p>Seleccioná una<br>comuna en el mapa</p>
-          </div>`;
+        mostrarTodasLasLocalidades();
       }
       return;
     }
@@ -110,11 +106,7 @@ function initBuscador() {
     if (comunaSeleccionadaId !== null) {
       mostrarInfoPanel(comunaSeleccionadaId);
     } else {
-      document.getElementById("panelBody").innerHTML = `
-        <div class="placeholder">
-          <div class="placeholder-icon">🗺️</div>
-          <p>Seleccioná una<br>comuna en el mapa</p>
-        </div>`;
+      mostrarTodasLasLocalidades();
     }
   });
 }
@@ -204,8 +196,43 @@ function togglePanelMobile() {
   }
 }
 
+// ============================================
+// LISTADO DE TODAS LAS LOCALIDADES
+// ============================================
+function mostrarTodasLasLocalidades() {
+  const panelBody = document.getElementById("panelBody");
+
+  const comunasConLocalidades = Object.keys(comunasData)
+    .map(id => ({ id: parseInt(id), ...comunasData[id] }))
+    .filter(c => c.localidades.length > 0)
+    .sort((a, b) => a.id - b.id);
+
+  const totalLocalidades = comunasConLocalidades.reduce((sum, c) => sum + c.localidades.length, 0);
+
+  const html = comunasConLocalidades.map(comuna => `
+    <div class="seccion-titulo todas-titulo" onclick="seleccionarComuna(${comuna.id})" title="Ver en el mapa">
+      ${comuna.nombre}
+      <span class="todas-count">${comuna.localidades.length}</span>
+    </div>
+    ${comuna.localidades.map(loc => `
+      <div class="localidad-item" onclick="irALocalidad(${comuna.id}, ${loc.lat}, ${loc.lng})">
+        <strong>${loc.nombre}</strong>
+        <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+      </div>
+    `).join("")}
+  `).join("");
+
+  panelBody.innerHTML = `
+    <div class="todas-header">
+      <span>${totalLocalidades} ubicaciones en total</span>
+    </div>
+    ${html}
+  `;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   initBuscador();
+  mostrarTodasLasLocalidades();
 
   const handle = document.getElementById("panelHandle");
   const panel  = document.getElementById("sidePanel");
@@ -400,15 +427,14 @@ function mostrarInfoPanel(comunaId) {
     ? `<div class="barrios-tag"><strong>Barrios:</strong> ${comuna.barrios.join(", ")}</div>`
     : "";
 
-  const localidadesHtml = localidades.length > 0
-    ? localidades.map(loc => `
-        <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
-          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" style="width:100%;height:110px;object-fit:cover;border-radius:5px;margin-bottom:8px;">` : ""}
-          <strong>${loc.nombre}</strong>
-          <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
-        </div>
-      `).join("")
-    : `<p class="sin-datos">Sin localidades registradas para esta comuna.</p>`;
+const localidadesHtml = localidades.length > 0
+  ? localidades.map(loc => `
+      <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
+        <strong>${loc.nombre}</strong>
+        <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+      </div>
+    `).join("")
+  : `<p class="sin-datos">Sin localidades registradas para esta comuna.</p>`;
 
   document.getElementById("panelBody").innerHTML = `
     <div class="comuna-header">
