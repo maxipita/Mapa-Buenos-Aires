@@ -11,7 +11,8 @@ const comunasData = {
     nombre: "Comuna 1",
     barrios: ["Retiro", "San Nicolás", "Puerto Madero", "San Telmo", "Montserrat", "Constitución"],
     localidades: [
-      { nombre: "Instituto Quirúrgico del Callao", direccion: "Av. Callao 499, C1022AAE Cdad. Autónoma de Buenos Aires", lat: -34.6013, lng: -58.3921, tipo: "Sanatorio", imagen:"Imagenes/callao.jpg"}
+      { nombre: "Instituto Quirúrgico del Callao", direccion: "Av. Callao 499, C1022AAE Cdad. Autónoma de Buenos Aires", lat: -34.6013, lng: -58.3921, tipo: "Sanatorio", imagen:"Imagenes/callao.jpg"},
+      { nombre: "IDIM", direccion: "Libertad 836, C1012AAR Cdad. Autónoma de Buenos Aires", lat: -34.5987, lng: -58.3841, tipo: "Centro Médico", imagen:"Imagenes/IDIM.jpg"}
     ]
   },
   2: {
@@ -30,7 +31,9 @@ const comunasData = {
     barrios: ["Balvanera", "San Cristóbal"],
     localidades: [
       { nombre: "Sanatorio de La Trinidad Mitre", direccion: "Bartolomé Mitre 2553, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6078, lng: -58.4025, tipo: "Sanatorio", imagen:"Imagenes/trinidad_mitre.jpeg" },
-      { nombre: "Clínica AMEBPBA", direccion: "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6079, lng: -58.3956, tipo: "Sanatorio", imagen:"Imagenes/amebpba.jpg" }
+      { nombre: "Clínica AMEBPBA", direccion: "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6079, lng: -58.3956, tipo: "Sanatorio", imagen:"Imagenes/amebpba.jpg" },
+      { nombre: "Obra Social Luis Pasteur - Centro Médico Congreso", direccion: "Tte. Gral. Juan Domingo Perón 1830, C1040AAB Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen:"Imagenes/LpCongreso.jpg"},
+      { nombre: "Centro Médico Monserrat", direccion: "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen:"Imagenes/cmMonserrat.jpg"}
     ]
   },
   4: {
@@ -53,7 +56,8 @@ const comunasData = {
     barrios: ["Belgrano", "Colegiales","Núñez"],
     localidades: [
       { nombre: "Clínica Zabala Swiss Medical", direccion: "Av. Cabildo 1295, C1426AAM Cdad. Autónoma de Buenos Aires", lat: -34.5671, lng: -58.4497, tipo: "Sanatorio", imagen: "Imagenes/zabala.jpg" },
-      { nombre: "Centro Médico Vilella", direccion: "Av. de los Incas 3536, C1426 Cdad. Autónoma de Buenos Aires", lat: -34.5740, lng: -58.4629, tipo: "Sanatorio", imagen: "Imagenes/vilella.jpg" }
+      { nombre: "Centro Médico Vilella", direccion: "Av. de los Incas 3536, C1426 Cdad. Autónoma de Buenos Aires", lat: -34.5740, lng: -58.4629, tipo: "Sanatorio", imagen: "Imagenes/vilella.jpg" },
+      { nombre: "Obra Social Luis Pasteur - Centro Médico Belgrano", direccion: "11 de Septiembre de 1888 2139, C1428 AIG, Cdad. Autónoma de Buenos Aires", lat: -34.5582, lng: -58.4513, tipo: "Centro Médico", imagen: "Imagenes/LpBelgrano.jpg" }
     ]
   },
 
@@ -86,15 +90,11 @@ function initBuscador() {
     clearBtn.style.display = query.length > 0 ? "block" : "none";
 
     if (query.length === 0) {
-      // Volver al estado anterior o placeholder
+      // Volver al estado anterior o listado completo
       if (comunaSeleccionadaId !== null) {
         mostrarInfoPanel(comunaSeleccionadaId);
       } else {
-        document.getElementById("panelBody").innerHTML = `
-          <div class="placeholder">
-            <div class="placeholder-icon">🗺️</div>
-            <p>Seleccioná una<br>comuna en el mapa</p>
-          </div>`;
+        mostrarTodasLasLocalidades();
       }
       return;
     }
@@ -110,11 +110,7 @@ function initBuscador() {
     if (comunaSeleccionadaId !== null) {
       mostrarInfoPanel(comunaSeleccionadaId);
     } else {
-      document.getElementById("panelBody").innerHTML = `
-        <div class="placeholder">
-          <div class="placeholder-icon">🗺️</div>
-          <p>Seleccioná una<br>comuna en el mapa</p>
-        </div>`;
+      mostrarTodasLasLocalidades();
     }
   });
 }
@@ -204,8 +200,43 @@ function togglePanelMobile() {
   }
 }
 
+// ============================================
+// LISTADO DE TODAS LAS LOCALIDADES
+// ============================================
+function mostrarTodasLasLocalidades() {
+  const panelBody = document.getElementById("panelBody");
+
+  const comunasConLocalidades = Object.keys(comunasData)
+    .map(id => ({ id: parseInt(id), ...comunasData[id] }))
+    .filter(c => c.localidades.length > 0)
+    .sort((a, b) => a.id - b.id);
+
+  const totalLocalidades = comunasConLocalidades.reduce((sum, c) => sum + c.localidades.length, 0);
+
+  const html = comunasConLocalidades.map(comuna => `
+    <div class="seccion-titulo todas-titulo" onclick="seleccionarComuna(${comuna.id})" title="Ver en el mapa">
+      ${comuna.nombre}
+      <span class="todas-count">${comuna.localidades.length}</span>
+    </div>
+    ${comuna.localidades.map(loc => `
+      <div class="localidad-item" onclick="irALocalidad(${comuna.id}, ${loc.lat}, ${loc.lng})">
+        <strong>${loc.nombre}</strong>
+        <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+      </div>
+    `).join("")}
+  `).join("");
+
+  panelBody.innerHTML = `
+    <div class="todas-header">
+      <span>${totalLocalidades} ubicaciones en total</span>
+    </div>
+    ${html}
+  `;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   initBuscador();
+  mostrarTodasLasLocalidades();
 
   const handle = document.getElementById("panelHandle");
   const panel  = document.getElementById("sidePanel");
@@ -389,6 +420,22 @@ function getLocalidadesDeComuna(comunaId) {
 }
 
 // ============================================
+// VOLVER AL LISTADO COMPLETO
+// ============================================
+function volverAlListado() {
+  comunaSeleccionadaId = null;
+
+  // Limpiar marcadores
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+
+  // Restaurar estilo base del mapa
+  aplicarEstiloBase();
+
+  mostrarTodasLasLocalidades();
+}
+
+// ============================================
 // MOSTRAR INFO EN EL PANEL LATERAL
 // ============================================
 function mostrarInfoPanel(comunaId) {
@@ -400,19 +447,21 @@ function mostrarInfoPanel(comunaId) {
     ? `<div class="barrios-tag"><strong>Barrios:</strong> ${comuna.barrios.join(", ")}</div>`
     : "";
 
-  const localidadesHtml = localidades.length > 0
-    ? localidades.map(loc => `
-        <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
-          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" style="width:100%;height:110px;object-fit:cover;border-radius:5px;margin-bottom:8px;">` : ""}
-          <strong>${loc.nombre}</strong>
-          <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
-        </div>
-      `).join("")
-    : `<p class="sin-datos">Sin localidades registradas para esta comuna.</p>`;
+const localidadesHtml = localidades.length > 0
+  ? localidades.map(loc => `
+      <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
+        <strong>${loc.nombre}</strong>
+        <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+      </div>
+    `).join("")
+  : `<p class="sin-datos">Sin localidades registradas para esta comuna.</p>`;
 
   document.getElementById("panelBody").innerHTML = `
     <div class="comuna-header">
-      <h3>📍 ${nombre}</h3>
+      <div class="comuna-header-top">
+        <h3>📍 ${nombre}</h3>
+        <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
+      </div>
       ${barriosHtml}
     </div>
     <div class="seccion-titulo">Localidades de interés</div>
