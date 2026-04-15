@@ -130,7 +130,8 @@ function mostrarResultadosBusqueda(query) {
 
   Object.keys(comunasData).forEach(id => {
     const comuna = comunasData[id];
-    comuna.localidades.forEach(loc => {
+    const localidadesFiltradas = filtrarPorCategoria(comuna.localidades);
+    localidadesFiltradas.forEach(loc => {
       const hayCoincidencia =
         normalizarTexto(loc.nombre).includes(q) ||
         normalizarTexto(loc.direccion).includes(q) ||
@@ -182,6 +183,61 @@ let map;
 let marcadoresActivos = [];
 let comunaSeleccionadaId = null;
 let infoWindowGlobal = null;
+let categoriaActiva = null;
+
+const CATEGORIAS = {
+  sanatorios: {
+    label: "Sanatorios y Centros Médicos",
+    tipos: ["Sanatorio", "Centro Médico"]
+  },
+  consultorios: {
+    label: "Consultorios Externos",
+    tipos: ["Consultorio"]
+  }
+};
+
+function filtrarPorCategoria(localidades) {
+  if (!categoriaActiva || !CATEGORIAS[categoriaActiva]) return localidades;
+  const tipos = CATEGORIAS[categoriaActiva].tipos;
+  return localidades.filter(loc => tipos.includes(loc.tipo));
+}
+
+function seleccionarCategoria(cat) {
+  categoriaActiva = cat;
+
+  const menu = document.getElementById("menuInicio");
+  menu.classList.add("oculto");
+  setTimeout(() => { menu.style.display = "none"; }, 400);
+
+  const catInfo = CATEGORIAS[cat];
+  document.getElementById("categoriaActualLabel").textContent = catInfo.label;
+  document.getElementById("panelDesc").textContent =
+    `Hacé click en una comuna para ver los ${catInfo.label.toLowerCase()} que trabajan con Vighi.`;
+  document.getElementById("searchInput").placeholder =
+    cat === "sanatorios" ? "Buscar sanatorio o dirección..." : "Buscar consultorio o dirección...";
+
+  mostrarTodasLasLocalidades();
+}
+
+function volverAlMenu() {
+  // Limpiar estado del mapa
+  comunaSeleccionadaId = null;
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+  if (map) aplicarEstiloBase();
+
+  // Limpiar buscador
+  const input = document.getElementById("searchInput");
+  const clearBtn = document.getElementById("searchClear");
+  input.value = "";
+  clearBtn.style.display = "none";
+
+  categoriaActiva = null;
+
+  const menu = document.getElementById("menuInicio");
+  menu.style.display = "";
+  requestAnimationFrame(() => menu.classList.remove("oculto"));
+}
 
 // ============================================
 // RESPONSIVE — HELPERS MOBILE
@@ -209,20 +265,29 @@ function mostrarTodasLasLocalidades() {
   const panelBody = document.getElementById("panelBody");
 
   const comunasConLocalidades = Object.keys(comunasData)
-    .map(id => ({ id: parseInt(id), ...comunasData[id] }))
-    .filter(c => c.localidades.length > 0)
+    .map(id => ({
+      id: parseInt(id),
+      ...comunasData[id],
+      localidadesFiltradas: filtrarPorCategoria(comunasData[id].localidades)
+    }))
+    .filter(c => c.localidadesFiltradas.length > 0)
     .sort((a, b) => a.id - b.id);
 
-  const totalLocalidades = comunasConLocalidades.reduce((sum, c) => sum + c.localidades.length, 0);
+  const totalLocalidades = comunasConLocalidades.reduce((sum, c) => sum + c.localidadesFiltradas.length, 0);
+
+  if (totalLocalidades === 0) {
+    panelBody.innerHTML = `<p class="sin-datos">Sin ubicaciones registradas para esta categoría.</p>`;
+    return;
+  }
 
   const html = comunasConLocalidades.map(comuna => {
-    const locOrdenadas = [...comuna.localidades].sort((a, b) =>
+    const locOrdenadas = [...comuna.localidadesFiltradas].sort((a, b) =>
       a.nombre.localeCompare(b.nombre, 'es')
     );
     return `
       <div class="seccion-titulo todas-titulo" onclick="seleccionarComuna(${comuna.id})" title="Ver en el mapa">
         ${comuna.nombre}
-        <span class="todas-count">${comuna.localidades.length}</span>
+        <span class="todas-count">${locOrdenadas.length}</span>
       </div>
       ${locOrdenadas.map(loc => `
         <div class="localidad-item" onclick="irALocalidad(${comuna.id}, ${loc.lat}, ${loc.lng})">
@@ -243,7 +308,6 @@ function mostrarTodasLasLocalidades() {
 
 document.addEventListener("DOMContentLoaded", function () {
   initBuscador();
-  mostrarTodasLasLocalidades();
 
   const handle = document.getElementById("panelHandle");
   const panel  = document.getElementById("sidePanel");
@@ -423,7 +487,7 @@ function getLocalidadesDeComuna(comunaId) {
     });
   }
 
-  return localidades;
+  return filtrarPorCategoria(localidades);
 }
 
 // ============================================

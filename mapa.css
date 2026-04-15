@@ -341,6 +341,147 @@ body {
   letter-spacing: 0;
 }
 
+/* ── Categoría activa ── */
+.categoria-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.categoria-badge {
+  background: #f9e6fa;
+  color: #a020a8;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+.btn-cambiar-categoria {
+  background: none;
+  border: none;
+  color: #d534db;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: inherit;
+  padding: 0;
+}
+
+.btn-cambiar-categoria:hover {
+  color: #a020a8;
+}
+
+/* ============================================
+   MENÚ DE INICIO
+   ============================================ */
+.menu-inicio {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #f9e6fa 0%, #fff 60%, #f0e4f7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.4s ease;
+}
+
+.menu-inicio.oculto {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.menu-inicio-card {
+  background: white;
+  border-radius: 20px;
+  padding: 40px 48px;
+  box-shadow: 0 8px 40px rgba(160, 32, 168, 0.18);
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+}
+
+.menu-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+.menu-inicio-card h1 {
+  color: #2c3e50;
+  font-size: 22px;
+  margin-bottom: 8px;
+}
+
+.menu-inicio-card > p {
+  color: #7f8c8d;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.menu-opciones {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.menu-opcion {
+  flex: 1;
+  background: #f9e6fa;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 28px 16px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  font-family: inherit;
+}
+
+.menu-opcion:hover {
+  background: #f0d4f5;
+  border-color: #d534db;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(213, 52, 219, 0.2);
+}
+
+.menu-opcion-icon {
+  font-size: 38px;
+}
+
+.menu-opcion-titulo {
+  color: #2c3e50;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+@media (max-width: 480px) {
+  .menu-inicio-card {
+    padding: 30px 20px;
+  }
+
+  .menu-opciones {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .menu-opcion {
+    flex-direction: row;
+    padding: 18px 16px;
+    gap: 16px;
+    text-align: left;
+  }
+
+  .menu-opcion-titulo {
+    text-align: left;
+  }
+}
+
 /* ============================================
    MAPA
    ============================================ */

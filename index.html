@@ -4,10 +4,30 @@
   <title>Dra. Suana Vighi | Mapa de Buenos Aires</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="/logo_vighi.png" type="image/png">
+  <link rel="icon" href="./logo_vighi.png" type="image/png">
   <link rel="stylesheet" href="./mapa.css">
 </head>
 <body>
+
+  <!-- Menú de inicio -->
+  <div id="menuInicio" class="menu-inicio">
+    <div class="menu-inicio-card">
+      <img src="logo_vighi.png" alt="Dra. Susana Vighi" class="menu-logo">
+      <h1>Mapa de Prestadores</h1>
+      <p>Seleccioná el tipo de prestador que querés ver:</p>
+      <div class="menu-opciones">
+        <button class="menu-opcion" onclick="seleccionarCategoria('sanatorios')">
+          <span class="menu-opcion-icon">🏥</span>
+          <span class="menu-opcion-titulo">Sanatorios y<br>Centros Médicos</span>
+        </button>
+        <button class="menu-opcion" onclick="seleccionarCategoria('consultorios')">
+          <span class="menu-opcion-icon">🩺</span>
+          <span class="menu-opcion-titulo">Consultorios<br>Externos</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <div class="app-container">
 
     <!-- Header solo en mobile -->
@@ -23,7 +43,11 @@
       </div>
       <div class="panel-header">
         <h2>Mapa de Buenos Aires</h2>
-        <p>Hacé click en una comuna para ver los sanatorios que eligen trabajan con Vighi.</p>
+        <div class="categoria-bar">
+          <span class="categoria-badge" id="categoriaActualLabel"></span>
+          <button class="btn-cambiar-categoria" onclick="volverAlMenu()">cambiar</button>
+        </div>
+        <p id="panelDesc">Hacé click en una comuna para ver los prestadores que trabajan con Vighi.</p>
         <div class="search-wrapper">
           <input
             type="text"
