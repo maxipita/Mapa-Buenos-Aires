@@ -23,7 +23,8 @@ const comunasData = {
       { nombre: "IADT", direccion: "Marcelo T. de Alvear 2346, CABA", lat: -34.5965, lng: -58.4008, tipo: "Sanatorio", imagen:"Imagenes/iadt.jpg"},
       { nombre: "Clínica y Maternidad Suizo Argentina", direccion: "Av. Pueyrredón 1461, C1015 Cdad. Autónoma de Buenos Aires", lat: -34.5935, lng: -58.4021, tipo: "Sanatorio", imagen:"Imagenes/suizo.jpg"},
       { nombre: "Sanatorio Agote", direccion: "Dr. Luis Agote 2477, C1425EOE Cdad. Autónoma de Buenos Aires", lat: -34.5852, lng: -58.3946, tipo: "Sanatorio", imagen:"Imagenes/agote.jpg"},
-      { nombre: "Halitus Instituto Médico", direccion: "Marcelo Torcuato de Alvear 2084, C1122AAF Cdad. Autónoma de Buenos Aires", lat: -34.5973, lng: -58.3972, tipo: "Centro Médico", imagen:"Imagenes/halitus.jpg"}
+      { nombre: "Halitus Instituto Médico", direccion: "Marcelo Torcuato de Alvear 2084, C1122AAF Cdad. Autónoma de Buenos Aires", lat: -34.5973, lng: -58.3972, tipo: "Centro Médico", imagen:"Imagenes/halitus.jpg"},
+      { nombre: "Centro Medicus", direccion: "Azcuénaga 910, C1029 Cdad. Autónoma de Buenos Aires", lat: -34.5978353, lng: -58.4007036, tipo: "Centro Médico" }
     ]
   },
   3: {
@@ -33,7 +34,8 @@ const comunasData = {
       { nombre: "Sanatorio de La Trinidad Mitre", direccion: "Bartolomé Mitre 2553, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6078, lng: -58.4025, tipo: "Sanatorio", imagen:"Imagenes/trinidad_mitre.jpeg" },
       { nombre: "Clínica AMEBPBA", direccion: "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6079, lng: -58.3956, tipo: "Sanatorio", imagen:"Imagenes/amebpba.jpg" },
       { nombre: "Obra Social Luis Pasteur - Centro Médico Congreso", direccion: "Tte. Gral. Juan Domingo Perón 1830, C1040AAB Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen:"Imagenes/LpCongreso.jpg"},
-      { nombre: "Centro Médico Monserrat", direccion: "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen:"Imagenes/cmMonserrat.jpg"}
+      { nombre: "Centro Médico Monserrat", direccion: "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen:"Imagenes/cmMonserrat.jpg"},
+      { nombre: "Sanatorio de la Providencia", direccion: "Tucumán 1863, C1050 Cdad. Autónoma de Buenos Aires", lat: -34.6019496, lng: -58.3936574, tipo: "Sanatorio", imagen:"Imagenes/providencia.jpg" }
     ]
   },
   4: {

@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:vymaps.com)",
+      "WebFetch(domain:mapcarta.com)",
+      "WebFetch(domain:nominatim.openstreetmap.org)",
+      "WebFetch(domain:www.registroensayosclinicos.org)"
+    ]
+  }
+}
