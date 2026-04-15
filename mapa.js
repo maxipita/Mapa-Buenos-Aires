@@ -24,7 +24,7 @@ const comunasData = {
       { nombre: "Clínica y Maternidad Suizo Argentina", direccion: "Av. Pueyrredón 1461, C1015 Cdad. Autónoma de Buenos Aires", lat: -34.5935, lng: -58.4021, tipo: "Sanatorio", imagen:"Imagenes/suizo.jpg"},
       { nombre: "Sanatorio Agote", direccion: "Dr. Luis Agote 2477, C1425EOE Cdad. Autónoma de Buenos Aires", lat: -34.5852, lng: -58.3946, tipo: "Sanatorio", imagen:"Imagenes/agote.jpg"},
       { nombre: "Halitus Instituto Médico", direccion: "Marcelo Torcuato de Alvear 2084, C1122AAF Cdad. Autónoma de Buenos Aires", lat: -34.5973, lng: -58.3972, tipo: "Centro Médico", imagen:"Imagenes/halitus.jpg"},
-      { nombre: "Centro Medicus", direccion: "Azcuénaga 910, C1029 Cdad. Autónoma de Buenos Aires", lat: -34.5978353, lng: -58.4007036, tipo: "Centro Médico" }
+      { nombre: "Centro Medicus", direccion: "Azcuénaga 910, C1029 Cdad. Autónoma de Buenos Aires", lat: -34.5978353, lng: -58.4007036, tipo: "Centro Médico", imagen:"Imagen/CMedicus.jpg"}
     ]
   },
   3: {
