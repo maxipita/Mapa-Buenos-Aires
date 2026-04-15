@@ -215,18 +215,23 @@ function mostrarTodasLasLocalidades() {
 
   const totalLocalidades = comunasConLocalidades.reduce((sum, c) => sum + c.localidades.length, 0);
 
-  const html = comunasConLocalidades.map(comuna => `
-    <div class="seccion-titulo todas-titulo" onclick="seleccionarComuna(${comuna.id})" title="Ver en el mapa">
-      ${comuna.nombre}
-      <span class="todas-count">${comuna.localidades.length}</span>
-    </div>
-    ${comuna.localidades.map(loc => `
-      <div class="localidad-item" onclick="irALocalidad(${comuna.id}, ${loc.lat}, ${loc.lng})">
-        <strong>${loc.nombre}</strong>
-        <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+  const html = comunasConLocalidades.map(comuna => {
+    const locOrdenadas = [...comuna.localidades].sort((a, b) =>
+      a.nombre.localeCompare(b.nombre, 'es')
+    );
+    return `
+      <div class="seccion-titulo todas-titulo" onclick="seleccionarComuna(${comuna.id})" title="Ver en el mapa">
+        ${comuna.nombre}
+        <span class="todas-count">${comuna.localidades.length}</span>
       </div>
-    `).join("")}
-  `).join("");
+      ${locOrdenadas.map(loc => `
+        <div class="localidad-item" onclick="irALocalidad(${comuna.id}, ${loc.lat}, ${loc.lng})">
+          <strong>${loc.nombre}</strong>
+          <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+        </div>
+      `).join("")}
+    `;
+  }).join("");
 
   panelBody.innerHTML = `
     <div class="todas-header">
@@ -449,14 +454,18 @@ function mostrarInfoPanel(comunaId) {
     ? `<div class="barrios-tag"><strong>Barrios:</strong> ${comuna.barrios.join(", ")}</div>`
     : "";
 
-const localidadesHtml = localidades.length > 0
-  ? localidades.map(loc => `
-      <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
-        <strong>${loc.nombre}</strong>
-        <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
-      </div>
-    `).join("")
-  : `<p class="sin-datos">Sin localidades registradas para esta comuna.</p>`;
+  const locOrdenadas = [...localidades].sort((a, b) =>
+    a.nombre.localeCompare(b.nombre, 'es')
+  );
+
+  const localidadesHtml = locOrdenadas.length > 0
+    ? locOrdenadas.map(loc => `
+        <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
+          <strong>${loc.nombre}</strong>
+          <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+        </div>
+      `).join("")
+    : `<p class="sin-datos">Sin localidades registradas para esta comuna.</p>`;
 
   document.getElementById("panelBody").innerHTML = `
     <div class="comuna-header">
