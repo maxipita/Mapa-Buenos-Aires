@@ -4,81 +4,49 @@
 const GEOJSON_URL = "barriosGeoJson.json";
 
 // ============================================
-// DATOS DE LAS COMUNAS
+// DATOS DE LAS COMUNAS (solo estructura: nombre y barrios)
+// Las localidades se cargan desde sanatorios.js y consultorios.js
 // ============================================
 const comunasData = {
-  1: {
-    nombre: "Comuna 1",
-    barrios: ["Retiro", "San Nicolás", "Puerto Madero", "San Telmo", "Montserrat", "Constitución"],
-    localidades: [
-      { nombre: "Instituto Quirúrgico del Callao", direccion: "Av. Callao 499, C1022AAE Cdad. Autónoma de Buenos Aires", lat: -34.6013, lng: -58.3921, tipo: "Sanatorio", imagen:"Imagenes/callao.jpg"},
-      { nombre: "IDIM", direccion: "Libertad 836, C1012AAR Cdad. Autónoma de Buenos Aires", lat: -34.5987, lng: -58.3841, tipo: "Centro Médico", imagen:"Imagenes/IDIM.jpg"}
-    ]
-  },
-  2: {
-    nombre: "Comuna 2",
-    barrios: ["Recoleta"],
-    localidades: [
-      { nombre: "Sanatorio Otamendi", direccion: "Azcuénaga 870, CABA", lat: -34.5984, lng: -58.4010, tipo: "Sanatorio", imagen: "Imagenes/otamendi.jpg" },
-      { nombre: "IADT", direccion: "Marcelo T. de Alvear 2346, CABA", lat: -34.5965, lng: -58.4008, tipo: "Sanatorio", imagen:"Imagenes/iadt.jpg"},
-      { nombre: "Clínica y Maternidad Suizo Argentina", direccion: "Av. Pueyrredón 1461, C1015 Cdad. Autónoma de Buenos Aires", lat: -34.5935, lng: -58.4021, tipo: "Sanatorio", imagen:"Imagenes/suizo.jpg"},
-      { nombre: "Sanatorio Agote", direccion: "Dr. Luis Agote 2477, C1425EOE Cdad. Autónoma de Buenos Aires", lat: -34.5852, lng: -58.3946, tipo: "Sanatorio", imagen:"Imagenes/agote.jpg"},
-      { nombre: "Halitus Instituto Médico", direccion: "Marcelo Torcuato de Alvear 2084, C1122AAF Cdad. Autónoma de Buenos Aires", lat: -34.5973, lng: -58.3972, tipo: "Centro Médico", imagen:"Imagenes/halitus.jpg"},
-      { nombre: "Centro Medicus", direccion: "Azcuénaga 910, C1029 Cdad. Autónoma de Buenos Aires", lat: -34.5978353, lng: -58.4007036, tipo: "Centro Médico", imagen:"Imagenes/CMedicus.jpg"}
-    ]
-  },
-  3: {
-    nombre: "Comuna 3",
-    barrios: ["Balvanera", "San Cristóbal"],
-    localidades: [
-      { nombre: "Sanatorio de La Trinidad Mitre", direccion: "Bartolomé Mitre 2553, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6078, lng: -58.4025, tipo: "Sanatorio", imagen:"Imagenes/trinidad_mitre.jpeg" },
-      { nombre: "Clínica AMEBPBA", direccion: "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6079, lng: -58.3956, tipo: "Sanatorio", imagen:"Imagenes/amebpba.jpg" },
-      { nombre: "Obra Social Luis Pasteur - Centro Médico Congreso", direccion: "Tte. Gral. Juan Domingo Perón 1830, C1040AAB Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen:"Imagenes/LpCongreso.jpg"},
-      { nombre: "Centro Médico Monserrat", direccion: "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen:"Imagenes/cmMonserrat.jpg"},
-      { nombre: "Sanatorio de la Providencia", direccion: "Tucumán 1863, C1050 Cdad. Autónoma de Buenos Aires", lat: -34.6019496, lng: -58.3936574, tipo: "Sanatorio", imagen:"Imagenes/providencia.jpg" }
-    ]
-  },
-  4: {
-    nombre: "Comuna 4",
-    barrios: ["La Boca", "Barracas", "Parque Patricios", "Nueva Pompeya"],
-    localidades: [
-  
-    ]
-  },
-  5: {
-    nombre: "Comuna 5",
-    barrios: ["Almagro", "Boedo"],
-    localidades: [
-
-    ]
-  },
-
-  13: {
-    nombre: "Comuna 13",
-    barrios: ["Belgrano", "Colegiales","Núñez"],
-    localidades: [
-      { nombre: "Clínica Zabala Swiss Medical", direccion: "Av. Cabildo 1295, C1426AAM Cdad. Autónoma de Buenos Aires", lat: -34.5671, lng: -58.4497, tipo: "Sanatorio", imagen: "Imagenes/zabala.jpg" },
-      { nombre: "Centro Médico Vilella", direccion: "Av. de los Incas 3536, C1426 Cdad. Autónoma de Buenos Aires", lat: -34.5740, lng: -58.4629, tipo: "Sanatorio", imagen: "Imagenes/vilella.jpg" },
-      { nombre: "Obra Social Luis Pasteur - Centro Médico Belgrano", direccion: "11 de Septiembre de 1888 2139, C1428 AIG, Cdad. Autónoma de Buenos Aires", lat: -34.5582, lng: -58.4513, tipo: "Centro Médico", imagen: "Imagenes/LpBelgrano.jpg" }
-    ]
-  },
-
-  14: {
-    nombre: "Comuna 14",
-    barrios: ["Palermo"],
-    localidades: [
-      { nombre: "Sanatorio de La Trinidad Palermo", direccion: "Av. Cerviño 4720, CABA", lat: -34.5750, lng: -58.4240, tipo: "Sanatorio", imagen:"Imagenes/trindad_palermo.jpg" },
-      { nombre: "Sanatorio Los Arcos", direccion: "Av. Juan Bautista Justo 909, C1425 FSD, Cdad. Autónoma de Buenos Aires", lat: -34.5804, lng: -58.4299, tipo: "Sanatorio", imagen: "Imagenes/arcos.jpg" }
-    ]
-  },
-    15: {
-    nombre: "Comuna 15",
-    barrios: ["Chacarita", "Villa Crespo","La Paternal","Villa Ortúzar","Agronomía","Parque Chas"],
-    localidades: [
-      
-    ]
-  },
+  1:  { nombre: "Comuna 1",  barrios: ["Retiro", "San Nicolás", "Puerto Madero", "San Telmo", "Montserrat", "Constitución"], localidades: [] },
+  2:  { nombre: "Comuna 2",  barrios: ["Recoleta"], localidades: [] },
+  3:  { nombre: "Comuna 3",  barrios: ["Balvanera", "San Cristóbal"], localidades: [] },
+  4:  { nombre: "Comuna 4",  barrios: ["La Boca", "Barracas", "Parque Patricios", "Nueva Pompeya"], localidades: [] },
+  5:  { nombre: "Comuna 5",  barrios: ["Almagro", "Boedo"], localidades: [] },
+  6:  { nombre: "Comuna 6",  barrios: ["Caballito"], localidades: [] },
+  7:  { nombre: "Comuna 7",  barrios: ["Flores", "Parque Chacabuco"], localidades: [] },
+  8:  { nombre: "Comuna 8",  barrios: ["Villa Soldati", "Villa Riachuelo", "Villa Lugano"], localidades: [] },
+  9:  { nombre: "Comuna 9",  barrios: ["Liniers", "Mataderos", "Parque Avellaneda"], localidades: [] },
+  10: { nombre: "Comuna 10", barrios: ["Villa Real", "Monte Castro", "Versalles", "Floresta", "Vélez Sársfield", "Villa Luro"], localidades: [] },
+  11: { nombre: "Comuna 11", barrios: ["Villa General Mitre", "Villa Devoto", "Villa del Parque", "Villa Santa Rita"], localidades: [] },
+  12: { nombre: "Comuna 12", barrios: ["Coghlan", "Saavedra", "Villa Urquiza", "Villa Pueyrredón"], localidades: [] },
+  13: { nombre: "Comuna 13", barrios: ["Belgrano", "Colegiales", "Núñez"], localidades: [] },
+  14: { nombre: "Comuna 14", barrios: ["Palermo"], localidades: [] },
+  15: { nombre: "Comuna 15", barrios: ["Chacarita", "Villa Crespo", "La Paternal", "Villa Ortúzar", "Agronomía", "Parque Chas"], localidades: [] },
 };
+
+// ============================================
+// MERGE DE DATOS EXTERNOS EN comunasData
+// sanatorios.js y consultorios.js se combinan aquí
+// ============================================
+(function mergeData() {
+  [
+    typeof sanatoriosData !== "undefined" ? sanatoriosData : null,
+    typeof consultoriosData !== "undefined" ? consultoriosData : null
+  ].forEach(function(fuente) {
+    if (!fuente) return;
+    Object.keys(fuente).forEach(function(id) {
+      const numId = parseInt(id);
+      const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+      if (locs.length === 0) return;
+      if (comunasData[numId]) {
+        comunasData[numId].localidades = comunasData[numId].localidades.concat(locs);
+      } else {
+        comunasData[numId] = { nombre: "Comuna " + numId, barrios: [], localidades: locs };
+      }
+    });
+  });
+})();
 
 // ============================================
 // BUSCADOR

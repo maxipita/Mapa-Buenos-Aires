@@ -1,0 +1,49 @@
+const sanatoriosData = {
+  1: {
+    localidades: [
+      { nombre: "Instituto Quirúrgico del Callao", direccion: "Av. Callao 499, C1022AAE Cdad. Autónoma de Buenos Aires", lat: -34.6013, lng: -58.3921, tipo: "Sanatorio", imagen: "Imagenes/callao.jpg" },
+      { nombre: "IDIM", direccion: "Libertad 836, C1012AAR Cdad. Autónoma de Buenos Aires", lat: -34.5987, lng: -58.3841, tipo: "Centro Médico", imagen: "Imagenes/IDIM.jpg" }
+    ]
+  },
+  2: {
+    localidades: [
+      { nombre: "Sanatorio Otamendi", direccion: "Azcuénaga 870, CABA", lat: -34.5984, lng: -58.4010, tipo: "Sanatorio", imagen: "Imagenes/otamendi.jpg" },
+      { nombre: "IADT", direccion: "Marcelo T. de Alvear 2346, CABA", lat: -34.5965, lng: -58.4008, tipo: "Sanatorio", imagen: "Imagenes/iadt.jpg" },
+      { nombre: "Clínica y Maternidad Suizo Argentina", direccion: "Av. Pueyrredón 1461, C1015 Cdad. Autónoma de Buenos Aires", lat: -34.5935, lng: -58.4021, tipo: "Sanatorio", imagen: "Imagenes/suizo.jpg" },
+      { nombre: "Sanatorio Agote", direccion: "Dr. Luis Agote 2477, C1425EOE Cdad. Autónoma de Buenos Aires", lat: -34.5852, lng: -58.3946, tipo: "Sanatorio", imagen: "Imagenes/agote.jpg" },
+      { nombre: "Halitus Instituto Médico", direccion: "Marcelo Torcuato de Alvear 2084, C1122AAF Cdad. Autónoma de Buenos Aires", lat: -34.5973, lng: -58.3972, tipo: "Centro Médico", imagen: "Imagenes/halitus.jpg" },
+      { nombre: "Centro Medicus", direccion: "Azcuénaga 910, C1029 Cdad. Autónoma de Buenos Aires", lat: -34.5978353, lng: -58.4007036, tipo: "Centro Médico", imagen: "Imagenes/CMedicus.jpg" }
+    ]
+  },
+  3: {
+    localidades: [
+      { nombre: "Sanatorio de La Trinidad Mitre", direccion: "Bartolomé Mitre 2553, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6078, lng: -58.4025, tipo: "Sanatorio", imagen: "Imagenes/trinidad_mitre.jpeg" },
+      { nombre: "Clínica AMEBPBA", direccion: "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires", lat: -34.6079, lng: -58.3956, tipo: "Sanatorio", imagen: "Imagenes/amebpba.jpg" },
+      { nombre: "Obra Social Luis Pasteur - Centro Médico Congreso", direccion: "Tte. Gral. Juan Domingo Perón 1830, C1040AAB Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen: "Imagenes/LpCongreso.jpg" },
+      { nombre: "Centro Médico Monserrat", direccion: "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires", lat: -34.6065, lng: -58.3928, tipo: "Centro Médico", imagen: "Imagenes/cmMonserrat.jpg" },
+      { nombre: "Sanatorio de la Providencia", direccion: "Tucumán 1863, C1050 Cdad. Autónoma de Buenos Aires", lat: -34.6019496, lng: -58.3936574, tipo: "Sanatorio", imagen: "Imagenes/providencia.jpg" }
+    ]
+  },
+  4: {
+    localidades: []
+  },
+  5: {
+    localidades: []
+  },
+  13: {
+    localidades: [
+      { nombre: "Clínica Zabala Swiss Medical", direccion: "Av. Cabildo 1295, C1426AAM Cdad. Autónoma de Buenos Aires", lat: -34.5671, lng: -58.4497, tipo: "Sanatorio", imagen: "Imagenes/zabala.jpg" },
+      { nombre: "Centro Médico Vilella", direccion: "Av. de los Incas 3536, C1426 Cdad. Autónoma de Buenos Aires", lat: -34.5740, lng: -58.4629, tipo: "Sanatorio", imagen: "Imagenes/vilella.jpg" },
+      { nombre: "Obra Social Luis Pasteur - Centro Médico Belgrano", direccion: "11 de Septiembre de 1888 2139, C1428 AIG, Cdad. Autónoma de Buenos Aires", lat: -34.5582, lng: -58.4513, tipo: "Centro Médico", imagen: "Imagenes/LpBelgrano.jpg" }
+    ]
+  },
+  14: {
+    localidades: [
+      { nombre: "Sanatorio de La Trinidad Palermo", direccion: "Av. Cerviño 4720, CABA", lat: -34.5750, lng: -58.4240, tipo: "Sanatorio", imagen: "Imagenes/trindad_palermo.jpg" },
+      { nombre: "Sanatorio Los Arcos", direccion: "Av. Juan Bautista Justo 909, C1425 FSD, Cdad. Autónoma de Buenos Aires", lat: -34.5804, lng: -58.4299, tipo: "Sanatorio", imagen: "Imagenes/arcos.jpg" }
+    ]
+  },
+  15: {
+    localidades: []
+  }
+};
