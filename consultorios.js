@@ -11,7 +11,9 @@ const consultoriosData = {
        { nombre: "PARAGUAY1327", direccion: "Paraguay 1327, C1057AAU Cdad. Autónoma de Buenos Aires", lat: -34.5978, lng: -58.3859, tipo: "Consultorio" },
        {nombre: "ARENALES1131", direccion: "Arenales 1131, C1061AAI Cdad. Autónoma de Buenos Aires", lat: -34.5939, lng: -58.3833, tipo: "Consultorio" },
        { nombre: "PARANA1087", direccion: "Paraná 1087, C1018ADA Cdad. Autónoma de Buenos Aires", lat: -34.5915, lng: -58.3856, tipo: "Consultorio" },
-       { nombre: "GRALSARMIENTO1339", direccion: "Sarmiento 1339, C1041 Cdad. Autónoma de Buenos Aires", lat: -34.6051, lng: -58.3856, tipo: "Consultorio" }
+       { nombre: "GRALSARMIENTO1339", direccion: "Sarmiento 1339, C1041 Cdad. Autónoma de Buenos Aires", lat: -34.6051, lng: -58.3856, tipo: "Consultorio" },
+       { nombre: "ARENALES1242", direccion: "Arenales 1242, C1061AAL Cdad. Autónoma de Buenos Aires", lat: -34.5945, lng: -58.3848, tipo: "Consultorio" },
+       { nombre: "STAFE1127_8", direccion: "Av. Sta. Fe 1127, C1059ABF Cdad. Autónoma de Buenos Aires", lat: -34.5950, lng: -58.3832, tipo: "Consultorio" }
     ]
   },
   2: {
@@ -49,8 +51,12 @@ const consultoriosData = {
       { nombre: "URIBURU1054_6C", direccion: "Pres. José Evaristo Uriburu 1054, C1114AAF Cdad. Autónoma de Buenos Aires", lat: -34.5961, lng: -58.3988, tipo: "Consultorio" },
       { nombre: "PARAGUAY2523", direccion: "Paraguay 2523, C1425 Cdad. Autónoma de Buenos Aires", lat: -34.5972, lng: -58.4039, tipo: "Consultorio" },
       { nombre: "PARAGUAY2571", direccion: "Paraguay 2571, C1425BRA Cdad. Autónoma de Buenos Aires", lat: -34.5970, lng: -58.4046, tipo: "Consultorio" },
-      { nombre: "JUNIN1054_1", direccion: "Junín 1054, C1113AAE Cdad. Autónoma de Buenos Aires", lat: -34.5964, lng: -58.3976, tipo: "Consultorio" }
-      
+      { nombre: "JUNIN1054_1", direccion: "Junín 1054, C1113AAE Cdad. Autónoma de Buenos Aires", lat: -34.5964, lng: -58.3976, tipo: "Consultorio" },
+      { nombre: "ARENALES1446", direccion: "Arenales 1446, C1061AAP Cdad. Autónoma de Buenos Aires", lat: -34.5947, lng: -58.3879, tipo: "Consultorio" },
+      { nombre: "ARENALES3069", direccion: "Arenales 3069, C1425BEK Cdad. Autónoma de Buenos Aires", lat: -34.5892, lng: -58.4076, tipo: "Consultorio" },
+      { nombre: "CNELDIAZ2089", direccion: "Av. Cnel. Díaz 2089, C1425 Cdad. Autónoma de Buenos Aires", lat: -34.5877, lng: -58.4090, tipo: "Consultorio" },
+      { nombre: "CNELDIAZ2155", direccion: "Av. Cnel. Díaz 2155, C1425 Cdad. Autónoma de Buenos Aires", lat: -34.5870, lng: -58.4085, tipo: "Consultorio" },
+      { nombre: "STAFE2847", direccion: "Av. Sta. Fe 2847, C1425BGQ Cdad. Autónoma de Buenos Aires", lat: -34.5917, lng: -58.4065, tipo: "Consultorio" }
     ]
   },
   3: {
@@ -155,6 +161,7 @@ const consultoriosData = {
       { nombre: "GOROSTI2355_10", direccion: "Gorostiaga 2355, C1426CTQ Cdad. Autónoma de Buenos Aires", lat: -34.5700, lng: -58.4426, tipo: "Consultorio" },
       { nombre: "GOROSTI2355_12", direccion: "Gorostiaga 2355, C1426CTQ Cdad. Autónoma de Buenos Aires", lat: -34.5703, lng: -58.4426, tipo: "Consultorio" },
       { nombre: "MAURE1730", direccion: "Maure 1730, C1426CUF Cdad. Autónoma de Buenos Aires", lat: -34.5669, lng: -58.4361, tipo: "Consultorio" },
+      { nombre: "ARENALES3411", direccion: "Arenales 3411, C1425 Cdad. Autónoma de Buenos Aires", lat: -34.5868, lng: -58.4111, tipo: "Consultorio" }
 
 
     ]
