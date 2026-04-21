@@ -122,8 +122,7 @@ const consultoriosData = {
   },
   9: {
     localidades: [
-      { nombre: "CAAGUAZU6093", direccion: "Caaguazú 6093, C1408ETG Cdad. Autónoma de Buenos Aires", lat: -34.6427, lng: -58.5144, tipo: "Consultorio" },
-      { nombre: "MARCOSPAZ3836", direccion: "Marcos Paz 3836, C1419BRG Cdad. Autónoma de Buenos Aires", lat: -34.6049, lng: -58.5166, tipo: "Consultorio" }
+      { nombre: "CAAGUAZU6093", direccion: "Caaguazú 6093, C1408ETG Cdad. Autónoma de Buenos Aires", lat: -34.6427, lng: -58.5144, tipo: "Consultorio" }
     ]
   },
   10: {
@@ -136,7 +135,8 @@ const consultoriosData = {
       { nombre: "BARCA2776", direccion: "Pedro Calderón de la Barca 2776, C1417CIT Cdad. Autónoma de Buenos Aires", lat: -34.6158, lng: -58.5197, tipo: "Consultorio" },
       { nombre: "TINOGASTA3275", direccion: "Tinogasta 3275, C1417EHQ Cdad. Autónoma de Buenos Aires", lat: -34.6009, lng: -58.4967, tipo: "Consultorio" },
       { nombre: "NAZCA3215", direccion: "Av. Nazca 3215, C1417CVC Cdad. Autónoma de Buenos Aires", lat: -34.5984, lng: -58.4909, tipo: "Consultorio" },
-      { nombre: "RGUTIERREZ3903", direccion: "Ricardo Gutiérrez 3903, C1419IGC Cdad. Autónoma de Buenos Aires", lat: -34.6019, lng: -58.5085, tipo: "Consultorio" }
+      { nombre: "RGUTIERREZ3903", direccion: "Ricardo Gutiérrez 3903, C1419IGC Cdad. Autónoma de Buenos Aires", lat: -34.6019, lng: -58.5085, tipo: "Consultorio" },
+      { nombre: "MARCOSPAZ3836", direccion: "Marcos Paz 3836, C1419BRG Cdad. Autónoma de Buenos Aires", lat: -34.6049, lng: -58.5166, tipo: "Consultorio" }
     ]
   },
   12: {
@@ -166,8 +166,7 @@ const consultoriosData = {
       { nombre: "ECHEVERRIA2182", direccion: "Echeverría 2182, C1428 Cdad. Autónoma de Buenos Aires, C1428 Cdad. Autónoma de Buenos Aires", lat: -34.5616, lng: -58.4536, tipo: "Consultorio" },
       { nombre: "OHIGGINS2062_5", direccion: "O'Higgins 2062, C1428AGF Cdad. Autónoma de Buenos Aires", lat: -34.5600, lng: -58.4527, tipo: "Consultorio" },
       { nombre: "OHIGGINS2062_9", direccion: "O'Higgins 2062, C1428AGF Cdad. Autónoma de Buenos Aires", lat: -34.5601, lng: -58.4527, tipo: "Consultorio" },
-      { nombre: "JURAMENTO2089", direccion: "Av. Juramento 2089, C1428 Cdad. Autónoma de Buenos Aires", lat: -34.5596, lng: -58.4537, tipo: "Consultorio" },
-      { nombre: "JURAMENTO2089", direccion: "Marcos Paz 3835, C1419BRG Cdad. Autónoma de Buenos Aires", lat: -34.6047, lng: -58.5166, tipo: "Consultorio" }
+      { nombre: "JURAMENTO2089", direccion: "Av. Juramento 2089, C1428 Cdad. Autónoma de Buenos Aires", lat: -34.5596, lng: -58.4537, tipo: "Consultorio" }
     ]
   },
   14: {
