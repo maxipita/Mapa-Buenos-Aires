@@ -594,8 +594,8 @@ body {
     max-height: 68vh;
     border-radius: 16px 16px 0 0;
     box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
-    /* Colapsado: solo asoma el handle (52px) */
-    transform: translateY(calc(100% - 52px));
+    /* Colapsado: muestra handle + título */
+    transform: translateY(calc(100% - 56px));
     transition: transform 0.35s cubic-bezier(0.32, 0.72, 0, 1);
     z-index: 1000;
     overflow: hidden;
@@ -620,9 +620,10 @@ body {
     font-size: 17px;
   }
 
-  /* Leyenda sube para no quedar tapada por el handle */
+  /* Leyenda en esquina superior derecha para no tapar el panel */
   .legend {
-    bottom: 60px;
+    bottom: auto;
+    top: 12px;
     right: 10px;
   }
 }
