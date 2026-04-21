@@ -178,6 +178,8 @@ function seleccionarCategoria(cat) {
   setTimeout(() => { menu.style.display = "none"; }, 400);
 
   const catInfo = CATEGORIAS[cat];
+  const leyenda = document.getElementById("leyendaPrioridad");
+  if (leyenda) leyenda.style.display = "block";
   document.getElementById("categoriaActualLabel").textContent = catInfo.label;
   document.getElementById("panelDesc").textContent =
     `Hacé click en una comuna para ver los ${catInfo.label.toLowerCase()} que trabajan con Vighi.`;
@@ -201,6 +203,9 @@ function volverAlMenu() {
   clearBtn.style.display = "none";
 
   categoriaActiva = null;
+
+  const leyenda = document.getElementById("leyendaPrioridad");
+  if (leyenda) leyenda.style.display = "none";
 
   const menu = document.getElementById("menuInicio");
   menu.style.display = "";
@@ -515,9 +520,21 @@ function mostrarInfoPanel(comunaId) {
 }
 
 // ============================================
+// PRIORIDAD → COLOR DE BORDE DEL PIN
+// ============================================
+function getColorPorPrioridad(prioridad) {
+  switch (prioridad) {
+    case "alta":  return "#e74c3c";
+    case "media": return "#f39c12";
+    case "baja":  return "#27ae60";
+    default:      return "#a020a8";
+  }
+}
+
+// ============================================
 // CREAR ÍCONO PIN CON LOGO
 // ============================================
-function crearIconoPin(logoUrl, callback) {
+function crearIconoPin(logoUrl, borderColor, callback) {
   const W = 48, H = 62;
   const cx = W / 2;
   const r = W / 2 - 2;
@@ -534,33 +551,37 @@ function crearIconoPin(logoUrl, callback) {
     ctx.shadowBlur = 5;
     ctx.shadowOffsetY = 2;
 
-    // Círculo blanco de fondo
+    // Círculo exterior relleno con color de prioridad
     ctx.beginPath();
     ctx.arc(cx, cy, r, 0, Math.PI * 2);
-    ctx.fillStyle = "#a020a8";
+    ctx.fillStyle = borderColor;
     ctx.fill();
-    ctx.strokeStyle = "#a020a8";
-    ctx.lineWidth = 3;
-    ctx.stroke();
 
     ctx.shadowColor = "transparent";
 
-    // Punta triangular
+    // Círculo interior violeta (deja un aro de color alrededor)
+    const rInner = r - 5;
+    ctx.beginPath();
+    ctx.arc(cx, cy, rInner, 0, Math.PI * 2);
+    ctx.fillStyle = "#a020a8";
+    ctx.fill();
+
+    // Punta triangular con color de prioridad
     ctx.beginPath();
     ctx.moveTo(cx - 7, cy + r - 3);
     ctx.lineTo(cx + 7, cy + r - 3);
     ctx.lineTo(cx, H - 2);
-    ctx.fillStyle = "#a020a8";
+    ctx.fillStyle = borderColor;
     ctx.fill();
 
-    // Logo recortado al círculo interior
+    // Logo recortado al círculo interior violeta
     if (img) {
       ctx.save();
       ctx.beginPath();
-      ctx.arc(cx, cy, r - 4, 0, Math.PI * 2);
+      ctx.arc(cx, cy, rInner, 0, Math.PI * 2);
       ctx.clip();
-      const s = (r - 4) * 2;
-      ctx.drawImage(img, cx - (r - 4), cy - (r - 4), s, s);
+      const s = rInner * 2;
+      ctx.drawImage(img, cx - rInner, cy - rInner, s, s);
       ctx.restore();
     }
 
@@ -580,36 +601,50 @@ function agregarMarcadores(comunaId) {
   const localidades = getLocalidadesDeComuna(comunaId);
   if (localidades.length === 0) return;
 
-  crearIconoPin("logo_vighi.png", function(iconUrl, W, H, cx) {
-    const icon = {
-      url: iconUrl,
-      scaledSize: new google.maps.Size(W, H),
-      anchor: new google.maps.Point(cx, H)  // ancla en la punta
-    };
+  // Colores únicos necesarios para esta tanda de marcadores
+  const coloresUnicos = [...new Set(localidades.map(loc => getColorPorPrioridad(loc.prioridad)))];
+  const iconCache = {};
+  let pendientes = coloresUnicos.length;
 
-    localidades.forEach(loc => {
-      const marker = new google.maps.Marker({
-        position: { lat: loc.lat, lng: loc.lng },
-        map: map,
-        title: loc.nombre,
-        animation: google.maps.Animation.DROP,
-        icon: icon
-      });
-
-      marker.addListener("click", () => {
-        infoWindowGlobal.setContent(`
-          <div style="padding: 10px; max-width: 240px;">
-            ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" style="width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:8px;">` : ""}
-            <strong style="color: #2c3e50; font-size: 14px;">${loc.nombre}</strong>
-            <p style="margin: 6px 0 2px; color: #7f8c8d; font-size: 13px;">${loc.direccion}</p>
-            <span style="background: #f9e6fa; color: #d534db; font-size: 12px; padding: 2px 8px; border-radius: 10px;">${loc.tipo}</span>
-          </div>
-        `);
-        infoWindowGlobal.open(map, marker);
-      });
-
-      marcadoresActivos.push(marker);
+  coloresUnicos.forEach(function(color) {
+    crearIconoPin("logo_vighi.png", color, function(iconUrl, W, H, cx) {
+      iconCache[color] = {
+        url: iconUrl,
+        scaledSize: new google.maps.Size(W, H),
+        anchor: new google.maps.Point(cx, H)
+      };
+      pendientes--;
+      if (pendientes === 0) {
+        _colocarMarcadores(localidades, iconCache);
+      }
     });
+  });
+}
+
+function _colocarMarcadores(localidades, iconCache) {
+  localidades.forEach(loc => {
+    const color = getColorPorPrioridad(loc.prioridad);
+    const marker = new google.maps.Marker({
+      position: { lat: loc.lat, lng: loc.lng },
+      map: map,
+      title: loc.nombre,
+      animation: google.maps.Animation.DROP,
+      icon: iconCache[color]
+    });
+
+    marker.addListener("click", () => {
+      infoWindowGlobal.setContent(`
+        <div style="padding: 10px; max-width: 240px;">
+          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" style="width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:8px;">` : ""}
+          <strong style="color: #2c3e50; font-size: 14px;">${loc.nombre}</strong>
+          <p style="margin: 6px 0 2px; color: #7f8c8d; font-size: 13px;">${loc.direccion}</p>
+          <span style="background: #f9e6fa; color: #d534db; font-size: 12px; padding: 2px 8px; border-radius: 10px;">${loc.tipo}</span>
+        </div>
+      `);
+      infoWindowGlobal.open(map, marker);
+    });
+
+    marcadoresActivos.push(marker);
   });
 }
 

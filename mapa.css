@@ -528,6 +528,16 @@ body {
   border: 1.5px solid #555;
 }
 
+.legend-pin {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 3px solid;
+  background: white;
+  margin-right: 8px;
+  flex-shrink: 0;
+}
+
 /* ============================================
    RESPONSIVE — TABLET (≤ 1024px)
    ============================================ */
