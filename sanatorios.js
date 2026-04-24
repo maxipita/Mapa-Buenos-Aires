@@ -41,7 +41,7 @@ const sanatoriosData = {
   14: {
     localidades: [
       { nombre: "Sanatorio de La Trinidad Palermo", direccion: "Av. Cerviño 4720, CABA", lat: -34.5750, lng: -58.4240, tipo: "Sanatorio", imagen: "Imagenes/trindad_palermo.jpg" },
-      { nombre: "Sanatorio Los Arcos", direccion: "Av. Juan Bautista Justo 909, C1425 FSD, Cdad. Autónoma de Buenos Aires", lat: -34.5804, lng: -58.4299, tipo: "Sanatorio", imagen: "Imagenes/arcos.jpg", prioridad:"media"}
+      { nombre: "Sanatorio Los Arcos", direccion: "Av. Juan Bautista Justo 909, C1425 FSD, Cdad. Autónoma de Buenos Aires", lat: -34.5804, lng: -58.4299, tipo: "Sanatorio", imagen: "Imagenes/arcos.jpg"}
     ]
   },
   15: {

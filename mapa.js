@@ -2,10 +2,10 @@
 // CONFIGURACIÓN
 // ============================================
 const GEOJSON_URL = "barriosGeoJson.json";
+const GEOJSON_AMBA_URL = "ambaGeoJson.json";
 
 // ============================================
-// DATOS DE LAS COMUNAS (solo estructura: nombre y barrios)
-// Las localidades se cargan desde sanatorios.js y consultorios.js
+// DATOS DE LAS COMUNAS (CABA)
 // ============================================
 const comunasData = {
   1:  { nombre: "Comuna 1",  barrios: ["Retiro", "San Nicolás", "Puerto Madero", "San Telmo", "Montserrat", "Constitución"], localidades: [] },
@@ -26,10 +26,40 @@ const comunasData = {
 };
 
 // ============================================
-// MERGE DE DATOS EXTERNOS EN comunasData
-// sanatorios.js y consultorios.js se combinan aquí
+// DATOS DE LOS PARTIDOS (AMBA / GBA)
+// ============================================
+const partidosData = {
+  "06028": { nombre: "Almirante Brown",     localidades: [] },
+  "06035": { nombre: "Avellaneda",          localidades: [] },
+  "06091": { nombre: "Berazategui",         localidades: [] },
+  "06260": { nombre: "Esteban Echeverría",  localidades: [] },
+  "06270": { nombre: "Ezeiza",              localidades: [] },
+  "06274": { nombre: "Florencio Varela",    localidades: [] },
+  "06371": { nombre: "General San Martín",  localidades: [] },
+  "06408": { nombre: "Hurlingham",          localidades: [] },
+  "06410": { nombre: "Ituzaingó",           localidades: [] },
+  "06412": { nombre: "José C. Paz",         localidades: [] },
+  "06427": { nombre: "La Matanza",          localidades: [] },
+  "06434": { nombre: "Lanús",               localidades: [] },
+  "06490": { nombre: "Lomas de Zamora",     localidades: [] },
+  "06515": { nombre: "Malvinas Argentinas", localidades: [] },
+  "06539": { nombre: "Merlo",               localidades: [] },
+  "06560": { nombre: "Moreno",              localidades: [] },
+  "06568": { nombre: "Morón",               localidades: [] },
+  "06658": { nombre: "Quilmes",             localidades: [] },
+  "06749": { nombre: "San Fernando",        localidades: [] },
+  "06756": { nombre: "San Isidro",          localidades: [] },
+  "06760": { nombre: "San Miguel",          localidades: [] },
+  "06805": { nombre: "Tigre",               localidades: [] },
+  "06840": { nombre: "Tres de Febrero",     localidades: [] },
+  "06861": { nombre: "Vicente López",       localidades: [] },
+};
+
+// ============================================
+// MERGE DE DATOS EXTERNOS
 // ============================================
 (function mergeData() {
+  // CABA
   [
     typeof sanatoriosData !== "undefined" ? sanatoriosData : null,
     typeof consultoriosData !== "undefined" ? consultoriosData : null
@@ -43,6 +73,23 @@ const comunasData = {
         comunasData[numId].localidades = comunasData[numId].localidades.concat(locs);
       } else {
         comunasData[numId] = { nombre: "Comuna " + numId, barrios: [], localidades: locs };
+      }
+    });
+  });
+
+  // AMBA
+  [
+    typeof sanatoriosAmbaData !== "undefined" ? sanatoriosAmbaData : null,
+    typeof consultoriosAmbaData !== "undefined" ? consultoriosAmbaData : null
+  ].forEach(function(fuente) {
+    if (!fuente) return;
+    Object.keys(fuente).forEach(function(id) {
+      const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+      if (locs.length === 0) return;
+      if (partidosData[id]) {
+        partidosData[id].localidades = partidosData[id].localidades.concat(locs);
+      } else {
+        partidosData[id] = { nombre: fuente[id].nombre || id, localidades: locs };
       }
     });
   });
@@ -60,9 +107,10 @@ function initBuscador() {
     clearBtn.style.display = query.length > 0 ? "block" : "none";
 
     if (query.length === 0) {
-      // Volver al estado anterior o listado completo
       if (comunaSeleccionadaId !== null) {
         mostrarInfoPanel(comunaSeleccionadaId);
+      } else if (partidoSeleccionadoId !== null) {
+        mostrarInfoPanelPartido(partidoSeleccionadoId);
       } else {
         mostrarTodasLasLocalidades();
       }
@@ -79,6 +127,8 @@ function initBuscador() {
 
     if (comunaSeleccionadaId !== null) {
       mostrarInfoPanel(comunaSeleccionadaId);
+    } else if (partidoSeleccionadoId !== null) {
+      mostrarInfoPanelPartido(partidoSeleccionadoId);
     } else {
       mostrarTodasLasLocalidades();
     }
@@ -98,15 +148,26 @@ function mostrarResultadosBusqueda(query) {
 
   Object.keys(comunasData).forEach(id => {
     const comuna = comunasData[id];
-    const localidadesFiltradas = filtrarPorCategoria(comuna.localidades);
-    localidadesFiltradas.forEach(loc => {
-      const hayCoincidencia =
+    filtrarPorCategoria(comuna.localidades).forEach(loc => {
+      const coincide =
         normalizarTexto(loc.nombre).includes(q) ||
         normalizarTexto(loc.direccion).includes(q) ||
         normalizarTexto(loc.tipo || "").includes(q);
+      if (coincide) {
+        resultados.push({ ...loc, areaId: parseInt(id), areaNombre: comuna.nombre, region: "caba" });
+      }
+    });
+  });
 
-      if (hayCoincidencia) {
-        resultados.push({ ...loc, comunaId: parseInt(id), comunaNombre: comuna.nombre });
+  Object.keys(partidosData).forEach(id => {
+    const partido = partidosData[id];
+    filtrarPorCategoria(partido.localidades).forEach(loc => {
+      const coincide =
+        normalizarTexto(loc.nombre).includes(q) ||
+        normalizarTexto(loc.direccion).includes(q) ||
+        normalizarTexto(loc.tipo || "").includes(q);
+      if (coincide) {
+        resultados.push({ ...loc, areaId: id, areaNombre: partido.nombre, region: "amba" });
       }
     });
   });
@@ -121,10 +182,10 @@ function mostrarResultadosBusqueda(query) {
   panelBody.innerHTML = `
     <div class="seccion-titulo">${resultados.length} resultado${resultados.length !== 1 ? "s" : ""}</div>
     ${resultados.map(loc => `
-      <div class="search-result-item" onclick="irALocalidad(${loc.comunaId}, ${loc.lat}, ${loc.lng})">
+      <div class="search-result-item" onclick="irALocalidad('${loc.areaId}', ${loc.lat}, ${loc.lng}, '${loc.region}')">
         <strong>${loc.nombre}</strong>
         <small>📌 ${loc.direccion}</small>
-        <div class="result-comuna">📍 ${loc.comunaNombre}</div>
+        <div class="result-comuna">📍 ${loc.areaNombre}</div>
       </div>
     `).join("")}
   `;
@@ -132,15 +193,17 @@ function mostrarResultadosBusqueda(query) {
   abrirPanelMobile();
 }
 
-function irALocalidad(comunaId, lat, lng) {
-  // Limpiar el buscador
+function irALocalidad(areaId, lat, lng, region) {
   const input = document.getElementById("searchInput");
   const clearBtn = document.getElementById("searchClear");
   input.value = "";
   clearBtn.style.display = "none";
 
-  // Seleccionar la comuna y centrar en el marcador
-  seleccionarComuna(comunaId);
+  if (region === "amba") {
+    seleccionarPartido(String(areaId));
+  } else {
+    seleccionarComuna(parseInt(areaId));
+  }
   setTimeout(() => centrarEnMarcador(lat, lng), 300);
 }
 
@@ -148,10 +211,13 @@ function irALocalidad(comunaId, lat, lng) {
 // VARIABLES GLOBALES
 // ============================================
 let map;
+let ambaDataLayer;
 let marcadoresActivos = [];
 let comunaSeleccionadaId = null;
+let partidoSeleccionadoId = null;
 let infoWindowGlobal = null;
 let categoriaActiva = null;
+let geojsonCargados = 0;
 
 const CATEGORIAS = {
   sanatorios: {
@@ -162,6 +228,20 @@ const CATEGORIAS = {
     label: "Consultorios Externos",
     tipos: ["Consultorio"]
   }
+};
+
+const ESTILO_BASE = {
+  fillColor: "#95a5a6",
+  fillOpacity: 0.3,
+  strokeColor: "#2c3e50",
+  strokeWeight: 1
+};
+
+const ESTILO_SELECCIONADO = {
+  fillColor: "#d534db",
+  fillOpacity: 0.4,
+  strokeColor: "#a020a8",
+  strokeWeight: 2
 };
 
 function filtrarPorCategoria(localidades) {
@@ -182,7 +262,7 @@ function seleccionarCategoria(cat) {
   if (leyenda) leyenda.style.display = "block";
   document.getElementById("categoriaActualLabel").textContent = catInfo.label;
   document.getElementById("panelDesc").textContent =
-    `Hacé click en una comuna para ver los ${catInfo.label.toLowerCase()} que trabajan con Vighi.`;
+    `Hacé click en una comuna o partido para ver los ${catInfo.label.toLowerCase()} que trabajan con Vighi.`;
   document.getElementById("searchInput").placeholder =
     cat === "sanatorios" ? "Buscar sanatorio o dirección..." : "Buscar consultorio o dirección...";
 
@@ -190,13 +270,15 @@ function seleccionarCategoria(cat) {
 }
 
 function volverAlMenu() {
-  // Limpiar estado del mapa
   comunaSeleccionadaId = null;
+  partidoSeleccionadoId = null;
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
-  if (map) aplicarEstiloBase();
+  if (map) {
+    aplicarEstiloBase();
+    aplicarEstiloBaseAmba();
+  }
 
-  // Limpiar buscador
   const input = document.getElementById("searchInput");
   const clearBtn = document.getElementById("searchClear");
   input.value = "";
@@ -237,46 +319,64 @@ function togglePanelMobile() {
 function mostrarTodasLasLocalidades() {
   const panelBody = document.getElementById("panelBody");
 
-  const comunasConLocalidades = Object.keys(comunasData)
+  const comunasConLocs = Object.keys(comunasData)
     .map(id => ({
       id: parseInt(id),
       ...comunasData[id],
-      localidadesFiltradas: filtrarPorCategoria(comunasData[id].localidades)
+      locs: filtrarPorCategoria(comunasData[id].localidades)
     }))
-    .filter(c => c.localidadesFiltradas.length > 0)
+    .filter(c => c.locs.length > 0)
     .sort((a, b) => a.id - b.id);
 
-  const totalLocalidades = comunasConLocalidades.reduce((sum, c) => sum + c.localidadesFiltradas.length, 0);
+  const partidosConLocs = Object.keys(partidosData)
+    .map(id => ({
+      id,
+      ...partidosData[id],
+      locs: filtrarPorCategoria(partidosData[id].localidades)
+    }))
+    .filter(p => p.locs.length > 0)
+    .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
-  if (totalLocalidades === 0) {
+  const total = comunasConLocs.reduce((s, c) => s + c.locs.length, 0)
+              + partidosConLocs.reduce((s, p) => s + p.locs.length, 0);
+
+  if (total === 0) {
     panelBody.innerHTML = `<p class="sin-datos">Sin ubicaciones registradas para esta categoría.</p>`;
     return;
   }
 
-  const html = comunasConLocalidades.map(comuna => {
-    const locOrdenadas = [...comuna.localidadesFiltradas].sort((a, b) =>
-      a.nombre.localeCompare(b.nombre, 'es')
-    );
-    return `
-      <div class="seccion-titulo todas-titulo" onclick="seleccionarComuna(${comuna.id})" title="Ver en el mapa">
-        ${comuna.nombre}
-        <span class="todas-count">${locOrdenadas.length}</span>
-      </div>
-      ${locOrdenadas.map(loc => `
-        <div class="localidad-item" onclick="irALocalidad(${comuna.id}, ${loc.lat}, ${loc.lng})">
-          <strong>${loc.nombre}</strong>
-          <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+  function renderItems(items, clickFn, region) {
+    return items.map(area => {
+      const ordenadas = [...area.locs].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+      const idJs = region === "caba" ? area.id : `'${area.id}'`;
+      return `
+        <div class="seccion-titulo todas-titulo" onclick="${clickFn}(${idJs})" title="Ver en el mapa">
+          ${area.nombre}
+          <span class="todas-count">${ordenadas.length}</span>
         </div>
-      `).join("")}
-    `;
-  }).join("");
+        ${ordenadas.map(loc => `
+          <div class="localidad-item" onclick="irALocalidad('${area.id}', ${loc.lat}, ${loc.lng}, '${region}')">
+            <strong>${loc.nombre}</strong>
+            <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+          </div>
+        `).join("")}
+      `;
+    }).join("");
+  }
 
-  panelBody.innerHTML = `
-    <div class="todas-header">
-      <span>${totalLocalidades} ubicaciones en total</span>
-    </div>
-    ${html}
-  `;
+  let html = `<div class="todas-header"><span>${total} ubicaciones en total</span></div>`;
+
+  if (comunasConLocs.length > 0) {
+    html += `<div class="region-subtitulo">📍 Ciudad de Buenos Aires</div>`;
+    html += renderItems(comunasConLocs, "seleccionarComuna", "caba");
+  }
+
+  if (partidosConLocs.length > 0) {
+    html += `<div class="region-subtitulo">🗺️ Conurbano Bonaerense</div>`;
+    html += renderItems(partidosConLocs, "seleccionarPartido", "amba");
+  }
+
+  panelBody.innerHTML = html;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -285,7 +385,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const handle = document.getElementById("panelHandle");
   const panel  = document.getElementById("sidePanel");
 
-  // Click para dispositivos con mouse (desktop, aunque el handle está oculto allí)
   handle.addEventListener("click", togglePanelMobile);
 
   let touchStartY = 0;
@@ -295,7 +394,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (!esMobile()) return;
     touchStartY = e.touches[0].clientY;
     hasDragged  = false;
-    panel.style.transition = "none";   // quitamos la animación mientras arrastramos
+    panel.style.transition = "none";
   }, { passive: true });
 
   handle.addEventListener("touchmove", function (e) {
@@ -304,7 +403,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (Math.abs(deltaY) > 10) hasDragged = true;
 
-    // Solo mover hacia abajo cuando el panel está abierto
     if (panel.classList.contains("panel-abierto") && deltaY > 0) {
       panel.style.transform = `translateY(${deltaY}px)`;
       e.preventDefault();
@@ -314,21 +412,18 @@ document.addEventListener("DOMContentLoaded", function () {
   handle.addEventListener("touchend", function (e) {
     if (!esMobile()) return;
 
-    panel.style.transition = "";   // restaurar animación CSS
+    panel.style.transition = "";
 
     const deltaY = e.changedTouches[0].clientY - touchStartY;
     const estaAbierto = panel.classList.contains("panel-abierto");
 
     if (!hasDragged) {
-      // Fue un toque simple → toggle
-      e.preventDefault();          // evita que se dispare también el evento click
+      e.preventDefault();
       togglePanelMobile();
     } else if (estaAbierto && deltaY > 80) {
-      // Arrastró lo suficiente hacia abajo → cerrar (queda el handle visible)
       panel.style.transform = "";
       panel.classList.remove("panel-abierto");
     } else {
-      // No llegó al umbral → volver a la posición abierta
       panel.style.transform = "";
     }
   });
@@ -339,23 +434,42 @@ document.addEventListener("DOMContentLoaded", function () {
 // ============================================
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: -34.6037, lng: -58.3816 },
-    zoom: 12,
+    center: { lat: -34.65, lng: -58.55 },
+    zoom: 10,
     mapTypeControl: true,
     streetViewControl: false,
     fullscreenControl: true
   });
 
   infoWindowGlobal = new google.maps.InfoWindow();
+  ambaDataLayer = new google.maps.Data();
 
   cargarGeoJSON();
+  cargarGeoJSONAmba();
 }
 
 // ============================================
-// CARGAR GEOJSON
+// AJUSTAR VISTA AL TERMINAR DE CARGAR AMBAS CAPAS
+// ============================================
+function verificarYAjustarBounds() {
+  geojsonCargados++;
+  if (geojsonCargados < 2) return;
+
+  const bounds = new google.maps.LatLngBounds();
+  ambaDataLayer.forEach(feature => {
+    feature.getGeometry().forEachLatLng(latLng => bounds.extend(latLng));
+  });
+  map.data.forEach(feature => {
+    feature.getGeometry().forEachLatLng(latLng => bounds.extend(latLng));
+  });
+  if (!bounds.isEmpty()) map.fitBounds(bounds);
+}
+
+// ============================================
+// CARGAR GEOJSON CABA
 // ============================================
 function cargarGeoJSON() {
-  map.data.loadGeoJson(GEOJSON_URL, null, function (features) {
+  map.data.loadGeoJson(GEOJSON_URL, null, function () {
     aplicarEstiloBase();
 
     map.data.addListener("click", function (event) {
@@ -364,67 +478,67 @@ function cargarGeoJSON() {
       seleccionarComuna(comunaId);
     });
 
-    // Ajustar vista al contorno de CABA
-    const bounds = new google.maps.LatLngBounds();
-    features.forEach(feature => {
-      feature.getGeometry().forEachLatLng(latLng => bounds.extend(latLng));
-    });
-    if (!bounds.isEmpty()) {
-      map.fitBounds(bounds);
-    }
+    verificarYAjustarBounds();
   });
 }
 
 // ============================================
-// OBTENER ID DE COMUNA DESDE FEATURE
+// CARGAR GEOJSON AMBA
+// ============================================
+function cargarGeoJSONAmba() {
+  ambaDataLayer.loadGeoJson(GEOJSON_AMBA_URL, null, function () {
+    aplicarEstiloBaseAmba();
+    ambaDataLayer.setMap(map);
+
+    ambaDataLayer.addListener("click", function (event) {
+      const partidoId = getPartidoId(event.feature);
+      if (!partidoId) return;
+      seleccionarPartido(partidoId);
+    });
+
+    verificarYAjustarBounds();
+  });
+}
+
+// ============================================
+// OBTENER IDs DESDE FEATURES
 // ============================================
 function getComunaId(feature) {
   const val = feature.getProperty("COMUNA");
   return val != null ? parseInt(val) : null;
 }
 
-// ============================================
-// ESTILO BASE (sin selección)
-// ============================================
-function aplicarEstiloBase() {
-  map.data.setStyle({
-    fillColor: "#95a5a6",
-    fillOpacity: 0.3,
-    strokeColor: "#2c3e50",
-    strokeWeight: 1
-  });
+function getPartidoId(feature) {
+  return feature.getProperty("in1") || null;
 }
 
 // ============================================
-// SELECCIONAR COMUNA (resalta todos sus barrios)
+// ESTILOS DE LAS CAPAS
+// ============================================
+function aplicarEstiloBase() {
+  map.data.setStyle(ESTILO_BASE);
+}
+
+function aplicarEstiloBaseAmba() {
+  if (ambaDataLayer) ambaDataLayer.setStyle(ESTILO_BASE);
+}
+
+// ============================================
+// SELECCIONAR COMUNA (CABA)
 // ============================================
 function seleccionarComuna(comunaId) {
   comunaSeleccionadaId = comunaId;
+  partidoSeleccionadoId = null;
 
-  // Limpiar marcadores anteriores
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
 
-  // Resaltar barrios de la comuna seleccionada
+  aplicarEstiloBaseAmba();
+
   map.data.setStyle(function (feature) {
-    const id = getComunaId(feature);
-    if (id === comunaId) {
-      return {
-        fillColor: "#d534db",   // ← color de la comuna seleccionada
-        fillOpacity: 0.4,
-        strokeColor: "#a020a8",
-        strokeWeight: 2
-      };
-    }
-    return {
-      fillColor: "#95a5a6",
-      fillOpacity: 0.3,
-      strokeColor: "#2c3e50",
-      strokeWeight: 1
-    };
+    return getComunaId(feature) === comunaId ? ESTILO_SELECCIONADO : ESTILO_BASE;
   });
 
-  // Calcular bounds de todos los barrios de esta comuna
   const bounds = new google.maps.LatLngBounds();
   map.data.forEach(feature => {
     if (getComunaId(feature) === comunaId) {
@@ -439,12 +553,44 @@ function seleccionarComuna(comunaId) {
   }
 
   mostrarInfoPanel(comunaId);
-  agregarMarcadores(comunaId);
+  agregarMarcadores(getLocalidadesDeComuna(comunaId));
 }
 
 // ============================================
-// OBTENER LOCALIDADES COMBINADAS PARA UNA COMUNA
-// (une comunasData + barriosData)
+// SELECCIONAR PARTIDO (AMBA)
+// ============================================
+function seleccionarPartido(partidoId) {
+  partidoSeleccionadoId = partidoId;
+  comunaSeleccionadaId = null;
+
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+
+  aplicarEstiloBase();
+
+  ambaDataLayer.setStyle(function (feature) {
+    return getPartidoId(feature) === partidoId ? ESTILO_SELECCIONADO : ESTILO_BASE;
+  });
+
+  const bounds = new google.maps.LatLngBounds();
+  ambaDataLayer.forEach(feature => {
+    if (getPartidoId(feature) === partidoId) {
+      feature.getGeometry().forEachLatLng(latLng => bounds.extend(latLng));
+    }
+  });
+  if (!bounds.isEmpty()) {
+    const padding = esMobile()
+      ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
+      : { top: 40, right: 40, bottom: 40, left: 40 };
+    map.fitBounds(bounds, padding);
+  }
+
+  mostrarInfoPanelPartido(partidoId);
+  agregarMarcadores(getLocalidadesDePartido(partidoId));
+}
+
+// ============================================
+// OBTENER LOCALIDADES
 // ============================================
 function getLocalidadesDeComuna(comunaId) {
   const localidades = [];
@@ -453,10 +599,21 @@ function getLocalidadesDeComuna(comunaId) {
   if (comunasData[comunaId]) {
     comunasData[comunaId].localidades.forEach(loc => {
       const key = `${loc.lat},${loc.lng}`;
-      if (!vistas.has(key)) {
-        vistas.add(key);
-        localidades.push(loc);
-      }
+      if (!vistas.has(key)) { vistas.add(key); localidades.push(loc); }
+    });
+  }
+
+  return filtrarPorCategoria(localidades);
+}
+
+function getLocalidadesDePartido(partidoId) {
+  const localidades = [];
+  const vistas = new Set();
+
+  if (partidosData[partidoId]) {
+    partidosData[partidoId].localidades.forEach(loc => {
+      const key = `${loc.lat},${loc.lng}`;
+      if (!vistas.has(key)) { vistas.add(key); localidades.push(loc); }
     });
   }
 
@@ -468,19 +625,19 @@ function getLocalidadesDeComuna(comunaId) {
 // ============================================
 function volverAlListado() {
   comunaSeleccionadaId = null;
+  partidoSeleccionadoId = null;
 
-  // Limpiar marcadores
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
 
-  // Restaurar estilo base del mapa
   aplicarEstiloBase();
+  aplicarEstiloBaseAmba();
 
   mostrarTodasLasLocalidades();
 }
 
 // ============================================
-// MOSTRAR INFO EN EL PANEL LATERAL
+// MOSTRAR INFO PANEL — CABA
 // ============================================
 function mostrarInfoPanel(comunaId) {
   const comuna = comunasData[comunaId];
@@ -491,9 +648,7 @@ function mostrarInfoPanel(comunaId) {
     ? `<div class="barrios-tag"><strong>Barrios:</strong> ${comuna.barrios.join(", ")}</div>`
     : "";
 
-  const locOrdenadas = [...localidades].sort((a, b) =>
-    a.nombre.localeCompare(b.nombre, 'es')
-  );
+  const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
   const localidadesHtml = locOrdenadas.length > 0
     ? locOrdenadas.map(loc => `
@@ -511,6 +666,41 @@ function mostrarInfoPanel(comunaId) {
         <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
       </div>
       ${barriosHtml}
+    </div>
+    <div class="seccion-titulo">Localidades de interés</div>
+    ${localidadesHtml}
+  `;
+
+  abrirPanelMobile();
+}
+
+// ============================================
+// MOSTRAR INFO PANEL — AMBA
+// ============================================
+function mostrarInfoPanelPartido(partidoId) {
+  const partido = partidosData[partidoId];
+  const localidades = getLocalidadesDePartido(partidoId);
+
+  const nombre = partido ? partido.nombre : `Partido ${partidoId}`;
+
+  const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+
+  const localidadesHtml = locOrdenadas.length > 0
+    ? locOrdenadas.map(loc => `
+        <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
+          <strong>${loc.nombre}</strong>
+          <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+        </div>
+      `).join("")
+    : `<p class="sin-datos">Sin localidades registradas para este partido.</p>`;
+
+  document.getElementById("panelBody").innerHTML = `
+    <div class="comuna-header">
+      <div class="comuna-header-top">
+        <h3>🗺️ ${nombre}</h3>
+        <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
+      </div>
+      <div class="barrios-tag"><strong>Partido del GBA</strong></div>
     </div>
     <div class="seccion-titulo">Localidades de interés</div>
     ${localidadesHtml}
@@ -546,12 +736,10 @@ function crearIconoPin(logoUrl, borderColor, callback) {
   const ctx = canvas.getContext("2d");
 
   function dibujar(img) {
-    // Sombra suave
     ctx.shadowColor = "rgba(0,0,0,0.35)";
     ctx.shadowBlur = 5;
     ctx.shadowOffsetY = 2;
 
-    // Círculo exterior relleno con color de prioridad
     ctx.beginPath();
     ctx.arc(cx, cy, r, 0, Math.PI * 2);
     ctx.fillStyle = borderColor;
@@ -559,14 +747,12 @@ function crearIconoPin(logoUrl, borderColor, callback) {
 
     ctx.shadowColor = "transparent";
 
-    // Círculo interior violeta (deja un aro de color alrededor)
     const rInner = r - 5;
     ctx.beginPath();
     ctx.arc(cx, cy, rInner, 0, Math.PI * 2);
     ctx.fillStyle = "#a020a8";
     ctx.fill();
 
-    // Punta triangular con color de prioridad
     ctx.beginPath();
     ctx.moveTo(cx - 7, cy + r - 3);
     ctx.lineTo(cx + 7, cy + r - 3);
@@ -574,7 +760,6 @@ function crearIconoPin(logoUrl, borderColor, callback) {
     ctx.fillStyle = borderColor;
     ctx.fill();
 
-    // Logo recortado al círculo interior violeta
     if (img) {
       ctx.save();
       ctx.beginPath();
@@ -597,11 +782,9 @@ function crearIconoPin(logoUrl, borderColor, callback) {
 // ============================================
 // AGREGAR MARCADORES AL MAPA
 // ============================================
-function agregarMarcadores(comunaId) {
-  const localidades = getLocalidadesDeComuna(comunaId);
+function agregarMarcadores(localidades) {
   if (localidades.length === 0) return;
 
-  // Colores únicos necesarios para esta tanda de marcadores
   const coloresUnicos = [...new Set(localidades.map(loc => getColorPorPrioridad(loc.prioridad)))];
   const iconCache = {};
   let pendientes = coloresUnicos.length;
