@@ -3,14 +3,14 @@ const sanatoriosAmbaData = {
   // Moreno
   "06560": {
     localidades: [
-      {nombre: "Clínica Alcorta", direccion: "Aristóbulo del Valle 2629, B1744HND Moreno, Provincia de Buenos Aires", lat: -34.6533, lng: -58.7888, tipo: "Sanatorio"}
+      {nombre: "Clínica Alcorta", direccion: "Aristóbulo del Valle 2629, B1744HND Moreno, Provincia de Buenos Aires", lat: -34.6533, lng: -58.7888, tipo: "Centro Médico"}
     ]
   },
 
   // La Matanza
   "06427": {
     localidades: [
-      {nombre: "Figueroa Paredes Salud - Clínica Laferrere", direccion: "Brig. Gral. Juan Manuel de Rosas 10841, B1757FPF Gran Buenos Aires, Provincia de Buenos Aires", lat: -34.7331, lng: -58.6037, tipo: "Sanatorio"},
+      {nombre: "Figueroa Paredes Salud - Clínica Laferrere", direccion: "Brig. Gral. Juan Manuel de Rosas 10841, B1757FPF Gran Buenos Aires, Provincia de Buenos Aires", lat: -34.7331, lng: -58.6037, tipo: "Centro Médico"},
       {nombre: "Del Buen Pastor Consultorios Ramos Mejia", direccion: "B1704BUF, Av. de Mayo 565, Ramos Mejía", lat: -34.6451, lng: -58.5654, tipo: "Sanatorio"},
       {nombre: "DIM ALTA COMPLEJIDAD", direccion: "Belgrano 137, B1704ETC Ramos Mejía, Provincia de Buenos Aires", lat: -34.6417, lng: -58.5661, tipo: "Sanatorio"},
       {nombre: "Casa Hospital San Juan de Dios - Sede Ramos Mejía", direccion: "Dr. Gabriel Ardoino 714, B1704EIP Ramos Mejía, Provincia de Buenos Aires", lat: -34.6364, lng: -58.5554, tipo: "Centro Médico"},
@@ -23,7 +23,7 @@ const sanatoriosAmbaData = {
     localidades: [
       {nombre: "Diagnóstico Tesla Morón", direccion: "Ntra Sra del Buen Viaje 548, B1708 ECJ, Provincia de Buenos Aires", lat: -34.6514, lng: -58.6166, tipo: "Sanatorio"},
       {nombre: "IPC Instituto Médico", direccion: "Montes de Oca 2231, B1712 Castelar, Provincia de Buenos Aires", lat: -34.6495, lng: -58.6397, tipo: "Sanatorio"},
-      {nombre: "Clínica Modelo de Morón", direccion: "República Oriental del Uruguay 234, C1015 Morón, Provincia de Buenos Aires", lat: -34.6506, lng: -58.6170, tipo: "Sanatorio"},
+      {nombre: "Clínica Modelo de Morón", direccion: "República Oriental del Uruguay 234, C1015 Morón, Provincia de Buenos Aires", lat: -34.6506, lng: -58.6170, tipo: "Centro Médico"},
       {nombre: "CEPEM Consultorios Médicos", direccion: "Gral. Machado 729, B1708EOC Gran Buenos Aires, Provincia de Buenos Aires", lat: -34.6463, lng: -58.6187, tipo: "Sanatorio"}
     ]
   },
@@ -31,7 +31,7 @@ const sanatoriosAmbaData = {
   //Merlo
   "06539": {
     localidades: [
-      {nombre: "Clínica Provincial", direccion: "Garay 2260, B1722 Merlo, Provincia de Buenos Aires", lat: -34.6625, lng: -58.7267, tipo: "Sanatorio"},
+      {nombre: "Clínica Provincial", direccion: "Garay 2260, B1722 Merlo, Provincia de Buenos Aires", lat: -34.6625, lng: -58.7267, tipo: "Centro Médico"},
       {nombre: "Sanatorio San Juan Bautista", direccion: "Av. Eva Perón 4855 B1716, B1716 Libertad, Provincia de Buenos Aires", lat: -34.6917, lng: -58.6947, tipo: "Sanatorio"}
     ]
   },
@@ -39,7 +39,7 @@ const sanatoriosAmbaData = {
   //Ituzaingo
   "06410": {
     localidades: [
-      {nombre: "Clínica Sanatorio del Oeste Ituzaingó", direccion: "Gral. Félix Olazábal 319, B1714 Ituzaingó, Provincia de Buenos Aires", lat: -34.6540, lng: -58.6605, tipo: "Sanatorio"}
+      {nombre: "Clínica Sanatorio del Oeste Ituzaingó", direccion: "Gral. Félix Olazábal 319, B1714 Ituzaingó, Provincia de Buenos Aires", lat: -34.6540, lng: -58.6605, tipo: "Centro Médico"}
     ]
   },
 
@@ -65,10 +65,13 @@ const sanatoriosAmbaData = {
       {nombre: "Hospital Dr. Alberto Duhau", direccion: "Gral. Lavalle 2066, B1665BRH Gran Buenos Aires, Provincia de Buenos Aires", lat: -34.5236, lng: -58.7529, tipo: "Sanatorio"}
     ]
   },
+  
   //San Isidro
   "06756": {
     localidades: [
-      {nombre: "Sanatorio Las Lomas", direccion: "Av. Diego Carman 555, B1642 San Isidro, Provincia de Buenos Aires", lat: -34.4961, lng: -58.5446, tipo: "Sanatorio"}
+      {nombre: "Sanatorio Las Lomas", direccion: "Av. Diego Carman 555, B1642 San Isidro, Provincia de Buenos Aires", lat: -34.4961, lng: -58.5446, tipo: "Sanatorio"},
+      {nombre: "Sanatorio San Lucas", direccion: "Gral. Manuel Belgrano 363, B1642 San Isidro, Provincia de Buenos Aires", lat: -34.4697, lng: -58.5104, tipo: "Sanatorio"},
+      {nombre: "Sanatorio De La Trinidad San Isidro", direccion: "Av. Sir Alexander Fleming 590, B1642 San Isidro, Provincia de Buenos Aires", lat: -34.4874, lng: -58.5248, tipo: "Sanatorio"}
     ]
   },
 
@@ -76,6 +79,64 @@ const sanatoriosAmbaData = {
     "06861": {
     localidades: [
       {nombre: "Sanatorio Vicente López - La Torre", direccion: "Gral. José de San Martín 2142, B1602BWT Vicente López, Provincia de Buenos Aires", lat: -34.5266, lng: -58.4906, tipo: "Sanatorio"}
+    ]
+  },
+
+  //Tigre
+  "06805": {
+    localidades:[
+      {nombre: "Centro Médico Talar", direccion: "RN197 1618, B1618 El Talar, Provincia de Buenos Aires", lat: -34.4758, lng: -58.6638, tipo: "Sanatorio"},
+      {nombre: "Clínica Sagrado Corazón Don Torcuato", direccion: "Av. Ángel T. de Alvear 650, B1611ELR ELR, Provincia de Buenos Aires", lat: -34.4988, lng: -58.6407, tipo: "Centro Médico"}
+    ]
+  },
+
+  //San Miguel
+  "06760": {
+    localidades:[
+      {nombre: "Sanatorio General Sarmiento | RED BASA", direccion: "Av. Pte. J. D. Perón 1796, B1663GHT San Miguel, Provincia de Buenos Aires", lat: -34.5400, lng: -58.7146, tipo: "Sanatorio"},
+      {nombre: "Clínica Bessone", direccion: "Paunero 1668, B1663 San Miguel, Provincia de Buenos Aires", lat: -34.5408, lng: -58.7119, tipo: "Centro Médico"}
+    ]
+  },
+
+  //San Fernando
+  "06749": {
+    localidades:[
+      {nombre: "Clínica Bessone", direccion: "EZP, Alvear 1444, B1646 San Fernando, Provincia de Buenos Aires", lat: -34.4378, lng: -58.5633, tipo: "Centro Médico"}
+    ]
+  },
+
+ //Quilmes
+  "06658": {
+    localidades:[
+      {nombre: "Sanatorio de la Trinidad Quilmes", direccion: "Av. Carlos Pellegrini 431, B1878 Quilmes, Provincia de Buenos Aires", lat: -34.7252, lng: -58.2654, tipo: "Sanatorio"},
+      {nombre: "Sanatorio Bernal", direccion: "Av. San Martín 572, B1876 Bernal, Provincia de Buenos Aires", lat: -34.7083, lng: -58.2830, tipo: "Sanatorio"},
+      {nombre: "Sanatorio Modelo Quilmes", direccion: "Andrés Baranda 282, B1878 Quilmes, Provincia de Buenos Aires", lat: -34.7188, lng: -58.2731, tipo: "Sanatorio"},
+      {nombre: "Sanatorio Solano - Instituto Médico Modelo", direccion: "C. 841 2469, B1881 Quilmes, Provincia de Buenos Aires", lat: -34.7783, lng: -58.3138, tipo: "Sanatorio"},
+      {nombre: "Clínica Privada La Familia San Francisco Solano", direccion: "C. 843 2416, B1881 Buenos Aires, Provincia de Buenos Aires", lat: -34.7793, lng: -58.3118, tipo: "Centro Médico"},
+      {nombre: "Clínica del Niño de Quilmes", direccion: "Av. Gral. Lamadrid 444, B1878 Quilmes, Provincia de Buenos Aires", lat: -34.7156, lng: -58.2727, tipo: "Centro Médico"}
+    ]
+  },
+
+   //Lomas de Zamora
+  "06490": {
+    localidades:[
+      {nombre: "Sanatorio Juncal", direccion: "Av. Almte. Brown 2779, B1834 Temperley, Provincia de Buenos Aires", lat: -34.7698, lng: -58.3967, tipo: "Sanatorio"},
+      {nombre: "Policlínico Lomas", direccion: "Av. Hipólito Yrigoyen 8439, B1832BQD Lomas de Zamora, Provincia de Buenos Aires", lat: -34.7521, lng: -58.4009, tipo: "Sanatorio"}
+    ]
+  },
+
+   //Almirante Brown
+    "06028": {
+    localidades:[
+      {nombre: "Clínica IMA", direccion: "Francisco Seguí 593, B1846 Adrogué, Provincia de Buenos Aires", lat: -34.8007, lng: -58.3985, tipo: "Centro Médico"},
+      {nombre: "Clínica Espora", direccion: "Av. Tomás Espora 645, B1846BTE Adrogué, Provincia de Buenos Aires", lat: -34.7950, lng: -58.3881, tipo: "Centro Médico"}
+    ]
+  },
+
+    //Almirante Brown
+    "06260": {
+    localidades:[
+      {nombre: "Clínica Privada Monte Grande", direccion: "Gral. Rodríguez 158, B1842DID Monte Grande, Provincia de Buenos Aires", lat: -34.8140, lng: -58.4660, tipo: "Centro Médico"}
     ]
   },
 };
