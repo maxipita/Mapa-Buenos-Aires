@@ -162,7 +162,7 @@ function mostrarResultadosBusqueda(query) {
 
   Object.keys(partidosData).forEach(id => {
     const partido = partidosData[id];
-    filtrarPorCategoria(partido.localidades).forEach(loc => {
+    filtrarPorCategoria(partido.localidades || []).forEach(loc => {
       const coincide =
         normalizarTexto(loc.nombre).includes(q) ||
         normalizarTexto(loc.direccion).includes(q) ||
@@ -333,7 +333,7 @@ function mostrarTodasLasLocalidades() {
     .map(id => ({
       id,
       ...partidosData[id],
-      locs: filtrarPorCategoria(partidosData[id].localidades)
+      locs: filtrarPorCategoria(partidosData[id].localidades || [])
     }))
     .filter(p => p.locs.length > 0)
     .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
@@ -655,7 +655,7 @@ function mostrarTodosLosMarcadores() {
   });
 
   Object.values(partidosData).forEach(partido => {
-    filtrarPorCategoria(partido.localidades).forEach(loc => {
+    filtrarPorCategoria(partido.localidades || []).forEach(loc => {
       const key = `${loc.lat},${loc.lng}`;
       if (!vistas.has(key)) { vistas.add(key); todasLasLocs.push(loc); }
     });
