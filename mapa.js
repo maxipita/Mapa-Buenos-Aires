@@ -29,30 +29,30 @@ const comunasData = {
 // DATOS DE LOS PARTIDOS (AMBA / GBA)
 // ============================================
 const partidosData = {
-  "06028": { nombre: "Almirante Brown",     localidades: [] },
-  "06035": { nombre: "Avellaneda",          localidades: [] },
-  "06091": { nombre: "Berazategui",         localidades: [] },
-  "06260": { nombre: "Esteban Echeverría",  localidades: [] },
-  "06270": { nombre: "Ezeiza",              localidades: [] },
-  "06274": { nombre: "Florencio Varela",    localidades: [] },
-  "06371": { nombre: "General San Martín",  localidades: [] },
-  "06408": { nombre: "Hurlingham",          localidades: [] },
-  "06410": { nombre: "Ituzaingó",           localidades: [] },
-  "06412": { nombre: "José C. Paz",         localidades: [] },
-  "06427": { nombre: "La Matanza",          localidades: [] },
-  "06434": { nombre: "Lanús",               localidades: [] },
-  "06490": { nombre: "Lomas de Zamora",     localidades: [] },
-  "06515": { nombre: "Malvinas Argentinas", localidades: [] },
-  "06539": { nombre: "Merlo",               localidades: [] },
-  "06560": { nombre: "Moreno",              localidades: [] },
-  "06568": { nombre: "Morón",               localidades: [] },
-  "06658": { nombre: "Quilmes",             localidades: [] },
-  "06749": { nombre: "San Fernando",        localidades: [] },
-  "06756": { nombre: "San Isidro",          localidades: [] },
-  "06760": { nombre: "San Miguel",          localidades: [] },
-  "06805": { nombre: "Tigre",               localidades: [] },
-  "06840": { nombre: "Tres de Febrero",     localidades: [] },
-  "06861": { nombre: "Vicente López",       localidades: [] },
+  "06028": { nombre: "Almirante Brown",     barrios: [], localidades: ["Adrogué", "Burzaco", "Claypole", "Don Orione", "Glew", "José Mármol", "Longchamps", "Ministro Rivadavia", "Rafael Calzada", "San Francisco Solano"] },
+  "06035": { nombre: "Avellaneda",          barrios: [], localidades: ["Avellaneda", "Dock Sud", "Gerli", "Piñeyro", "Sarandí", "Villa Domínico", "Wilde"] },
+  "06091": { nombre: "Berazategui",         barrios: [], localidades: ["Berazategui", "El Pato", "Hudson", "Pereyra", "Plátanos", "Ranelagh", "Villa España"] },
+  "06260": { nombre: "Esteban Echeverría",  barrios: [], localidades: ["Monte Grande", "Luis Guillón", "El Jagüel", "Canning", "9 de Abril"] },
+  "06270": { nombre: "Ezeiza",              barrios: [], localidades: ["Ezeiza", "Tristán Suárez", "La Unión", "Carlos Spegazzini"] },
+  "06274": { nombre: "Florencio Varela",    barrios: [], localidades: ["Florencio Varela", "Bosques", "Ingeniero Allan", "La Capilla", "Villa San Luis", "Villa Vatteone"] },
+  "06371": { nombre: "General San Martín",  barrios: [], localidades: ["San Martín", "Villa Ballester", "José León Suárez", "Billinghurst", "Villa Maipú"] },
+  "06408": { nombre: "Hurlingham",          barrios: [], localidades: ["Hurlingham", "Villa Tesei", "William Morris"] },
+  "06410": { nombre: "Ituzaingó",           barrios: [], localidades: ["Ituzaingó"] },
+  "06412": { nombre: "José C. Paz",         barrios: [], localidades: ["José C. Paz"] },
+  "06427": { nombre: "La Matanza",          barrios: [], localidades: ["San Justo", "Ramos Mejía", "Laferrere", "González Catán", "Ciudad Evita", "Isidro Casanova", "Villa Luzuriaga", "Gregorio de Laferrere", "Tapiales"] },
+  "06434": { nombre: "Lanús",               barrios: [], localidades: ["Lanús Este", "Lanús Oeste", "Remedios de Escalada", "Valentín Alsina", "Monte Chingolo"] },
+  "06490": { nombre: "Lomas de Zamora",     barrios: [], localidades: ["Lomas de Zamora", "Banfield", "Temperley", "Ingeniero Budge", "Villa Fiorito", "Turdera"] },
+  "06515": { nombre: "Malvinas Argentinas", barrios: [], localidades: ["Los Polvorines", "Grand Bourg", "Ing. Pablo Nogués", "Villa de Mayo", "Tierras Altas"] },
+  "06539": { nombre: "Merlo",               barrios: [], localidades: ["Merlo", "San Antonio de Padua", "Parque San Martín", "Libertad", "Mariano Acosta"] },
+  "06560": { nombre: "Moreno",              barrios: [], localidades: ["Moreno", "Paso del Rey", "Trujui", "Cuartel V", "La Reja"] },
+  "06568": { nombre: "Morón",               barrios: [], localidades: ["Morón", "Castelar", "Haedo", "El Palomar", "Villa Sarmiento"] },
+  "06658": { nombre: "Quilmes",             barrios: [], localidades: ["Quilmes", "Bernal", "Ezpeleta", "San Francisco Solano"] },
+  "06749": { nombre: "San Fernando",        barrios: [], localidades: ["San Fernando", "Victoria", "Virreyes"] },
+  "06756": { nombre: "San Isidro",          barrios: [], localidades: ["San Isidro", "Martínez", "Acassuso", "Beccar", "Boulogne"] },
+  "06760": { nombre: "San Miguel",          barrios: [], localidades: ["San Miguel", "Bella Vista", "Muñiz"] },
+  "06805": { nombre: "Tigre",               barrios: [], localidades: ["Tigre", "Don Torcuato", "El Talar", "Benavídez", "General Pacheco", "Nordelta"] },
+  "06840": { nombre: "Tres de Febrero",     barrios: [], localidades: ["Caseros", "Ciudadela", "El Palomar", "Santos Lugares", "Villa Bosch", "Loma Hermosa"] },
+  "06861": { nombre: "Vicente López",       barrios: [], localidades: ["Olivos", "Florida", "Munro", "La Lucila", "Vicente López", "Villa Martelli"] },
 };
 
 // ============================================
@@ -755,7 +755,10 @@ function mostrarInfoPanelPartido(partidoId) {
         <h3>🗺️ ${nombre}</h3>
         <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
       </div>
-      <div class="barrios-tag"><strong>Partido del GBA</strong></div>
+      ${partido && partido.barrios && partido.barrios.length > 0
+        ? `<div class="barrios-tag"><strong>Localidades:</strong> ${partido.barrios.join(", ")}</div>`
+        : `<div class="barrios-tag"><strong>Partido del GBA</strong></div>`
+      }
     </div>
     <div class="seccion-titulo">Localidades de interés</div>
     ${localidadesHtml}
