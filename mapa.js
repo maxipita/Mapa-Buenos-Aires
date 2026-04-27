@@ -56,45 +56,56 @@ const partidosData = {
 };
 
 // ============================================
-// MERGE DE DATOS EXTERNOS
+// CARGA Y MERGE DE DATOS EXTERNOS (JSON)
 // ============================================
-(function mergeData() {
-  // CABA
-  [
-    typeof sanatoriosData !== "undefined" ? sanatoriosData : null,
-    typeof consultoriosData !== "undefined" ? consultoriosData : null
-  ].forEach(function(fuente) {
-    if (!fuente) return;
-    Object.keys(fuente).forEach(function(id) {
-      const numId = parseInt(id);
-      const locs = (fuente[id].localidades || []).filter(l => l.nombre);
-      if (locs.length === 0) return;
-      if (comunasData[numId]) {
-        comunasData[numId].localidades = comunasData[numId].localidades.concat(locs);
-      } else {
-        comunasData[numId] = { nombre: "Comuna " + numId, barrios: [], localidades: locs };
-      }
-    });
-  });
+const DATA_URLS = {
+  sanatorios:        "sanatorios.json",
+  consultorios:      "consultorios.json",
+  sanatoriosAmba:    "sanatoriosAmba.json",
+  consultoriosAmba:  "consultoriosAmba.json"
+};
 
-  // AMBA
-  [
-    typeof sanatoriosAmbaData !== "undefined" ? sanatoriosAmbaData : null,
-    typeof consultoriosAmbaData !== "undefined" ? consultoriosAmbaData : null
-  ].forEach(function(fuente) {
-    if (!fuente) return;
-    Object.keys(fuente).forEach(function(id) {
-      const locs = (fuente[id].localidades || []).filter(l => l.nombre);
-      if (locs.length === 0) return;
-      if (partidosData[id]) {
-        if (!Array.isArray(partidosData[id].localidades)) partidosData[id].localidades = [];
-        partidosData[id].localidades = partidosData[id].localidades.concat(locs);
-      } else {
-        partidosData[id] = { nombre: fuente[id].nombre || id, barrios: [], localidades: locs };
-      }
+function cargarDatosExternos() {
+  const fetchJSON = url =>
+    fetch(url)
+      .then(r => r.ok ? r.json() : Promise.reject(new Error(url + " HTTP " + r.status)))
+      .catch(err => { console.warn("No se pudo cargar", url, err); return {}; });
+
+  return Promise.all([
+    fetchJSON(DATA_URLS.sanatorios),
+    fetchJSON(DATA_URLS.consultorios),
+    fetchJSON(DATA_URLS.sanatoriosAmba),
+    fetchJSON(DATA_URLS.consultoriosAmba)
+  ]).then(function ([sanat, consult, sanatAmba, consultAmba]) {
+    // CABA
+    [sanat, consult].forEach(function (fuente) {
+      Object.keys(fuente).forEach(function (id) {
+        const numId = parseInt(id);
+        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+        if (locs.length === 0) return;
+        if (comunasData[numId]) {
+          comunasData[numId].localidades = comunasData[numId].localidades.concat(locs);
+        } else {
+          comunasData[numId] = { nombre: "Comuna " + numId, barrios: [], localidades: locs };
+        }
+      });
+    });
+
+    // AMBA
+    [sanatAmba, consultAmba].forEach(function (fuente) {
+      Object.keys(fuente).forEach(function (id) {
+        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+        if (locs.length === 0) return;
+        if (partidosData[id]) {
+          if (!Array.isArray(partidosData[id].localidades)) partidosData[id].localidades = [];
+          partidosData[id].localidades = partidosData[id].localidades.concat(locs);
+        } else {
+          partidosData[id] = { nombre: fuente[id].nombre || id, barrios: [], localidades: locs };
+        }
+      });
     });
   });
-})();
+}
 
 // ============================================
 // BUSCADOR
@@ -450,8 +461,10 @@ function initMap() {
   infoWindowGlobal = new google.maps.InfoWindow();
   ambaDataLayer = new google.maps.Data();
 
-  cargarGeoJSON();
-  cargarGeoJSONAmba();
+  cargarDatosExternos().then(function () {
+    cargarGeoJSON();
+    cargarGeoJSONAmba();
+  });
 }
 
 // ============================================
