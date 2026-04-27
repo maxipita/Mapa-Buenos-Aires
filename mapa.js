@@ -158,10 +158,18 @@ function mostrarResultadosBusqueda(query) {
   const q = normalizarTexto(query);
   const resultados = [];
 
+  // Helper: ¿el query matchea el nombre del área o alguno de sus barrios?
+  function areaMatchea(area) {
+    if (normalizarTexto(area.nombre || "").includes(q)) return true;
+    const barrios = area.barrios || [];
+    return barrios.some(b => normalizarTexto(b).includes(q));
+  }
+
   Object.keys(comunasData).forEach(id => {
     const comuna = comunasData[id];
+    const matchArea = areaMatchea(comuna);
     filtrarPorCategoria(comuna.localidades).forEach(loc => {
-      const coincide =
+      const coincide = matchArea ||
         normalizarTexto(loc.nombre).includes(q) ||
         normalizarTexto(loc.direccion).includes(q) ||
         normalizarTexto(loc.tipo || "").includes(q);
@@ -173,8 +181,9 @@ function mostrarResultadosBusqueda(query) {
 
   Object.keys(partidosData).forEach(id => {
     const partido = partidosData[id];
+    const matchArea = areaMatchea(partido);
     filtrarPorCategoria(partido.localidades || []).forEach(loc => {
-      const coincide =
+      const coincide = matchArea ||
         normalizarTexto(loc.nombre).includes(q) ||
         normalizarTexto(loc.direccion).includes(q) ||
         normalizarTexto(loc.tipo || "").includes(q);
