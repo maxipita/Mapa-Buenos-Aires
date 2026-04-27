@@ -364,7 +364,12 @@ function mostrarTodasLasLocalidades() {
     }).join("");
   }
 
-  let html = `<div class="todas-header"><span>${total} ubicaciones en total</span></div>`;
+  let html = `
+    <div class="todas-header">
+      <span>${total} ubicaciones en total</span>
+      <button id="btnVerTodos" class="btn-ver-todos" onclick="mostrarTodosLosMarcadores()">📍 Ver todos en el mapa</button>
+    </div>
+  `;
 
   if (comunasConLocs.length > 0) {
     html += `<div class="region-subtitulo">📍 Ciudad de Buenos Aires</div>`;
@@ -455,14 +460,8 @@ function verificarYAjustarBounds() {
   geojsonCargados++;
   if (geojsonCargados < 2) return;
 
-  const bounds = new google.maps.LatLngBounds();
-  ambaDataLayer.forEach(feature => {
-    feature.getGeometry().forEachLatLng(latLng => bounds.extend(latLng));
-  });
-  map.data.forEach(feature => {
-    feature.getGeometry().forEachLatLng(latLng => bounds.extend(latLng));
-  });
-  if (!bounds.isEmpty()) map.fitBounds(bounds);
+  map.setCenter({ lat: -34.62, lng: -58.52 });
+  map.setZoom(11);
 }
 
 // ============================================
@@ -618,6 +617,62 @@ function getLocalidadesDePartido(partidoId) {
   }
 
   return filtrarPorCategoria(localidades);
+}
+
+// ============================================
+// MOSTRAR TODOS LOS MARCADORES EN EL MAPA
+// ============================================
+function mostrarTodosLosMarcadores() {
+  const btn = document.getElementById("btnVerTodos");
+
+  // Si ya están visibles, los oculta
+  if (marcadoresActivos.length > 0 && comunaSeleccionadaId === null && partidoSeleccionadoId === null) {
+    marcadoresActivos.forEach(m => m.setMap(null));
+    marcadoresActivos = [];
+    if (btn) { btn.textContent = "📍 Ver todos en el mapa"; btn.classList.remove("activo"); }
+    return;
+  }
+
+  comunaSeleccionadaId = null;
+  partidoSeleccionadoId = null;
+
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+
+  aplicarEstiloBase();
+  aplicarEstiloBaseAmba();
+
+  // Recolectar todas las localidades filtradas
+  const todasLasLocs = [];
+  const vistas = new Set();
+
+  Object.values(comunasData).forEach(comuna => {
+    filtrarPorCategoria(comuna.localidades).forEach(loc => {
+      const key = `${loc.lat},${loc.lng}`;
+      if (!vistas.has(key)) { vistas.add(key); todasLasLocs.push(loc); }
+    });
+  });
+
+  Object.values(partidosData).forEach(partido => {
+    filtrarPorCategoria(partido.localidades).forEach(loc => {
+      const key = `${loc.lat},${loc.lng}`;
+      if (!vistas.has(key)) { vistas.add(key); todasLasLocs.push(loc); }
+    });
+  });
+
+  if (todasLasLocs.length === 0) return;
+
+  agregarMarcadores(todasLasLocs);
+
+  if (btn) { btn.textContent = "✕ Ocultar pins"; btn.classList.add("activo"); }
+
+  // Ajustar vista para mostrar todos los pins
+  const bounds = new google.maps.LatLngBounds();
+  todasLasLocs.forEach(loc => bounds.extend({ lat: loc.lat, lng: loc.lng }));
+  const padding = esMobile()
+    ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
+    : { top: 60, right: 60, bottom: 60, left: 60 };
+  map.fitBounds(bounds, padding);
 }
 
 // ============================================

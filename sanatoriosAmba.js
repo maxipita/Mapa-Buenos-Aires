@@ -47,7 +47,7 @@ const sanatoriosAmbaData = {
   "06371": {
     localidades: [
       {nombre: "Corporación Médica de Gral. San Martín", direccion: "Matheu 4023, B1650 San Martín, Provincia de Buenos Aires", lat: -34.5762, lng: -58.5414, tipo: "Sanatorio"},
-      {nombre: "Hospital Privado Nuestra Señora de la Merced", direccion: "Julio Besada 6969, B1683 Martín Coronado, Provincia de Buenos Aires", lat: -34.5827, lng: -58.5879, tipo: "Sanatorio"}
+      {nombre: "Clínica Santa María", direccion: "Enrique Marengo 3908, B1653 Buenos Aires, Provincia de Buenos Aires", lat: -34.5557, lng: -58.5478, tipo: "Centro Médico"}
     ]
   },
 
@@ -55,7 +55,8 @@ const sanatoriosAmbaData = {
    "06840": {
     localidades: [
       {nombre: "Sanatorio Modelo de Caseros", direccion: "Lisandro Medina 2285, B1678GUW Caseros, Provincia de Buenos Aires", lat: -34.6029, lng: -58.5639, tipo: "Sanatorio"},
-      {nombre: "Clínica Santa María", direccion: "Enrique Marengo 3908, B1653 Buenos Aires, Provincia de Buenos Aires", lat: -34.5557, lng: -58.5478, tipo: "Centro Médico"}
+      {nombre: "Hospital Privado Nuestra Señora de la Merced", direccion: "Julio Besada 6969, B1683 Martín Coronado, Provincia de Buenos Aires", lat: -34.5827, lng: -58.5879, tipo: "Sanatorio"}
+      
     ]
   },
 
@@ -133,7 +134,7 @@ const sanatoriosAmbaData = {
     ]
   },
 
-    //Almirante Brown
+    //Esteban Echeverría
     "06260": {
     localidades:[
       {nombre: "Clínica Privada Monte Grande", direccion: "Gral. Rodríguez 158, B1842DID Monte Grande, Provincia de Buenos Aires", lat: -34.8140, lng: -58.4660, tipo: "Centro Médico"}
