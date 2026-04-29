@@ -795,10 +795,12 @@ function mostrarInfoPanelPartido(partidoId) {
 // ============================================
 function getColorPorPrioridad(prioridad) {
   switch (prioridad) {
-    case "alta":  return "#e74c3c";
-    case "media": return "#f39c12";
-    case "baja":  return "#27ae60";
-    default:      return "#a020a8";
+    case "alta":   return "#e74c3c";
+    case "media":  return "#f39c12";
+    case "baja":   return "#27ae60";
+    case "blanca":
+    case "blanco": return "#ffffff";
+    default:       return "#a020a8";
   }
 }
 
@@ -898,11 +900,17 @@ function _colocarMarcadores(localidades, iconCache) {
 
     marker.addListener("click", () => {
       infoWindowGlobal.setContent(`
-        <div style="padding: 10px; max-width: 240px;">
-          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" style="width:100%;height:120px;object-fit:cover;border-radius:6px;margin-bottom:8px;">` : ""}
-          <strong style="color: #2c3e50; font-size: 14px;">${loc.nombre}</strong>
-          <p style="margin: 6px 0 2px; color: #7f8c8d; font-size: 13px;">${loc.direccion}</p>
-          <span style="background: #f9e6fa; color: #d534db; font-size: 12px; padding: 2px 8px; border-radius: 10px;">${loc.tipo}</span>
+        <div class="popup-container">
+          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" class="popup-imagen">` : ""}
+          <strong class="popup-nombre">${loc.nombre}</strong>
+          <p class="popup-direccion">${loc.direccion}</p>
+          <span class="popup-tipo">${loc.tipo}</span>
+          ${loc.nomencladores && loc.nomencladores.length ? `
+          <button class="popup-btn-desglose" onclick="var d=document.getElementById('nomDesglose');var b=this;if(d.style.display!=='block'){d.style.display='block';b.innerHTML='Ver menos <span class=\\'popup-btn-flecha\\'>&#9650;</span>';}else{d.style.display='none';b.innerHTML='Ver desglose <span class=\\'popup-btn-flecha\\'>&#9660;</span>';}">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
+          <div id="nomDesglose" class="popup-desglose">
+            ${loc.nomencladores.map(n => `<p class="popup-nomenclador">Nomenclador: ${n.codigo}&nbsp;&nbsp;Cantidad: ${n.cantidad}</p>`).join("")}
+          </div>
+          ` : ""}
         </div>
       `);
       infoWindowGlobal.open(map, marker);

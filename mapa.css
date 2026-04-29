@@ -1,6 +1,3 @@
-/* ============================================
-   RESET
-   ============================================ */
 * {
   margin: 0;
   padding: 0;
@@ -537,6 +534,76 @@ body {
 #map {
   width: 100%;
   height: 100%;
+}
+
+/* ── Popup marcador ── */
+.popup-container {
+  padding: 10px;
+  max-width: 240px;
+}
+
+.popup-imagen {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 8px;
+}
+
+.popup-nombre {
+  color: #2c3e50;
+  font-size: 14px;
+  display: block;
+}
+
+.popup-direccion {
+  margin: 6px 0 2px;
+  color: #7f8c8d;
+  font-size: 13px;
+}
+
+.popup-tipo {
+  background: #f9e6fa;
+  color: #d534db;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.popup-desglose {
+  display: none;
+  margin-top: 6px;
+}
+
+.popup-nomenclador {
+  margin: 2px 0;
+  color: #7f8c8d;
+  font-size: 12px;
+}
+
+.popup-btn-desglose {
+  display: block;
+  margin-top: 8px;
+  background: none;
+  border: 1px solid #d534db;
+  border-radius: 8px;
+  color: #d534db;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 4px 10px;
+  font-family: inherit;
+  width: 100%;
+  text-align: center;
+}
+
+.popup-btn-flecha {
+  font-size: 8px;
+}
+
+.popup-btn-desglose:hover {
+  background: #f9e6fa;
+  color: #a020a8;
+  border-color: #a020a8;
 }
 
 /* ── Leyenda ── */

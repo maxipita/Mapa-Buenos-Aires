@@ -16,6 +16,14 @@
         "lng": -58.3841,
         "tipo": "Centro Médico",
         "imagen": "Imagenes/IDIM.jpg"
+      },
+      {
+        "nombre": "Centro Médico Monserrat",
+        "direccion": "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6098,
+        "lng": -58.3836,
+        "tipo": "Centro Médico",
+        "imagen": "Imagenes/cmMonserrat.jpg"
       }
     ]
   },
@@ -23,11 +31,14 @@
     "localidades": [
       {
         "nombre": "Sanatorio Otamendi",
-        "direccion": "Azcuénaga 870, CABA",
+        "direccion": "Azcuénaga 870, C1115AAB Cdad. Autónoma de Buenos Aires",
         "lat": -34.5984,
         "lng": -58.401,
         "tipo": "Sanatorio",
-        "imagen": "Imagenes/otamendi.jpg"
+        "imagen": "Imagenes/otamendi.jpg",
+        "nomencladores": [
+          { "codigo": "150101", "cantidad": 2 }
+        ]
       },
       {
         "nombre": "IADT",
@@ -76,6 +87,14 @@
         "lng": -58.4014,
         "tipo": "Centro Médico",
         "imagen": "Imagenes/halitus.jpg"
+      },
+      {
+        "nombre": "SANATORIO FINOCHIETTO",
+        "direccion": "Av. Córdoba 2678, C1046 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5979,
+        "lng": -58.4055,
+        "tipo": "Centro Médico",
+        "imagen": "Imagenes/SANATORIO_FINOCHIETTO.jpg"
       }
     ]
   },
@@ -106,20 +125,12 @@
         "imagen": "Imagenes/LpCongreso.jpg"
       },
       {
-        "nombre": "Centro Médico Monserrat",
-        "direccion": "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires",
-        "lat": -34.6065,
-        "lng": -58.3928,
-        "tipo": "Centro Médico",
-        "imagen": "Imagenes/cmMonserrat.jpg"
-      },
-      {
         "nombre": "Sanatorio de la Providencia",
         "direccion": "Tucumán 1863, C1050 Cdad. Autónoma de Buenos Aires",
         "lat": -34.6019496,
         "lng": -58.3936574,
         "tipo": "Sanatorio",
-        "imagen": "Imagenes/providencia.jpg"
+        "imagen": "Imagenes/providencia.png"
       }
     ]
   },
