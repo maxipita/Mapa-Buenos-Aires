@@ -59,7 +59,18 @@
         "lat": -34.6383,
         "lng": -58.5534,
         "tipo": "Sanatorio",
-        "imagen":"Imagenes/cm_trinidadRM.jpg"
+        "imagen":"Imagenes/cm_trinidadRM.jpg",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 3 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 155 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 4 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 363 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 1 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
+          {"tipo": "total", "codigo": "Total", "cantidad": 565},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$7,071,544.13"}
+          ]
       },
       {
         "nombre": "Centro Medico Ramos Mejía",
@@ -67,7 +78,18 @@
         "lat": -34.6434,
         "lng": -58.5691,
         "tipo": "Centro Médico",
-        "imagen":"Imagenes/cm_LpRm.jpg"
+        "imagen":"Imagenes/cm_LpRm.jpg",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 7 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 73 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 82},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$684,134.53"}
+          ]
       }
     ]
   },
@@ -223,7 +245,18 @@
         "lat": -34.4903,
         "lng": -58.5017,
         "tipo": "Sanatorio",
-        "imagen": "Imagenes/CM_Martinez.jpg"
+        "imagen": "Imagenes/CM_Martinez.jpg",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 9 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 1 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 94 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 104 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$839,822.38"}
+          ]
       }
     ]
   },
@@ -243,7 +276,18 @@
         "lat": -34.5368,
         "lng": -58.5359,
         "tipo": "Centro Médico",
-        "imagen":"Imagenes/cpi.jpg"
+        "imagen":"Imagenes/cpi.jpg",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 82 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 9 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 26 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 13 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 167 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$3,033,743.44"}
+          ]
       }
     ]
   },
@@ -350,12 +394,23 @@
         "prioridad":"blanco"
       },
       {
-        "nombre": "Centro Medico Monserrat",
+        "nombre": "Centro Medico Monserrat Quilmes",
         "direccion": "Moreno 524, B1878 Quilmes, Provincia de Buenos Aires",
         "lat": -34.7206,
         "lng": -58.2591,
         "tipo": "Centro Médico",
-        "imagen":"Imagenes/cm_quilmes.jpg"
+        "imagen":"Imagenes/cm_quilmes.jpg",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 58 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 58 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$549,585.16"}
+          ]
       }
     ]
   },
@@ -383,7 +438,18 @@
         "lat": -34.7621,
         "lng": -58.4009,
         "tipo": "Sanatorio",
-        "imagen": "Imagenes/cm_lomasZamora.jpg"
+        "imagen": "Imagenes/cm_lomasZamora.jpg",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 44 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 44 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$337,641.65"}
+          ]
       }
     ]
   },
@@ -415,7 +481,18 @@
         "lat": -34.814,
         "lng": -58.466,
         "tipo": "Centro Médico",
-        "imagen": "Imagenes/monteGrande.jpg"
+        "imagen": "Imagenes/monteGrande.jpg",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 81 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 652 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 27 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 9 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 1562 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 11 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 9 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 2676},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$32,935,622.29"}
+          ]
       }
     ]
   }

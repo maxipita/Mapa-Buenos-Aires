@@ -1,0 +1,38 @@
+@media (max-width: 767px) {
+    body {margin-top:50px; font-size:17px;}
+    .navbar-nav {margin: 0px -15px;}
+    .navbar-inverse .navbar-nav > li > a {color: #fff; padding: 10px 10px 10px 20px;}
+    .breadcrumb > li { display: block; }
+    .btn {font-size:15px; padding: 8px 10px; width:100%; margin-bottom:10px; white-space: normal; display: inline-block; text-align: center;}
+    .btn-xs {font-size: 15px; padding: 6px 12px;}
+    .btn-sm {padding: 6px 10px; line-height: 1.42857143;}
+    .btn-sm i {line-height: 1.42857143;}
+    .btn i {line-height: 1.42857143;}
+    .btn-group-vertical > .btn, .btn-group-vertical > .btn-group, .btn-group-vertical > .btn-group > .btn {display: inherit; float: none; width: 100%; max-width: 100%; text-align:left;}
+    .btn-group-vertical {width: 100%;}
+    .btn-group-mobile {width: 100%;}
+    .btn-group-mobile > .btn {border-radius: 0px; text-align: center; display:inline-block}
+    .label {font-size: 15px; padding: 8px 10px; width: 100%; margin-bottom:10px; white-space: normal; display: flex;}
+    .label-icon { width:auto; font-size: 12px;}
+    .label-danger {background-color: #FFFFFF; border: solid 1px #ed5565; color: #ed5565;}
+    .count-info .label {right: 20px;}
+    h3 {font-size: 120%;}
+    h4 {font-size: 120%;}
+    h5 {font-size: 120%;}
+    .ibox-title h5 {font-size: 18px;}
+    .mb-0-xs {margin-bottom: 0px;}
+    .mb-1-xs {margin-bottom: 10px;}
+    .mb-2-xs {margin-bottom: 20px;}
+    .text-right-sm {text-align: left;}
+    .text-center-xs{text-align: center;}
+    .fileupload { width: 100%; }
+    .navbar-inverse .navbar-toggle {border-color: transparent !important;}
+    .navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus {border-color: transparent !important;}
+    .navbar-collapse {max-height: 400px;}
+
+    .hidden-hover {
+        visibility: visible;
+        opacity: 1;
+    }
+
+}

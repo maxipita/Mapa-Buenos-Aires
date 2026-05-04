@@ -908,7 +908,20 @@ function _colocarMarcadores(localidades, iconCache) {
           ${loc.nomencladores && loc.nomencladores.length ? `
           <button class="popup-btn-desglose" onclick="var d=document.getElementById('nomDesglose');var b=this;if(d.style.display!=='block'){d.style.display='block';b.innerHTML='Ver menos <span class=\\'popup-btn-flecha\\'>&#9650;</span>';}else{d.style.display='none';b.innerHTML='Ver desglose <span class=\\'popup-btn-flecha\\'>&#9660;</span>';}">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
           <div id="nomDesglose" class="popup-desglose">
-            ${loc.nomencladores.map(n => `<p class="popup-nomenclador">Nomenclador: ${n.codigo}&nbsp;&nbsp;Cantidad: ${n.cantidad}</p>`).join("")}
+            <table class="popup-tabla">
+              <thead>
+                <tr>
+                  <th>Nomenclador</th>
+                  <th>Cantidad</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${loc.nomencladores.map(n => {
+                  const etiqueta = n.tipo && n.tipo.toLowerCase() === "presencia" ? "Presencia Patólogo" : n.tipo && n.tipo.toLowerCase() === "total" ? "Total" : n.codigo;
+                  return `<tr><td>${etiqueta}</td><td>${n.cantidad}</td></tr>`;
+                }).join("")}
+              </tbody>
+            </table>
           </div>
           ` : ""}
         </div>

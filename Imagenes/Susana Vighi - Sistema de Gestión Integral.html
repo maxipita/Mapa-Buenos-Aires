@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0050)https://vighi.southernbits.com/gestion/protocolos/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>
+	Susana Vighi - Sistema de Gestión Integral
+</title><link rel="shortcut icon" href="https://vighi.southernbits.com/img/fav.ico"><link href="./Susana Vighi - Sistema de Gestión Integral_files/bootstrap.css" rel="stylesheet"><link href="./Susana Vighi - Sistema de Gestión Integral_files/all.css" rel="stylesheet"><link type="text/css" rel="stylesheet" href="./Susana Vighi - Sistema de Gestión Integral_files/photoswipe.css"><link href="./Susana Vighi - Sistema de Gestión Integral_files/animate.css" rel="stylesheet"><link href="./Susana Vighi - Sistema de Gestión Integral_files/style.css" rel="stylesheet"><link href="./Susana Vighi - Sistema de Gestión Integral_files/style_mobile.css" rel="stylesheet"><link href="./Susana Vighi - Sistema de Gestión Integral_files/checkbox.css" rel="stylesheet"><link href="./Susana Vighi - Sistema de Gestión Integral_files/navbar.css" rel="stylesheet"><link href="./Susana Vighi - Sistema de Gestión Integral_files/bootstrap-datepicker3.css" rel="stylesheet">
+    <script type="text/javascript" async="" src="./Susana Vighi - Sistema de Gestión Integral_files/analytics.js.descarga"></script><script type="text/javascript" async="" src="./Susana Vighi - Sistema de Gestión Integral_files/js"></script><script src="./Susana Vighi - Sistema de Gestión Integral_files/jquery-2.1.1.js.descarga" type="text/javascript"></script>
+    <script src="./Susana Vighi - Sistema de Gestión Integral_files/bootstrap-datepicker.min.js.descarga" type="text/javascript"></script>
+    <script src="./Susana Vighi - Sistema de Gestión Integral_files/bootstrap-datepicker.es.min.js.descarga" type="text/javascript"></script>
+    </head>
+<body class="pace-done">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="./Susana Vighi - Sistema de Gestión Integral_files/js(1)"></script>
+    <script type="text/javascript">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-190740-39');
+    </script>
+
+    <script type="text/javascript">
+
+
+        //function checkInternetConnection() {
+
+        //    document.getElementById('lbl_conexion_on').style.display = 'block';
+        //    document.getElementById('lbl_conexion_off').style.display = 'none';
+
+
+        //    if (navigator.onLine) {
+        //        document.getElementById('lbl_conexion_on').style.display = 'block';
+        //        document.getElementById('lbl_conexion_off').style.display = 'none';
+        //    } else {
+        //        document.getElementById('lbl_conexion_on').style.display = 'none';
+        //        document.getElementById('lbl_conexion_off').style.display = 'block';
+        //    }
+        //}
+
+        //window.addEventListener('load', checkInternetConnection);
+        //window.addEventListener('online', checkInternetConnection);
+        //window.addEventListener('offline', checkInternetConnection);
+
+    </script>
+
+    <style type="text/css">
+        #collapse-btn { position: absolute; bottom: 0;}
+        .navbar-default { height:90%;}
+        .mini-navbar .logo-desktop { width:50px;}
+        .mini-navbar .nav-header-left { display: none;}
+        .logo_inicio { padding: 2px !important; }
+        .logo_inicio:hover { background-color: #fff !important }
+    </style>
+
+    <form method="post" action="https://vighi.southernbits.com/gestion/protocolos/" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwULLTE2OTcxNDMwNDkPFgIeDHRhYl9zZWxlY3RlZAUJZ2VyZW5jaWFsFgJmDw8WBh4ISWRQZXJmaWwCCB4aX3RpY2tldHNfbm9fbGVpZG9zX2NhbmFsXzJmHhNpZF91YmljYWNpb25fYWN0aXZhZmQWAgIDD2QWDAIDDxYCHgdWaXNpYmxlZxYOZg9kFgICBQ8WAh8EZxYCAgEPDxYEHgRUZXh0BSo8c3BhbiBjbGFzcz0nbGFiZWwgbGFiZWwtcHJpbWFyeSc+MDwvc3Bhbj4fBGhkZAICDxYCHwRnFgICAQ8WAh4FdGl0bGUFNTAgY29uZ2VsYWNpb25lcyBhZ2VuZGFkYXMgcGVuZGllbnRlcyBkZSBjb25maXJtYWNpw7NuFgICAQ8PFgYfBQUqPHNwYW4gY2xhc3M9J2xhYmVsIGxhYmVsLXByaW1hcnknPjA8L3NwYW4+HgdUb29sVGlwBTUwIGNvbmdlbGFjaW9uZXMgYWdlbmRhZGFzIHBlbmRpZW50ZXMgZGUgY29uZmlybWFjacOzbh8EaGRkAgQPDxYCHwRnZGQCBg8PFgIfBGdkZAIMDw8WAh8EZ2RkAhQPFgIfBGdkAhYPZBYCAgEPDxYEHwUFKjxzcGFuIGNsYXNzPSdsYWJlbCBsYWJlbC1wcmltYXJ5Jz4wPC9zcGFuPh8EaGRkAgUPZBYEAgUPDxYCHwRnZGQCDQ8WAh8EZxYCAgEPDxYEHwUFNTxzcGFuIGNsYXNzPSdsYWJlbCBsYWJlbC1wcmltYXJ5IGxhYmVsLWljb24nPjA8L3NwYW4+HwRoZGQCBw9kFgYCAQ8PFgQfBQUhPGkgY2xhc3M9J2ZhcyBmYS11c2VyJz48L2k+TUFYSU1PHgtOYXZpZ2F0ZVVybAUrfi9nZXN0aW9uL3NldHRpbmdzL3VzdWFyaW9zL3VzdWFyaW8vP2lkPTYxNmRkAgIPZBYCZg8WAh4LXyFJdGVtQ291bnQCARYCZg9kFgQCAQ8PFgQeD0NvbW1hbmRBcmd1bWVudAUDNjE2HwRoZBYCZg8VAQlHZXJlbmNpYWxkAgMPZBYCZg8VAQlHZXJlbmNpYWxkAgQPFgIfBGgWAgIBDxYEHwVkHwRoZAIJDw8WAh8EZ2QWCgIBDw8WAh8FBSE8aSBjbGFzcz0nZmFzIGZhLXVzZXInPjwvaT5NQVhJTU9kZAIFD2QWAmYPFgIfCQIBFgJmD2QWBGYPFQEGYWN0aXZlZAIBDw8WAh8KBQM2MTZkFgJmDxUBCUdlcmVuY2lhbGQCBw8WAh8EaGQCCQ8WAh8EZ2QCCw9kFgJmDxYCHwUFuCI8bGkgPg0KPGEgaHJlZj0nIyc+PGkgY2xhc3M9ImZhIGZhLW1vdG9yY3ljbGUiPjwvaT4gPHNwYW4gY2xhc3M9J25hdi1sYWJlbCc+VFJBU0xBRE9TPC9zcGFuPjxzcGFuIGNsYXNzPSdmYSBhcnJvdyc+PC9zcGFuPjwvYT4NCjx1bCBjbGFzcz0nbmF2IG5hdi1zZWNvbmQtbGV2ZWwgY29sbGFwc2UnIHN0eWxlPSdwYWRkaW5nLXRvcDowcHg7Jz4NCjxsaSBjbGFzcz0ndGl0dWxvJz5MQUJPUkFUT1JJTzwvbGk+DQo8bGkgY2xhc3M9J2l0ZW0nPjxhIGhyZWY9J2h0dHBzOi8vdmlnaGkuc291dGhlcm5iaXRzLmNvbS9nZXN0aW9uL2ZsdWpvcy8/aWRhPTE0Jz48aSBjbGFzcz0nZmEgZmEtY2FyZXQtcmlnaHQnPjwvaT5MYWIgPiBJbmZvcm1hciAoMSk8L2E+PC9saT4NCjxsaSBjbGFzcz0naXRlbSc+PGEgaHJlZj0naHR0cHM6Ly92aWdoaS5zb3V0aGVybmJpdHMuY29tL2dlc3Rpb24vZmx1am9zLz9pZGE9NDAnPjxpIGNsYXNzPSdmYSBmYS1jYXJldC1yaWdodCc+PC9pPkxhYiA+IENvbG9yZWFyICgxNSk8L2E+PC9saT4NCjxsaSBjbGFzcz0naXRlbSc+PGEgaHJlZj0naHR0cHM6Ly92aWdoaS5zb3V0aGVybmJpdHMuY29tL2dlc3Rpb24vZmx1am9zLz9pZGE9MTAyJz48aSBjbGFzcz0nZmEgZmEtY2FyZXQtcmlnaHQnPjwvaT5MYWIgPiBSZXZpc2FyICgyKTwvYT48L2xpPg0KPGxpIGNsYXNzPSdpdGVtJz48YSBocmVmPSdodHRwczovL3ZpZ2hpLnNvdXRoZXJuYml0cy5jb20vZ2VzdGlvbi9mbHVqb3MvP2lkYT0xMjAnPjxpIGNsYXNzPSdmYSBmYS1jYXJldC1yaWdodCc+PC9pPkxhYiA+IEFyY2hpdmFyICg2ODc5Myk8L2E+PC9saT4NCjxsaSBjbGFzcz0naXRlbSc+PGEgaHJlZj0naHR0cHM6Ly92aWdoaS5zb3V0aGVybmJpdHMuY29tL2dlc3Rpb24vZmx1am9zLz9pZGE9MTA1Jz48aSBjbGFzcz0nZmEgZmEtY2FyZXQtcmlnaHQnPjwvaT5MYWIgRXh0ID4gUHJvY2VzYXIgKDgpPC9hPjwvbGk+DQo8bGkgY2xhc3M9J3RpdHVsbyc+Q0lUT1TDiUNOSUNPUzwvbGk+DQo8bGkgY2xhc3M9J2l0ZW0nPjxhIGhyZWY9J2h0dHBzOi8vdmlnaGkuc291dGhlcm5iaXRzLmNvbS9nZXN0aW9uL2ZsdWpvcy8/aWRhPTkwJz48aSBjbGFzcz0nZmEgZmEtY2FyZXQtcmlnaHQnPjwvaT5DaXRvID4gSW5mb3JtYXIgKDQ4Nyk8L2E+PC9saT4NCjxsaSBjbGFzcz0ndGl0dWxvJz5ERVZPTFVDScOTTjwvbGk+DQo8bGkgY2xhc3M9J2l0ZW0nPjxhIGhyZWY9J2h0dHBzOi8vdmlnaGkuc291dGhlcm5iaXRzLmNvbS9nZXN0aW9uL2ZsdWpvcy8/aWRhPTExMCc+PGkgY2xhc3M9J2ZhIGZhLWNhcmV0LXJpZ2h0Jz48L2k+Q29ucyA+IEVudHJlZ2FyICg5OSk8L2E+PC9saT4NCjwvdWw+DQo8L2xpPg0KPGxpID4NCjxhIGhyZWY9JyMnPjxpIGNsYXNzPSJmYSBmYS1mbGFzayI+PC9pPiA8c3BhbiBjbGFzcz0nbmF2LWxhYmVsJz5MQUJPUkFUT1JJTzwvc3Bhbj48c3BhbiBjbGFzcz0nZmEgYXJyb3cnPjwvc3Bhbj48L2E+DQo8dWwgY2xhc3M9J25hdiBuYXYtc2Vjb25kLWxldmVsIGNvbGxhcHNlJyBzdHlsZT0ncGFkZGluZy10b3A6MHB4Oyc+DQo8bGkgY2xhc3M9J3RpdHVsbyc+UFJPQ0VTQU1JRU5UTzwvbGk+DQo8bGkgY2xhc3M9J2l0ZW0nPjxhIGhyZWY9J2h0dHBzOi8vdmlnaGkuc291dGhlcm5iaXRzLmNvbS9nZXN0aW9uL2ZsdWpvcy8/aWRhPTEwNic+PGkgY2xhc3M9J2ZhIGZhLWNhcmV0LXJpZ2h0Jz48L2k+SUhRID4gUHJvY2VzYXIgKDEzKTwvYT48L2xpPg0KPGxpIGNsYXNzPSdpdGVtJz48YSBocmVmPSdodHRwczovL3ZpZ2hpLnNvdXRoZXJuYml0cy5jb20vZ2VzdGlvbi9mbHVqb3MvP2lkYT01MCc+PGkgY2xhc3M9J2ZhIGZhLWNhcmV0LXJpZ2h0Jz48L2k+SGlzdG8gPiBQcm9jZXNhciAoOCk8L2E+PC9saT4NCjxsaSBjbGFzcz0naXRlbSc+PGEgaHJlZj0naHR0cHM6Ly92aWdoaS5zb3V0aGVybmJpdHMuY29tL2dlc3Rpb24vZmx1am9zLz9pZGE9NTcnPjxpIGNsYXNzPSdmYSBmYS1jYXJldC1yaWdodCc+PC9pPkxpcSA+IENlbnRyaWZ1Z2FyICgxKTwvYT48L2xpPg0KPGxpIGNsYXNzPSd0aXR1bG8nPklOQ0xVU0nDk048L2xpPg0KPGxpIGNsYXNzPSdpdGVtJz48YSBocmVmPSdodHRwczovL3ZpZ2hpLnNvdXRoZXJuYml0cy5jb20vZ2VzdGlvbi9mbHVqb3MvP2lkYT02MCc+PGkgY2xhc3M9J2ZhIGZhLWNhcmV0LXJpZ2h0Jz48L2k+Q2Fzc2V0dGUgPiBJbmNsdWlyICgyMzApPC9hPjwvbGk+DQo8bGkgY2xhc3M9J3RpdHVsbyc+Q09SVEUgUEg8L2xpPg0KPGxpIGNsYXNzPSdpdGVtJz48YSBocmVmPSdodHRwczovL3ZpZ2hpLnNvdXRoZXJuYml0cy5jb20vZ2VzdGlvbi9mbHVqb3MvP2lkYT03MCc+PGkgY2xhc3M9J2ZhIGZhLWNhcmV0LXJpZ2h0Jz48L2k+VGFjbyA+IENvcnRhciAoMjApPC9hPjwvbGk+DQo8bGkgY2xhc3M9J2l0ZW0nPjxhIGhyZWY9J2h0dHBzOi8vdmlnaGkuc291dGhlcm5iaXRzLmNvbS9nZXN0aW9uL2ZsdWpvcy8/aWRhPTcxJz48aSBjbGFzcz0nZmEgZmEtY2FyZXQtcmlnaHQnPjwvaT5UYWNvID4gQ29ydGFyIChudWV2byBjb3J0ZSkgKDIzKTwvYT48L2xpPg0KPGxpIGNsYXNzPSdpdGVtJz48YSBocmVmPSdodHRwczovL3ZpZ2hpLnNvdXRoZXJuYml0cy5jb20vZ2VzdGlvbi9mbHVqb3MvP2lkYT0xMDQnPjxpIGNsYXNzPSdmYSBmYS1jYXJldC1yaWdodCc+PC9pPlRhY28gSUhRID4gQ29ydGFyICgzNyk8L2E+PC9saT4NCjxsaSBjbGFzcz0ndGl0dWxvJz5DT0xPUkVBRE88L2xpPg0KPGxpIGNsYXNzPSdpdGVtJz48YSBocmVmPSdodHRwczovL3ZpZ2hpLnNvdXRoZXJuYml0cy5jb20vZ2VzdGlvbi9mbHVqb3MvP2lkYT04MCc+PGkgY2xhc3M9J2ZhIGZhLWNhcmV0LXJpZ2h0Jz48L2k+UG9ydGEgPiBDb2xvcmVhciAoNzUxKTwvYT48L2xpPg0KPGxpIGNsYXNzPSd0aXR1bG8nPkFSQ0hJVk88L2xpPg0KPGxpIGNsYXNzPSdpdGVtJz48YSBocmVmPSdodHRwczovL3ZpZ2hpLnNvdXRoZXJuYml0cy5jb20vZ2VzdGlvbi9mbHVqb3MvP2lkYT0xMzAnPjxpIGNsYXNzPSdmYSBmYS1jYXJldC1yaWdodCc+PC9pPlBvcnRhID4gQXJjaGl2YXIgKDk4MDM3KTwvYT48L2xpPg0KPGxpIGNsYXNzPSdpdGVtJz48YSBocmVmPSdodHRwczovL3ZpZ2hpLnNvdXRoZXJuYml0cy5jb20vZ2VzdGlvbi9mbHVqb3MvP2lkYT0xMTgnPjxpIGNsYXNzPSdmYSBmYS1jYXJldC1yaWdodCc+PC9pPlRhY28gPiBBcmNoaXZhciAoNTM0OTIpPC9hPjwvbGk+DQo8bGkgY2xhc3M9J3RpdHVsbyc+UkVTRVJWQTwvbGk+DQo8bGkgY2xhc3M9J2l0ZW0nPjxhIGhyZWY9J2h0dHBzOi8vdmlnaGkuc291dGhlcm5iaXRzLmNvbS9nZXN0aW9uL2ZsdWpvcy8/aWRhPTE0MCc+PGkgY2xhc3M9J2ZhIGZhLWNhcmV0LXJpZ2h0Jz48L2k+UmVzZXJ2YSA+IFRpcmFyICg5KTwvYT48L2xpPg0KPC91bD4NCjwvbGk+DQo8bGkgPg0KPGEgaHJlZj0nIyc+PGkgY2xhc3M9ImZhIGZhLXN0ZXRob3Njb3BlIj48L2k+IDxzcGFuIGNsYXNzPSduYXYtbGFiZWwnPkRJQUdOw5NTVElDT1M8L3NwYW4+PHNwYW4gY2xhc3M9J2ZhIGFycm93Jz48L3NwYW4+PC9hPg0KPHVsIGNsYXNzPSduYXYgbmF2LXNlY29uZC1sZXZlbCBjb2xsYXBzZScgc3R5bGU9J3BhZGRpbmctdG9wOjBweDsnPg0KPGxpIGNsYXNzPSd0aXR1bG8nPk1BQ1JPU0NPUMONQTwvbGk+DQo8bGkgY2xhc3M9J2l0ZW0nPjxhIGhyZWY9J2h0dHBzOi8vdmlnaGkuc291dGhlcm5iaXRzLmNvbS9nZXN0aW9uL2ZsdWpvcy8/aWRhPTIwJz48aSBjbGFzcz0nZmEgZmEtY2FyZXQtcmlnaHQnPjwvaT5NYWNybyA+IEluZm9ybWFyICg3NSk8L2E+PC9saT4NCjxsaSBjbGFzcz0naXRlbSc+PGEgaHJlZj0naHR0cHM6Ly92aWdoaS5zb3V0aGVybmJpdHMuY29tL2dlc3Rpb24vZmx1am9zLz9pZGE9MjInPjxpIGNsYXNzPSdmYSBmYS1jYXJldC1yaWdodCc+PC9pPk1hY3JvID4gRGVjYWwgKDUpPC9hPjwvbGk+DQo8bGkgY2xhc3M9J3RpdHVsbyc+TUlDUk9TQ09Qw41BPC9saT4NCjxsaSBjbGFzcz0naXRlbSc+PGEgaHJlZj0naHR0cHM6Ly92aWdoaS5zb3V0aGVybmJpdHMuY29tL2dlc3Rpb24vZmx1am9zLz9pZGE9MTAwJz48aSBjbGFzcz0nZmEgZmEtY2FyZXQtcmlnaHQnPjwvaT5NaWNybyA+IEluZm9ybWFyICg1NzYpPC9hPjwvbGk+DQo8bGkgY2xhc3M9J2l0ZW0nPjxhIGhyZWY9J2h0dHBzOi8vdmlnaGkuc291dGhlcm5iaXRzLmNvbS9nZXN0aW9uL2ZsdWpvcy8/aWRhPTEwOCc+PGkgY2xhc3M9J2ZhIGZhLWNhcmV0LXJpZ2h0Jz48L2k+TWljcm8gPiBJbnRlcnByZXRhciAoMTkpPC9hPjwvbGk+DQo8bGkgY2xhc3M9J2l0ZW0nPjxhIGhyZWY9J2h0dHBzOi8vdmlnaGkuc291dGhlcm5iaXRzLmNvbS9nZXN0aW9uL2ZsdWpvcy8/aWRhPTEwMyc+PGkgY2xhc3M9J2ZhIGZhLWNhcmV0LXJpZ2h0Jz48L2k+TWljcm8gPiBSZXZpc2FyICgyMSk8L2E+PC9saT4NCjwvdWw+DQo8L2xpPg0KZAIND2QWAgIBD2QWFAIBDxYCHwRnZAILDw8WAh8EaGQWAmYPZBYCZg9kFg4CAQ8QZGQWAGQCAw8QZGQWAGQCBQ8QZGQWAGQCBw8QZGQWAGQCCQ8QZGQWAGQCCw8QZGQWAGQCDQ8QZGQWAGQCDA8PFgIfBGdkFgJmD2QWAmYPZBYIAgEPEGQPFgVmAgECAgIDAgQWBRAFEVsgRmx1am9zOiB0b2RvcyBdBQEwZxAFAkJQBQIxMGcQBQNQQVAFAjIwZxAFAkNUBQMxMDBnEAUESU1IUQUCNjBnFgFmZAIDDxAPFgYeDURhdGFUZXh0RmllbGQFCWNvYmVydHVyYR4ORGF0YVZhbHVlRmllbGQFAmlkHgtfIURhdGFCb3VuZGdkEBVOBEFNQ0kHQU1FQlBCQQVBUFNPVApBUkdFTkVUSUNTEEJSSVNUT0wgTUVESUNJTkUFQ0VHWVIFQ0VNSUMZQ0VOVFJPIERFIFVST0xPR8ONQSAoQ0RVKRlDRU5UUk8gT05DT0zDk0dJQ08gS09SQkVOBUNFUEVNHUNMw41OSUNBIExBIFBFUVVFw5FBIEZBTUlMSUEgDUNMSU5JQ0EgUkHDkUEMQ00gTU9OU0VSUkFUFkNNIE1PTlNFUlJBVCAtIFFVSUxNRVMLQ00gT1RBTUVOREkLQ00gUFJJVkFET1MNQ00gUFVFWVJSRURPTgpDTSBWSUxFTExBA0NNRwlDT0JFUiBNRUQDQ1BJDkNVRVJQTyBNw4lESUNPB0NZVE9NRUQGRE9TVUJBDURSQS4gQlVSTEFORE8LRFJBLiBHVUJCQVkIRFJBLiBSRVkLRkVERUNBTUFSQVMGR0FMRU5PBUdFTkVBBUdJTkVDB0hBTElUVVMRSE9TUElUQUwgQVJBTUJVUlUNSUFGIC0gRkxFTUlORwRJRElNBElGRVIFSU9UVEkESVFEQwhMQUIuIFZWQQZMVUNDQVUMTFVJUyBQQVNURVVSCU1BVEVSIERFSSBNQVVUQUxFTiwgU0FMVUQgRSBJTlZFU1RJR0FDScOTTgVNRURJQwpNRURJQ0FMwrRTB01FRElDVVMITVAgU0FMVUQOTVVKRVIgRVNUVURJT1MDTi9EBU9NSU5UBk9TQ09NTQRPU0RFBk9TRElQUAZPU0VUWUEIT1NNRURJQ0EFT1NQSUMGT1NQT0NFBU9TU0VHBU9TVEVQClBBUlRJQ1VMQVIOUE9ERVIgSlVESUNJQUwLUFJPVklERU5DSUEQU0FOIEpVQU4gREUgRElPUxpTQU5BVE9SSU8gVFJJTklEQUQgUEFMRVJNTwxTQU5DT1IgU0FMVUQKU0VSVkVTQUxVRANTTUcEU01HKgxTVEFGRiBNRURJQ08EVEVTVAdUT05JT0xPEFRSSU5JREFEIFFVSUxNRVMVVFJJTklEQUQgUkFNT1MgTUVKw41BD1VOScOTTiBQRVJTT05BTAdWSVNJVEFSB1cuIEhPUEUEV0lSSRRbIENvYmVydHVyYTogdG9kYXMgXRVOAjM1ATcCMTgCNTQCNzQCMzACNTUCNTMCNDgCMjACMzcCODECNDcCODACMzgCMjMCMTUCMzECNzUCNzcCMjUCMzYCNjcCMTMCMzICMzQCMzMCNTIBMwI0NAIyOAI3MQI2OQI2NQI3MwIyOQI1NgI3MgI4MgI2OAE2AjU3AjI3AjY0Ajc4AjQzAjYwAjQ5AjIyATQCNzYBMQIxNAI0MgI1OAIxOQIxNgI2MgI3OQIxMQE1AjI2AjgzAjUxAjEyATkBMgIxMAE4AjUwAjYzAjQ1AjQ2AjY2AjcwAjE3AjM5ATAUKwNOZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnFgECTWQCBQ8QDxYGHwsFCnNlZGVfYWJyZXYfDAUHaWRfc2VkZR8NZ2QQFQgCQ1QERU5ETwdOTyBPTkNPBE9OQ08EUEFQUwZQQVBVUkcFVEFDT1MPWyBMb3RlOiB0b2RvcyBdFQgCMTEBNAEyATYBMQE4AjEwATAUKwMIZ2dnZ2dnZ2cWAQIHZAIHDxAPFgYfCwUJdWJpY2FjaW9uHwwFDGlkX3ViaWNhY2lvbh8NZ2QQFc4CDjMzT1JJRU5UQUxFUzM3CkFDT1lURTEyMDAFQUdPVEUKQUdVRVJPMjMzMwtBTE1BRlRFMzM1MQxBTFNJTkExNTVfMUMLQUxUT0xBRzIxODYJQUxWRUFSMzMxDUFMVlRIT01BUzMxMDYHQU1FQlBCQQpBTUVOQUJBUjgwCUFOQ0hPUkVOQQtBTkRPTkFFMTA5MQlBUkFPWjIyNDELQVJBT1oyODcwOEIFQVJDT1MJQVJDT1MyMjg5CUFSQ09TMjQwMAxBUkVOQUxFUzExMzEMQVJFTkFMRVMxMjQyDEFSRU5BTEVTMTQ0NgxBUkVOQUxFUzE5NDIMQVJFTkFMRVMxOTU0DEFSRU5BTEVTMjM5MQ5BUkVOQUxFUzI2NDQzTQxBUkVOQUxFUzI4OTMMQVJFTkFMRVMzMDY5DEFSRU5BTEVTMzE5NQxBUkVOQUxFUzM0MTELQVJFTkFMRVM5NjMLQVJFVkFMTzE0MDkNQVJSSUJFTk9TMjE1NQpBUlRJR0FTNjEzCkFWQUxPUzE5MjANQVZDVEVTMzk3OF8xQw1BVkNURVMzOTc4XzFEC0FZQUNVQ0hPMTY3DEFZQUNVQ0hPMTgwNw1BWkNVRU5BR0ExMDc3DUFaQ1VFTkFHQTEyMjINQVpDVUVOQUdBMTI4MAtCQVVORVNTMjMxNwpCQVpURVJSSUNBCkJDT0VOQzIzODcMQkVMR1JBTk8zNjUwD0JFTkNBTEFEQTQ4OTI1QQpCRVJVVEkzMjQwEEJJTExJTkdIVVJTVDI0NjcKQlVMTkVTMTE0MgpCVUxORVMxOTQwCkJVTE5FUzE5NjAKQlVMTkVTMjU0OAxDQUFHVUFaVTYwOTMLQ0FCRUxMTzM0NjILQ0FCRUxMTzM5NTcLQ0FCSUxETzExMzMLQ0FCSUxETzExODMLQ0FCSUxETzEyMzkLQ0FCSUxETzIzMjcLQ0FCSUxETzI3MjALQ0FCSUxETzM5NDkKQ0FCSUxETzU5NwpDQUJJTERPNzE0C0NBQlJFUkEzMjI1CkNBTExBTzExMzQKQ0FMTEFPMTU2NAlDQUxMQU8xOTQKQ0FMTEFPMTk3NQpDQUxMQU8xOTk0DENBTExBTzg3NV8yQwxDQUxMQU84NzVfNEgLQ0FSQUNBUzM1NTkDQ0FVDENDQVNBUkVTMTAxNw5DREVSTUFQUklWQURPUwhDRExQMTIzNAhDRExQMzc3OQNDRFUFQ0VHWVIFQ0VQRU0DQ0VSC0NFUlJJVE8xNTMwC0NFUlZJTk80NzIwDENFU1BFREVTMjQxMAtDSEFSQ0FTMjUzOQxDTEFEVkVOVElTVEEKQ0xJTkRFTFNPTAlDTElOUkHDkUELQ0xJTlJJUEVUVEENQ0xJTlNUQUlTQUJFTApDTElOWkFCQUxBDUNNQUxWSU5BUzM5MjIKQ01CRUxHUkFOTwpDTUNPTkdSRVNPA0NNRw1DTUxPTUFTWkFNT1JBCUNNTUFSVE5FWgtDTU1PTlNFUlJBVBVDTU1PTlNFUlJBVCAtIFFVSUxNRVMKQ01QUklWQURPUwxDTVJBTU9TTUVKSUEJQ01WSUxFTExBDENORUxESUFaMTc5NAxDTkVMRElBWjE5MzEMQ05FTERJQVoyMDE3DENORUxESUFaMjA4OQxDTkVMRElBWjIxNTUMQ09OR1JFU08yMTc0CkNPTlNCVVFVRVQHQ09OU0VYVA1DT1BFUk5JQ08yMzkwC0NPUkRPQkEyNTQ3D0NPU1RBIFJJQ0EgNTEwOA9DUEVMTEVHUklOSTExMjUDQ1BJCENUUk9MQU5TC0NUUk9NRURJQ1VTCkNVRU5DQTUwNzIKREVMR0FETzU4OAtERU1BUklBNDY3MA5FQ0hFVkVSUklBMjE4Mg5FQ0hFVkVSUklBNDIzMAtFQ1VBRE9SMTQxNghFRVVVMjMyOQpGRUNVTkRJVEFTC0ZJTk9DSElFVFRPCkZPUkVTVDExNjYLRlJBTkNJQTI0MzMKRlJFSVJFMjI3NApGUkVOQ0gyMjA4CUdBTExPMTUyNwtHREVMUklPMjgwMgVHRU5FQQVHSU5FQwdHSU5FWkVODkdPUk9TVEkyMzU1XzEwDkdPUk9TVEkyMzU1XzEyC0dPUlJJVEk2MDE1C0dSQUxQQVo4MzEwC0dSQUxST0NBOTUxEUdSQUxTQVJNSUVOVE8xMzM5EUdSQUxTQVJNSUVOVE8xODcwD0dSQUxVUlFVSVpBMTA2MgpHVklFSkE0MjQ2B0hBTElUVVMMSE9TUEFSQU1CVVJVDEhVTUJPTERUMjI2MwRJQURUBElESU0ESUZFUglJT1JMQVJBVVoESVFEQwNJVkkMSkFMVkFSRVoyNDMwCEpVRlJFMjI3CkpVTkNBTDI0MzcKSlVOQ0FMMjk1MQpKVU5DQUwzMDg4CkpVTkNBTDM0OTAJSlVOQ0FMODQwC0pVTklOMTA1NF8xDEpVTklOMTA1NF9QQgtKVU5JTjE0ODBfMQdKVU5OOTMzDUpVUkFNRU5UTzIwODkGS09SQkVOD0xhYm9yYXRvcmlvIFZWQQtMQUNST1pFMjU2MwtMQUZJTlVSMzM3NQtMQVBBTVBBMTk1OQtMQVBBTVBBMjIxOQ9MQVBJQ0FOSUxMQTQxNDgKTEFQTEFUQTUzNgtMQVBSSURBMTk2MwxMQVJSRUExMDM1XzEMTEFSUkVBMTAzNV8yCkxBUlJFQTExNjIKTEFSUkVBMTIxMQpMQVJSRUExMjU3CUxBUlJFQTg2NAxMQVNIRVJBUzE2MjEMTEFTSEVSQVMyMDQ4C0xBVkFMTEUxNDQxDExJQkVSVEFEMTA0MQ5MSUJFUlRBRE9SNjcxMAtMT0xBTU9SQTQyMQZMVUNDQVUJTUFJUFUyNDQzC01BTEFCSUEyNDI5DU1BUkNPU1BBWjM4MzYJTUFVUkUxNzMwCE1BVVRBTEVOC01FRFJBTk8xMDIwCk1FTElBTjI2ODQOTUlHVUVMRVRFUzEyMDMKTU9OUk9FMjYyNgpNT05ST0U1MTYzDE1UQUxWRUFSMTU1MAxNVEFMVkVBUjIyNTkMTVRBTFZFQVIyMzIwC01UQUxWRUFSODc4C01UQUxWRUFSOTQ5CU5BWkNBMzIxNQpORVVRVUVONTU0Dk5JQ0VUT1ZFR0E0NjQ3DU5VRVZBWU9SSzIzMzkMT0hJR0dJTlMxODQxDk9ISUdHSU5TMjA2Ml81Dk9ISUdHSU5TMjA2Ml85DE9MQVpBQkFMNTM5MgdPUk8yNDk0Bk9TQ09NTQZPU0VUWUEIT1NNRURJQ0EIT1RBTUVOREkJUEFMUEEyNTcwDFBBUkFHVUFZMTMyNwxQQVJBR1VBWTE2MTUMUEFSQUdVQVkyMDczD1BBUkFHVUFZMjMwMl8xMQ9QQVJBR1VBWTIzMDJfMTQMUEFSQUdVQVkyMzQyDFBBUkFHVUFZMjQ0MA5QQVJBR1VBWTI0NjhfMg5QQVJBR1VBWTI0NjhfNwxQQVJBR1VBWTI1MjMMUEFSQUdVQVkyNTcxDFBBUkFHVUFZMzg0MgpQQVJBTkExMDg3ClBBUkFOQTEyMjEJUEFSQU5BOTgwC1BERU1FTE8zMDI2DFBERU1PUkFOMzM5MwpQRE1FTE8yNTgzCFBFTkEzMTU4CVBFUVVFRkxJQQtQT1NBREFTMTM1OQZQUkVGRVIGUFJFR05BC1BST1ZJREVOQ0lBDlBVRVlSUkVET04xMzQxDlBVRVlSUkVET04xMzY0DlBVRVlSUkVET04xNDQzDlBVRVlSUkVET04xNTA0DlBVRVlSUkVET04xNjU1DlBVRVlSUkVET04xNzg5DVBVRVlSUkVET04yMzYOUFVFWVJSRURPTjI0MjgOUFVFWVJSRURPTjI0NDYKUVVJTlRBTkE4OQlRVUlUTzQzMzALUkFNQUxMTzI2MDYJUkVDRVBDSU9OC1JGQUxDT041NTMwDlJHVVRJRVJSRVozOTAzDlJJVkFEQVZJQTE1ODIyDVJJVkFEQVZJQTIwNTcNUklWQURBVklBNDM3MA1SSVZBREFWSUE0NzA0DVJJVkFEQVZJQTQ5OTANUklWQURBVklBNTAxMg1SSVZBREFWSUE1MTI1DVJJVkFEQVZJQTUxNzAQUklWQURBVklBNTQ2Nl81QhBSSVZBREFWSUE1NDY2XzZEDVJJVkFEQVZJQTU3NDgNUklWQURBVklBNzM1NgpSSVZFUkEyNDYzDVJPT1NFVkVMVDIxNzcKUk9TQVJJTzEzMApST1NBUklPMTg4CFJQRU5BOTEyDFNBQVZFRFJBMjA5OA1TQVJNSUVOVE8yMDM3DFNFR1VST0xBMjEyNwtTSU1CUk9OMzMyMwlTT0xFUjUwNTcMU09SVElaMjM1Nl8zDFNPUlRJWjIzNTZfNgpTT1JUSVoyNDMzClNPUlRJWjMyMDkLU1RBRkUxMTI3XzYLU1RBRkUxMTI3XzgJU1RBRkUxNTkyCVNUQUZFMTc4MAlTVEFGRTE4ODYJU1RBRkUxOTU1CVNUQUZFMTk3MAlTVEFGRTIwODgJU1RBRkUyMjk0CVNUQUZFMjQ4MwlTVEFGRTI1MzQJU1RBRkUyODQ3CVNUQUZFMjkyNglTVEFGRTMyNTIMU1RBRkUzMzczXzJCDFNUQUZFMzM3M18yRQlTVEFGRTMzODkNU1RBRkUzNTUzXzFfNQxTVEFGRTM1NTNfUEIJU1VDUkUxNTMwBVNVSVpPDVRJTk9HQVNUQTMxNTkNVElOT0dBU1RBMzI3NQ1UTEVCUkVUT041MDA4A1RNQwpUUklOSU1JVFJFDFRSSU5JUEFMRVJNTwxUUklOSVFVSUxNRVMKVFJJTklSQU1PUw5UUklOSVNBTklTSURSTwpUUklVTlYzNzA1D1RSSVVOVklSQVRPMzYxMg9UUklVTlZJUkFUTzM3MDUPVFJJVU5WSVJBVE81MTk3C1RVQ1VNQU4zNjU4B1VCSVRFU1QOVVJJQlVSVTEwMjlfUEIOVVJJQlVSVTEwNTRfNkMNVVJJQlVSVTEyMzlfMQtVUklCVVJVMTMxMgtVUklCVVJVMTU1NQxVUklCVVJVNzI0XzkLVVJVR1VBWTEyODAMVVNQQUxMQVRBOTgwDlZBUlJFRE9ORE8yNDc0DFZERUxQSU5PMjQyOA9WSVJSRVlWRVJUSVoxMTEPVlRBT0JMSUdBRE8xNzk3D1ZUQU9CTElHQURPMTkwNg9WVEFPQkxJR0FETzI2MTYPVlRBT0JMSUdBRE8zNzI5DFdFUk5JQ0tFMjg2NxZbIFByb2NlZGVuY2lhOiB0b2RhcyBdFc4CBDEwMjkDNDc4AzgzOQEzAzk0MAQxMDQ5Azk1MgE0AzkwOAI2MQM5MjEDODgzAzk5NAM1NDgDOTg5Azg0MgM2NzQDNDAxATkDNTM1AzI3NQMxMTUDOTM0AjEyAzg2OAM5NDICMTMEMTAxNwM4NjQDOTE2AjE0AzkwMAQxMDIyBDEwMDIDODc4Azg2NQI1MAMxOTcDOTIwAzkwNQM0ODYDNzIyAzkxMQM4NzADODU4BDEwNTAEMTA1NQI1MgM4OTcDOTY5BDEwMzYEMTAzMgM5NDUCNTMCNTQCMTUCMTYDODk1Azg2MQM4NTQCMTcDNTc4Azk1MwM4OTQDMjI3Azg5MgQxMDEyAjIwAjIxAjIyAzkzMwM5NDYDOTMwAzk3OQM5MjYDOTg4BDEwMDADOTkwAzQwNgM4NTYDMzE2AzU5NAMxMjcCNjADOTg1BDEwNDIDOTI0BDEwNjADOTAzBDEwMzgDODQ1BDEwMTgDMjQyAzg5MwQxMDQ2Azg4NAM4OTYDOTc4BDEwNTQDODk5Azg4NgMyMzQCMjMCMjQEMTA1OQIyNQIyNgM0MDADODg5BDEwNTICNjYDODczBDEwNjECNTUDOTE0BDEwMjQDOTU0BDEwMjEDODQ4AjY3Azk5MQM4ODIDOTQ0Azk5MgM0MjUDOTIzAjI4Azk2MQM4NDkDMzc0Azk1OQM4ODADOTU2Azg3NgQxMDI4Azk3NwM5OTkEMTAzMwM4NzQDOTA3Azk2NAQxMDE2Azk0NwM4NTIEMTAzNAQxMDI2AjU5AzE5MQQxMDQ0AzQ4MQM5MTMDOTEyAzI3MQQxMDEwAzkxNwI3NgM5MzUDODcyAzExMQI3NwI3OAM5MzICNzkCODAEMTAyNwM5NzYEMTA2MgM5NDkCODIDNzMwBDEwNDUDOTcyAzk2MwI4MwM3NjQDODc3Azc3NQMyMTMDNDU3Ajg5AjI5AzQ3MAQxMDI1Azk5OAM4NzUDOTE1BDEwMjADODc5AzkzNgMzMDMDODkwAzkyNwM5MTAEMTA2MwI5NAM5NTEDODI5Azc3NgM4NjICOTIDOTE4AjkzBDEwMTEEMTAxNAQxMDA5Azk2OAM1NTgDODYwBDEwMDgDODY3Ajk3BDEwNDEDOTQ4Azk5MwM4NDEDNTM0AzEwMgMxMDMEMTAwMQM5OTUDOTUwAzkyMgMxMDQEMTAwNwQxMDM5AzE4NQM4OTgDOTE5AzEwNQM4NjkDODUzAzEwMAMxMDcDNDc0Azk0MwM5MjgEMTAzNwMyOTgDNDE0Azg0NgM5NzUDODQ3AzExMgM5NDEDMjA5AjMxAzk4MgMxMTQDOTU4AjMyAzkwMgM5MjkDNzk5Azk5NwM5ODQDOTY3AjMzAzg4MQIzNAMzNTMCMzUCMzYDODY2Azk1NQM1MDkDNjA5Azg3MQMxMDgEMTAzNQM5ODEDNjMzAzk2MAM5MzEDOTgwAzkwNAQxMDQ4Azk4NgI0NwQxMDQwAjQ4Azk3MwM4NTACMzcEMTAwNQMzMzQEMTA0MwIzOQM5MzkEMTAzMQI0MAM2MjUCNDIDMjQzAzg1NwM0MzACNDYDODQwAzg1NQM5MzcDOTA5BDEwMDYDODQ0AzEzMAM4NTEEMTAyMwM0ODADOTYyAzg0MwM5NzQDNzQ0Azk5NgQxMDEzAzg1OQQxMDE1Azk4NwQxMDMwAzkwMQMzNzUEMTA1NgMyMTUDMTM1AzEzNgQxMDQ3AzgzNAM5MjUDODAwAzg2MwQxMDUxAzM4MAM4ODgDMTM4AzEzOQM5NjUBMBQrA84CZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZ2dnZxYBAs0CZAINDw8WAh8EaGQWAmYPZBYCZg9kFgJmD2QWCAIBDxBkZBYAZAIDDxBkZBYAZAIFDxBkZBYAZAIHDxBkZBYAZAIODw8WAh8EaGQWAmYPZBYCZg9kFg4CAQ8QZGQWAGQCAw8QZGQWAGQCBQ8QZGQWAGQCBw8QZGQWAGQCCQ8QZGQWAGQCCw8QZGQWAGQCDQ8QZGQWAGQCDw8PFgIfBGhkFgJmD2QWAmYPZBYOAgEPEGRkFgBkAgMPEGRkFgBkAgUPEGRkFgBkAgcPEGRkFgBkAgkPEGRkFgBkAgsPEGRkFgBkAg8PEGRkFgBkAhAPDxYCHwRoZBYCZg9kFgJmD2QWEAIBDxBkZBYAZAIDDxBkZBYAZAIFDxBkZBYAZAIHDxBkZBYAZAIJDxBkZBYAZAILDxBkZBYAZAINDxBkZBYAZAIPDxBkZBYAZAIRDw8WAh8EaGQWAmYPZBYCZg9kFhICAQ8QZGQWAGQCAw8QZGQWAGQCBQ8QZGQWAGQCEQ8QZGQWAGQCEw8QZGQWAGQCFQ8QZGQWAGQCFw8QZGQWAGQCGQ8QZGQWAGQCGw8QZGQWAGQCEg8PFgIfBGhkFgICAQ8QZGQWAGQCEw8PFgIfBGhkFgJmD2QWBAIBDxBkZBYAZAIDDxBkZBYAZAIPDw8WAh8FBRE0LzUvMjAyNiAwOTo1MTo0OGRkZFwCFo+aGv05op4coCvJzLAVC0a2">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./Susana Vighi - Sistema de Gestión Integral_files/WebResource.axd" type="text/javascript"></script>
+
+
+<script src="./Susana Vighi - Sistema de Gestión Integral_files/ScriptResource.axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('Error al cargar el marco de trabajo de cliente ASP.NET Ajax.');
+//]]>
+</script>
+
+<script src="./Susana Vighi - Sistema de Gestión Integral_files/ScriptResource(1).axd" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CF6F6AF4">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdALsDVTmUazdzuBu9fc1mIA5DrikWE8A2oiYlQmTNlmVn+w/fLrOsx+zpPIUsTjs7sRN7CBpS6vBz8Esi07L423OC+Qc260y0UmezHMs/HgOLZQ7brOjRqSZQy00n9LO2fN4BFwfpUTa+9HYd1yvMYwckEZGPEMNI3Dx9aiEggRH8s7LQHeJAk08lGMasmA6aShHFlWX9mUH3BF82/DcHVZpPu6gFkOA3hnyZlWIEL7lSpDPvRrq1w2aK6az7PnXjLFIcxdNxm7lKRV9KGJwBA7I+Th1gIlgygGqF+6bYdkAtgKv5zOPWJQcf6JrgviMQ/R9hyX9xQmEt7wNUmvkqKu7URS8PxYnDs1A2j7ZHr3/5zLhXd0E81LeMefYu8t41frDsL+S7eUDA1hEcwfnQB/Lg1TFnNGZYcZ8d2TEWUvbkFChyp4AFB3VmCjxcJEvKseTGSuRN5Lkla2Aao3Tmhnb4RX3iPIKNIHP4Am8Cg7Ih4xp/MJE3jBm3obH6+d11qMMKIRlbG5QRmQkVFDsm/KAWrcJgA668n+AiP5m8FXHF8Z4speIrgaR6fJSmqGUt/x2b5Yh1H/xd6OwGApwXJv4tjDqZx261DxLOW8BkMyhxxvjcM6xO6eWf/iVEWBVfyZpNbjr7L5H2nQn2eLHb6pz8FzTAVLGPj7ar1Um1FhybVPllAgSZfTCraVjiQxydEW1xLerUAUjr5xp8CK8vs/lgTsX4xcyFCshCRKFVXCROZMQbikfCRUyV3phFEcRkXveBsC3EYuQZhYDhDaZaH9bIujkrqrqJYhGxrGzxVBdaDC5UUvzbWAhBfpKgvJ5S7BHGpPKJD+7beeoXohGeUlTdDdvrKFg48vBsNTBb3+m4JyOk7CJxXsmvyehfOZp3G3UBl6ue6LFLAvFtda1ri03Y6AnBH/xgaQGvbTVMrinNP1S8R5Plh2Dtu6Cwl+ZOR7/qzUUwsINi9MZGsem8ZUsiQ/GhmfJc6qMWmZrV192nw53beDWOBIKEeGeTMpd8a4wT02jeTvjYJyATKDyosP2d45+WUw2rSBoyFToCXyOtHF7BPWzvxnytXh271t2XAP5DiDgpoIJtAR2CTcZeZWfYxaMmEgrO165fn4Iy63XVpaLzFv09DWmssighODj4ojXJzXmgIWSY4VhcCKVTHRiUGhgeJ4OayhM9KQ9n/hmSVpeMmmDdxiNwJo41yiqS94Hjx+cc+DG4CeSZuT5oSBs+ascSYKx730i4eOj8UKB85Qa97Te3pszgbhW8rtpci1LrHZT6g9Dk0kYvZ6LzSRnS9rwhAJU47PGx0TUh1s0cLR/tQ76MQOCy2Dnbmcc/50LlQ016KfgkO9lXE4NNYPnP9ooFE7hehIai5vIjPboucxg64BSi/vuoqlYIrqk9HPgQKBloElGmu908n4D2aDIfGrV2qhBEBxEhXZSadlvrpNeG9S54F5mKynQxO2MhTKnNKVGspEb8/HbRn/T7zV22ACx9numWCXszw6tSmsz0KM1o+Z8VBBYyax8q5TTbsM5bAG7lOsWWV5Cc0StEoD9cLvZ1V4sWYWOa+YwYhodiH2S/i5XxtK8okwS1k/k5nqUgKVoZKrMFYgpC3KhjEFrSchTPB0Dl+CVB/ueHG4mfA43nHY2TWhjeywictatxuGN1Si/yjNSK+Ty6EfVjYhTsxXyRTCtIAZSc4A02c3oA12OT4S9wJ5Y1zgJzejmqxjjuZ0t1n2RGQqMho1oxLCTfwoqtYtaFr2ayTrYViWf5wRw5TVP9Zg7BT/LykCZhpNDDcWthragP3wpp/z6oBgUE6mGOTyGp7WAgXE8d2BFgi6sutAp5HEeeRAszB3SjNCyeTh9hNWcaG4koLrTvUGmLYMlPgxcUgvCKCfk/cYprhZvgRoS/zhaxeWWwMmnzr67ggqcim/c+QkcSk16FSXj/A84I3oXz9ho/1zyGjMYAKQ4b/2Fhkqk4e8iXJJX2AH4aNY15NXrORaG0bvqHJYL+lGSYW8m1TTFO+wwtoSNVUE047TwFa35m2AcuxRUmrwR3iirntsEhrACH4DW3TjatktxAw4w3/shpi7/Sm+0vFhdH44k2XVEgzdMPQBS6LnrzPvqGR3AXnaleVMf3PWu5HZfJqT4N03Rp4O4G+IROvF6C/6jTEx5jMd0BSAurQOrIs07ckh3gF65LIEX35eypiZzfSUBLRtfbR6t2pcP35KlUnEwt99Qf0h9VHrjiVH/Ra6BXZhc2IYsRPK4E/x4HP9c7ZZ/ONuRwr5BxzCSAF7OlISHsgEda///paAJo6T6j4idFfxnZWUriMBQX/wJyFTIzYc5euWVTltM6+/EKV1sDgwJpAbElb9gz5+Kv5uJas7MXZN6TdtWPtUarVyzDnYqt93fHUmuFHWSHf/1HFGDplQLxKng6r+Hn47Vttg7pi0ydhiTZOufC8CFL3L6uS44WTlNNEcd+Z+5RaHGAUOsQDYjf59hpVugyR1o9RdaX17VpElA/YXp7AqydNZLVXxmFH70+bfQHZf69mdEl0RH0vRzRvOXYGEo5l9rYgykaEszr0+AGeljUhyGOxbHa2GdNGQ66FYytN/kchdV6S6VS+yMdP8qiIhJq7ACoIbncm1lDjjdF+oxOeTf6IaVMKZakKm6tsolIAQOjCSeEHLrw2KSGCXdkjAkG+dl4YdKsZabgK7pbO2KUTPqvqy5PNoDpxC7G3AcDntmWLuQgxuGs7so9JVah9ih59aaV9WXmZlv+eb0p/JIiKFI39PX/5DByNjRaTducU6nsJ23KvlA3U1F4XDqjfR1dNXhECIgBz6BUUtgA6sB6gkpgv7Aq01d75UIjeLzFBzgozPQWniFsAQefQpKmNqIVeN/HSM2I1GoeaPyaeQJdIOzbTZJ79BjNktGcVdM6kw/I6eQ37P8zSjqon2/CqIryg7olZ6eQkxdZRGzTODKf4IIzYVvIISVJNhGcTQ85B6z14UzDDHBNr6rhn4h5/h/4QpM26EBF+Le9XAmlkKnPW7LvZIhoGKwlIbSidFndvv4WkWIy7lhoUN5qW5G5jx0OUEEOdukCUHf/rs6tnikwyFPgK3QP8VtPI/l7x04OBIO8PCvrhxWD7HlIXnMLrBLJ5Hmwqv3r0LpdyVsOto9mO+JTD89rSuQI/zmXSLU3z2/YeaLzlG4bWpHRiGA+js6ZtF3n7b9lkfiTaklAJ+fM/jQsVVYxagBq6vpa05Zh7fRt0Y9kvPSW5Fd3opyyW6s524ZO/MnS7KEqNX9s4aFN/YM9JQKBcFj2zMNBhQ9Vyl/zOv7CSjK3WNeULxKPxoBB/tAFIewE3s4vhJiuilfQ19yElCjrhJREiti79rEGDTjl+vnpfnCi1mB4mY8X0OCfPsG88n7B8hxhKDvpzX7aZW/sprMALi1/o8w4ZzYxzkQkcYrAeypzyeOM/+mho3X4oNwdpgH93z4XvgBvx6bySh0Q7KmlsizTSHJhxIlPF4iJGIrAz0xR0kL4WRVzjTmeviD9GG3MBPocSGJXhEBTuQAUrjahmmcOv/+f4ptyvMHcCf3pDCoPg7avGUeY1V9WTX3wR+ALVD9sznMCevQ7TbZsC2Y/GQd1FUrMCACewLNNRB7QtdrsXWiO6ehylpQ25bSe/noT1UHVE99iWeeI11qDh0JljG7n4JbE8TtEgHPSiLUBdxE9gMiZAVewn0YNN3NHuzrv8Xdwl96QYDrxyAQruT+cynEeQJ2NBgHZJ0Wi5NSuhLYJZZP4d3H4SkjMaOsTtNZYIlNH1L3L8/P535hAGGRzRMiXuHDQwQDvAXZMr8IyXed9gdIMBTK2SaSpXeVwUG3T2Iiielm5vuWVAJO6Yt8zCtojYGpMUxwqC2yGfAGwpvepBOEEzNw35qgL2UzCSGmF0TMUGm73mu2NWvnct1PcSupn4bcY0V9jUTbL2ILeQ2KHZNbmrd7oJqzguG5dK3qtHMM2E4IxWE4e4ieOnSjmK30ui1RWr3GX3B/E5OUfAd7xalIqIP0jShwwzLZTdvQxTju9vQL3ktZ9wJ1zWKuz1Ne3eMrE/PHlraSVZ+79u/Ip6UlkeOXWwkRJ3jPpDgNHUYowQXA8DJzAVjvj3e2ZUMOOdRyR++6jsOBgInzRdKM8BsGn9F7387ZNcP2djZBQZijAf36iAXcwUsUh/9jvtVTa5HE7VCYDIUJoGPQGJ5yehpEHR7yUVG1ifuCI/TeUAzAyBYQAUjxZOUPYkqjGI/Mb/3ySHeQkmf7lzy/SNG0IugoUtze1TV7MiZinkLHvQCrUrCif/+l9SUZPN92Z6zEJGRSq3IYTZ6136HYCpA3t/Mox7P4iRpePuNr/ecyIaRTDNDUSC7mlRYFZ+98kKH9Px3UeDW7LQ+LID78BOEjKKR+gurqMh6AO7WKIfj9gk5hDmKQ4pISGUby0MqGeXEHkcchYpThNjaZbQ7ph2KqxNT/nXV/9/Px3tQf7CzldFacPjqEJIhvl9Ohu6/MTB0gccehmgzetFCsjZgKLJarSqLS/VbaMXnEjAvBNIvcuIo6klPRjMVEEWZ63SzNggDhdCdj/ene7TCNlS+j+RCmkpqgYIWecGJlF+5DHi0Klu9uuHF8qUIkmMuflxT95+ZmMknqmxbEma8C3ryWeFd+akpj7pKeUKZIldOM2bTtJgbc6XLD4jjBAh0ZGA6JcUj148aFz4srFQ0EHtxEQJd+5hP4lc2jS9jjOzgx6ercknQl9NqvPR0XdHXQgfEZFp3GVjCBrJC3JbrQ5HbmJoHOmZQfpBQSxjSIxw050QvdEZrFh4KHtDrcJhLgfvYDZ1WL5ehXfBy7Kg0DZMZdeoXdZ7QV84l0UyL6wZn7oNWR3zMTSVtMUHSiKlahPIrs93ZaX8hS9ZpeOwCpLd5Hsdpxc4ZQG0TM9rmEmz9sYV7OpkvEZfAnJspHQ8ZEerNK5TL3oCK3cSafKVHoBYb3Psdd6+2p+KhbYkSRQqblFQzr57tbp+vHpj1i0zgi4Ib4Dxve7NyUtrzYRROZk5nJlcbjH7NQui+Rr9SDWqjq92j2KccsIIk7oPGBjCyWc5eR4r6s3H96g2gWG0qbjQsN4rjwGNkOTXW0ztppoXQrBr3S6if1tBM2lv0vEtW1HuoneYKZg6wxxpb5S/yCT2hldfYilPyS+VydUABHLMYr4SXH/rwedWLsza2FrVCVp+lQ0f1tapLjRJJz/EZ8ZdXnM33YMIwuMyahqaVIJjzgFbPEPFQQgPJkU9626WmP2KzuMn4G7zI9AMzZINW1Kr+8sF4VCJPF2lqbQvmnL6A+4qNISdNN4z+tVXxXwXNa65Cz8RG0m2iCQDZ39JMQKnl++dJ53eu4Nc6Kfce84N6oQh+W+D6ljhjuAzj5bRl35hoQ9LEiAp728teeB1NgUbk5IQD9wNz/2X39wevWZi7JQdC+PUyD9t5cN8fkiIjjlHBjT71wzarJd+bzjAU6Ua0FtuK8W4ZERxvlF5Q7j3SB3iDxrNdsxTz8nDx5AJYWrgwsUwT8DStaWt3zYNMn8FqQg//D4XpGkfDtmpsonfvcsvDIIynFH7+IynktJS32eqOZD76Umd1Zz7bP4aa3GH5oBAw2WLh1ZljoJwaHdUoh1dRyc+UxSTFaa2iSoYQM8re6VEKLxE1H2SEYthWX1FZzKxoamTclu3lUtYAmgsaRfQGEUrVFQ6MaRpdJYuXJReDBJWvAsxU0nzWmJe6RCK71gHkPSzoXFbsl9XoT3uaMYW/AflinKWOq4mxuKcuzW5mZV1FiajFQ9yB2vsKiExptPDwcOtzHTUq0Ft7RopeXtbwQaLJBlANf3yMVrm6MNo4kfoZvoFQkTkkloGyFYyzzv9pcSxnaNM0rZtR67Bds8aET39NukA47v7ruOhQ82hDH5uGM82lY8rl2XkKim6aKkrkRoVqRjYDuAWHasMbBXgxnkoSNUVR/ehZOvVJjXTxaKo1c6eRaswJjoE/O8S7reRdGvJjHLlCsot/yldqZuc2JcEVK9DhLRkZmUkmvvt0bZIfj1kHcS7+KhDN7t7/nxuoeLNzzT63QVyD0juLcf8hfH1ExreKqnamqDW2MHjStYLPj2Dy3qvWXrG0//9LBs8BlUzVhR466vhMA8Wxwrpf2uO8fgjJDaCznFD16Affgq2LtcqfO9C/cqiAvw9sYvYbz4CeS9qrK8zRT9udZ+BCMYxpQvqZ4v7JOq2ufaMk1GsdmHvwn6ou65fes0T2sa0E6Z3OJwGq09j6BwTe4y6hpXkpu7WjQjQMd50kWipHkcBs+lx9Et1mwYQxWg9DzwE0ZOGwTzfpcqAfkjyEPOG6sCOfG7TodZZnL39xsZvy6t2m4O6j87SiopaPTki03WU/0MQzoEC20JAEcn+/KXFZGTqAxcogAGCN5SKPBcbLlQrwpT3I/kM7EM++fFroBiLiQbbdGqpSxZXfP5MjtGB3dx9xzq0boF5oDh5WOmtqZdr0U2f7A+lQh/z4oXrgV/z+zBdrd2LICKr0wxH+U4MJY4Mq/LG7JonEbNQ2uWYsJB5OckN0+d8wxk5x7FWE34IEYK2lToMYBdsyw1T8fRyRPf44XGMMT6s6jlGBaPPbbyrDpGq5X0MPHp/THZZS+lxgjl+SM4qb16lh0HYjVyrQHQp9SMNki8ILHaVPJT/+GUmmHf9h4bKF68n9r4XArX6Qd8QpGtNWr1q+nNv9DAYUe9gaIso3bOjRRw78pQv4ODhLASKXXXk6AMEkxOeREb2GSwCbv4sZmkkCZlDrcevGZqfIiKrn7y/xwYJYWPX7cYlvPKb+8Pvueo/7WvOi3NRdL5DmoMiIP4fvJnLtsIhL8BG9lMs978mQTKxRHPlJ/vmwseIFKOV0kdF1xYIEOdHcB+hy2FJ3aWZUxSgM/3FN+H7bbrEWApnmxUGDXj+Xhju+JZulfx8NEBfBVgADc7ZAlELz1ifH7GLfcbC0EKXL+rH2PH1VX0P8kriAPOQ5/QFfKjCwFFULaE+6J7IBLh7YVj/t3CDBGK3JyhhdKScsj+CI+MrN5S5ApdZOlvBMGk+knJ/z5AVuc3Af2knIRqKI42G8A4OoNUSw5C0Q6H9VgEYAmp4VF/cqRJC4OEgQmyzYPDh2NHDSmelRCtBQ+Y3bmDPGGA+JZVPujpyqKGTzQ8rRseufWRUFrO4oG5SaP+eBtfRYxoy01Svpw7MAalfzBoaW6dboyl8yMDXOFHldxDSvMDI30ZlBxocPgUoSQK+tJFfLwTkoJoHZIckbnAemxJ08EteQVNqMZuI9uIbc+KY39SBlZGSSCUxrwKN5/ITj6Eml42T1NkL9S+5TAuD0Yl9XRNcGe8aU1NBCSmvpmmiqE2rG73x6RmCCFw/mmetsDXln0Athqo7TY5ZTYH4lKqfD0S474sFmE9vIvpZ1Sl0sUy1CCz9q4Q2Q4ifP6Ko14/0L8Abi845xntkD1k9/v3uAFKTRr6leluhnXxpFssru22i399idJnxDURiOEHIvGK6C//3HkSF7WhztSvHl+dzMsQt9EwGN5VWxDUQ8CT2YTCXM5eeRWYTz928kQP33mPA8obLglqgB7Z+ZTiCJEPsf8gVdWCOeayvtzbFQjWf4jLHMiPhWtg0LQ53NmchqiDicXjojtbgS0mVWsb6VmMZAcdrlRONnh08ZSm61ufMRCeSq2WAWJVpUzkRJh7F7Ze70BMyOMxrUjblgvjas5gxi5gnD5DExv7xFQhLPXSYtcqkr3g3JqBNMYDqhM8dE0El0xWhcBVQ1E6aiM6r2tmPp1J+s934amFdExb9r+Bzj3aCfbtSXNqRVgmUkie5yb/bpNE4tHVO1ksmVtmQ77c1Ih0JCkjmWfNoSg0tGuvNhXXvq9PmGvV289RGg1qZB4H1lRvFPQ+rmfQ1DXi1EL59mwpwSku6cZea6jC0hP27E00baM8iq3QVmRyabiFn5oI9geQIbEqz5DqfeJaSUaADu46VqQIgOjWffm56SZ5LnkJBZiq3fxunzEMdw4suRXUxF7ePzw3nUas9POLjIJmgTQVB0DaCMjCQumlR+xLOnIy5mX12oh8oLbPrRDSUO3cahI4QK8xMD6nWPIrcrvQiO8461ncHQq0GRytpbQb2X3ayfX4BECMWOtDPrDqjjAIrcvUVusGHofq0LEoUqc9lHNGNutQ60PzxC4KPvF5PNlbA0sBS0On8Mzb73qPel3xA7VwBbFuXjJlIANOjAUzvt3/tumbKCyiTte2jbfTcLYOsmuFXFdQwszNaEzQSkRBALQUezf0HSoIU8KlD4N1mNwc1MDQ2nYVSJHjgxkWrEfg81pKr+jGR+Fs7EWEWs+OZPfJziknNpSKA1rkZQVoURFffq1EM7c6sA5Wn2aVCGDeM684JW/Vl5BHfV+qsBDM0tV0XQQ51I4EYZYgiBKMvrRt3gv87Y6F4kc5aMoc/T3u5HkTMgaOWyRV87KcDZg3J1IfVgpR7b+PH3Pz6UiNlMM6CQd9ESKkxaffF6nKpicP7dDZiIN4m1RqS5V6uuyMJSht630gNCW/Y9tj8pjtbYwBJEQh9PsnrbE3dyw7kyQlhkYPhAGbFp4OiZFemv3W95YS1UFH07V0M5EqequssLJ+hkPKkitsQ9RQqWw5KClcJFNdGF/8S3JoSWPhTJAgZGgSvAR1siBRWpZooA+/h86PlmPhBlLxJCzTSvDQp45/ZzG+3uj6g0j+Z1NsJL3mcki38nIfejSn1r9kbcpL+UDB04IuliK4O9krCCJmFHz68HuQrMQh4pSdlOCyVahF43W+nnCkYHy14e+V83eTJpvsh+cRg4w9hkYxWLc9LLxQWPu6gDT84KK8eJoGcQEeu0vn/pbvjVzW/al9QZuN3gaDNQ1EmBrZ9KVnaWZfj9HjW1MVpIV8wYA9bcCbSbPG5Sia9KskjeqnaWQ+A38zZGiOj+JG0nWXrIAOa26iemIRGl6JcqAVc9RiXmZSSDO0a8LjQF4oNLyYAzLyZvEsVSGsHJBrCj/Cg6znePoJ0U5JhxhMQ2uNmSW4IK/MP5y0s247v8ozHAgXifp858EUFkKc2u2lGcPtTRbd4CSAtPU+DoChTgT8ouHKJ9qy/Vzor8UhZVFUO9dDra4i3UmMN17wqku3G8ChITkT/ph7XLg7j62/4yZbZ+0G2VvCRXYooBgjPYyFn/2Ak4T4NUT3g2stMlVEMH4YoZrJ/CT1jAAwX9/BYDT0Re6US5hQhOj78eimjRkIFprxof2jPtnhyXABsJ7lox6FhR9+hN0Ig46aX2nB7ogjVR4/HSJCgIZ6J1pA9OvUIE04/YCrDg2pp78+KJeijdajWEe15WVeMkv3k4+98qIFeMGIXGId1mgWc3EeQaDmO4rkhwYk5dlhgEHshMLsONoJVDhIzLZbIdDzVuoAtGVjKiK0y4zRfVk+aaHbbfcxXE3V7sy+gSZ3QZtZf1doFnHuSRlnLDkn7lPrJg==">
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ctl14', 'form1', ['tctl00$ContentPlaceHolder1$gerencial$up1','ContentPlaceHolder1_gerencial_up1'], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        
+        <nav class="navbar navbar-fixed-top hidden-xs" role="navigation" style="margin-bottom: 0; background-color: #fff; border-bottom: solid 1px #2F4050;">
+            <ul class="nav navbar-top-links navbar-left">
+                <li style="margin-right:10px !important;"><a href="https://vighi.southernbits.com/" title="Dra. Susana Vighi | Centro de Anatomía Patológica" class="logo_inicio"><img class="logo-desktop" style="height:44px;" src="./Susana Vighi - Sistema de Gestión Integral_files/logo.png"></a></li>
+            </ul>
+            <div id="pnl_protocolo_buscar" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;btn_protocolo_buscar&#39;)">
+	
+                    <ul class="nav navbar-top-links navbar-left mr-1">
+                        <li><input name="ctl00$tb_protocolo_buscar" type="text" id="tb_protocolo_buscar" title="Buscar por número de protocolo" class="form-control" placeholder="#P..." style="width:100px;"></li>
+                        <li><a id="btn_protocolo_buscar" href="javascript:__doPostBack(&#39;ctl00$btn_protocolo_buscar&#39;,&#39;&#39;)">&nbsp;<i class="fa fa-search"></i></a></li>
+                        <li><a class="dropdown-toggle count-info" href="https://vighi.southernbits.com/gestion/protocolos/comentarios/"><i class="fa fa-comments"></i>Tareas</a></li>
+                        <li><a id="hl_reciente" title="Actividad reciente" href="https://vighi.southernbits.com/gestion/protocolos/recientes/">&nbsp;<i class="fa fa-history"></i></a></li>
+                    </ul>
+                
+</div>
+                <ul class="nav navbar-top-links navbar-right">
+                    <li><a href="https://vighi.southernbits.com/gestion/congelaciones/tablero/" id="hl_congelaciones" class="dropdown-toggle count-info" title="0 congelaciones agendadas pendientes de confirmación"><i class="far fa-hospital"></i>Conges</a></li>
+                    <li><a id="hl_tablero_imhq" href="https://vighi.southernbits.com/gestion/flujos/tablero/imhq/"><span class="nav-label"><i class="fas fa-star-of-life"></i>IHQ</span></a></li>
+                    <li><a id="hl_lotes" href="https://vighi.southernbits.com/gestion/lotes/"><span class="nav-label"><i class="far fa-list-alt"></i>Lotes</span></a></li>
+                    <li><a id="hl_impresion" href="https://vighi.southernbits.com/gestion/flujos/impresion/"><span class="nav-label"><i class="fa fa-print"></i>Impresión</span></a></li>
+                    <li><a id="hl_estudios" href="https://vighi.southernbits.com/gestion/externos/flujos/?sol=BP"><span class="nav-label"><i class="fas fa-microscope"></i>Estudios</span></a></li>
+                    <li><a id="hl_admin" href="https://vighi.southernbits.com/gestion/admin/"><span class="nav-label"><i class="fas fa-dollar-sign"></i>Administración</span></a></li>
+                    
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"> <i class="fas fa-users"></i>Agenda <span class="caret"></span> </a>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                            <li><a id="hl_medicos" href="https://vighi.southernbits.com/gestion/medicos/"><span class="nav-label"><i class="fas fa-user-md"></i>Médicos</span></a></li>
+                            <li><a id="hl_pacientes" href="https://vighi.southernbits.com/gestion/pacientes/"><span class="nav-label"><i class="fas fa-id-card"></i>Pacientes</span></a></li>
+                            <li><a id="hl_usuarios" href="https://vighi.southernbits.com/gestion/settings/usuarios/"><span class="nav-label"><i class="fa fa-user-shield"></i>Usuarios</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a class="dropdown-toggle count-info" href="https://vighi.southernbits.com/gestion/soporte/"><i class="fa fa-life-ring"></i>Soporte </a></li>
+                    <li><a id="hl_settings" href="https://vighi.southernbits.com/gestion/settings/">&nbsp;<i class="fas fa-sliders-h"></i></a></li>
+                    <li>
+
+                        
+
+                    </li>
+                </ul>
+            
+        </nav>
+        
+        <nav class="navbar navbar-inverse navbar-fixed-top visible-xs">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a href="https://vighi.southernbits.com/"><img src="./Susana Vighi - Sistema de Gestión Integral_files/logo_sv_blanco.png" style="height:50px; padding:5px;" alt="Dra. Susana Vighi"></a>
+                </div>
+                
+                    <div id="navbar" class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav pb-1 pt-1">
+                            <li><a id="hl_Buscar_mobile" href="https://vighi.southernbits.com/gestion/actividades/?buscar=1"><i class="fas fa-search w3" style="width:30px;"></i>Buscar por número</a></li>
+                            <li><a id="hl_Actividades" href="https://vighi.southernbits.com/gestion/actividades/#actividades"><i class="fas fa-list-ul w3" style="width:30px;"></i>Actividades</a></li>
+                            <li><a id="hl_congelaciones_mobile" href="https://vighi.southernbits.com/gestion/congelaciones/agenda/"><span class="nav-label"><i class="far fa-hospital" style="width:30px;"></i>Congelaciones</span></a></li>
+                            <li><a id="hl_pacientes_mobile" href="https://vighi.southernbits.com/gestion/pacientes/"><i class="fas fa-id-card w3" style="width:30px;"></i>Pacientes</a></li>
+                            <li><a id="hl_medicos_mobile" href="https://vighi.southernbits.com/gestion/medicos/"><span class="nav-label"><i class="fas fa-user-md w3" style="width:30px;"></i>Médicos</span></a></li>
+                            <li><a id="hl_estudios_mobile" href="https://vighi.southernbits.com/gestion/externos/flujos/?sol=BP"><span class="nav-label"><i class="fas fa-microscope w3" style="width:30px;"></i>Estudios</span></a></li>
+                            <li><a class="dropdown-toggle count-info" href="https://vighi.southernbits.com/gestion/soporte/"><i class="fa fa-bell w3" style="width:30px;"></i>Soporte</a></li>
+                            <li><a id="hl_settings_mobile" href="https://vighi.southernbits.com/gestion/settings/"><i class="fas fa-sliders-h w3" style="width:30px;"></i>Configuraciones</a></li>
+                            <li><a id="hl_Exit_mobile" href="https://vighi.southernbits.com/usuarios/salir/"><i class="fa fa-sign-out-alt w3" style="width:30px;"></i>Salir</a></li>
+                        </ul>
+                    </div>
+                
+            </div>
+        </nav>
+
+        <div id="wrapper">
+            
+                <div class="visible-xs p1" style="background-color:#233646;">
+                    <a id="hl_NombreUsuario_mobile" href="https://vighi.southernbits.com/gestion/settings/usuarios/usuario/?id=616" style="color:White;"><i class="fas fa-user"></i>MAXIMO</a>
+                                <div>
+                                    
+                                    <span id="rp_perfiles_mobile_lbl_perfil_0" class="text-white" style="font-weight:bold;"><i class="fa fa-caret-right"></i>Gerencial</span>
+                                </div>
+                            
+                </div>
+                <div class="visible-xs" style="background-color:#233646;">
+                    
+                </div>
+            
+            <nav class="navbar-default navbar-static-side hidden-xs" role="navigation" style="margin-top:12px;">
+                <div class="sidebar-collapse">
+                    <div class="nav-header-left">
+                        <div id="pnl_nav_left">
+	
+                            <div class="nav-header-usuario">
+                                <ul>
+                                    <li><a id="hl_usuario" href="https://vighi.southernbits.com/gestion/misdatos/"><i class="fas fa-user"></i>MAXIMO</a></li>
+                                    <li><a id="hl_exit" href="https://vighi.southernbits.com/usuarios/salir/"><i class="fa fa-sign-out-alt"></i>Cerrar sesión</a></li>
+                                    
+                                                <li class="item_boton_perfil active"><a id="rp_perfiles_btn_CambiarPerfil_0" href="javascript:__doPostBack(&#39;ctl00$rp_perfiles$ctl00$btn_CambiarPerfil&#39;,&#39;&#39;)"><i class="far fa-address-card"></i>Gerencial</a></li>
+                                            
+                                </ul>
+                            </div>
+                            
+                            <ul class="nav metismenu" id="side-menu">
+                                
+                                    <li><a id="hl_protocolo_nuevo" href="https://vighi.southernbits.com/gestion/protocolos/nuevo/"><i class="fa fa-plus-circle"></i> NUEVO PROTOCOLO</a></li>
+                                    <li><a id="hl_recepcion" href="https://vighi.southernbits.com/gestion/protocolos/ordenes/recepcion/"><i class="fa fa-plus-circle"></i> RECEPCIÓN</a></li>
+                                
+                                <li>
+<a href="https://vighi.southernbits.com/gestion/protocolos/#"><i class="fa fa-motorcycle"></i> <span class="nav-label">TRASLADOS</span><span class="fa arrow"></span></a>
+<ul class="nav nav-second-level collapse" style="padding-top:0px;">
+<li class="titulo">LABORATORIO</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=14"><i class="fa fa-caret-right"></i>Lab &gt; Informar (1)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=40"><i class="fa fa-caret-right"></i>Lab &gt; Colorear (15)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=102"><i class="fa fa-caret-right"></i>Lab &gt; Revisar (2)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=120"><i class="fa fa-caret-right"></i>Lab &gt; Archivar (68793)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=105"><i class="fa fa-caret-right"></i>Lab Ext &gt; Procesar (8)</a></li>
+<li class="titulo">CITOTÉCNICOS</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=90"><i class="fa fa-caret-right"></i>Cito &gt; Informar (487)</a></li>
+<li class="titulo">DEVOLUCIÓN</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=110"><i class="fa fa-caret-right"></i>Cons &gt; Entregar (99)</a></li>
+</ul>
+</li>
+<li>
+<a href="https://vighi.southernbits.com/gestion/protocolos/#"><i class="fa fa-flask"></i> <span class="nav-label">LABORATORIO</span><span class="fa arrow"></span></a>
+<ul class="nav nav-second-level collapse" style="padding-top:0px;">
+<li class="titulo">PROCESAMIENTO</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=106"><i class="fa fa-caret-right"></i>IHQ &gt; Procesar (13)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=50"><i class="fa fa-caret-right"></i>Histo &gt; Procesar (8)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=57"><i class="fa fa-caret-right"></i>Liq &gt; Centrifugar (1)</a></li>
+<li class="titulo">INCLUSIÓN</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=60"><i class="fa fa-caret-right"></i>Cassette &gt; Incluir (230)</a></li>
+<li class="titulo">CORTE PH</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=70"><i class="fa fa-caret-right"></i>Taco &gt; Cortar (20)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=71"><i class="fa fa-caret-right"></i>Taco &gt; Cortar (nuevo corte) (23)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=104"><i class="fa fa-caret-right"></i>Taco IHQ &gt; Cortar (37)</a></li>
+<li class="titulo">COLOREADO</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=80"><i class="fa fa-caret-right"></i>Porta &gt; Colorear (751)</a></li>
+<li class="titulo">ARCHIVO</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=130"><i class="fa fa-caret-right"></i>Porta &gt; Archivar (98037)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=118"><i class="fa fa-caret-right"></i>Taco &gt; Archivar (53492)</a></li>
+<li class="titulo">RESERVA</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=140"><i class="fa fa-caret-right"></i>Reserva &gt; Tirar (9)</a></li>
+</ul>
+</li>
+<li>
+<a href="https://vighi.southernbits.com/gestion/protocolos/#"><i class="fa fa-stethoscope"></i> <span class="nav-label">DIAGNÓSTICOS</span><span class="fa arrow"></span></a>
+<ul class="nav nav-second-level collapse" style="padding-top:0px;">
+<li class="titulo">MACROSCOPÍA</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=20"><i class="fa fa-caret-right"></i>Macro &gt; Informar (75)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=22"><i class="fa fa-caret-right"></i>Macro &gt; Decal (5)</a></li>
+<li class="titulo">MICROSCOPÍA</li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=100"><i class="fa fa-caret-right"></i>Micro &gt; Informar (576)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=108"><i class="fa fa-caret-right"></i>Micro &gt; Interpretar (19)</a></li>
+<li class="item"><a href="https://vighi.southernbits.com/gestion/flujos/?ida=103"><i class="fa fa-caret-right"></i>Micro &gt; Revisar (21)</a></li>
+</ul>
+</li>
+
+                            </ul>
+                        
+</div>
+                    </div>
+                </div>
+            </nav>
+            <div id="page-wrapper" class="gray-bg" style="min-height: 800px;">
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    
+                    
+    
+    <div class="ibox float-e-margins">
+        <div class="ibox-title"><h2><i class="fas fa-tachometer-alt"></i>Dashboards</h2></div>
+        <div class="ibox-content">
+            <ul class="nav nav-tabs mb-2" role="tablist">
+                <li class="active"><a id="ContentPlaceHolder1_btn_tab_gerencial" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btn_tab_gerencial&#39;,&#39;&#39;)">Gerencial</a></li><li><a id="ContentPlaceHolder1_btn_tab_macro" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btn_tab_macro&#39;,&#39;&#39;)">Macro</a></li><li><a id="ContentPlaceHolder1_btn_tab_citotecnico" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btn_tab_citotecnico&#39;,&#39;&#39;)">Citotécnicos</a></li><li><a id="ContentPlaceHolder1_btn_tab_patologos" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btn_tab_patologos&#39;,&#39;&#39;)">Patólogos</a></li><li><a id="ContentPlaceHolder1_btn_tab_tecnicos" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btn_tab_tecnicos&#39;,&#39;&#39;)">Técnicos</a></li><li><a id="ContentPlaceHolder1_btn_tab_ejecutivo" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btn_tab_ejecutivo&#39;,&#39;&#39;)">Ejecutivo</a></li><li><a id="ContentPlaceHolder1_btn_tab_performance" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btn_tab_performance&#39;,&#39;&#39;)">Performance</a></li><li><a id="ContentPlaceHolder1_btn_tab_proyeccion" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btn_tab_proyeccion&#39;,&#39;&#39;)">Proyección</a></li><li><a id="ContentPlaceHolder1_btn_tab_validacion" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$btn_tab_validacion&#39;,&#39;&#39;)">Validación</a></li>
+            </ul>
+            <div id="ContentPlaceHolder1_gerencial_up1">
+	
+        <div class="form form-inline mb-2">
+            <div class="form-group"><select name="ctl00$ContentPlaceHolder1$gerencial$dd_flujo" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$gerencial$dd_flujo\&#39;,\&#39;\&#39;)&#39;, 0)" id="ContentPlaceHolder1_gerencial_dd_flujo" class="form-control">
+		<option selected="selected" value="0">[ Flujos: todos ]</option>
+		<option value="10">BP</option>
+		<option value="20">PAP</option>
+		<option value="100">CT</option>
+		<option value="60">IMHQ</option>
+
+	</select></div>
+            <div class="form-group"><select name="ctl00$ContentPlaceHolder1$gerencial$dd_cobertura" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$gerencial$dd_cobertura\&#39;,\&#39;\&#39;)&#39;, 0)" id="ContentPlaceHolder1_gerencial_dd_cobertura" class="form-control">
+		<option value="35">AMCI</option>
+		<option value="7">AMEBPBA</option>
+		<option value="18">APSOT</option>
+		<option value="54">ARGENETICS</option>
+		<option value="74">BRISTOL MEDICINE</option>
+		<option value="30">CEGYR</option>
+		<option value="55">CEMIC</option>
+		<option value="53">CENTRO DE UROLOGÍA (CDU)</option>
+		<option value="48">CENTRO ONCOLÓGICO KORBEN</option>
+		<option value="20">CEPEM</option>
+		<option value="37">CLÍNICA LA PEQUEÑA FAMILIA </option>
+		<option value="81">CLINICA RAÑA</option>
+		<option value="47">CM MONSERRAT</option>
+		<option value="80">CM MONSERRAT - QUILMES</option>
+		<option value="38">CM OTAMENDI</option>
+		<option value="23">CM PRIVADOS</option>
+		<option value="15">CM PUEYRREDON</option>
+		<option value="31">CM VILELLA</option>
+		<option value="75">CMG</option>
+		<option value="77">COBER MED</option>
+		<option value="25">CPI</option>
+		<option value="36">CUERPO MÉDICO</option>
+		<option value="67">CYTOMED</option>
+		<option value="13">DOSUBA</option>
+		<option value="32">DRA. BURLANDO</option>
+		<option value="34">DRA. GUBBAY</option>
+		<option value="33">DRA. REY</option>
+		<option value="52">FEDECAMARAS</option>
+		<option value="3">GALENO</option>
+		<option value="44">GENEA</option>
+		<option value="28">GINEC</option>
+		<option value="71">HALITUS</option>
+		<option value="69">HOSPITAL ARAMBURU</option>
+		<option value="65">IAF - FLEMING</option>
+		<option value="73">IDIM</option>
+		<option value="29">IFER</option>
+		<option value="56">IOTTI</option>
+		<option value="72">IQDC</option>
+		<option value="82">LAB. VVA</option>
+		<option value="68">LUCCAU</option>
+		<option value="6">LUIS PASTEUR</option>
+		<option value="57">MATER DEI</option>
+		<option value="27">MAUTALEN, SALUD E INVESTIGACIÓN</option>
+		<option value="64">MEDIC</option>
+		<option value="78">MEDICAL´S</option>
+		<option value="43">MEDICUS</option>
+		<option value="60">MP SALUD</option>
+		<option value="49">MUJER ESTUDIOS</option>
+		<option value="22">N/D</option>
+		<option value="4">OMINT</option>
+		<option value="76">OSCOMM</option>
+		<option value="1">OSDE</option>
+		<option value="14">OSDIPP</option>
+		<option value="42">OSETYA</option>
+		<option value="58">OSMEDICA</option>
+		<option value="19">OSPIC</option>
+		<option value="16">OSPOCE</option>
+		<option value="62">OSSEG</option>
+		<option value="79">OSTEP</option>
+		<option value="11">PARTICULAR</option>
+		<option value="5">PODER JUDICIAL</option>
+		<option value="26">PROVIDENCIA</option>
+		<option value="83">SAN JUAN DE DIOS</option>
+		<option value="51">SANATORIO TRINIDAD PALERMO</option>
+		<option value="12">SANCOR SALUD</option>
+		<option value="9">SERVESALUD</option>
+		<option value="2">SMG</option>
+		<option value="10">SMG*</option>
+		<option value="8">STAFF MEDICO</option>
+		<option value="50">TEST</option>
+		<option value="63">TONIOLO</option>
+		<option value="45">TRINIDAD QUILMES</option>
+		<option value="46">TRINIDAD RAMOS MEJÍA</option>
+		<option value="66">UNIÓN PERSONAL</option>
+		<option value="70">VISITAR</option>
+		<option value="17">W. HOPE</option>
+		<option value="39">WIRI</option>
+		<option selected="selected" value="0">[ Cobertura: todas ]</option>
+
+	</select></div>
+            <div class="form-group"><select name="ctl00$ContentPlaceHolder1$gerencial$dd_sede" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$gerencial$dd_sede\&#39;,\&#39;\&#39;)&#39;, 0)" id="ContentPlaceHolder1_gerencial_dd_sede" class="form-control">
+		<option value="11">CT</option>
+		<option value="4">ENDO</option>
+		<option value="2">NO ONCO</option>
+		<option value="6">ONCO</option>
+		<option value="1">PAPS</option>
+		<option value="8">PAPURG</option>
+		<option value="10">TACOS</option>
+		<option selected="selected" value="0">[ Lote: todos ]</option>
+
+	</select></div>
+            <div class="form-group"><select name="ctl00$ContentPlaceHolder1$gerencial$dd_ubicacionprocedencia" onchange="javascript:setTimeout(&#39;__doPostBack(\&#39;ctl00$ContentPlaceHolder1$gerencial$dd_ubicacionprocedencia\&#39;,\&#39;\&#39;)&#39;, 0)" id="ContentPlaceHolder1_gerencial_dd_ubicacionprocedencia" class="form-control">
+		<option value="1029">33ORIENTALES37</option>
+		<option value="478">ACOYTE1200</option>
+		<option value="839">AGOTE</option>
+		<option value="3">AGUERO2333</option>
+		<option value="940">ALMAFTE3351</option>
+		<option value="1049">ALSINA155_1C</option>
+		<option value="952">ALTOLAG2186</option>
+		<option value="4">ALVEAR331</option>
+		<option value="908">ALVTHOMAS3106</option>
+		<option value="61">AMEBPBA</option>
+		<option value="921">AMENABAR80</option>
+		<option value="883">ANCHORENA</option>
+		<option value="994">ANDONAE1091</option>
+		<option value="548">ARAOZ2241</option>
+		<option value="989">ARAOZ28708B</option>
+		<option value="842">ARCOS</option>
+		<option value="674">ARCOS2289</option>
+		<option value="401">ARCOS2400</option>
+		<option value="9">ARENALES1131</option>
+		<option value="535">ARENALES1242</option>
+		<option value="275">ARENALES1446</option>
+		<option value="115">ARENALES1942</option>
+		<option value="934">ARENALES1954</option>
+		<option value="12">ARENALES2391</option>
+		<option value="868">ARENALES26443M</option>
+		<option value="942">ARENALES2893</option>
+		<option value="13">ARENALES3069</option>
+		<option value="1017">ARENALES3195</option>
+		<option value="864">ARENALES3411</option>
+		<option value="916">ARENALES963</option>
+		<option value="14">AREVALO1409</option>
+		<option value="900">ARRIBENOS2155</option>
+		<option value="1022">ARTIGAS613</option>
+		<option value="1002">AVALOS1920</option>
+		<option value="878">AVCTES3978_1C</option>
+		<option value="865">AVCTES3978_1D</option>
+		<option value="50">AYACUCHO167</option>
+		<option value="197">AYACUCHO1807</option>
+		<option value="920">AZCUENAGA1077</option>
+		<option value="905">AZCUENAGA1222</option>
+		<option value="486">AZCUENAGA1280</option>
+		<option value="722">BAUNESS2317</option>
+		<option value="911">BAZTERRICA</option>
+		<option value="870">BCOENC2387</option>
+		<option value="858">BELGRANO3650</option>
+		<option value="1050">BENCALADA48925A</option>
+		<option value="1055">BERUTI3240</option>
+		<option value="52">BILLINGHURST2467</option>
+		<option value="897">BULNES1142</option>
+		<option value="969">BULNES1940</option>
+		<option value="1036">BULNES1960</option>
+		<option value="1032">BULNES2548</option>
+		<option value="945">CAAGUAZU6093</option>
+		<option value="53">CABELLO3462</option>
+		<option value="54">CABELLO3957</option>
+		<option value="15">CABILDO1133</option>
+		<option value="16">CABILDO1183</option>
+		<option value="895">CABILDO1239</option>
+		<option value="861">CABILDO2327</option>
+		<option value="854">CABILDO2720</option>
+		<option value="17">CABILDO3949</option>
+		<option value="578">CABILDO597</option>
+		<option value="953">CABILDO714</option>
+		<option value="894">CABRERA3225</option>
+		<option value="227">CALLAO1134</option>
+		<option value="892">CALLAO1564</option>
+		<option value="1012">CALLAO194</option>
+		<option value="20">CALLAO1975</option>
+		<option value="21">CALLAO1994</option>
+		<option value="22">CALLAO875_2C</option>
+		<option value="933">CALLAO875_4H</option>
+		<option value="946">CARACAS3559</option>
+		<option value="930">CAU</option>
+		<option value="979">CCASARES1017</option>
+		<option value="926">CDERMAPRIVADOS</option>
+		<option value="988">CDLP1234</option>
+		<option value="1000">CDLP3779</option>
+		<option value="990">CDU</option>
+		<option value="406">CEGYR</option>
+		<option value="856">CEPEM</option>
+		<option value="316">CER</option>
+		<option value="594">CERRITO1530</option>
+		<option value="127">CERVINO4720</option>
+		<option value="60">CESPEDES2410</option>
+		<option value="985">CHARCAS2539</option>
+		<option value="1042">CLADVENTISTA</option>
+		<option value="924">CLINDELSOL</option>
+		<option value="1060">CLINRAÑA</option>
+		<option value="903">CLINRIPETTA</option>
+		<option value="1038">CLINSTAISABEL</option>
+		<option value="845">CLINZABALA</option>
+		<option value="1018">CMALVINAS3922</option>
+		<option value="242">CMBELGRANO</option>
+		<option value="893">CMCONGRESO</option>
+		<option value="1046">CMG</option>
+		<option value="884">CMLOMASZAMORA</option>
+		<option value="896">CMMARTNEZ</option>
+		<option value="978">CMMONSERRAT</option>
+		<option value="1054">CMMONSERRAT - QUILMES</option>
+		<option value="899">CMPRIVADOS</option>
+		<option value="886">CMRAMOSMEJIA</option>
+		<option value="234">CMVILELLA</option>
+		<option value="23">CNELDIAZ1794</option>
+		<option value="24">CNELDIAZ1931</option>
+		<option value="1059">CNELDIAZ2017</option>
+		<option value="25">CNELDIAZ2089</option>
+		<option value="26">CNELDIAZ2155</option>
+		<option value="400">CONGRESO2174</option>
+		<option value="889">CONSBUQUET</option>
+		<option value="1052">CONSEXT</option>
+		<option value="66">COPERNICO2390</option>
+		<option value="873">CORDOBA2547</option>
+		<option value="1061">COSTA RICA 5108</option>
+		<option value="55">CPELLEGRINI1125</option>
+		<option value="914">CPI</option>
+		<option value="1024">CTROLANS</option>
+		<option value="954">CTROMEDICUS</option>
+		<option value="1021">CUENCA5072</option>
+		<option value="848">DELGADO588</option>
+		<option value="67">DEMARIA4670</option>
+		<option value="991">ECHEVERRIA2182</option>
+		<option value="882">ECHEVERRIA4230</option>
+		<option value="944">ECUADOR1416</option>
+		<option value="992">EEUU2329</option>
+		<option value="425">FECUNDITAS</option>
+		<option value="923">FINOCHIETTO</option>
+		<option value="28">FOREST1166</option>
+		<option value="961">FRANCIA2433</option>
+		<option value="849">FREIRE2274</option>
+		<option value="374">FRENCH2208</option>
+		<option value="959">GALLO1527</option>
+		<option value="880">GDELRIO2802</option>
+		<option value="956">GENEA</option>
+		<option value="876">GINEC</option>
+		<option value="1028">GINEZEN</option>
+		<option value="977">GOROSTI2355_10</option>
+		<option value="999">GOROSTI2355_12</option>
+		<option value="1033">GORRITI6015</option>
+		<option value="874">GRALPAZ8310</option>
+		<option value="907">GRALROCA951</option>
+		<option value="964">GRALSARMIENTO1339</option>
+		<option value="1016">GRALSARMIENTO1870</option>
+		<option value="947">GRALURQUIZA1062</option>
+		<option value="852">GVIEJA4246</option>
+		<option value="1034">HALITUS</option>
+		<option value="1026">HOSPARAMBURU</option>
+		<option value="59">HUMBOLDT2263</option>
+		<option value="191">IADT</option>
+		<option value="1044">IDIM</option>
+		<option value="481">IFER</option>
+		<option value="913">IORLARAUZ</option>
+		<option value="912">IQDC</option>
+		<option value="271">IVI</option>
+		<option value="1010">JALVAREZ2430</option>
+		<option value="917">JUFRE227</option>
+		<option value="76">JUNCAL2437</option>
+		<option value="935">JUNCAL2951</option>
+		<option value="872">JUNCAL3088</option>
+		<option value="111">JUNCAL3490</option>
+		<option value="77">JUNCAL840</option>
+		<option value="78">JUNIN1054_1</option>
+		<option value="932">JUNIN1054_PB</option>
+		<option value="79">JUNIN1480_1</option>
+		<option value="80">JUNN933</option>
+		<option value="1027">JURAMENTO2089</option>
+		<option value="976">KORBEN</option>
+		<option value="1062">Laboratorio VVA</option>
+		<option value="949">LACROZE2563</option>
+		<option value="82">LAFINUR3375</option>
+		<option value="730">LAPAMPA1959</option>
+		<option value="1045">LAPAMPA2219</option>
+		<option value="972">LAPICANILLA4148</option>
+		<option value="963">LAPLATA536</option>
+		<option value="83">LAPRIDA1963</option>
+		<option value="764">LARREA1035_1</option>
+		<option value="877">LARREA1035_2</option>
+		<option value="775">LARREA1162</option>
+		<option value="213">LARREA1211</option>
+		<option value="457">LARREA1257</option>
+		<option value="89">LARREA864</option>
+		<option value="29">LASHERAS1621</option>
+		<option value="470">LASHERAS2048</option>
+		<option value="1025">LAVALLE1441</option>
+		<option value="998">LIBERTAD1041</option>
+		<option value="875">LIBERTADOR6710</option>
+		<option value="915">LOLAMORA421</option>
+		<option value="1020">LUCCAU</option>
+		<option value="879">MAIPU2443</option>
+		<option value="936">MALABIA2429</option>
+		<option value="303">MARCOSPAZ3836</option>
+		<option value="890">MAURE1730</option>
+		<option value="927">MAUTALEN</option>
+		<option value="910">MEDRANO1020</option>
+		<option value="1063">MELIAN2684</option>
+		<option value="94">MIGUELETES1203</option>
+		<option value="951">MONROE2626</option>
+		<option value="829">MONROE5163</option>
+		<option value="776">MTALVEAR1550</option>
+		<option value="862">MTALVEAR2259</option>
+		<option value="92">MTALVEAR2320</option>
+		<option value="918">MTALVEAR878</option>
+		<option value="93">MTALVEAR949</option>
+		<option value="1011">NAZCA3215</option>
+		<option value="1014">NEUQUEN554</option>
+		<option value="1009">NICETOVEGA4647</option>
+		<option value="968">NUEVAYORK2339</option>
+		<option value="558">OHIGGINS1841</option>
+		<option value="860">OHIGGINS2062_5</option>
+		<option value="1008">OHIGGINS2062_9</option>
+		<option value="867">OLAZABAL5392</option>
+		<option value="97">ORO2494</option>
+		<option value="1041">OSCOMM</option>
+		<option value="948">OSETYA</option>
+		<option value="993">OSMEDICA</option>
+		<option value="841">OTAMENDI</option>
+		<option value="534">PALPA2570</option>
+		<option value="102">PARAGUAY1327</option>
+		<option value="103">PARAGUAY1615</option>
+		<option value="1001">PARAGUAY2073</option>
+		<option value="995">PARAGUAY2302_11</option>
+		<option value="950">PARAGUAY2302_14</option>
+		<option value="922">PARAGUAY2342</option>
+		<option value="104">PARAGUAY2440</option>
+		<option value="1007">PARAGUAY2468_2</option>
+		<option value="1039">PARAGUAY2468_7</option>
+		<option value="185">PARAGUAY2523</option>
+		<option value="898">PARAGUAY2571</option>
+		<option value="919">PARAGUAY3842</option>
+		<option value="105">PARANA1087</option>
+		<option value="869">PARANA1221</option>
+		<option value="853">PARANA980</option>
+		<option value="100">PDEMELO3026</option>
+		<option value="107">PDEMORAN3393</option>
+		<option value="474">PDMELO2583</option>
+		<option value="943">PENA3158</option>
+		<option value="928">PEQUEFLIA</option>
+		<option value="1037">POSADAS1359</option>
+		<option value="298">PREFER</option>
+		<option value="414">PREGNA</option>
+		<option value="846">PROVIDENCIA</option>
+		<option value="975">PUEYRREDON1341</option>
+		<option value="847">PUEYRREDON1364</option>
+		<option value="112">PUEYRREDON1443</option>
+		<option value="941">PUEYRREDON1504</option>
+		<option value="209">PUEYRREDON1655</option>
+		<option value="31">PUEYRREDON1789</option>
+		<option value="982">PUEYRREDON236</option>
+		<option value="114">PUEYRREDON2428</option>
+		<option value="958">PUEYRREDON2446</option>
+		<option value="32">QUINTANA89</option>
+		<option value="902">QUITO4330</option>
+		<option value="929">RAMALLO2606</option>
+		<option value="799">RECEPCION</option>
+		<option value="997">RFALCON5530</option>
+		<option value="984">RGUTIERREZ3903</option>
+		<option value="967">RIVADAVIA15822</option>
+		<option value="33">RIVADAVIA2057</option>
+		<option value="881">RIVADAVIA4370</option>
+		<option value="34">RIVADAVIA4704</option>
+		<option value="353">RIVADAVIA4990</option>
+		<option value="35">RIVADAVIA5012</option>
+		<option value="36">RIVADAVIA5125</option>
+		<option value="866">RIVADAVIA5170</option>
+		<option value="955">RIVADAVIA5466_5B</option>
+		<option value="509">RIVADAVIA5466_6D</option>
+		<option value="609">RIVADAVIA5748</option>
+		<option value="871">RIVADAVIA7356</option>
+		<option value="108">RIVERA2463</option>
+		<option value="1035">ROOSEVELT2177</option>
+		<option value="981">ROSARIO130</option>
+		<option value="633">ROSARIO188</option>
+		<option value="960">RPENA912</option>
+		<option value="931">SAAVEDRA2098</option>
+		<option value="980">SARMIENTO2037</option>
+		<option value="904">SEGUROLA2127</option>
+		<option value="1048">SIMBRON3323</option>
+		<option value="986">SOLER5057</option>
+		<option value="47">SORTIZ2356_3</option>
+		<option value="1040">SORTIZ2356_6</option>
+		<option value="48">SORTIZ2433</option>
+		<option value="973">SORTIZ3209</option>
+		<option value="850">STAFE1127_6</option>
+		<option value="37">STAFE1127_8</option>
+		<option value="1005">STAFE1592</option>
+		<option value="334">STAFE1780</option>
+		<option value="1043">STAFE1886</option>
+		<option value="39">STAFE1955</option>
+		<option value="939">STAFE1970</option>
+		<option value="1031">STAFE2088</option>
+		<option value="40">STAFE2294</option>
+		<option value="625">STAFE2483</option>
+		<option value="42">STAFE2534</option>
+		<option value="243">STAFE2847</option>
+		<option value="857">STAFE2926</option>
+		<option value="430">STAFE3252</option>
+		<option value="46">STAFE3373_2B</option>
+		<option value="840">STAFE3373_2E</option>
+		<option value="855">STAFE3389</option>
+		<option value="937">STAFE3553_1_5</option>
+		<option value="909">STAFE3553_PB</option>
+		<option value="1006">SUCRE1530</option>
+		<option value="844">SUIZO</option>
+		<option value="130">TINOGASTA3159</option>
+		<option value="851">TINOGASTA3275</option>
+		<option value="1023">TLEBRETON5008</option>
+		<option value="480">TMC</option>
+		<option value="962">TRINIMITRE</option>
+		<option value="843">TRINIPALERMO</option>
+		<option value="974">TRINIQUILMES</option>
+		<option value="744">TRINIRAMOS</option>
+		<option value="996">TRINISANISIDRO</option>
+		<option value="1013">TRIUNV3705</option>
+		<option value="859">TRIUNVIRATO3612</option>
+		<option value="1015">TRIUNVIRATO3705</option>
+		<option value="987">TRIUNVIRATO5197</option>
+		<option value="1030">TUCUMAN3658</option>
+		<option value="901">UBITEST</option>
+		<option value="375">URIBURU1029_PB</option>
+		<option value="1056">URIBURU1054_6C</option>
+		<option value="215">URIBURU1239_1</option>
+		<option value="135">URIBURU1312</option>
+		<option value="136">URIBURU1555</option>
+		<option value="1047">URIBURU724_9</option>
+		<option value="834">URUGUAY1280</option>
+		<option value="925">USPALLATA980</option>
+		<option value="800">VARREDONDO2474</option>
+		<option value="863">VDELPINO2428</option>
+		<option value="1051">VIRREYVERTIZ111</option>
+		<option value="380">VTAOBLIGADO1797</option>
+		<option value="888">VTAOBLIGADO1906</option>
+		<option value="138">VTAOBLIGADO2616</option>
+		<option value="139">VTAOBLIGADO3729</option>
+		<option value="965">WERNICKE2867</option>
+		<option selected="selected" value="0">[ Procedencia: todas ]</option>
+
+	</select></div>
+            <div class="form-group"><a id="ContentPlaceHolder1_gerencial_btn_refresh" class="btn btn-white" href="javascript:__doPostBack(&#39;ctl00$ContentPlaceHolder1$gerencial$btn_refresh&#39;,&#39;&#39;)"><i class="fa fa-recycle"></i>Actualizar</a></div>
+        </div>
+        
+        <div id="ContentPlaceHolder1_gerencial_upr1" style="display:none;" role="status" aria-hidden="true">
+		<div class="loading_border"><div class="loading_body"><img src="./Susana Vighi - Sistema de Gestión Integral_files/loading_bkg.gif" alt="Cargando..."></div></div>
+	</div>
+    
+</div>
+        </div>
+    </div>
+    
+    
+
+                </div>
+                <div class="footer">
+                    <div class="text-center">Dra. Susana Vighi | Centro de Anatomía Patológica | <span id="lbl_FechaHoy">4/5/2026 09:51:48</span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mainly scripts -->
+        <script src="./Susana Vighi - Sistema de Gestión Integral_files/bootstrap.min.js.descarga" type="text/javascript"></script>
+        <script src="./Susana Vighi - Sistema de Gestión Integral_files/jquery.metisMenu.js.descarga" type="text/javascript"></script>
+        <script src="./Susana Vighi - Sistema de Gestión Integral_files/jquery.slimscroll.min.js.descarga" type="text/javascript"></script>
+
+        <!-- Custom and plugin javascript -->
+        <script src="./Susana Vighi - Sistema de Gestión Integral_files/inspinia.js.descarga" type="text/javascript"></script>
+
+    
+
+<script type="text/javascript">
+//<![CDATA[
+Sys.Application.add_init(function() {
+    $create(Sys.UI._UpdateProgress, {"associatedUpdatePanelId":"ContentPlaceHolder1_gerencial_up1","displayAfter":500,"dynamicLayout":true}, null, null, $get("ContentPlaceHolder1_gerencial_upr1"));
+});
+//]]>
+</script>
+</form>
+    
+        
+
+
+
+</body></html>
