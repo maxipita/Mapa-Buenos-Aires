@@ -734,7 +734,7 @@ body {
 
   /* Panel → bottom sheet */
   .side-panel {
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
