@@ -609,6 +609,11 @@ body {
   color: #2c3e50;
 }
 
+.popup-tabla tr.popup-fila-total td {
+  color: #000;
+  font-weight: 700;
+}
+
 .popup-tabla tr:hover td {
   background: #faf0fb;
 }

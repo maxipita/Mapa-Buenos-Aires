@@ -917,8 +917,9 @@ function _colocarMarcadores(localidades, iconCache) {
               </thead>
               <tbody>
                 ${loc.nomencladores.map(n => {
+                  const esTotal = n.tipo && (n.tipo.toLowerCase() === "total" || n.tipo.toLowerCase() === "total facturado");
                   const etiqueta = n.tipo && n.tipo.toLowerCase() === "presencia" ? "Presencia Patólogo" : n.tipo && n.tipo.toLowerCase() === "total" ? "Total" : n.codigo;
-                  return `<tr><td>${etiqueta}</td><td>${n.cantidad}</td></tr>`;
+                  return `<tr${esTotal ? ' class="popup-fila-total"' : ""}><td>${etiqueta}</td><td>${n.cantidad}</td></tr>`;
                 }).join("")}
               </tbody>
             </table>
