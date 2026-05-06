@@ -1,1 +1,90 @@
-{}
+{
+    "06427":{
+        "localidades":[
+        {
+        "nombre": "LAPICANILLA4148",
+        "direccion": "La Picanilla 4148, B1778 Cdad. Evita, Provincia de Buenos Aires",
+        "lat": -34.7259,
+        "lng": -58.5356,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 86 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
+          {"tipo": "total", "codigo": "Total", "cantidad": 110},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$590.468,35"}
+          ]
+        }
+    ]
+    },
+    "06412": {
+    "localidades": [
+      {
+        "nombre": "ALVEAR331",
+        "direccion": "Gral. Alvear 331, B1640 Martínez, Provincia de Buenos Aires",
+        "lat": -34.4861,
+        "lng": -58.4961,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 56 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
+          {"tipo": "total", "codigo": "Total", "cantidad": 56},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$485.915,74"}
+          ]
+      }
+    ]
+    },
+    "06568": {
+    "localidades": [
+      {
+        "nombre": "RIVADAVIA15822",
+        "direccion": "Av. Rivadavia 15822, B1706 Haedo, Provincia de Buenos Aires",
+        "lat": -34.6436,
+        "lng": -58.5881,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 2 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 45 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
+          {"tipo": "total", "codigo": "Total", "cantidad": 56},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$465.941,20"}
+          ]
+      }
+    ]
+    },
+  "06840": {
+    "localidades": [
+      {
+        "nombre": "WERNICKE2867",
+        "direccion": "Av. Wernicke 2867, B1684BDG Cdad. Jardin Lomas de Palomar, Provincia de Buenos Airess",
+        "lat": -34.5997,
+        "lng": -58.5915,
+        "tipo": "Sanatorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 53 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
+          {"tipo": "total", "codigo": "Total", "cantidad": 56},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$466.636,22"}
+          ]
+      }
+      ]
+    }
+}

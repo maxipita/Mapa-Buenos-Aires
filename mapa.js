@@ -3,6 +3,7 @@
 // ============================================
 const GEOJSON_URL = "barriosGeoJson.json";
 const GEOJSON_AMBA_URL = "ambaGeoJson.json";
+const GEOJSON_ARGENTINA_URL = "agrentinaGeoJson.json";
 
 // ============================================
 // DATOS DE LAS COMUNAS (CABA)
@@ -59,10 +60,12 @@ const partidosData = {
 // CARGA Y MERGE DE DATOS EXTERNOS (JSON)
 // ============================================
 const DATA_URLS = {
-  sanatorios:        "sanatorios.json",
-  consultorios:      "consultorios.json",
-  sanatoriosAmba:    "sanatoriosAmba.json",
-  consultoriosAmba:  "consultoriosAmba.json"
+  sanatorios:              "sanatorios.json",
+  consultorios:            "consultorios.json",
+  sanatoriosAmba:          "sanatoriosAmba.json",
+  consultoriosAmba:        "consultoriosAmba.json",
+  sanatoriosArgentina:     "sanatoriosArgentina.json",
+  consultoriosArgentina:   "consultoriosArgentina.json"
 };
 
 function cargarDatosExternos() {
@@ -75,8 +78,10 @@ function cargarDatosExternos() {
     fetchJSON(DATA_URLS.sanatorios),
     fetchJSON(DATA_URLS.consultorios),
     fetchJSON(DATA_URLS.sanatoriosAmba),
-    fetchJSON(DATA_URLS.consultoriosAmba)
-  ]).then(function ([sanat, consult, sanatAmba, consultAmba]) {
+    fetchJSON(DATA_URLS.consultoriosAmba),
+    fetchJSON(DATA_URLS.sanatoriosArgentina),
+    fetchJSON(DATA_URLS.consultoriosArgentina)
+  ]).then(function ([sanat, consult, sanatAmba, consultAmba, sanatArg, consultArg]) {
     // CABA
     [sanat, consult].forEach(function (fuente) {
       Object.keys(fuente).forEach(function (id) {
@@ -101,6 +106,20 @@ function cargarDatosExternos() {
           partidosData[id].localidades = partidosData[id].localidades.concat(locs);
         } else {
           partidosData[id] = { nombre: fuente[id].nombre || id, barrios: [], localidades: locs };
+        }
+      });
+    });
+
+    // ARGENTINA
+    [sanatArg, consultArg].forEach(function (fuente) {
+      Object.keys(fuente).forEach(function (id) {
+        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+        if (locs.length === 0) return;
+        if (provinciasData[id]) {
+          if (!Array.isArray(provinciasData[id].localidades)) provinciasData[id].localidades = [];
+          provinciasData[id].localidades = provinciasData[id].localidades.concat(locs);
+        } else {
+          provinciasData[id] = { nombre: fuente[id].nombre || id, localidades: locs };
         }
       });
     });
@@ -222,6 +241,8 @@ function irALocalidad(areaId, lat, lng, region) {
 
   if (region === "amba") {
     seleccionarPartido(String(areaId));
+  } else if (region === "argentina") {
+    seleccionarProvincia(String(areaId));
   } else {
     seleccionarComuna(parseInt(areaId));
   }
@@ -233,12 +254,16 @@ function irALocalidad(areaId, lat, lng, region) {
 // ============================================
 let map;
 let ambaDataLayer;
+let argentinaDataLayer;
 let marcadoresActivos = [];
 let comunaSeleccionadaId = null;
 let partidoSeleccionadoId = null;
+let provinciaSeleccionadaId = null;
 let infoWindowGlobal = null;
 let categoriaActiva = null;
+let regionActiva = null;
 let geojsonCargados = 0;
+const provinciasData = {};
 
 const CATEGORIAS = {
   sanatorios: {
@@ -271,8 +296,9 @@ function filtrarPorCategoria(localidades) {
   return localidades.filter(loc => tipos.includes(loc.tipo));
 }
 
-function seleccionarCategoria(cat) {
+function seleccionarCategoria(cat, region) {
   categoriaActiva = cat;
+  regionActiva = region || null;
 
   const menu = document.getElementById("menuInicio");
   menu.classList.add("oculto");
@@ -281,11 +307,31 @@ function seleccionarCategoria(cat) {
   const catInfo = CATEGORIAS[cat];
   const leyenda = document.getElementById("leyendaPrioridad");
   if (leyenda) leyenda.style.display = "block";
-  document.getElementById("categoriaActualLabel").textContent = catInfo.label;
+  document.getElementById("categoriaActualLabel").textContent =
+    regionActiva === "argentina" ? "Argentina" : catInfo.label;
   document.getElementById("panelDesc").textContent =
-    `Hacé click en una comuna o partido para ver los ${catInfo.label.toLowerCase()} que trabajan con Vighi.`;
+    regionActiva === "argentina"
+      ? "Hacé click en una provincia para ver los prestadores que trabajan con Vighi."
+      : `Hacé click en una comuna o partido para ver los ${catInfo.label.toLowerCase()} que trabajan con Vighi.`;
   document.getElementById("searchInput").placeholder =
     cat === "sanatorios" ? "Buscar sanatorio o dirección..." : "Buscar consultorio o dirección...";
+
+  // Mostrar/ocultar capas según región
+  if (regionActiva === "argentina") {
+    if (map) {
+      map.data.setMap(null);
+      if (ambaDataLayer) ambaDataLayer.setMap(null);
+      if (argentinaDataLayer) argentinaDataLayer.setMap(map);
+    }
+    if (map) map.setCenter({ lat: -38.5, lng: -65 });
+    if (map) map.setZoom(4);
+  } else {
+    if (map) {
+      map.data.setMap(map);
+      if (ambaDataLayer) ambaDataLayer.setMap(map);
+      if (argentinaDataLayer) argentinaDataLayer.setMap(null);
+    }
+  }
 
   mostrarTodasLasLocalidades();
 }
@@ -293,11 +339,15 @@ function seleccionarCategoria(cat) {
 function volverAlMenu() {
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
+  provinciaSeleccionadaId = null;
+  regionActiva = null;
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
   if (map) {
+    map.data.setMap(map);
     aplicarEstiloBase();
     aplicarEstiloBaseAmba();
+    if (argentinaDataLayer) argentinaDataLayer.setMap(null);
   }
 
   const input = document.getElementById("searchInput");
@@ -392,6 +442,35 @@ function mostrarTodasLasLocalidades() {
     </div>
   `;
 
+  const provinciasConLocs = regionActiva === "argentina"
+    ? Object.keys(provinciasData)
+        .map(id => ({
+          id,
+          ...provinciasData[id],
+          locs: filtrarPorCategoria(provinciasData[id].localidades || [])
+        }))
+        .filter(p => p.locs.length > 0)
+        .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'))
+    : [];
+
+  if (regionActiva === "argentina") {
+    const totalArg = provinciasConLocs.reduce((s, p) => s + p.locs.length, 0);
+    if (totalArg === 0) {
+      panelBody.innerHTML = `<p class="sin-datos">Sin ubicaciones registradas para Argentina.</p>`;
+      return;
+    }
+    let htmlArg = `
+      <div class="todas-header">
+        <span>${totalArg} ubicaciones en total</span>
+        <button id="btnVerTodos" class="btn-ver-todos" onclick="mostrarTodosLosMarcadores()">📍 Ver todos en el mapa</button>
+      </div>
+      <div class="region-subtitulo">🇦🇷 Argentina</div>
+    `;
+    htmlArg += renderItems(provinciasConLocs, "seleccionarProvincia", "argentina");
+    panelBody.innerHTML = htmlArg;
+    return;
+  }
+
   if (comunasConLocs.length > 0) {
     html += `<div class="region-subtitulo">📍 Ciudad de Buenos Aires</div>`;
     html += renderItems(comunasConLocs, "seleccionarComuna", "caba");
@@ -469,10 +548,12 @@ function initMap() {
 
   infoWindowGlobal = new google.maps.InfoWindow();
   ambaDataLayer = new google.maps.Data();
+  argentinaDataLayer = new google.maps.Data();
 
   cargarDatosExternos().then(function () {
     cargarGeoJSON();
     cargarGeoJSONAmba();
+    cargarGeoJSONArgentina();
   });
 }
 
@@ -485,6 +566,145 @@ function verificarYAjustarBounds() {
 
   map.setCenter({ lat: -34.62, lng: -58.52 });
   map.setZoom(11);
+}
+
+// ============================================
+// CARGAR GEOJSON ARGENTINA
+// ============================================
+function cargarGeoJSONArgentina() {
+  argentinaDataLayer.loadGeoJson(GEOJSON_ARGENTINA_URL, null, function () {
+    // Filtrar Antártida: por nombre de provincia o por coordenadas extremas al sur
+    const toRemove = [];
+    argentinaDataLayer.forEach(feature => {
+      const prov = (feature.getProperty("provincia") || "").toUpperCase();
+      if (prov.includes("ANTARTIDA") || prov.includes("ANTÁRTIDA")) {
+        toRemove.push(feature);
+        return;
+      }
+      // También filtrar features cuyo centroide esté por debajo de -60° (territorio antártico)
+      let minLat = 0;
+      let count = 0;
+      feature.getGeometry().forEachLatLng(latLng => {
+        minLat += latLng.lat();
+        count++;
+      });
+      if (count > 0 && (minLat / count) < -60) {
+        toRemove.push(feature);
+      }
+    });
+    toRemove.forEach(f => argentinaDataLayer.remove(f));
+
+    // Poblar provinciasData desde el GeoJSON
+    argentinaDataLayer.forEach(feature => {
+      const prov = feature.getProperty("provincia");
+      if (prov && !provinciasData[prov]) {
+        provinciasData[prov] = { nombre: toTitleCase(prov), localidades: [] };
+      }
+    });
+
+    aplicarEstiloBaseArgentina();
+    // No se muestra hasta que el usuario seleccione Argentina
+    argentinaDataLayer.setMap(null);
+
+    argentinaDataLayer.addListener("click", function (event) {
+      const provinciaId = getProvinciaId(event.feature);
+      if (!provinciaId) return;
+      seleccionarProvincia(provinciaId);
+    });
+  });
+}
+
+function toTitleCase(str) {
+  return str.toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+}
+
+function getProvinciaId(feature) {
+  return feature.getProperty("provincia") || null;
+}
+
+function aplicarEstiloBaseArgentina() {
+  if (argentinaDataLayer) argentinaDataLayer.setStyle(ESTILO_BASE);
+}
+
+// ============================================
+// SELECCIONAR PROVINCIA (ARGENTINA)
+// ============================================
+function seleccionarProvincia(provinciaId) {
+  provinciaSeleccionadaId = provinciaId;
+  comunaSeleccionadaId = null;
+  partidoSeleccionadoId = null;
+
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+
+  argentinaDataLayer.setStyle(function (feature) {
+    return getProvinciaId(feature) === provinciaId ? ESTILO_SELECCIONADO : ESTILO_BASE;
+  });
+
+  const bounds = new google.maps.LatLngBounds();
+  argentinaDataLayer.forEach(feature => {
+    if (getProvinciaId(feature) === provinciaId) {
+      feature.getGeometry().forEachLatLng(latLng => {
+        // Ignorar coordenadas antárticas al calcular el zoom
+        if (latLng.lat() > -58 && latLng.lng() > -75 && latLng.lng() < -50) {
+          bounds.extend(latLng);
+        }
+      });
+    }
+  });
+  if (!bounds.isEmpty()) {
+    const padding = esMobile()
+      ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
+      : { top: 40, right: 40, bottom: 40, left: 40 };
+    map.fitBounds(bounds, padding);
+  }
+
+  mostrarInfoPanelProvincia(provinciaId);
+  agregarMarcadores(getLocalidadesDeProvincia(provinciaId));
+}
+
+function getLocalidadesDeProvincia(provinciaId) {
+  const localidades = [];
+  const vistas = new Set();
+
+  if (provinciasData[provinciaId] && Array.isArray(provinciasData[provinciaId].localidades)) {
+    provinciasData[provinciaId].localidades.forEach(loc => {
+      const key = `${loc.lat},${loc.lng}`;
+      if (!vistas.has(key)) { vistas.add(key); localidades.push(loc); }
+    });
+  }
+
+  return filtrarPorCategoria(localidades);
+}
+
+function mostrarInfoPanelProvincia(provinciaId) {
+  const provincia = provinciasData[provinciaId];
+  const localidades = getLocalidadesDeProvincia(provinciaId);
+
+  const nombre = provincia ? provincia.nombre : toTitleCase(provinciaId);
+  const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+
+  const localidadesHtml = locOrdenadas.length > 0
+    ? locOrdenadas.map(loc => `
+        <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
+          <strong>${loc.nombre}</strong>
+          <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+        </div>
+      `).join("")
+    : `<p class="sin-datos">Sin localidades registradas para esta provincia.</p>`;
+
+  document.getElementById("panelBody").innerHTML = `
+    <div class="comuna-header">
+      <div class="comuna-header-top">
+        <h3>📍 ${nombre}</h3>
+        <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
+      </div>
+    </div>
+    <div class="seccion-titulo">Localidades de interés</div>
+    ${localidadesHtml}
+  `;
+
+  abrirPanelMobile();
 }
 
 // ============================================
@@ -683,6 +903,15 @@ function mostrarTodosLosMarcadores() {
     });
   });
 
+  if (regionActiva === "argentina") {
+    Object.values(provinciasData).forEach(prov => {
+      filtrarPorCategoria(prov.localidades || []).forEach(loc => {
+        const key = `${loc.lat},${loc.lng}`;
+        if (!vistas.has(key)) { vistas.add(key); todasLasLocs.push(loc); }
+      });
+    });
+  }
+
   if (todasLasLocs.length === 0) return;
 
   agregarMarcadores(todasLasLocs);
@@ -704,12 +933,14 @@ function mostrarTodosLosMarcadores() {
 function volverAlListado() {
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
+  provinciaSeleccionadaId = null;
 
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
 
   aplicarEstiloBase();
   aplicarEstiloBaseAmba();
+  aplicarEstiloBaseArgentina();
 
   mostrarTodasLasLocalidades();
 }
