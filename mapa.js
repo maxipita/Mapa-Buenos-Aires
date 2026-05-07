@@ -275,6 +275,8 @@ let ambaDataLayer;
 let argentinaDataLayer;
 let marcadoresActivos = [];
 let marcadoresPoblacion = [];
+let marcadoresSector = [];
+let flechasExpansion = [];
 let comunaSeleccionadaId = null;
 let partidoSeleccionadoId = null;
 let provinciaSeleccionadaId = null;
@@ -464,7 +466,7 @@ function getLocalidadesDeSector(sectorId) {
       });
     }
   });
-  return filtrarPorCategoria(localidades);
+  return localidades;
 }
 
 function seleccionarSector(sectorId) {
@@ -479,7 +481,7 @@ function seleccionarSector(sectorId) {
   const provinciasDelSector = new Set(sectoresExpansion[sectorId].provincias);
 
   argentinaDataLayer.setStyle(function (feature) {
-    return provinciasDelSector.has(getProvinciaId(feature)) ? ESTILO_SELECCIONADO : ESTILO_BASE;
+    return provinciasDelSector.has(getProvinciaId(feature)) ? ESTILO_SELECCIONADO : ESTILO_EXPANSION_BASE;
   });
 
   const bounds = new google.maps.LatLngBounds();
@@ -500,6 +502,7 @@ function seleccionarSector(sectorId) {
   }
 
   mostrarInfoPanelSector(sectorId);
+  mostrarEtiquetasSector(sectorId);
   agregarMarcadores(getLocalidadesDeSector(sectorId));
 }
 
@@ -568,7 +571,12 @@ function seleccionarCategoria(cat, region) {
       if (argentinaDataLayer) argentinaDataLayer.setMap(map);
       map.setCenter({ lat: -38.5, lng: -65 });
       map.setZoom(4);
-      mostrarEtiquetasPoblacion();
+      if (regionActiva === "expansion") {
+        aplicarEstiloExpansionBase();
+        mostrarFlechasExpansion();
+      } else {
+        mostrarEtiquetasPoblacion();
+      }
     }
   } else {
     if (map) {
@@ -590,6 +598,8 @@ function volverAlMenu() {
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
   ocultarEtiquetasPoblacion();
+  ocultarEtiquetasSector();
+  ocultarFlechasExpansion();
   if (map) {
     map.data.setMap(map);
     aplicarEstiloBase();
@@ -736,18 +746,21 @@ function mostrarTodasLasLocalidades() {
     }));
     const totalExp = sectoresList.reduce((s, sec) => s + sec.locs.length, 0);
     let htmlExp = `
-      <div class="todas-header">
-        <span>${totalExp} ubicaciones en total</span>
-        <button id="btnVerTodos" class="btn-ver-todos" onclick="mostrarTodosLosMarcadores()">📍 Ver todos en el mapa</button>
-      </div>
       <div class="region-subtitulo">🚀 Proyecto de Expansión</div>
     `;
+    if (totalExp > 0) {
+      htmlExp = `
+        <div class="todas-header">
+          <span>${totalExp} ubicaciones en total</span>
+          <button id="btnVerTodos" class="btn-ver-todos" onclick="mostrarTodosLosMarcadores()">📍 Ver todos en el mapa</button>
+        </div>
+      ` + htmlExp;
+    }
     htmlExp += sectoresList.map(sector => {
       const ordenadas = [...sector.locs].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
       return `
         <div class="seccion-titulo todas-titulo" onclick="seleccionarSector('${sector.id}')" title="Ver en el mapa">
           ${sector.nombre}
-          <span class="todas-count">${ordenadas.length}</span>
         </div>
         ${ordenadas.map(loc => `
           <div class="localidad-item" onclick="seleccionarSector('${sector.id}')">
@@ -920,6 +933,158 @@ function ocultarEtiquetasPoblacion() {
   marcadoresPoblacion = [];
 }
 
+function crearLabelSVGNombre(nombre) {
+  const w = Math.max(80, nombre.length * 7 + 20);
+  const h = 26;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
+    <rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="5" ry="5"
+      fill="white" fill-opacity="0.92" stroke="#a020a8" stroke-width="1.5"/>
+    <text x="${w / 2}" y="17" font-family="Arial,sans-serif" font-size="11"
+      font-weight="bold" fill="#a020a8" text-anchor="middle">${nombre}</text>
+  </svg>`;
+  return { url: "data:image/svg+xml," + encodeURIComponent(svg), w, h };
+}
+
+function mostrarEtiquetasSector(sectorId) {
+  ocultarEtiquetasSector();
+  const sector = sectoresExpansion[sectorId];
+  sector.provincias.forEach(function (provId) {
+    const centroide = CENTROIDES_ARGENTINA[provId];
+    if (!centroide) return;
+    const nombre = PROVINCIAS_DISPLAY[provId] || toTitleCase(provId);
+    const { url, w, h } = crearLabelSVGNombre(nombre);
+    const marker = new google.maps.Marker({
+      position: centroide,
+      map: map,
+      icon: {
+        url,
+        scaledSize: new google.maps.Size(w, h),
+        anchor: new google.maps.Point(w / 2, h / 2)
+      },
+      clickable: false,
+      zIndex: 10
+    });
+    marcadoresSector.push(marker);
+  });
+}
+
+function ocultarEtiquetasSector() {
+  marcadoresSector.forEach(function (m) { m.setMap(null); });
+  marcadoresSector = [];
+}
+
+// ============================================
+// FLECHAS DE EXPANSIÓN (estilo mapa antiguo)
+// ============================================
+const RUTA_EXPANSION = [
+  { lat: -34.5860921070048, lng: -58.44745685090108 }, // Sede Central Vighi — Concepción Arenal 3732, Chacarita
+  { lat: -46.0,   lng: -68.5   }, // Sector Sur
+  { lat: -31.0,   lng: -68.2   }, // Sector Cordillera
+  { lat: -25.5,   lng: -61.0   }, // Sector Norte
+  { lat: -32.0,   lng: -63.8   }, // Sector Centro
+];
+
+function generarCurva(p1, p2, factor, lado, trimStart = 0.05, trimEnd = 0.05) {
+  // lado: "mar" (este/derecha) | "izquierda" (izq. del sentido de viaje)
+  const n = 60;
+  const midLat = (p1.lat + p2.lat) / 2;
+  const midLng = (p1.lng + p2.lng) / 2;
+  const dLat = p2.lat - p1.lat;
+  const dLng = p2.lng - p1.lng;
+  const len = Math.sqrt(dLat * dLat + dLng * dLng);
+  const cpLngR = midLng + (-dLat / len) * factor * len;
+  const cpLngL = midLng + ( dLat / len) * factor * len;
+  const usarDerecha = lado === "izquierda" ? false
+                    : lado === "oeste"     ? cpLngR < cpLngL
+                    : cpLngR >= cpLngL;
+  const cpLat = midLat + (usarDerecha ?  dLng : -dLng) / len * factor * len;
+  const cpLng = usarDerecha ? cpLngR : cpLngL;
+  const puntos = [];
+  for (let i = 0; i <= n; i++) {
+    const t = trimStart + (1 - trimStart - trimEnd) * (i / n);
+    puntos.push({
+      lat: (1 - t) * (1 - t) * p1.lat + 2 * (1 - t) * t * cpLat + t * t * p2.lat,
+      lng: (1 - t) * (1 - t) * p1.lng + 2 * (1 - t) * t * cpLng + t * t * p2.lng
+    });
+  }
+  return puntos;
+}
+
+function calcularRumbo(p1, p2) {
+  const lat1 = p1.lat * Math.PI / 180;
+  const lat2 = p2.lat * Math.PI / 180;
+  const dLng  = (p2.lng - p1.lng) * Math.PI / 180;
+  const y = Math.sin(dLng) * Math.cos(lat2);
+  const x = Math.cos(lat1) * Math.sin(lat2) - Math.sin(lat1) * Math.cos(lat2) * Math.cos(dLng);
+  return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
+}
+
+function mostrarFlechasExpansion() {
+  ocultarFlechasExpansion();
+
+  const COLOR      = "#a020a8";
+  const COLOR_DARK = "#6a0070";
+
+  // lado por segmento: 0=Sede→Sur, 1=Sur→Cordillera, 2=Cordillera→Norte, 3=Norte→Centro
+  const LADOS = ["mar", "oeste", "oeste", "mar"];
+
+  for (let i = 0; i < RUTA_EXPANSION.length - 1; i++) {
+    const puntos = generarCurva(RUTA_EXPANSION[i], RUTA_EXPANSION[i + 1], 0.25, LADOS[i], i === 0 ? 0 : 0.05);
+
+    // Línea cortada antes del cap para que no tape la punta
+    const linea = new google.maps.Polyline({
+      path: puntos,
+      geodesic: false,
+      strokeColor:   COLOR,
+      strokeOpacity: 0.85,
+      strokeWeight:  8,
+      map: map,
+      zIndex: 5
+    });
+    flechasExpansion.push(linea);
+
+    // Punta como marcador separado con rotación exacta
+    const pUlt     = puntos[puntos.length - 1];
+    const pPrevUlt = puntos[puntos.length - 2];
+    const punta = new google.maps.Marker({
+      position: pUlt,
+      map: map,
+      icon: {
+        path:         google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
+        scale:        5.5,
+        fillColor:    COLOR,
+        fillOpacity:  1,
+        strokeColor:  COLOR_DARK,
+        strokeWeight: 1.5,
+        rotation:     calcularRumbo(pPrevUlt, pUlt)
+      },
+      clickable: false,
+      zIndex: 6
+    });
+    flechasExpansion.push(punta);
+  }
+
+  // Punto de origen (Sede Central) — logo del laboratorio
+  const origen = new google.maps.Marker({
+    position: RUTA_EXPANSION[0],
+    map: map,
+    icon: {
+      url: "logo_vighi.png",
+      scaledSize: new google.maps.Size(48, 48),
+      anchor: new google.maps.Point(24, 24)
+    },
+    title: "Sede Central Vighi",
+    clickable: false,
+    zIndex: 15
+  });
+  flechasExpansion.push(origen);
+}
+
+function ocultarFlechasExpansion() {
+  flechasExpansion.forEach(function (f) { f.setMap(null); });
+  flechasExpansion = [];
+}
+
 // ============================================
 // CARGAR GEOJSON ARGENTINA
 // ============================================
@@ -982,6 +1147,12 @@ function getProvinciaId(feature) {
 
 function aplicarEstiloBaseArgentina() {
   if (argentinaDataLayer) argentinaDataLayer.setStyle(ESTILO_BASE_ARGENTINA);
+}
+
+const ESTILO_EXPANSION_BASE = { fillColor: "#95a5a6", fillOpacity: 0.3, strokeColor: "#2c3e50", strokeOpacity: 1, strokeWeight: 1 };
+
+function aplicarEstiloExpansionBase() {
+  if (argentinaDataLayer) argentinaDataLayer.setStyle(ESTILO_EXPANSION_BASE);
 }
 
 // ============================================
@@ -1299,10 +1470,15 @@ function volverAlListado() {
 
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
+  ocultarEtiquetasSector();
 
   aplicarEstiloBase();
   aplicarEstiloBaseAmba();
-  aplicarEstiloBaseArgentina();
+  if (regionActiva === "expansion") {
+    aplicarEstiloExpansionBase();
+  } else {
+    aplicarEstiloBaseArgentina();
+  }
 
   if (regionActiva === "argentina") {
     mostrarEtiquetasPoblacion();
