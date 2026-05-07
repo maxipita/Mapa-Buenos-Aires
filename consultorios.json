@@ -102,15 +102,15 @@
         "lng": -58.3833,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 6 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 6 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$62.221,89"}
           ]
       },
       {
@@ -156,15 +156,15 @@
         "lng": -58.3848,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 10 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 1 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$99.331,72"}
           ]
       },
       {
@@ -286,15 +286,15 @@
         "lng": -58.406,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 2 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 2 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$16.431,02"}
           ]
       },
       {
@@ -340,15 +340,15 @@
         "lng": -58.4066,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 12 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 12 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$97.134,63"}
           ]
       },
       {
@@ -610,15 +610,15 @@
         "lng": -58.3933,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 1 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 1 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$9.078,14"}
           ]
       },
       {
@@ -628,15 +628,15 @@
         "lng": -58.39,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 2 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 2 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$9.758,56"}
           ]
       },
       {
@@ -682,15 +682,15 @@
         "lng": -58.3917,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 9 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 9 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$78.404,02"}
           ]
       },
       {
@@ -808,15 +808,15 @@
         "lng": -58.3988,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 6 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 6 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$63.269,65"}
           ]
       },
       {
@@ -880,15 +880,15 @@
         "lng": -58.3879,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 11 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 11 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$97.244,33"}
           ]
       },
       {
@@ -916,15 +916,15 @@
         "lng": -58.409,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 11 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 11 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$87.126,65"}
           ]
       },
       {
@@ -1150,15 +1150,15 @@
         "lng": -58.3976,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 7 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 8 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$57.051,31"}
           ]
       },
       {
@@ -1168,15 +1168,15 @@
         "lng": -58.4006,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 6 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 6 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$59.733,24"}
           ]
       },
       {
@@ -1186,15 +1186,15 @@
         "lng": -58.4055,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 10 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 10 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$96.608"}
           ]
       },
       {
@@ -1204,15 +1204,15 @@
         "lng": -58.4009,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 3 },
           { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 3 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$25.509,16"}
           ]
       },
       {
@@ -1249,6 +1249,60 @@
           { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
           {"tipo": "total", "codigo": "Total", "cantidad": 590 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$4.276.567,08"}
+          ]
+      },
+      {
+        "nombre": "AYACUCHO1807",
+        "direccion": "Ayacucho 1807, C1112AAG Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5884,
+        "lng": -58.3909,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 3 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 4 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$39.428,20"}
+          ]
+      },
+      {
+        "nombre": "CONSBUQUET",
+        "direccion": "Av. Gral. Las Heras 1681, C1018AAN Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5926,
+        "lng": -58.3903,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 1 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 1 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 1 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 3 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$0"}
+          ]
+      },
+      {
+        "nombre": "PARAGUAY2302_14",
+        "direccion": "Paraguay 2302, C1122 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5975,
+        "lng": -58.4012,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 1 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 3 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$9.078,14"}
           ]
       }
     ]
@@ -1343,6 +1397,24 @@
           { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
           {"tipo": "total", "codigo": "Total", "cantidad": 28 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$156.839,96"}
+          ]
+      },
+      {
+        "nombre": "CDU",
+        "direccion": "Av. Córdoba 2424, C1120AAT Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5993,
+        "lng": -58.4013,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 1 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 1 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$46.789"}
           ]
       }
     ]
@@ -1634,15 +1706,15 @@
         "lng": -58.4321,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 3 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 3 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$27.859,21"}
           ]
       }
     ]
@@ -1656,15 +1728,15 @@
         "lng": -58.4668,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 4 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 4 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$33.724,67"}
           ]
       }
     ]
@@ -1695,7 +1767,8 @@
     ]
   },
   "10": {
-    "localidades": [      {
+    "localidades": [     
+       {
         "nombre": "RFALCON5530",
         "direccion": "DRD, Cnel. Ramón L. Falcón 5530, C1408 C1408DRD, Cdad. Autónoma de Buenos Aires",
         "lat": -34.6381,
@@ -1711,6 +1784,24 @@
           { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
           {"tipo": "total", "codigo": "Total", "cantidad": 53 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$325.266,36"}
+          ]
+      },
+      {
+        "nombre": "SEGUROLA2127",
+        "direccion": "Segurola 2127, C1417BBC Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6165,
+        "lng": -58.5036,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 7 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 7 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$41.522,50"}
           ]
       }
     ]
@@ -1742,15 +1833,15 @@
         "lng": -58.4967,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 5 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 5 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$41940,18"}
           ]
       },
       {
@@ -1796,15 +1887,15 @@
         "lng": -58.5166,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 8 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 8 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$71.383,87"}
           ]
       },
       {
@@ -1823,6 +1914,24 @@
           { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
           {"tipo": "total", "codigo": "Total", "cantidad": 88 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$442.814,88"}
+          ]
+      },
+      {
+        "nombre": "TINOGASTA3159",
+        "direccion": "Comuna 11, Tinogasta 3159, C1417EHO Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6001,
+        "lng": -58.4955,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 4 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 4 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$34.587,30"}
           ]
       }
     ]
@@ -1854,15 +1963,15 @@
         "lng": -58.4847,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 2 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
           { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 2 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$0"}
           ]
       },
       {
@@ -1984,15 +2093,15 @@
         "lng": -58.4616,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 4 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 4 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$20.541,77"}
           ]
       },
       {
@@ -2146,15 +2255,15 @@
         "lng": -58.448,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 5 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 5 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$46.029,88"}
           ]
       },
       {
@@ -2236,15 +2345,15 @@
         "lng": -58.4537,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 5 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 6 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$27.914,84"}
           ]
       },
       {
@@ -2492,15 +2601,15 @@
         "lng": -58.4144,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 7 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 7 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$60.426,49"}
           ]
       },
       {
@@ -2546,15 +2655,15 @@
         "lng": -58.4183,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 1 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 1 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$18.156,28"}
           ]
       },
       {
@@ -2690,14 +2799,14 @@
         "lng": -58.4111,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 9 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 10 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
           ]
       },
@@ -2798,15 +2907,15 @@
         "lng": -58.412,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 6 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 6 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$52.743,58"}
           ]
       },
       {
@@ -2816,15 +2925,69 @@
         "lng": -58.4295,
         "tipo": "Consultorio",
         "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 10 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 10 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$69.174,60"}
+          ]
+      },
+      {
+        "nombre": "IVI",
+        "direccion": "Soler 5552, C1425BYF Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5811,
+        "lng": -58.4321,
+        "tipo": "Consultorio",
+        "nomencladores": [
           { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 4 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 4 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 9 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$258.600,23"}
+          ]
+      },
+      {
+        "nombre": "HUMBOLDT2263",
+        "direccion": "Humboldt 2263, C1414 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5802,
+        "lng": -58.4302,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 4 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 5 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 5 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$14.723,02"}
+          ]
+      },
+      {
+        "nombre": "CABILDO1183",
+        "direccion": "Av. Cabildo 1183, C1426AAL Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5681,
+        "lng": -58.4479,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
           { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 1 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$11.589,84"}
           ]
       }
     ]
@@ -2838,15 +3001,15 @@
         "lng": -58.4601,
         "tipo": "Consultorio",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35,646.541.06"}
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 4 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 4 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$18.156,28"}
           ]
       },
       {
