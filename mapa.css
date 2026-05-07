@@ -1,3 +1,30 @@
+/* ============================================
+   VARIABLES DE ESTILO — MAPA
+   ============================================ */
+:root {
+  /* Polígonos CABA / AMBA */
+  --map-fill:          #95a5a6;
+  --map-fill-opacity:  0.3;
+  --map-stroke:        #110112;
+  --map-stroke-weight: 1;
+
+  --map-sel-fill:          #d534db;
+  --map-sel-fill-opacity:  0.4;
+  --map-sel-stroke:        #a020a8;
+  --map-sel-stroke-weight: 2;
+
+  /* Polígonos Argentina */
+  --arg-fill:          #8ab4d4;
+  --arg-fill-opacity:  0.15;
+  --arg-stroke:        #110112;
+  --arg-stroke-weight: 2.5;
+
+  --arg-sel-fill:          #d534db;
+  --arg-sel-fill-opacity:  0.35;
+  --arg-sel-stroke:        #a020a8;
+  --arg-sel-stroke-weight: 3;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -775,4 +802,58 @@ body {
     top: 12px;
     right: 10px;
   }
+}
+
+/* ============================================
+   TABLA DE POBLACIÓN POR PROVINCIA
+   ============================================ */
+.pob-subtitulo {
+  font-size: 11px;
+  color: #888;
+  padding: 0 16px 8px;
+}
+
+.pob-lista {
+  padding: 0 8px;
+}
+
+.pob-row {
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 6px;
+  gap: 6px;
+  font-size: 13px;
+  color: #555;
+}
+
+.pob-row-activa {
+  cursor: pointer;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.pob-row-activa:hover {
+  background: #f0e6f6;
+  color: #a020a8;
+}
+
+.pob-nombre {
+  flex: 1;
+}
+
+.pob-numero {
+  font-variant-numeric: tabular-nums;
+  font-size: 12px;
+  color: #666;
+  white-space: nowrap;
+}
+
+.pob-prest {
+  font-size: 11px;
+  background: #a020a8;
+  color: white;
+  border-radius: 10px;
+  padding: 1px 7px;
+  white-space: nowrap;
 }

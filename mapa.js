@@ -3,7 +3,7 @@
 // ============================================
 const GEOJSON_URL = "barriosGeoJson.json";
 const GEOJSON_AMBA_URL = "ambaGeoJson.json";
-const GEOJSON_ARGENTINA_URL = "agrentinaGeoJson.json";
+const GEOJSON_ARGENTINA_URL = "agrentinaProvincesGeoJson.json";
 
 // ============================================
 // DATOS DE LAS COMUNAS (CABA)
@@ -256,6 +256,7 @@ let map;
 let ambaDataLayer;
 let argentinaDataLayer;
 let marcadoresActivos = [];
+let marcadoresPoblacion = [];
 let comunaSeleccionadaId = null;
 let partidoSeleccionadoId = null;
 let provinciaSeleccionadaId = null;
@@ -276,18 +277,121 @@ const CATEGORIAS = {
   }
 };
 
-const ESTILO_BASE = {
-  fillColor: "#95a5a6",
-  fillOpacity: 0.3,
-  strokeColor: "#2c3e50",
-  strokeWeight: 1
+let ESTILO_BASE;
+let ESTILO_SELECCIONADO;
+let ESTILO_BASE_ARGENTINA;
+let ESTILO_SELECCIONADO_ARGENTINA;
+
+function initEstilos() {
+  const v = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+  ESTILO_BASE = {
+    fillColor:    v("--map-fill"),
+    fillOpacity:  parseFloat(v("--map-fill-opacity")),
+    strokeColor:  v("--map-stroke"),
+    strokeWeight: parseFloat(v("--map-stroke-weight"))
+  };
+  ESTILO_SELECCIONADO = {
+    fillColor:    v("--map-sel-fill"),
+    fillOpacity:  parseFloat(v("--map-sel-fill-opacity")),
+    strokeColor:  v("--map-sel-stroke"),
+    strokeWeight: parseFloat(v("--map-sel-stroke-weight"))
+  };
+  ESTILO_BASE_ARGENTINA = {
+    fillColor:    v("--arg-fill"),
+    fillOpacity:  parseFloat(v("--arg-fill-opacity")),
+    strokeColor:  v("--arg-stroke"),
+    strokeWeight: parseFloat(v("--arg-stroke-weight"))
+  };
+  ESTILO_SELECCIONADO_ARGENTINA = {
+    fillColor:    v("--arg-sel-fill"),
+    fillOpacity:  parseFloat(v("--arg-sel-fill-opacity")),
+    strokeColor:  v("--arg-sel-stroke"),
+    strokeWeight: parseFloat(v("--arg-sel-stroke-weight"))
+  };
+}
+
+// ============================================
+// DATOS DE POBLACIÓN POR PROVINCIA (Censo 2022)
+// ============================================
+const POBLACION_ARGENTINA = {
+  "BUENOS AIRES":                    17569053,
+  "CIUDAD AUTONOMA DE BUENOS AIRES":  3120612,
+  "CORDOBA":                          3978984,
+  "SANTA FE":                         3556522,
+  "MENDOZA":                          2014533,
+  "TUCUMAN":                          1703186,
+  "SALTA":                            1440672,
+  "ENTRE RIOS":                       1426426,
+  "MISIONES":                         1280960,
+  "CORRIENTES":                       1197553,
+  "CHACO":                            1142963,
+  "SANTIAGO DEL ESTERO":              1054028,
+  "SAN JUAN":                          818234,
+  "JUJUY":                             797955,
+  "RIO NEGRO":                         762067,
+  "NEUQUEN":                           726590,
+  "FORMOSA":                           606041,
+  "CHUBUT":                            603120,
+  "SAN LUIS":                          540905,
+  "CATAMARCA":                         429562,
+  "LA PAMPA":                          358428,
+  "LA RIOJA":                          384607,
+  "SANTA CRUZ":                        333473,
+  "TIERRA DEL FUEGO":                  190641
 };
 
-const ESTILO_SELECCIONADO = {
-  fillColor: "#d534db",
-  fillOpacity: 0.4,
-  strokeColor: "#a020a8",
-  strokeWeight: 2
+const PROVINCIAS_DISPLAY = {
+  "BUENOS AIRES":                    "Buenos Aires",
+  "CIUDAD AUTONOMA DE BUENOS AIRES": "CABA",
+  "CORDOBA":                         "Córdoba",
+  "SANTA FE":                        "Santa Fe",
+  "MENDOZA":                         "Mendoza",
+  "TUCUMAN":                         "Tucumán",
+  "SALTA":                           "Salta",
+  "ENTRE RIOS":                      "Entre Ríos",
+  "MISIONES":                        "Misiones",
+  "CORRIENTES":                      "Corrientes",
+  "CHACO":                           "Chaco",
+  "SANTIAGO DEL ESTERO":             "Stgo. del Estero",
+  "SAN JUAN":                        "San Juan",
+  "JUJUY":                           "Jujuy",
+  "RIO NEGRO":                       "Río Negro",
+  "NEUQUEN":                         "Neuquén",
+  "FORMOSA":                         "Formosa",
+  "CHUBUT":                          "Chubut",
+  "SAN LUIS":                        "San Luis",
+  "CATAMARCA":                       "Catamarca",
+  "LA PAMPA":                        "La Pampa",
+  "LA RIOJA":                        "La Rioja",
+  "SANTA CRUZ":                      "Santa Cruz",
+  "TIERRA DEL FUEGO":                "T. del Fuego"
+};
+
+const CENTROIDES_ARGENTINA = {
+  "BUENOS AIRES":                    { lat: -37.1639, lng: -60.1358 },
+  "CIUDAD AUTONOMA DE BUENOS AIRES": { lat: -34.616,  lng: -58.4357 },
+  "CORDOBA":                         { lat: -32.2348, lng: -63.6512 },
+  "SANTA FE":                        { lat: -31.1792, lng: -60.9832 },
+  "MENDOZA":                         { lat: -34.7867, lng: -68.4403 },
+  "TUCUMAN":                         { lat: -27.069,  lng: -65.3798 },
+  "SALTA":                           { lat: -24.2054, lng: -63.2575 },
+  "ENTRE RIOS":                      { lat: -32.1211, lng: -59.429  },
+  "MISIONES":                        { lat: -26.8303, lng: -54.3994 },
+  "CORRIENTES":                      { lat: -28.9888, lng: -57.8106 },
+  "CHACO":                           { lat: -26.076,  lng: -60.6922 },
+  "SANTIAGO DEL ESTERO":             { lat: -28.0723, lng: -63.1376 },
+  "SAN JUAN":                        { lat: -30.5014, lng: -68.8518 },
+  "JUJUY":                           { lat: -23.1906, lng: -66.0555 },
+  "RIO NEGRO":                       { lat: -39.7604, lng: -66.4028 },
+  "NEUQUEN":                         { lat: -38.6293, lng: -69.5583 },
+  "FORMOSA":                         { lat: -24.6784, lng: -60.0736 },
+  "CHUBUT":                          { lat: -44.0096, lng: -68.4747 },
+  "SAN LUIS":                        { lat: -33.8991, lng: -65.9406 },
+  "CATAMARCA":                       { lat: -27.6392, lng: -67.4912 },
+  "LA PAMPA":                        { lat: -36.9682, lng: -65.817  },
+  "LA RIOJA":                        { lat: -29.8668, lng: -66.8501 },
+  "SANTA CRUZ":                      { lat: -49.1972, lng: -70.394  },
+  "TIERRA DEL FUEGO":                { lat: -54.5,    lng: -67.5    }
 };
 
 function filtrarPorCategoria(localidades) {
@@ -322,9 +426,10 @@ function seleccionarCategoria(cat, region) {
       map.data.setMap(null);
       if (ambaDataLayer) ambaDataLayer.setMap(null);
       if (argentinaDataLayer) argentinaDataLayer.setMap(map);
+      map.setCenter({ lat: -38.5, lng: -65 });
+      map.setZoom(4);
+      mostrarEtiquetasPoblacion();
     }
-    if (map) map.setCenter({ lat: -38.5, lng: -65 });
-    if (map) map.setZoom(4);
   } else {
     if (map) {
       map.data.setMap(map);
@@ -343,6 +448,7 @@ function volverAlMenu() {
   regionActiva = null;
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
+  ocultarEtiquetasPoblacion();
   if (map) {
     map.data.setMap(map);
     aplicarEstiloBase();
@@ -455,18 +561,35 @@ function mostrarTodasLasLocalidades() {
 
   if (regionActiva === "argentina") {
     const totalArg = provinciasConLocs.reduce((s, p) => s + p.locs.length, 0);
-    if (totalArg === 0) {
-      panelBody.innerHTML = `<p class="sin-datos">Sin ubicaciones registradas para Argentina.</p>`;
-      return;
-    }
+
+    // Tabla de población por provincia (todas, con o sin prestadores)
+    const pobRanking = Object.keys(POBLACION_ARGENTINA)
+      .sort((a, b) => POBLACION_ARGENTINA[b] - POBLACION_ARGENTINA[a])
+      .map(prov => {
+        const conLocs = provinciasConLocs.find(p => p.id === prov);
+        const cantPrest = conLocs ? conLocs.locs.length : 0;
+        const nombre = PROVINCIAS_DISPLAY[prov] || toTitleCase(prov);
+        return `
+          <div class="pob-row pob-row-activa" onclick="seleccionarProvincia('${prov}')">
+            <span class="pob-nombre">${nombre}</span>
+            <span class="pob-numero">${formatPoblacion(POBLACION_ARGENTINA[prov])}</span>
+            ${cantPrest > 0 ? `<span class="pob-prest">${cantPrest} prest.</span>` : ""}
+          </div>`;
+      }).join("");
+
     let htmlArg = `
-      <div class="todas-header">
-        <span>${totalArg} ubicaciones en total</span>
-        <button id="btnVerTodos" class="btn-ver-todos" onclick="mostrarTodosLosMarcadores()">📍 Ver todos en el mapa</button>
-      </div>
-      <div class="region-subtitulo">🇦🇷 Argentina</div>
+      <div class="region-subtitulo">📊 Población por provincia</div>
+      <div class="pob-subtitulo">Censo 2022 · Hacé click en una provincia con prestadores</div>
+      <div class="pob-lista">${pobRanking}</div>
     `;
-    htmlArg += renderItems(provinciasConLocs, "seleccionarProvincia", "argentina");
+
+    if (totalArg > 0) {
+      htmlArg += `
+        <div class="region-subtitulo" style="margin-top:12px">🏥 Provincias con prestadores</div>
+      `;
+      htmlArg += renderItems(provinciasConLocs, "seleccionarProvincia", "argentina");
+    }
+
     panelBody.innerHTML = htmlArg;
     return;
   }
@@ -538,6 +661,7 @@ document.addEventListener("DOMContentLoaded", function () {
 // INICIALIZAR MAPA
 // ============================================
 function initMap() {
+  initEstilos();
   map = new google.maps.Map(document.getElementById("map"), {
     center: { lat: -34.65, lng: -58.55 },
     zoom: 10,
@@ -566,6 +690,67 @@ function verificarYAjustarBounds() {
 
   map.setCenter({ lat: -34.62, lng: -58.52 });
   map.setZoom(11);
+}
+
+// ============================================
+// ETIQUETAS DE POBLACIÓN (ARGENTINA)
+// ============================================
+function formatPoblacion(n) {
+  return n.toLocaleString("es-AR");
+}
+
+function crearLabelSVG(provKey) {
+  const nombre = PROVINCIAS_DISPLAY[provKey] || toTitleCase(provKey);
+  const pob = POBLACION_ARGENTINA[provKey];
+  const pobStr = pob ? formatPoblacion(pob) + " hab." : "";
+
+  // Calcular ancho dinámico según largo del texto
+  const maxLen = Math.max(nombre.length, pobStr.length);
+  const w = Math.max(100, maxLen * 7 + 20);
+  const h = pobStr ? 42 : 26;
+
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
+    <rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="5" ry="5"
+      fill="white" fill-opacity="0.88" stroke="#1a1a2e" stroke-width="1.5"/>
+    <text x="${w / 2}" y="15" font-family="Arial,sans-serif" font-size="11"
+      font-weight="bold" fill="#1a1a2e" text-anchor="middle">${nombre}</text>
+    ${pobStr ? `<text x="${w / 2}" y="30" font-family="Arial,sans-serif" font-size="10"
+      fill="#444" text-anchor="middle">${pobStr}</text>` : ""}
+  </svg>`;
+
+  return "data:image/svg+xml," + encodeURIComponent(svg);
+}
+
+function mostrarEtiquetasPoblacion() {
+  ocultarEtiquetasPoblacion();
+  Object.keys(CENTROIDES_ARGENTINA).forEach(function (prov) {
+    const centroide = CENTROIDES_ARGENTINA[prov];
+    const iconUrl = crearLabelSVG(prov);
+    const pob = POBLACION_ARGENTINA[prov];
+    const w = Math.max(100, Math.max(
+      (PROVINCIAS_DISPLAY[prov] || prov).length,
+      pob ? (formatPoblacion(pob) + " hab.").length : 0
+    ) * 7 + 20);
+    const h = pob ? 42 : 26;
+
+    const marker = new google.maps.Marker({
+      position: centroide,
+      map: map,
+      icon: {
+        url: iconUrl,
+        scaledSize: new google.maps.Size(w, h),
+        anchor: new google.maps.Point(w / 2, h / 2)
+      },
+      clickable: false,
+      zIndex: 10
+    });
+    marcadoresPoblacion.push(marker);
+  });
+}
+
+function ocultarEtiquetasPoblacion() {
+  marcadoresPoblacion.forEach(function (m) { m.setMap(null); });
+  marcadoresPoblacion = [];
 }
 
 // ============================================
@@ -623,7 +808,7 @@ function getProvinciaId(feature) {
 }
 
 function aplicarEstiloBaseArgentina() {
-  if (argentinaDataLayer) argentinaDataLayer.setStyle(ESTILO_BASE);
+  if (argentinaDataLayer) argentinaDataLayer.setStyle(ESTILO_BASE_ARGENTINA);
 }
 
 // ============================================
@@ -634,11 +819,13 @@ function seleccionarProvincia(provinciaId) {
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
 
+  ocultarEtiquetasPoblacion();
+
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
 
   argentinaDataLayer.setStyle(function (feature) {
-    return getProvinciaId(feature) === provinciaId ? ESTILO_SELECCIONADO : ESTILO_BASE;
+    return getProvinciaId(feature) === provinciaId ? ESTILO_SELECCIONADO_ARGENTINA : ESTILO_BASE_ARGENTINA;
   });
 
   const bounds = new google.maps.LatLngBounds();
@@ -941,6 +1128,11 @@ function volverAlListado() {
   aplicarEstiloBase();
   aplicarEstiloBaseAmba();
   aplicarEstiloBaseArgentina();
+
+  if (regionActiva === "argentina") {
+    mostrarEtiquetasPoblacion();
+    if (map) { map.setCenter({ lat: -38.5, lng: -65 }); map.setZoom(4); }
+  }
 
   mostrarTodasLasLocalidades();
 }

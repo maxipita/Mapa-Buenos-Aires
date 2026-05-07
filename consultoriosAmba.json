@@ -18,6 +18,42 @@
           {"tipo": "total", "codigo": "Total", "cantidad": 110},
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$590.468,35"}
           ]
+        },
+        {
+        "nombre": "ALSINA155_1C",
+        "direccion": "Alsina 155, B1704EVD Ramos Mejía, Provincia de Buenos Aires",
+        "lat": -34.6423,
+        "lng": -58.5665,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 32 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
+          {"tipo": "total", "codigo": "Total", "cantidad": 37},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$241.098,76"}
+          ]
+        },
+        {
+        "nombre": "CMPRIVADOS",
+        "direccion": "Av. Rivadavia 14276, B1704 Ramos Mejía, Provincia de Buenos Aires",
+        "lat": -34.6415,
+        "lng": -58.5683,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 28 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
+          {"tipo": "total", "codigo": "Total", "cantidad": 31},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$256.607,42"}
+          ]
         }
     ]
     },
@@ -72,7 +108,7 @@
         "direccion": "Av. Wernicke 2867, B1684BDG Cdad. Jardin Lomas de Palomar, Provincia de Buenos Airess",
         "lat": -34.5997,
         "lng": -58.5915,
-        "tipo": "Sanatorio",
+        "tipo": "Consultorio",
         "nomencladores": [
           { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
           { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
@@ -86,5 +122,49 @@
           ]
       }
       ]
-    }
+    },
+  "06371": {
+    "localidades": [
+      {
+        "nombre": "SAAVEDRA2098",
+        "direccion": "Cornelio Saavedra 2098, B1650 San Martín, Provincia de Buenos Aires",
+        "lat": -34.5712,
+        "lng": -58.5353,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 27 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
+          {"tipo": "total", "codigo": "Total", "cantidad": 31},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$156.983,50"}
+          ]
+      }
+    ]
+  },
+    "06861": {
+    "localidades": [
+      {
+        "nombre": "MAIPU2443",
+        "direccion": "Av. Maipú 2443, B1636AAE Olivos, Provincia de Buenos Aires",
+        "lat": -34.5110,
+        "lng": -58.4901,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 16 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
+          {"tipo": "total", "codigo": "Total", "cantidad": 16},
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$129.168,57"}
+          ]
+      }
+    ]
+  }
 }
