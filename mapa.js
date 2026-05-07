@@ -65,7 +65,9 @@ const DATA_URLS = {
   sanatoriosAmba:          "sanatoriosAmba.json",
   consultoriosAmba:        "consultoriosAmba.json",
   sanatoriosArgentina:     "sanatoriosArgentina.json",
-  consultoriosArgentina:   "consultoriosArgentina.json"
+  consultoriosArgentina:   "consultoriosArgentina.json",
+  sanatoriosExpansion:     "sanatoriosExpansion.json",
+  consultoriosExpansion:   "consultoriosExpansion.json"
 };
 
 function cargarDatosExternos() {
@@ -80,8 +82,10 @@ function cargarDatosExternos() {
     fetchJSON(DATA_URLS.sanatoriosAmba),
     fetchJSON(DATA_URLS.consultoriosAmba),
     fetchJSON(DATA_URLS.sanatoriosArgentina),
-    fetchJSON(DATA_URLS.consultoriosArgentina)
-  ]).then(function ([sanat, consult, sanatAmba, consultAmba, sanatArg, consultArg]) {
+    fetchJSON(DATA_URLS.consultoriosArgentina),
+    fetchJSON(DATA_URLS.sanatoriosExpansion),
+    fetchJSON(DATA_URLS.consultoriosExpansion)
+  ]).then(function ([sanat, consult, sanatAmba, consultAmba, sanatArg, consultArg, sanatExp, consultExp]) {
     // CABA
     [sanat, consult].forEach(function (fuente) {
       Object.keys(fuente).forEach(function (id) {
@@ -120,6 +124,20 @@ function cargarDatosExternos() {
           provinciasData[id].localidades = provinciasData[id].localidades.concat(locs);
         } else {
           provinciasData[id] = { nombre: fuente[id].nombre || id, localidades: locs };
+        }
+      });
+    });
+
+    // EXPANSIÓN
+    [sanatExp, consultExp].forEach(function (fuente) {
+      Object.keys(fuente).forEach(function (id) {
+        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+        if (locs.length === 0) return;
+        if (provinciasDataExpansion[id]) {
+          if (!Array.isArray(provinciasDataExpansion[id].localidades)) provinciasDataExpansion[id].localidades = [];
+          provinciasDataExpansion[id].localidades = provinciasDataExpansion[id].localidades.concat(locs);
+        } else {
+          provinciasDataExpansion[id] = { nombre: fuente[id].nombre || id, localidades: locs };
         }
       });
     });
@@ -264,6 +282,35 @@ let categoriaActiva = null;
 let regionActiva = null;
 let geojsonCargados = 0;
 const provinciasData = {};
+const provinciasDataExpansion = {};
+
+// ============================================
+// SECTORES DEL PROYECTO DE EXPANSIÓN
+// ============================================
+const sectoresExpansion = {
+  "sur": {
+    nombre: "Sector Sur",
+    provincias: ["NEUQUEN", "RIO NEGRO", "CHUBUT", "SANTA CRUZ", "TIERRA DEL FUEGO"]
+  },
+  "cordillera": {
+    nombre: "Sector Cordillera",
+    provincias: ["MENDOZA", "SAN JUAN", "LA RIOJA", "CATAMARCA"]
+  },
+  "norte": {
+    nombre: "Sector Norte",
+    provincias: ["SALTA", "JUJUY", "CHACO", "FORMOSA", "CORRIENTES", "MISIONES"]
+  },
+  "centro": {
+    nombre: "Sector Centro",
+    provincias: ["TUCUMAN", "SANTIAGO DEL ESTERO", "ENTRE RIOS", "SANTA FE", "CORDOBA", "SAN LUIS", "LA PAMPA"]
+  },
+  "sede": {
+    nombre: "Sede Central Vighi",
+    provincias: ["BUENOS AIRES", "CIUDAD AUTONOMA DE BUENOS AIRES"]
+  }
+};
+
+let sectorSeleccionadoId = null;
 
 const CATEGORIAS = {
   sanatorios: {
@@ -290,6 +337,97 @@ const ESTILO_SELECCIONADO = {
   strokeWeight: 2
 };
 
+function getProvinciasDataActivo() {
+  return regionActiva === "expansion" ? provinciasDataExpansion : provinciasData;
+}
+
+function getSectorDeProvinciaId(provinciaId) {
+  return Object.keys(sectoresExpansion).find(
+    sectorId => sectoresExpansion[sectorId].provincias.includes(provinciaId)
+  ) || null;
+}
+
+function getLocalidadesDeSector(sectorId) {
+  const sector = sectoresExpansion[sectorId];
+  const localidades = [];
+  const vistas = new Set();
+  sector.provincias.forEach(provId => {
+    const prov = provinciasDataExpansion[provId];
+    if (prov && Array.isArray(prov.localidades)) {
+      prov.localidades.forEach(loc => {
+        const key = `${loc.lat},${loc.lng}`;
+        if (!vistas.has(key)) { vistas.add(key); localidades.push(loc); }
+      });
+    }
+  });
+  return filtrarPorCategoria(localidades);
+}
+
+function seleccionarSector(sectorId) {
+  sectorSeleccionadoId = sectorId;
+  provinciaSeleccionadaId = null;
+  comunaSeleccionadaId = null;
+  partidoSeleccionadoId = null;
+
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+
+  const provinciasDelSector = new Set(sectoresExpansion[sectorId].provincias);
+
+  argentinaDataLayer.setStyle(function (feature) {
+    return provinciasDelSector.has(getProvinciaId(feature)) ? ESTILO_SELECCIONADO : ESTILO_BASE;
+  });
+
+  const bounds = new google.maps.LatLngBounds();
+  argentinaDataLayer.forEach(feature => {
+    if (provinciasDelSector.has(getProvinciaId(feature))) {
+      feature.getGeometry().forEachLatLng(latLng => {
+        if (latLng.lat() > -58 && latLng.lng() > -75 && latLng.lng() < -50) {
+          bounds.extend(latLng);
+        }
+      });
+    }
+  });
+  if (!bounds.isEmpty()) {
+    const padding = esMobile()
+      ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
+      : { top: 40, right: 40, bottom: 40, left: 40 };
+    map.fitBounds(bounds, padding);
+  }
+
+  mostrarInfoPanelSector(sectorId);
+  agregarMarcadores(getLocalidadesDeSector(sectorId));
+}
+
+function mostrarInfoPanelSector(sectorId) {
+  const sector = sectoresExpansion[sectorId];
+  const localidades = getLocalidadesDeSector(sectorId);
+  const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+
+  const localidadesHtml = locOrdenadas.length > 0
+    ? locOrdenadas.map(loc => `
+        <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
+          <strong>${loc.nombre}</strong>
+          <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+        </div>
+      `).join("")
+    : `<p class="sin-datos">Sin localidades registradas para este sector.</p>`;
+
+  document.getElementById("panelBody").innerHTML = `
+    <div class="comuna-header">
+      <div class="comuna-header-top">
+        <h3>🚀 ${sector.nombre}</h3>
+        <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
+      </div>
+      <div class="barrios-tag"><strong>Provincias:</strong> ${sector.provincias.map(p => toTitleCase(p)).join(", ")}</div>
+    </div>
+    <div class="seccion-titulo">Localidades de interés</div>
+    ${localidadesHtml}
+  `;
+
+  abrirPanelMobile();
+}
+
 function filtrarPorCategoria(localidades) {
   if (!categoriaActiva || !CATEGORIAS[categoriaActiva]) return localidades;
   const tipos = CATEGORIAS[categoriaActiva].tipos;
@@ -308,16 +446,18 @@ function seleccionarCategoria(cat, region) {
   const leyenda = document.getElementById("leyendaPrioridad");
   if (leyenda) leyenda.style.display = "block";
   document.getElementById("categoriaActualLabel").textContent =
-    regionActiva === "argentina" ? "Argentina" : catInfo.label;
+    regionActiva === "argentina" ? "Argentina" :
+    regionActiva === "expansion" ? "Proyecto de Expansión" :
+    catInfo.label;
   document.getElementById("panelDesc").textContent =
-    regionActiva === "argentina"
+    (regionActiva === "argentina" || regionActiva === "expansion")
       ? "Hacé click en una provincia para ver los prestadores que trabajan con Vighi."
       : `Hacé click en una comuna o partido para ver los ${catInfo.label.toLowerCase()} que trabajan con Vighi.`;
   document.getElementById("searchInput").placeholder =
     cat === "sanatorios" ? "Buscar sanatorio o dirección..." : "Buscar consultorio o dirección...";
 
   // Mostrar/ocultar capas según región
-  if (regionActiva === "argentina") {
+  if (regionActiva === "argentina" || regionActiva === "expansion") {
     if (map) {
       map.data.setMap(null);
       if (ambaDataLayer) ambaDataLayer.setMap(null);
@@ -340,6 +480,7 @@ function volverAlMenu() {
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
   provinciaSeleccionadaId = null;
+  sectorSeleccionadoId = null;
   regionActiva = null;
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
@@ -442,18 +583,11 @@ function mostrarTodasLasLocalidades() {
     </div>
   `;
 
-  const provinciasConLocs = regionActiva === "argentina"
-    ? Object.keys(provinciasData)
-        .map(id => ({
-          id,
-          ...provinciasData[id],
-          locs: filtrarPorCategoria(provinciasData[id].localidades || [])
-        }))
-        .filter(p => p.locs.length > 0)
-        .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'))
-    : [];
-
   if (regionActiva === "argentina") {
+    const provinciasConLocs = Object.keys(provinciasData)
+      .map(id => ({ id, ...provinciasData[id], locs: filtrarPorCategoria(provinciasData[id].localidades || []) }))
+      .filter(p => p.locs.length > 0)
+      .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
     const totalArg = provinciasConLocs.reduce((s, p) => s + p.locs.length, 0);
     if (totalArg === 0) {
       panelBody.innerHTML = `<p class="sin-datos">Sin ubicaciones registradas para Argentina.</p>`;
@@ -468,6 +602,39 @@ function mostrarTodasLasLocalidades() {
     `;
     htmlArg += renderItems(provinciasConLocs, "seleccionarProvincia", "argentina");
     panelBody.innerHTML = htmlArg;
+    return;
+  }
+
+  if (regionActiva === "expansion") {
+    const sectoresList = Object.keys(sectoresExpansion).map(sectorId => ({
+      id: sectorId,
+      nombre: sectoresExpansion[sectorId].nombre,
+      locs: getLocalidadesDeSector(sectorId)
+    }));
+    const totalExp = sectoresList.reduce((s, sec) => s + sec.locs.length, 0);
+    let htmlExp = `
+      <div class="todas-header">
+        <span>${totalExp} ubicaciones en total</span>
+        <button id="btnVerTodos" class="btn-ver-todos" onclick="mostrarTodosLosMarcadores()">📍 Ver todos en el mapa</button>
+      </div>
+      <div class="region-subtitulo">🚀 Proyecto de Expansión</div>
+    `;
+    htmlExp += sectoresList.map(sector => {
+      const ordenadas = [...sector.locs].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+      return `
+        <div class="seccion-titulo todas-titulo" onclick="seleccionarSector('${sector.id}')" title="Ver en el mapa">
+          ${sector.nombre}
+          <span class="todas-count">${ordenadas.length}</span>
+        </div>
+        ${ordenadas.map(loc => `
+          <div class="localidad-item" onclick="seleccionarSector('${sector.id}')">
+            <strong>${loc.nombre}</strong>
+            <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+          </div>
+        `).join("")}
+      `;
+    }).join("");
+    panelBody.innerHTML = htmlExp;
     return;
   }
 
@@ -594,11 +761,12 @@ function cargarGeoJSONArgentina() {
     });
     toRemove.forEach(f => argentinaDataLayer.remove(f));
 
-    // Poblar provinciasData desde el GeoJSON
+    // Poblar provinciasData y provinciasDataExpansion desde el GeoJSON
     argentinaDataLayer.forEach(feature => {
       const prov = feature.getProperty("provincia");
-      if (prov && !provinciasData[prov]) {
-        provinciasData[prov] = { nombre: toTitleCase(prov), localidades: [] };
+      if (prov) {
+        if (!provinciasData[prov]) provinciasData[prov] = { nombre: toTitleCase(prov), localidades: [] };
+        if (!provinciasDataExpansion[prov]) provinciasDataExpansion[prov] = { nombre: toTitleCase(prov), localidades: [] };
       }
     });
 
@@ -609,7 +777,12 @@ function cargarGeoJSONArgentina() {
     argentinaDataLayer.addListener("click", function (event) {
       const provinciaId = getProvinciaId(event.feature);
       if (!provinciaId) return;
-      seleccionarProvincia(provinciaId);
+      if (regionActiva === "expansion") {
+        const sectorId = getSectorDeProvinciaId(provinciaId);
+        if (sectorId) seleccionarSector(sectorId);
+      } else {
+        seleccionarProvincia(provinciaId);
+      }
     });
   });
 }
@@ -666,9 +839,10 @@ function seleccionarProvincia(provinciaId) {
 function getLocalidadesDeProvincia(provinciaId) {
   const localidades = [];
   const vistas = new Set();
+  const datos = getProvinciasDataActivo();
 
-  if (provinciasData[provinciaId] && Array.isArray(provinciasData[provinciaId].localidades)) {
-    provinciasData[provinciaId].localidades.forEach(loc => {
+  if (datos[provinciaId] && Array.isArray(datos[provinciaId].localidades)) {
+    datos[provinciaId].localidades.forEach(loc => {
       const key = `${loc.lat},${loc.lng}`;
       if (!vistas.has(key)) { vistas.add(key); localidades.push(loc); }
     });
@@ -678,7 +852,7 @@ function getLocalidadesDeProvincia(provinciaId) {
 }
 
 function mostrarInfoPanelProvincia(provinciaId) {
-  const provincia = provinciasData[provinciaId];
+  const provincia = getProvinciasDataActivo()[provinciaId];
   const localidades = getLocalidadesDeProvincia(provinciaId);
 
   const nombre = provincia ? provincia.nombre : toTitleCase(provinciaId);
@@ -903,8 +1077,8 @@ function mostrarTodosLosMarcadores() {
     });
   });
 
-  if (regionActiva === "argentina") {
-    Object.values(provinciasData).forEach(prov => {
+  if (regionActiva === "argentina" || regionActiva === "expansion") {
+    Object.values(getProvinciasDataActivo()).forEach(prov => {
       filtrarPorCategoria(prov.localidades || []).forEach(loc => {
         const key = `${loc.lat},${loc.lng}`;
         if (!vistas.has(key)) { vistas.add(key); todasLasLocs.push(loc); }
@@ -934,6 +1108,7 @@ function volverAlListado() {
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
   provinciaSeleccionadaId = null;
+  sectorSeleccionadoId = null;
 
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
