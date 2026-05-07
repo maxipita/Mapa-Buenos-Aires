@@ -583,6 +583,8 @@ function seleccionarCategoria(cat, region) {
       map.data.setMap(map);
       if (ambaDataLayer) ambaDataLayer.setMap(map);
       if (argentinaDataLayer) argentinaDataLayer.setMap(null);
+      map.setCenter({ lat: -34.62, lng: -58.52 });
+      map.setZoom(11);
     }
   }
 
@@ -890,12 +892,21 @@ function crearLabelSVG(provKey) {
   const h = pobStr ? 42 : 26;
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
-    <rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="5" ry="5"
-      fill="white" fill-opacity="0.88" stroke="#1a1a2e" stroke-width="1.5"/>
-    <text x="${w / 2}" y="15" font-family="Arial,sans-serif" font-size="11"
-      font-weight="bold" fill="#1a1a2e" text-anchor="middle">${nombre}</text>
-    ${pobStr ? `<text x="${w / 2}" y="30" font-family="Arial,sans-serif" font-size="10"
-      fill="#444" text-anchor="middle">${pobStr}</text>` : ""}
+    <defs>
+      <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f3e8ff"/>
+        <stop offset="100%" stop-color="#dbb8f5"/>
+      </linearGradient>
+      <filter id="sombra" x="-10%" y="-10%" width="120%" height="130%">
+        <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#9b59b6" flood-opacity="0.25"/>
+      </filter>
+    </defs>
+    <rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="7" ry="7"
+      fill="url(#bg)" stroke="#9b59b6" stroke-width="1" filter="url(#sombra)"/>
+    <text x="${w / 2}" y="15" font-family="'Segoe UI',Arial,sans-serif" font-size="11"
+      font-weight="700" fill="#6c2fa0" text-anchor="middle" letter-spacing="0.3">${nombre}</text>
+    ${pobStr ? `<text x="${w / 2}" y="30" font-family="'Segoe UI',Arial,sans-serif" font-size="9.5"
+      fill="#9b59b6" text-anchor="middle">${pobStr}</text>` : ""}
   </svg>`;
 
   return "data:image/svg+xml," + encodeURIComponent(svg);
@@ -903,7 +914,33 @@ function crearLabelSVG(provKey) {
 
 function mostrarEtiquetasPoblacion() {
   ocultarEtiquetasPoblacion();
+
+  const CABA_KEY = "CIUDAD AUTONOMA DE BUENOS AIRES";
+  const BA_KEY   = "BUENOS AIRES";
+  const unificadas = new Set([CABA_KEY, BA_KEY]);
+
+  // Etiqueta unificada Buenos Aires + CABA
+  const pobBA   = POBLACION_ARGENTINA[BA_KEY]   || 0;
+  const pobCABA = POBLACION_ARGENTINA[CABA_KEY] || 0;
+  const pobTotal = pobBA + pobCABA;
+  const labelUnif = crearLabelSVGUnificado("Buenos Aires", pobTotal);
+  const posUnif = { lat: -35.5, lng: -59.0 };
+  const markerUnif = new google.maps.Marker({
+    position: posUnif,
+    map: map,
+    icon: {
+      url: labelUnif.url,
+      scaledSize: new google.maps.Size(labelUnif.w, labelUnif.h),
+      anchor: new google.maps.Point(labelUnif.w / 2, labelUnif.h / 2)
+    },
+    clickable: false,
+    zIndex: 10
+  });
+  marcadoresPoblacion.push(markerUnif);
+
+  // Resto de provincias
   Object.keys(CENTROIDES_ARGENTINA).forEach(function (prov) {
+    if (unificadas.has(prov)) return;
     const centroide = CENTROIDES_ARGENTINA[prov];
     const iconUrl = crearLabelSVG(prov);
     const pob = POBLACION_ARGENTINA[prov];
@@ -912,7 +949,6 @@ function mostrarEtiquetasPoblacion() {
       pob ? (formatPoblacion(pob) + " hab.").length : 0
     ) * 7 + 20);
     const h = pob ? 42 : 26;
-
     const marker = new google.maps.Marker({
       position: centroide,
       map: map,
@@ -926,6 +962,31 @@ function mostrarEtiquetasPoblacion() {
     });
     marcadoresPoblacion.push(marker);
   });
+}
+
+function crearLabelSVGUnificado(nombre, pob) {
+  const pobStr = pob ? formatPoblacion(pob) + " hab." : "";
+  const maxLen = Math.max(nombre.length, pobStr.length);
+  const w = Math.max(130, maxLen * 7 + 20);
+  const h = pobStr ? 42 : 26;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}">
+    <defs>
+      <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#f3e8ff"/>
+        <stop offset="100%" stop-color="#dbb8f5"/>
+      </linearGradient>
+      <filter id="sombra2" x="-10%" y="-10%" width="120%" height="130%">
+        <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#9b59b6" flood-opacity="0.25"/>
+      </filter>
+    </defs>
+    <rect x="1" y="1" width="${w - 2}" height="${h - 2}" rx="7" ry="7"
+      fill="url(#bg2)" stroke="#9b59b6" stroke-width="1" filter="url(#sombra2)"/>
+    <text x="${w / 2}" y="15" font-family="'Segoe UI',Arial,sans-serif" font-size="11"
+      font-weight="700" fill="#6c2fa0" text-anchor="middle" letter-spacing="0.3">${nombre}</text>
+    ${pobStr ? `<text x="${w / 2}" y="30" font-family="'Segoe UI',Arial,sans-serif" font-size="9.5"
+      fill="#9b59b6" text-anchor="middle">${pobStr}</text>` : ""}
+  </svg>`;
+  return { url: "data:image/svg+xml," + encodeURIComponent(svg), w, h };
 }
 
 function ocultarEtiquetasPoblacion() {
