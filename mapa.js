@@ -694,8 +694,6 @@ function seleccionarCategoria(cat, region) {
       if (regionActiva === "expansion") {
         aplicarEstiloExpansionBase();
         mostrarFlechasExpansion();
-      } else {
-        mostrarEtiquetasPoblacion();
       }
     }
   } else {
@@ -1549,7 +1547,32 @@ function mostrarInfoPanelProvincia(provinciaId) {
   const provincia = getProvinciasDataActivo()[provinciaId];
   const localidades = getLocalidadesDeProvincia(provinciaId);
 
+  const grupo = getGrupoProvincias(provinciaId);
+  let pobTotal = 0;
+  grupo.forEach(id => { pobTotal += POBLACION_ARGENTINA[id] || 0; });
+
+  // Sumar facturación estimada de todos los nomencladores de la provincia
+  const datos = getProvinciasDataActivo();
+  let facturacionTotal = 0;
+  grupo.forEach(id => {
+    ((datos[id] || {}).localidades || []).forEach(loc => {
+      (loc.nomencladores || []).forEach(n => {
+        if (n.tipo === "total facturado") {
+          const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
+          if (!isNaN(val)) facturacionTotal += val;
+        }
+      });
+    });
+  });
+
   const nombre = provincia ? provincia.nombre : toTitleCase(provinciaId);
+  const pobHtml = pobTotal
+    ? `<div class="provincia-poblacion">👥 ${formatPoblacion(pobTotal)} habitantes</div>`
+    : "";
+  const facHtml = facturacionTotal > 0
+    ? `<div class="provincia-facturacion">💰 Facturación estimada: $${facturacionTotal.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>`
+    : "";
+
   const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
   const localidadesHtml = locOrdenadas.length > 0
@@ -1567,6 +1590,8 @@ function mostrarInfoPanelProvincia(provinciaId) {
         <h3>📍 ${nombre}</h3>
         <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
       </div>
+      ${pobHtml}
+      ${facHtml}
     </div>
     <div class="seccion-titulo">Localidades de interés</div>
     ${localidadesHtml}
@@ -1817,7 +1842,6 @@ function volverAlListado() {
   }
 
   if (regionActiva === "argentina") {
-    mostrarEtiquetasPoblacion();
     if (map) { map.setCenter({ lat: -38.5, lng: -65 }); map.setZoom(4); }
   }
 

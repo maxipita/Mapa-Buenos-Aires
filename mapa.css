@@ -14,10 +14,10 @@
   --map-sel-stroke-weight: 2;
 
   /* Polígonos Argentina */
-  --arg-fill:          #8ab4d4;
-  --arg-fill-opacity:  0.15;
-  --arg-stroke:        #110112;
-  --arg-stroke-weight: 2.5;
+  --arg-fill:          #95a5a6;
+  --arg-fill-opacity:  0.3;
+  --arg-stroke:        #2c3e50;
+  --arg-stroke-weight: 1;
 
   --arg-sel-fill:          #d534db;
   --arg-sel-fill-opacity:  0.35;
@@ -239,6 +239,19 @@ body {
 .comuna-header h3 {
   color: #2c3e50;
   font-size: 18px;
+}
+
+.provincia-poblacion {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 2px;
+}
+
+.provincia-facturacion {
+  font-size: 13px;
+  color: #059669;
+  font-weight: 600;
+  margin-top: 4px;
 }
 
 .btn-volver {
