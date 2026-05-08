@@ -5,6 +5,125 @@ const GEOJSON_URL = "barriosGeoJson.json";
 const GEOJSON_AMBA_URL = "ambaGeoJson.json";
 const GEOJSON_ARGENTINA_URL = "agrentinaProvincesGeoJson.json";
 
+const SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/1LWynrRdnZSB9kaYPBZsRtswAAHDJIQHDwrRRdR2jwa8/gviz/tq?tqx=out:csv&sheet=resumen";
+
+// Mapeo de PROVINCIA_ZONA del Sheet a los IDs de provincia del GeoJSON
+const ZONA_A_PROVINCIA = {
+  "CABA":              "CIUDAD AUTONOMA DE BUENOS AIRES",
+  "AMBA OESTE":        "BUENOS AIRES",
+  "AMBA NORTE":        "BUENOS AIRES",
+  "AMBA SUR":          "BUENOS AIRES",
+  "AMBA ESTE":         "BUENOS AIRES",
+  "BUENOS AIRES":      "BUENOS AIRES",
+  "CORDOBA":           "CORDOBA",
+  "SANTA FE":          "SANTA FE",
+  "MENDOZA":           "MENDOZA",
+  "NEUQUEN":           "NEUQUEN",
+  "RIO NEGRO":         "RIO NEGRO",
+  "CHUBUT":            "CHUBUT",
+  "SANTA CRUZ":        "SANTA CRUZ",
+  "TIERRA DEL FUEGO":  "TIERRA DEL FUEGO ANTARTIDA E ISLAS DEL ATLANTICO SUR",
+  "SALTA":             "SALTA",
+  "JUJUY":             "JUJUY",
+  "TUCUMAN":           "TUCUMAN",
+  "ENTRE RIOS":        "ENTRE RIOS",
+  "CORRIENTES":        "CORRIENTES",
+  "MISIONES":          "MISIONES",
+  "CHACO":             "CHACO",
+  "FORMOSA":           "FORMOSA",
+  "SANTIAGO DEL ESTERO": "SANTIAGO DEL ESTERO",
+  "CATAMARCA":         "CATAMARCA",
+  "LA RIOJA":          "LA RIOJA",
+  "SAN JUAN":          "SAN JUAN",
+  "SAN LUIS":          "SAN LUIS",
+  "LA PAMPA":          "LA PAMPA",
+};
+
+function parsearCSVSheets(texto) {
+  const filas = [];
+  let campo = "", fila = [], dentroComillas = false;
+  for (let i = 0; i < texto.length; i++) {
+    const c = texto[i];
+    if (c === '"') {
+      if (dentroComillas && texto[i + 1] === '"') { campo += '"'; i++; }
+      else dentroComillas = !dentroComillas;
+    } else if (c === ',' && !dentroComillas) {
+      fila.push(campo.trim()); campo = "";
+    } else if ((c === '\n' || c === '\r') && !dentroComillas) {
+      if (c === '\r' && texto[i + 1] === '\n') i++;
+      fila.push(campo.trim()); campo = "";
+      if (fila.some(f => f !== "")) filas.push(fila);
+      fila = [];
+    } else {
+      campo += c;
+    }
+  }
+  if (campo || fila.length) { fila.push(campo.trim()); filas.push(fila); }
+  return filas;
+}
+
+function derivarPrioridad(qx, amb, salaEndo, ce) {
+  const vals = [qx, amb, salaEndo, ce].map(v => (v || "").toUpperCase());
+  if (vals.includes("ALTA")) return "alta";
+  if (vals.includes("MEDIA")) return "media";
+  return "baja";
+}
+
+function normalizarNombre(n) {
+  return (n || "").toLowerCase().trim()
+    .normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/[^a-z0-9]/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function cargarDesdeSheetsArgentina() {
+  return fetch(SHEETS_CSV_URL)
+    .then(r => r.ok ? r.text() : Promise.reject("No se pudo cargar el Sheet"))
+    .then(texto => {
+      const filas = parsearCSVSheets(texto);
+      if (filas.length < 2) return;
+
+      const COL = { cliente:0, zona:1, tipo:2, qx:3, amb:4, salaEndo:5, ce:6, qx2:7, amb2:8, salaEndo2:9, ce2:10, facturacion:11 };
+
+      // Construir índice de localidades de provinciasData por nombre normalizado
+      const indicePorNombre = {};
+      Object.values(provinciasData).forEach(prov => {
+        (prov.localidades || []).forEach(loc => {
+          const key = normalizarNombre(loc.nombre);
+          if (key) indicePorNombre[key] = loc;
+        });
+      });
+
+      filas.slice(1).forEach(row => {
+        const nombre = (row[COL.cliente] || "").trim();
+        if (!nombre || nombre.toUpperCase() === "TOTAL") return;
+
+        const nomencladores = [
+          { tipo: "eficiencia",     codigo: "QX",                  cantidad: row[COL.qx]       || "-" },
+          { tipo: "eficiencia",     codigo: "AMB",                 cantidad: row[COL.amb]      || "-" },
+          { tipo: "eficiencia",     codigo: "SALA/ENDO",           cantidad: row[COL.salaEndo] || "-" },
+          { tipo: "eficiencia",     codigo: "CE",                  cantidad: row[COL.ce]       || "-" },
+          { tipo: "capacidad",      codigo: "QX",                  cantidad: row[COL.qx2]      || "0" },
+          { tipo: "capacidad",      codigo: "AMB",                 cantidad: row[COL.amb2]     || "0" },
+          { tipo: "capacidad",      codigo: "SALA/ENDO",           cantidad: row[COL.salaEndo2]|| "0" },
+          { tipo: "capacidad",      codigo: "CE",                  cantidad: row[COL.ce2]      || "0" },
+          { tipo: "total facturado",codigo: "Facturación estimada",cantidad: row[COL.facturacion] || "-" },
+        ];
+
+        // Buscar la localidad en el JSON por nombre y actualizar sus nomencladores
+        const key = normalizarNombre(nombre);
+        const loc = indicePorNombre[key];
+        if (loc) {
+          loc.nomencladores = nomencladores;
+          if (row[COL.tipo]) loc.tipo = row[COL.tipo];
+        } else {
+          // Si no está en el JSON todavía, lo ignoramos (el usuario lo cargará a mano)
+          console.info("Sheet: sin match en JSON para →", nombre);
+        }
+      });
+    })
+    .catch(err => console.warn("Sheet Argentina:", err));
+}
+
 // ============================================
 // DATOS DE LAS COMUNAS (CABA)
 // ============================================
@@ -858,7 +977,7 @@ function initMap() {
   ambaDataLayer = new google.maps.Data();
   argentinaDataLayer = new google.maps.Data();
 
-  cargarDatosExternos().then(function () {
+  Promise.all([cargarDatosExternos(), cargarDesdeSheetsArgentina()]).then(function () {
     cargarGeoJSON();
     cargarGeoJSONAmba();
     cargarGeoJSONArgentina();
@@ -1314,14 +1433,45 @@ function getProvinciaId(feature) {
   return feature.getProperty("provincia") || null;
 }
 
+function esCaba(feature) {
+  const prov = (getProvinciaId(feature) || "").toUpperCase();
+  return prov.includes("CIUDAD AUTONOMA") || prov.includes("CIUDAD AUTÓNOMA");
+}
+
+function estiloArgentina(feature, seleccionado) {
+  const base = seleccionado ? ESTILO_SELECCIONADO_ARGENTINA : ESTILO_BASE_ARGENTINA;
+  if (esCaba(feature)) {
+    return {
+      fillColor:    base.fillColor,
+      fillOpacity:  base.fillOpacity,
+      strokeColor:  base.fillColor,
+      strokeOpacity: 0,
+      strokeWeight: 0
+    };
+  }
+  return base;
+}
+
 function aplicarEstiloBaseArgentina() {
-  if (argentinaDataLayer) argentinaDataLayer.setStyle(ESTILO_BASE_ARGENTINA);
+  if (argentinaDataLayer) argentinaDataLayer.setStyle(function(feature) {
+    return estiloArgentina(feature, false);
+  });
 }
 
 const ESTILO_EXPANSION_BASE = { fillColor: "#95a5a6", fillOpacity: 0.3, strokeColor: "#2c3e50", strokeOpacity: 1, strokeWeight: 1 };
 
 function aplicarEstiloExpansionBase() {
   if (argentinaDataLayer) argentinaDataLayer.setStyle(ESTILO_EXPANSION_BASE);
+}
+
+// Provincias que se remarcan juntas al seleccionar cualquiera del grupo
+const PROVINCIAS_AGRUPADAS = {
+  "BUENOS AIRES":                    ["BUENOS AIRES", "CIUDAD AUTONOMA DE BUENOS AIRES"],
+  "CIUDAD AUTONOMA DE BUENOS AIRES": ["BUENOS AIRES", "CIUDAD AUTONOMA DE BUENOS AIRES"],
+};
+
+function getGrupoProvincias(provinciaId) {
+  return PROVINCIAS_AGRUPADAS[provinciaId] || [provinciaId];
 }
 
 // ============================================
@@ -1337,15 +1487,17 @@ function seleccionarProvincia(provinciaId) {
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
 
+  const grupo = new Set(getGrupoProvincias(provinciaId));
+
   argentinaDataLayer.setStyle(function (feature) {
-    return getProvinciaId(feature) === provinciaId ? ESTILO_SELECCIONADO_ARGENTINA : ESTILO_BASE_ARGENTINA;
+    const seleccionado = grupo.has(getProvinciaId(feature));
+    return estiloArgentina(feature, seleccionado);
   });
 
   const bounds = new google.maps.LatLngBounds();
   argentinaDataLayer.forEach(feature => {
-    if (getProvinciaId(feature) === provinciaId) {
+    if (grupo.has(getProvinciaId(feature))) {
       feature.getGeometry().forEachLatLng(latLng => {
-        // Ignorar coordenadas antárticas al calcular el zoom
         if (latLng.lat() > -58 && latLng.lng() > -75 && latLng.lng() < -50) {
           bounds.extend(latLng);
         }
@@ -1359,8 +1511,24 @@ function seleccionarProvincia(provinciaId) {
     map.fitBounds(bounds, padding);
   }
 
+  // Combinar localidades de todas las provincias del grupo
+  const datos = getProvinciasDataActivo();
+  const todasLasLocalidades = [];
+  const vistas = new Set();
+  grupo.forEach(id => {
+    const prov = datos[id];
+    if (prov && Array.isArray(prov.localidades)) {
+      prov.localidades.forEach(loc => {
+        if (!vistas.has(loc.nombre)) {
+          vistas.add(loc.nombre);
+          todasLasLocalidades.push(loc);
+        }
+      });
+    }
+  });
+
   mostrarInfoPanelProvincia(provinciaId);
-  agregarMarcadores(getLocalidadesDeProvincia(provinciaId));
+  agregarMarcadores(filtrarPorCategoria(todasLasLocalidades));
 }
 
 function getLocalidadesDeProvincia(provinciaId) {
