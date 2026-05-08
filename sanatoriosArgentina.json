@@ -72,6 +72,169 @@
         "lng": -58.5424,
         "tipo": "Sanatorio",
         "prioridad":"blanco"
+      },
+      {
+        "nombre": "CEPEM",
+        "direccion": "Av. Gaona 3979, B1702 Ciudadela, Provincia de Buenos Aires",
+        "lat": -34.6446,
+        "lng": -58.6195,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica Privada del Oeste",
+        "direccion": "San Martín 675, B6640 Bragado, Provincia de Buenos Aires",
+        "lat": -34.1182,
+        "lng": -58.4991,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Sanatorio Caseros",
+        "direccion": "Lisandro Medina 2285, B1678GUW Caseros, Provincia de Buenos Aires",
+        "lat": -34.6029,
+        "lng": -58.5639,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Hospital Privado SADIV",
+        "direccion": "Av. Domingo Faustino Sarmiento 2795, B2930 San Pedro, Provincia de Buenos Aires",
+        "lat": -34.6936,
+        "lng": -58.6712,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Sanatorio San Juan Bautista",
+        "direccion": "Av. Eva Perón 4855 B1716, B1716 Libertad, Provincia de Buenos Aires",
+        "lat": -34.6936,
+        "lng": -58.6712,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica Santa María",
+        "direccion": "Av. Eva Perón 4855 B1716, B1716 Libertad, Provincia de Buenos Aires",
+        "lat": -34.6934,
+        "lng": -58.6930,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      }
+
+    ]
+  },
+  "TIERRA DEL FUEGO": {
+    "nombre": "Tierra del Fuego",
+    "localidades": [
+      {
+        "nombre": "Hospital Regional Rio Grande",
+        "direccion": "Florentino Ameghino 709, V9420 Río Grande, Tierra del Fuego",
+        "lat": -53.7817,
+        "lng": -67.6988,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco"
+      },
+      {
+        "nombre": "Hospital Regional Gdor. Ernesto Campos",
+        "direccion": "Av. 12 de Octubre y Maipú, V9410 Ushuaia, Tierra del Fuego",
+        "lat": -54.8136,
+        "lng": -68.3236,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Sanatorio Fueguino",
+        "direccion": "Córdoba 748, V9420 Río Grande, Tierra del Fuego",
+        "lat": -53.7706,
+        "lng": -67.7098,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica CEMEP",
+        "direccion": "Rio Grande: 20 de Junio 815, V9420 Río Grande, Tierra del Fuego",
+        "lat": -53.7660,
+        "lng": -67.7123,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clinica San Jorge (LUCCAU)",
+        "direccion": "Onachaga 184, V9410BQC Ushuaia, Tierra del Fuego",
+        "lat": -54.8153,
+        "lng": -68.3258,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      }
+    ]
+  },
+  "NEUQUEN": {
+    "nombre": "Neuquén",
+    "localidades": [
+      {
+        "nombre": "Clinica san agustin",
+        "direccion": "Tte. Candelaria 45, Q8300 Neuquén",
+        "lat": -38.9551,
+        "lng": -68.0776,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco"
+      },
+      {
+        "nombre": "Hospital Dr. Horacio Heller",
+        "direccion": "DVS Coronel Godoy y Lighuen E. 1549, Q8300 Neuquén",
+        "lat": -38.9369,
+        "lng": -68.1160,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Hospital Dr. Castro Rendon: Alderete 159",
+        "direccion": "Q8302 Neuquén",
+        "lat": -38.9504,
+        "lng": -68.0570,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Swiss Medical | Centro Médico Neuquén",
+        "direccion": "Gral. Fotheringham 155, Q8300 Neuquén",
+        "lat": -38.9532,
+        "lng": -68.0689,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica Dr. Roberto Raña",
+        "direccion": "Tucumán 71, Q8300 Neuquén",
+        "lat": -38.9542,
+        "lng": -68.0518,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica San Lucas",
+        "direccion": "Gdor. Francisco Denis 454, Q8300 Neuquén",
+        "lat": -38.9497,
+        "lng": -68.0885,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Policlinico Neuquén",
+        "direccion": "Juan Bautista Alberdi 269, Q8300 Neuquén",
+        "lat": -38.9530,
+        "lng": -68.0554,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica Pasteur",
+        "direccion": "La Rioja 113, Q8300 Neuquén",
+        "lat": -38.9551,
+        "lng": -68.0774,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
       }
     ]
   }

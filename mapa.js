@@ -114,7 +114,6 @@ function cargarDesdeSheetsArgentina() {
         const loc = indicePorNombre[key];
         if (loc) {
           loc.nomencladores = nomencladores;
-          if (row[COL.tipo]) loc.tipo = row[COL.tipo];
         } else {
           // Si no está en el JSON todavía, lo ignoramos (el usuario lo cargará a mano)
           console.info("Sheet: sin match en JSON para →", nombre);
