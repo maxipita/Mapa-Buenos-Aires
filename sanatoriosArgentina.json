@@ -1,1 +1,78 @@
-{}
+{
+  "BUENOS AIRES": {
+    "nombre": "Buenos Aires",
+    "localidades": [
+      {
+        "nombre": "Casa Hospital San Juan de Dios",
+        "direccion": "Dr. Gabriel Ardoino 714, B1704EIP Ramos Mejía, Provincia de Buenos Aires",
+        "lat": -34.6380,
+        "lng": -58.5559,
+        "tipo": "Sanatorio",
+        "imagen": ""
+      },
+      {
+        "nombre": "Sanatorio de La Trinidad Palermo",
+        "direccion": "Av. Cerviño 4720, CABA",
+        "lat": -34.575,
+        "lng": -58.424,
+        "tipo": "Sanatorio",
+        "imagen": "Imagenes/trindad_palermo.jpg"
+      },
+      {
+        "nombre": "Casa Hospital San Juan de Dios - Sede Castelar",
+        "direccion": "Sta. Rosa 1355, B1712LTC Castelar, Provincia de Buenos Aires",
+        "lat": -34.6435,
+        "lng": -58.6567,
+        "tipo": "Sanatorio",
+        "imagen": ""
+      },
+      {
+        "nombre": "Clínica Sanatorio del Oeste Ituzaingó",
+        "direccion": "Gral. Félix Olazábal 319, B1714 Ituzaingó, Provincia de Buenos Aires",
+        "lat": -34.654,
+        "lng": -58.6605,
+        "tipo": "Centro Médico"
+      },
+      {
+        "nombre": "DIM ALTA COMPLEJIDAD",
+        "direccion": "Belgrano 137, B1704ETC Ramos Mejía, Provincia de Buenos Aires",
+        "lat": -34.6417,
+        "lng": -58.5661,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica Güemes – Luján",
+        "direccion": "Mariano Moreno 1360, B6700 Luján, Provincia de Buenos Aires",
+        "lat": -34.5697,
+        "lng": -58.1154,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Corporación Médica del Oeste",
+        "direccion": "Dr. Ramón Carrillo 2157, B1650CSP San Martín, Provincia de Buenos Aires",
+        "lat": -34.5757,
+        "lng": -58.5390,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica Cruz Celeste",
+        "direccion": "San Justo Buenos Aires AR, Bermúdez 2895, B1753FVW Villa Luzuriaga",
+        "lat": -34.6656,
+        "lng": -58.5854,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Sanatorio Nuestra Señora del Pilar",
+        "direccion": "Av. Gaona 3979, B1702 Ciudadela, Provincia de Buenos Aires",
+        "lat": -34.6343,
+        "lng": -58.5424,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      }
+    ]
+  }
+}
