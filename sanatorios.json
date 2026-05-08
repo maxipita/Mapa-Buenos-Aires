@@ -211,7 +211,7 @@
           { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 2 },
           { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
           {"tipo": "total", "codigo": "Total", "cantidad": 23 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$351.678,619"}
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$351.678,61"}
           ]
       }
     ]
