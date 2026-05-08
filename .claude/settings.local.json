@@ -3,7 +3,11 @@
     "allow": [
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\" -Force)",
       "Bash(Select-Object Name, PSIsContainer)",
-      "Bash(Format-Table)"
+      "Bash(Format-Table)",
+      "Bash(python -c ' *)",
+      "Bash(python -m olevba \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Modelo Expansion ANDREA NICO .xlsm\")",
+      "Bash(pip install *)",
+      "Bash(python -c \"from oletools.olevba import VBA_Parser; p = VBA_Parser\\(r'C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Modelo Expansion ANDREA NICO .xlsm'\\); [print\\(code\\) for _, _, _, code in p.extract_macros\\(\\)]\")"
     ]
   }
 }

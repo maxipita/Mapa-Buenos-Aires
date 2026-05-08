@@ -277,6 +277,8 @@ let marcadoresActivos = [];
 let marcadoresPoblacion = [];
 let marcadoresSector = [];
 let flechasExpansion = [];
+let flechasPoligonos = [];
+let flechaZoomListener = null;
 let comunaSeleccionadaId = null;
 let partidoSeleccionadoId = null;
 let provinciaSeleccionadaId = null;
@@ -1080,70 +1082,176 @@ function calcularRumbo(p1, p2) {
   return (Math.atan2(y, x) * 180 / Math.PI + 360) % 360;
 }
 
-function mostrarFlechasExpansion() {
-  ocultarFlechasExpansion();
+// Devuelve m/px para el zoom actual (lat de referencia: centro de Argentina)
+function getMetersPerPixel() {
+  const lat  = -35;
+  const zoom = map.getZoom();
+  return 156543.03392 * Math.cos(lat * Math.PI / 180) / Math.pow(2, zoom);
+}
+
+// Calcula desplazamiento perpendicular izquierdo/derecho en grados
+// dLat/dLng: componentes del vector tangente (en grados); halfM: semiancho en metros
+function computePerp(pt, dLat, dLng, halfM) {
+  const cosLat  = Math.cos(pt.lat * Math.PI / 180);
+  const tLat_m  = dLat * 111320;
+  const tLng_m  = dLng * 111320 * cosLat;
+  const len     = Math.sqrt(tLat_m * tLat_m + tLng_m * tLng_m);
+  if (len === 0) return { left: pt, right: pt };
+  // Normal perpendicular (90° CCW): (-tLng_m, tLat_m)
+  const nLat_m   = -tLng_m / len;
+  const nLng_m   =  tLat_m / len;
+  const nLat_deg = nLat_m * halfM / 111320;
+  const nLng_deg = nLng_m * halfM / (111320 * cosLat);
+  return {
+    left:  { lat: pt.lat + nLat_deg, lng: pt.lng + nLng_deg },
+    right: { lat: pt.lat - nLat_deg, lng: pt.lng - nLng_deg }
+  };
+}
+
+// Dibuja las flechas como Polígonos (shaft + punta = elemento unificado)
+function dibujarFlechasPoligono() {
+  flechasPoligonos.forEach(function (p) { p.setMap(null); });
+  flechasPoligonos = [];
+  if (regionActiva !== "expansion" || !map) return;
 
   const COLOR      = "#a020a8";
   const COLOR_DARK = "#6a0070";
-
-  // lado por segmento: 0=Sede→Sur, 1=Sur→Cordillera, 2=Cordillera→Norte, 3=Norte→Centro
-  const LADOS = ["mar", "oeste", "oeste", "mar"];
+  const mpp        = getMetersPerPixel();
+  const shaftHalfM = 11 * mpp;   // semiancho del cuerpo (≈22 px visuales)
+  const headHalfM  = 28 * mpp;   // semiancho de la punta (≈56 px visuales)
+  const HEAD_FRAC  = 0.18;        // último 18% de los puntos = punta de flecha
+  const LADOS      = ["mar", "oeste", "oeste", "mar"];
 
   for (let i = 0; i < RUTA_EXPANSION.length - 1; i++) {
-    const puntos = generarCurva(RUTA_EXPANSION[i], RUTA_EXPANSION[i + 1], 0.25, LADOS[i], i === 0 ? 0 : 0.05);
+    const puntos = generarCurva(
+      RUTA_EXPANSION[i], RUTA_EXPANSION[i + 1],
+      0.25, LADOS[i],
+      i === 0 ? 0 : 0.05,  // trimStart: primera flecha parte del logo
+      0                     // trimEnd = 0: la punta llega exactamente al destino
+    );
 
-    // Línea cortada antes del cap para que no tape la punta
-    const linea = new google.maps.Polyline({
-      path: puntos,
-      geodesic: false,
-      strokeColor:   COLOR,
-      strokeOpacity: 0.85,
-      strokeWeight:  8,
-      map: map,
-      zIndex: 5
+    const n         = puntos.length - 1;
+    const headStart = n - Math.round(n * HEAD_FRAC);
+
+    // Bordes izquierdo y derecho del cuerpo (shaft)
+    const leftEdge  = [];
+    const rightEdge = [];
+    for (let j = 0; j <= headStart; j++) {
+      const prev = j === 0 ? puntos[0]   : puntos[j - 1];
+      const next = j >= n  ? puntos[n]   : puntos[j + 1];
+      const off  = computePerp(puntos[j], next.lat - prev.lat, next.lng - prev.lng, shaftHalfM);
+      leftEdge.push(off.left);
+      rightEdge.push(off.right);
+    }
+
+    // Base de la punta (más ancha)
+    const hPrev   = headStart > 0 ? puntos[headStart - 1] : puntos[0];
+    const hNext   = headStart < n ? puntos[headStart + 1] : puntos[n];
+    const baseOff = computePerp(puntos[headStart], hNext.lat - hPrev.lat, hNext.lng - hPrev.lng, headHalfM);
+
+    // Punta (vértice final exacto)
+    const tip = puntos[n];
+
+    // Path del polígono: borde izq → base izq → punta → base der → borde der (invertido)
+    const path = [
+      ...leftEdge,
+      baseOff.left,
+      tip,
+      baseOff.right,
+      ...rightEdge.slice().reverse()
+    ];
+
+    const poligono = new google.maps.Polygon({
+      paths:         path,
+      fillColor:     COLOR,
+      fillOpacity:   0.85,
+      strokeColor:   COLOR_DARK,
+      strokeOpacity: 0.9,
+      strokeWeight:  1.5,
+      map:           map,
+      zIndex:        5,
+      clickable:     false
     });
-    flechasExpansion.push(linea);
+    flechasPoligonos.push(poligono);
+  }
+}
 
-    // Punta como marcador separado con rotación exacta
-    const pUlt     = puntos[puntos.length - 1];
-    const pPrevUlt = puntos[puntos.length - 2];
-    const punta = new google.maps.Marker({
-      position: pUlt,
-      map: map,
+function mostrarFlechasExpansion() {
+  ocultarFlechasExpansion();
+
+  const LADOS  = ["mar", "oeste", "oeste", "mar"];
+  const ETAPAS = ["1° Etapa", "2° Etapa", "3° Etapa", "4° Etapa"];
+
+  // 1. Flechas como polígonos (zoom-dependiente)
+  dibujarFlechasPoligono();
+
+  // 2. Etiquetas de etapa (marcadores SVG, zoom-independiente)
+  for (let i = 0; i < RUTA_EXPANSION.length - 1; i++) {
+    const puntos = generarCurva(
+      RUTA_EXPANSION[i], RUTA_EXPANSION[i + 1],
+      0.25, LADOS[i],
+      i === 0 ? 0 : 0.05, 0
+    );
+    const midIdx   = Math.floor(puntos.length / 2);
+    const midPunto = puntos[midIdx];
+    const bearing  = calcularRumbo(puntos[midIdx - 1], puntos[midIdx + 1]);
+    // bearing (norte=0, CW) → rotación SVG (este=0, CW)
+    let svgRot = bearing - 90;
+    if (svgRot >  90) svgRot -= 180;
+    if (svgRot < -90) svgRot += 180;
+
+    const cw = 160, ch = 50;
+    const svgEtapa = `<svg xmlns="http://www.w3.org/2000/svg" width="${cw}" height="${ch}">
+      <text x="${cw/2}" y="${ch/2 + 5}"
+        font-family="Arial,sans-serif" font-size="13" font-weight="bold"
+        fill="white" text-anchor="middle"
+        transform="rotate(${svgRot.toFixed(1)}, ${cw/2}, ${ch/2})">${ETAPAS[i]}</text>
+    </svg>`;
+
+    const etiqueta = new google.maps.Marker({
+      position: midPunto,
+      map:      map,
       icon: {
-        path:         google.maps.SymbolPath.FORWARD_CLOSED_ARROW,
-        scale:        5.5,
-        fillColor:    COLOR,
-        fillOpacity:  1,
-        strokeColor:  COLOR_DARK,
-        strokeWeight: 1.5,
-        rotation:     calcularRumbo(pPrevUlt, pUlt)
+        url:        "data:image/svg+xml," + encodeURIComponent(svgEtapa),
+        scaledSize: new google.maps.Size(cw, ch),
+        anchor:     new google.maps.Point(cw / 2, ch / 2)
       },
       clickable: false,
-      zIndex: 6
+      zIndex:    7
     });
-    flechasExpansion.push(punta);
+    flechasExpansion.push(etiqueta);
   }
 
-  // Punto de origen (Sede Central) — logo del laboratorio
+  // 3. Logo en la Sede Central Vighi
   const origen = new google.maps.Marker({
     position: RUTA_EXPANSION[0],
-    map: map,
+    map:      map,
     icon: {
-      url: "logo_vighi.png",
+      url:        "logo_vighi.png",
       scaledSize: new google.maps.Size(48, 48),
-      anchor: new google.maps.Point(24, 24)
+      anchor:     new google.maps.Point(24, 24)
     },
-    title: "Sede Central Vighi",
+    title:     "Sede Central Vighi",
     clickable: false,
-    zIndex: 15
+    zIndex:    15
   });
   flechasExpansion.push(origen);
+
+  // 4. Redibujar polígonos al cambiar zoom (para mantener proporción visual)
+  flechaZoomListener = map.addListener("zoom_changed", function () {
+    if (regionActiva === "expansion") dibujarFlechasPoligono();
+  });
 }
 
 function ocultarFlechasExpansion() {
   flechasExpansion.forEach(function (f) { f.setMap(null); });
   flechasExpansion = [];
+  flechasPoligonos.forEach(function (p) { p.setMap(null); });
+  flechasPoligonos = [];
+  if (flechaZoomListener) {
+    google.maps.event.removeListener(flechaZoomListener);
+    flechaZoomListener = null;
+  }
 }
 
 // ============================================
