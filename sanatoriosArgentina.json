@@ -3,15 +3,16 @@
     "nombre": "Buenos Aires",
     "localidades": [
       {
-        "nombre": "Casa Hospital San Juan de Dios",
+        "nombre": "Casa Hospital San Juan de Dios (Ramos Mejía)",
         "direccion": "Dr. Gabriel Ardoino 714, B1704EIP Ramos Mejía, Provincia de Buenos Aires",
         "lat": -34.6380,
         "lng": -58.5559,
         "tipo": "Sanatorio",
+        "prioridad":"blanco",
         "imagen": ""
       },
       {
-        "nombre": "Sanatorio de La Trinidad Palermo",
+        "nombre": "TRINIDAD PALERMO",
         "direccion": "Av. Cerviño 4720, CABA",
         "lat": -34.575,
         "lng": -58.424,
@@ -19,22 +20,24 @@
         "imagen": "Imagenes/trindad_palermo.jpg"
       },
       {
-        "nombre": "Casa Hospital San Juan de Dios - Sede Castelar",
+        "nombre": "SAN JUAN DE DIOS",
         "direccion": "Sta. Rosa 1355, B1712LTC Castelar, Provincia de Buenos Aires",
         "lat": -34.6435,
         "lng": -58.6567,
         "tipo": "Sanatorio",
+        "prioridad":"blanco",
         "imagen": ""
       },
       {
-        "nombre": "Clínica Sanatorio del Oeste Ituzaingó",
+        "nombre": "Sanatorio del Oeste",
         "direccion": "Gral. Félix Olazábal 319, B1714 Ituzaingó, Provincia de Buenos Aires",
         "lat": -34.654,
         "lng": -58.6605,
-        "tipo": "Centro Médico"
+        "tipo": "Centro Médico",
+        "prioridad":"blanco"
       },
       {
-        "nombre": "DIM ALTA COMPLEJIDAD",
+        "nombre": "DIM – Diagnóstico Integral Morón",
         "direccion": "Belgrano 137, B1704ETC Ramos Mejía, Provincia de Buenos Aires",
         "lat": -34.6417,
         "lng": -58.5661,
@@ -82,7 +85,7 @@
         "prioridad":"blanco"
       },
       {
-        "nombre": "Clínica Privada del Oeste",
+        "nombre": "Clínica Privada del Oeste (CPC)",
         "direccion": "San Martín 675, B6640 Bragado, Provincia de Buenos Aires",
         "lat": -34.1182,
         "lng": -58.4991,
@@ -225,14 +228,6 @@
         "direccion": "Juan Bautista Alberdi 269, Q8300 Neuquén",
         "lat": -38.9530,
         "lng": -68.0554,
-        "tipo": "Sanatorio",
-        "prioridad":"blanco"
-      },
-      {
-        "nombre": "Clínica Pasteur",
-        "direccion": "La Rioja 113, Q8300 Neuquén",
-        "lat": -38.9551,
-        "lng": -68.0774,
         "tipo": "Sanatorio",
         "prioridad":"blanco"
       },
