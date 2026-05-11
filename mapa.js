@@ -1,9 +1,9 @@
 // ============================================
 // CONFIGURACIÓN
 // ============================================
-const GEOJSON_URL = "barriosGeoJson.json";
-const GEOJSON_AMBA_URL = "ambaGeoJson.json";
-const GEOJSON_ARGENTINA_URL = "agrentinaProvincesGeoJson.json";
+const GEOJSON_URL = "DatosGeoJson/barriosGeoJson.json";
+const GEOJSON_AMBA_URL = "DatosGeoJson/ambaGeoJson.json";
+const GEOJSON_ARGENTINA_URL = "DatosGeoJson/agrentinaProvincesGeoJson.json";
 
 const SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/1LWynrRdnZSB9kaYPBZsRtswAAHDJIQHDwrRRdR2jwa8/gviz/tq?tqx=out:csv&sheet=resumen";
 
@@ -178,14 +178,14 @@ const partidosData = {
 // CARGA Y MERGE DE DATOS EXTERNOS (JSON)
 // ============================================
 const DATA_URLS = {
-  sanatorios:              "sanatorios.json",
-  consultorios:            "consultorios.json",
-  sanatoriosAmba:          "sanatoriosAmba.json",
-  consultoriosAmba:        "consultoriosAmba.json",
-  sanatoriosArgentina:     "sanatoriosArgentina.json",
-  consultoriosArgentina:   "consultoriosArgentina.json",
-  sanatoriosExpansion:     "sanatoriosExpansion.json",
-  consultoriosExpansion:   "consultoriosExpansion.json"
+  sanatorios:              "DatosJson/sanatorios.json",
+  consultorios:            "DatosJson/consultorios.json",
+  sanatoriosAmba:          "DatosJson/sanatoriosAmba.json",
+  consultoriosAmba:        "DatosJson/consultoriosAmba.json",
+  sanatoriosArgentina:     "DatosJson/sanatoriosArgentina.json",
+  consultoriosArgentina:   "DatosJson/consultoriosArgentina.json",
+  sanatoriosExpansion:     "DatosJson/sanatoriosExpansion.json",
+  consultoriosExpansion:   "DatosJson/consultoriosExpansion.json"
 };
 
 function cargarDatosExternos() {
@@ -997,7 +997,8 @@ function initMap() {
   ambaDataLayer = new google.maps.Data();
   argentinaDataLayer = new google.maps.Data();
 
-  Promise.all([cargarDatosExternos(), cargarDesdeSheetsArgentina()]).then(function () {
+  cargarDatosExternos().then(function () {
+    cargarDesdeSheetsArgentina();
     cargarGeoJSON();
     cargarGeoJSONAmba();
     cargarGeoJSONArgentina();
@@ -1498,6 +1499,7 @@ function getGrupoProvincias(provinciaId) {
 // SELECCIONAR PROVINCIA (ARGENTINA)
 // ============================================
 function seleccionarProvincia(provinciaId) {
+  const yaSeleccionada = provinciaSeleccionadaId === provinciaId;
   provinciaSeleccionadaId = provinciaId;
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
@@ -1514,21 +1516,23 @@ function seleccionarProvincia(provinciaId) {
     return estiloArgentina(feature, seleccionado);
   });
 
-  const bounds = new google.maps.LatLngBounds();
-  argentinaDataLayer.forEach(feature => {
-    if (grupo.has(getProvinciaId(feature))) {
-      feature.getGeometry().forEachLatLng(latLng => {
-        if (latLng.lat() > -58 && latLng.lng() > -75 && latLng.lng() < -50) {
-          bounds.extend(latLng);
-        }
-      });
+  if (!yaSeleccionada) {
+    const bounds = new google.maps.LatLngBounds();
+    argentinaDataLayer.forEach(feature => {
+      if (grupo.has(getProvinciaId(feature))) {
+        feature.getGeometry().forEachLatLng(latLng => {
+          if (latLng.lat() > -58 && latLng.lng() > -75 && latLng.lng() < -50) {
+            bounds.extend(latLng);
+          }
+        });
+      }
+    });
+    if (!bounds.isEmpty()) {
+      const padding = esMobile()
+        ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
+        : { top: 40, right: 40, bottom: 40, left: 40 };
+      map.fitBounds(bounds, padding);
     }
-  });
-  if (!bounds.isEmpty()) {
-    const padding = esMobile()
-      ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
-      : { top: 40, right: 40, bottom: 40, left: 40 };
-    map.fitBounds(bounds, padding);
   }
 
   // Combinar localidades de todas las provincias del grupo
