@@ -12,6 +12,14 @@
         "imagen": ""
       },
       {
+        "nombre": "Sanatorio Otamendi",
+        "direccion": "Azcuénaga 870, C1115AAB Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5984,
+        "lng": -58.401,
+        "tipo": "Sanatorio",
+        "imagen": "Imagenes/otamendi.jpg"
+      },
+      {
         "nombre": "TRINIDAD PALERMO",
         "direccion": "Av. Cerviño 4720, CABA",
         "lat": -34.575,
@@ -123,6 +131,14 @@
         "lng": -58.6930,
         "tipo": "Sanatorio",
         "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica Modelo de Morón",
+        "direccion": "República Oriental del Uruguay 234, C1015 Morón, Provincia de Buenos Aires",
+        "lat": -34.6506,
+        "lng": -58.6171,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
       }
 
     ]
@@ -155,7 +171,7 @@
         "prioridad":"blanco"
       },
       {
-        "nombre": "Clínica CEMEP",
+        "nombre": "Clínica CEMEP - Rio Grande",
         "direccion": "Rio Grande: 20 de Junio 815, V9420 Río Grande, Tierra del Fuego",
         "lat": -53.7660,
         "lng": -67.7123,
@@ -163,7 +179,7 @@
         "prioridad":"blanco"
       },
       {
-        "nombre": "Clinica San Jorge (LUCCAU)",
+        "nombre": "Clínica Privada del Oeste",
         "direccion": "Onachaga 184, V9410BQC Ushuaia, Tierra del Fuego",
         "lat": -54.8153,
         "lng": -68.3258,
