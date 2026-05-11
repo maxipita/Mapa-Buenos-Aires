@@ -189,8 +189,8 @@
         "prioridad":"blanco"
       },
       {
-        "nombre": "Hospital Dr. Castro Rendon: Alderete 159",
-        "direccion": "Q8302 Neuquén",
+        "nombre": "Hospital Dr. Castro Rendon",
+        "direccion": "Alderete 159, Q8302 Neuquén",
         "lat": -38.9504,
         "lng": -68.0570,
         "tipo": "Sanatorio",

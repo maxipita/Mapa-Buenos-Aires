@@ -9,11 +9,17 @@
         "tipo": "Consultorio",
         "nomencladores": [
           { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          {"tipo":"Costo Nomenclador","codigo":"Total","cantidad":}
           { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          {"tipo":"Costo Nomenclador","codigo":"Total","cantidad":}
           { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          {"tipo":"Costo Nomenclador","codigo":"Total","cantidad":}
           { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          {"tipo":"Costo Nomenclador","codigo":"Total","cantidad":}
           { "tipo":"Nomenclador","codigo": "150106", "cantidad": 34 },
+          {"tipo":"Costo Nomenclador","codigo":"Total","cantidad":}
           { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          {"tipo":"Costo Nomenclador","codigo":"Total","cantidad":}
           { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
           {"tipo": "total", "codigo": "Total", "cantidad": 34 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$118.467,66"}
