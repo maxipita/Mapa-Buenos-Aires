@@ -235,6 +235,62 @@
         "lng": -68.0774,
         "tipo": "Sanatorio",
         "prioridad":"blanco"
+      },
+      {
+        "nombre": "Hospital Bouquet Roldán",
+        "direccion": "Dr. Teodoro Luis Planas 1915, Q8300 Neuquén",
+        "lat": -38.9588,
+        "lng": -68.0858,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Hospital Zapala",
+        "direccion": "Luis Monti 155, Q8340 Zapala, Neuquén",
+        "lat": -38.9020,
+        "lng": -70.0654,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Hospital Complejidad VI Cutral-co",
+        "direccion": "Av. Juan Schreiber, Q8322 Plaza Huincul, Neuquén",
+        "lat": -38.9370,
+        "lng": -69.2124,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Hospital Zonal Ricon De Los Sauces",
+        "direccion": "Q8319 Rincón de los Sauces, Neuquén",
+        "lat": -37.3870,
+        "lng": -69.9262,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Hospital Zonal Chos Malal",
+        "direccion": "Av. Estanislao Flores 650, Q8353AZR Chos Malal, Neuquén",
+        "lat": -37.3811,
+        "lng": -70.2734,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Hospital Dr. Ramón Carrillo",
+        "direccion": "Pje. del Pueblo 247, San Martín de los Andes, Neuquén",
+        "lat": -40.1484,
+        "lng": -71.3289,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Sanatorio Plaza Huincul Petroleros Privados",
+        "direccion": "Carmen Funes entre Pedro Rotther, Av. del Libertador y, Q8322 Plaza Huincul, Neuquén",
+        "lat": -38.9270,
+        "lng": -69.1997,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
       }
     ]
   }

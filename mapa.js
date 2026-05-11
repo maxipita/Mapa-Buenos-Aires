@@ -320,33 +320,50 @@ function mostrarResultadosBusqueda(query) {
     return barrios.some(b => normalizarTexto(b).includes(q));
   }
 
-  Object.keys(comunasData).forEach(id => {
-    const comuna = comunasData[id];
-    const matchArea = areaMatchea(comuna);
-    filtrarPorCategoria(comuna.localidades).forEach(loc => {
-      const coincide = matchArea ||
-        normalizarTexto(loc.nombre).includes(q) ||
-        normalizarTexto(loc.direccion).includes(q) ||
-        normalizarTexto(loc.tipo || "").includes(q);
-      if (coincide) {
-        resultados.push({ ...loc, areaId: parseInt(id), areaNombre: comuna.nombre, region: "caba" });
-      }
+  if (regionActiva === "argentina" || regionActiva === "expansion") {
+    const datos = getProvinciasDataActivo();
+    Object.keys(datos).forEach(id => {
+      const prov = datos[id];
+      const matchArea = normalizarTexto(prov.nombre || "").includes(q);
+      filtrarPorCategoria(prov.localidades || []).forEach(loc => {
+        const coincide = matchArea ||
+          normalizarTexto(loc.nombre).includes(q) ||
+          normalizarTexto(loc.direccion || "").includes(q) ||
+          normalizarTexto(loc.tipo || "").includes(q);
+        if (coincide) {
+          resultados.push({ ...loc, areaId: id, areaNombre: prov.nombre, region: "argentina" });
+        }
+      });
     });
-  });
+  } else {
+    Object.keys(comunasData).forEach(id => {
+      const comuna = comunasData[id];
+      const matchArea = areaMatchea(comuna);
+      filtrarPorCategoria(comuna.localidades).forEach(loc => {
+        const coincide = matchArea ||
+          normalizarTexto(loc.nombre).includes(q) ||
+          normalizarTexto(loc.direccion).includes(q) ||
+          normalizarTexto(loc.tipo || "").includes(q);
+        if (coincide) {
+          resultados.push({ ...loc, areaId: parseInt(id), areaNombre: comuna.nombre, region: "caba" });
+        }
+      });
+    });
 
-  Object.keys(partidosData).forEach(id => {
-    const partido = partidosData[id];
-    const matchArea = areaMatchea(partido);
-    filtrarPorCategoria(partido.localidades || []).forEach(loc => {
-      const coincide = matchArea ||
-        normalizarTexto(loc.nombre).includes(q) ||
-        normalizarTexto(loc.direccion).includes(q) ||
-        normalizarTexto(loc.tipo || "").includes(q);
-      if (coincide) {
-        resultados.push({ ...loc, areaId: id, areaNombre: partido.nombre, region: "amba" });
-      }
+    Object.keys(partidosData).forEach(id => {
+      const partido = partidosData[id];
+      const matchArea = areaMatchea(partido);
+      filtrarPorCategoria(partido.localidades || []).forEach(loc => {
+        const coincide = matchArea ||
+          normalizarTexto(loc.nombre).includes(q) ||
+          normalizarTexto(loc.direccion).includes(q) ||
+          normalizarTexto(loc.tipo || "").includes(q);
+        if (coincide) {
+          resultados.push({ ...loc, areaId: id, areaNombre: partido.nombre, region: "amba" });
+        }
+      });
     });
-  });
+  }
 
   const panelBody = document.getElementById("panelBody");
 
@@ -676,6 +693,10 @@ function seleccionarCategoria(cat, region) {
     regionActiva === "argentina" ? "Argentina" :
     regionActiva === "expansion" ? "Proyecto de Expansión" :
     catInfo.label;
+  document.getElementById("mapaTitulo").textContent =
+    (regionActiva === "argentina" || regionActiva === "expansion")
+      ? "Mapa de Argentina"
+      : "Mapa de Buenos Aires";
   document.getElementById("panelDesc").textContent =
     (regionActiva === "argentina" || regionActiva === "expansion")
       ? "Hacé click en una provincia para ver los prestadores que trabajan con Vighi."
@@ -736,6 +757,8 @@ function volverAlMenu() {
 
   const leyenda = document.getElementById("leyendaPrioridad");
   if (leyenda) leyenda.style.display = "none";
+
+  document.getElementById("mapaTitulo").textContent = "Mapa de Buenos Aires";
 
   const menu = document.getElementById("menuInicio");
   menu.style.display = "";
