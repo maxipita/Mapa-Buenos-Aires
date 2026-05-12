@@ -2080,7 +2080,7 @@ function _colocarMarcadores(localidades, iconCache) {
           <p class="popup-direccion">${loc.direccion}</p>
           <span class="popup-tipo">${loc.tipo}</span>
           ${loc.nomencladores && loc.nomencladores.length ? `
-          <button class="popup-btn-desglose" onclick="var d=document.getElementById('nomDesglose');var b=this;if(d.style.display!=='block'){d.style.display='block';b.innerHTML='Ver menos <span class=\\'popup-btn-flecha\\'>&#9650;</span>';}else{d.style.display='none';b.innerHTML='Ver desglose <span class=\\'popup-btn-flecha\\'>&#9660;</span>';}">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
+          <button class="popup-btn-desglose" onclick="toggleDesglose(this)">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
           <div id="nomDesglose" class="popup-desglose">
             <table class="popup-tabla">
               <thead>
@@ -2105,6 +2105,7 @@ function _colocarMarcadores(localidades, iconCache) {
         </div>
       `);
       infoWindowGlobal.open(map, marker);
+      google.maps.event.addListenerOnce(infoWindowGlobal, 'domready', centrarInfoWindow);
     });
 
     marcadoresActivos.push(marker);
@@ -2117,4 +2118,28 @@ function _colocarMarcadores(localidades, iconCache) {
 function centrarEnMarcador(lat, lng) {
   map.setCenter({ lat, lng });
   map.setZoom(16);
+}
+
+// Panea el mapa para que el InfoWindow abierto quede completamente visible
+function centrarInfoWindow() {
+  var iw = document.querySelector('.gm-style-iw-d');
+  if (!iw) return;
+  var mapRect = map.getDiv().getBoundingClientRect();
+  var iwRect  = iw.getBoundingClientRect();
+  var dy = 0;
+  if (iwRect.top < mapRect.top + 10)    dy = iwRect.top - mapRect.top - 10;
+  if (iwRect.bottom > mapRect.bottom - 10) dy = iwRect.bottom - mapRect.bottom + 10;
+  if (dy !== 0) map.panBy(0, dy);
+}
+
+function toggleDesglose(btn) {
+  var d = document.getElementById('nomDesglose');
+  if (d.style.display !== 'block') {
+    d.style.display = 'block';
+    btn.innerHTML = 'Ver menos <span class="popup-btn-flecha">&#9650;</span>';
+    setTimeout(centrarInfoWindow, 50);
+  } else {
+    d.style.display = 'none';
+    btn.innerHTML = 'Ver desglose <span class="popup-btn-flecha">&#9660;</span>';
+  }
 }
