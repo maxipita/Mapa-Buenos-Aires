@@ -7,7 +7,7 @@
         "lat": -34.6533,
         "lng": -58.7888,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -19,7 +19,7 @@
         "lat": -34.7331,
         "lng": -58.6037,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Del Buen Pastor Consultorios Ramos Mejia",
@@ -27,7 +27,7 @@
         "lat": -34.6451,
         "lng": -58.5654,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "DIM ALTA COMPLEJIDAD",
@@ -35,7 +35,7 @@
         "lat": -34.6417,
         "lng": -58.5661,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Casa Hospital San Juan de Dios - Sede Ramos Mejía",
@@ -43,7 +43,7 @@
         "lat": -34.6364,
         "lng": -58.5554,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Clínica Cruz Celeste",
@@ -51,7 +51,7 @@
         "lat": -34.6641,
         "lng": -58.5855,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Sanatorio de la Trinidad Ramos Mejía",
@@ -59,18 +59,60 @@
         "lat": -34.6383,
         "lng": -58.5534,
         "tipo": "Sanatorio",
-        "imagen":"Imagenes/cm_trinidadRM.jpg",
+        "imagen": "Imagenes/cm_trinidadRM.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 3 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 155 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 4 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 363 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 1 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad":0},
-          {"tipo": "total", "codigo": "Total", "cantidad": 565},
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$7.071.544,13"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 3,
+            "facturado": "$43.854,00"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 155,
+            "facturado": "$1.949.443,74"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 4,
+            "facturado": "$77.105,08"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 363,
+            "facturado": "$3.594.610,00"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 1,
+            "facturado": "$7.722,81"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 565
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$7.071.544,13"
+          }
+        ]
       },
       {
         "nombre": "Centro Medico Ramos Mejía",
@@ -78,18 +120,60 @@
         "lat": -34.6434,
         "lng": -58.5691,
         "tipo": "Centro Médico",
-        "imagen":"Imagenes/cm_LpRm.jpg",
+        "imagen": "Imagenes/cm_LpRm.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 7 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 73 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 82},
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$684.134,53"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 7,
+            "facturado": "$71.105,30"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 73,
+            "facturado": "$570.419,81"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 82
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$684.134,53"
+          }
+        ]
       }
     ]
   },
@@ -101,7 +185,7 @@
         "lat": -34.6514,
         "lng": -58.6166,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "IPC Instituto Médico",
@@ -109,7 +193,7 @@
         "lat": -34.6495,
         "lng": -58.6397,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Clínica Modelo de Morón",
@@ -117,7 +201,7 @@
         "lat": -34.6506,
         "lng": -58.617,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "CEPEM Consultorios Médicos",
@@ -125,7 +209,7 @@
         "lat": -34.6463,
         "lng": -58.6187,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -137,7 +221,7 @@
         "lat": -34.6625,
         "lng": -58.7267,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Sanatorio San Juan Bautista",
@@ -145,7 +229,7 @@
         "lat": -34.6917,
         "lng": -58.6947,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -157,7 +241,7 @@
         "lat": -34.654,
         "lng": -58.6605,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -169,7 +253,7 @@
         "lat": -34.5762,
         "lng": -58.5414,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Clínica Santa María",
@@ -177,7 +261,7 @@
         "lat": -34.5557,
         "lng": -58.5478,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -189,7 +273,7 @@
         "lat": -34.6029,
         "lng": -58.5639,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Hospital Privado Nuestra Señora de la Merced",
@@ -197,7 +281,7 @@
         "lat": -34.5827,
         "lng": -58.5879,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -209,7 +293,7 @@
         "lat": -34.5236,
         "lng": -58.7529,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -221,7 +305,7 @@
         "lat": -34.4961,
         "lng": -58.5446,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Sanatorio San Lucas",
@@ -229,7 +313,7 @@
         "lat": -34.4697,
         "lng": -58.5104,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Sanatorio De La Trinidad San Isidro",
@@ -237,7 +321,7 @@
         "lat": -34.4874,
         "lng": -58.5248,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Centro Médico Martínez",
@@ -247,16 +331,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/CM_Martinez.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 9 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 94 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 104 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$839.822,38"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 9,
+            "facturado": "$91.421,10"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 1,
+            "facturado": "$18.357,71"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 94,
+            "facturado": "$718.885,24"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 104
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$839.822,38"
+          }
+        ]
       }
     ]
   },
@@ -268,26 +394,68 @@
         "lat": -34.5266,
         "lng": -58.4906,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
-      },      
+        "prioridad": "blanco"
+      },
       {
         "nombre": "Clínica Privada Independencia",
         "direccion": "Luis María Drago 5681, B1605 Munro, Provincia de Buenos Aires",
         "lat": -34.5368,
         "lng": -58.5359,
         "tipo": "Centro Médico",
-        "imagen":"Imagenes/cpi.jpg",
+        "imagen": "Imagenes/cpi.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 82 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 9 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 26 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 13 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 167 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$3.033.743,44"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 1,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 82,
+            "facturado": "$1.398.351,36"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 9,
+            "facturado": "$174.690,00"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 26,
+            "facturado": "$180.459,76"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 13,
+            "facturado": "$69.407,60"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 167
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$3.033.743,44"
+          }
+        ]
       }
     ]
   },
@@ -299,7 +467,7 @@
         "lat": -34.4758,
         "lng": -58.6638,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Clínica Sagrado Corazón Don Torcuato",
@@ -307,7 +475,7 @@
         "lat": -34.4988,
         "lng": -58.6407,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -319,7 +487,7 @@
         "lat": -34.54,
         "lng": -58.7146,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Clínica Bessone",
@@ -327,7 +495,7 @@
         "lat": -34.5408,
         "lng": -58.7119,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -339,7 +507,7 @@
         "lat": -34.4378,
         "lng": -58.5633,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -351,7 +519,7 @@
         "lat": -34.7252,
         "lng": -58.2654,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Sanatorio Bernal",
@@ -359,7 +527,7 @@
         "lat": -34.7083,
         "lng": -58.283,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Sanatorio Modelo Quilmes",
@@ -367,7 +535,7 @@
         "lat": -34.7188,
         "lng": -58.2731,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Sanatorio Solano - Instituto Médico Modelo",
@@ -375,7 +543,7 @@
         "lat": -34.7783,
         "lng": -58.3138,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Clínica Privada La Familia San Francisco Solano",
@@ -383,7 +551,7 @@
         "lat": -34.7793,
         "lng": -58.3118,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Clínica del Niño de Quilmes",
@@ -391,7 +559,7 @@
         "lat": -34.7156,
         "lng": -58.2727,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Centro Medico Monserrat Quilmes",
@@ -399,18 +567,60 @@
         "lat": -34.7206,
         "lng": -58.2591,
         "tipo": "Centro Médico",
-        "imagen":"Imagenes/cm_quilmes.jpg",
+        "imagen": "Imagenes/cm_quilmes.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 58 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 66 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$549.585,16"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 58,
+            "facturado": "$509.581,04"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 66
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$549.585,16"
+          }
+        ]
       }
     ]
   },
@@ -422,7 +632,7 @@
         "lat": -34.7698,
         "lng": -58.3967,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Policlínico Lomas",
@@ -430,7 +640,7 @@
         "lat": -34.7521,
         "lng": -58.4009,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Centro Médico Lomas de Zamora",
@@ -440,16 +650,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/cm_lomasZamora.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 44 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 44 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$337.641,65"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 44,
+            "facturado": "$336.000,71"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 44
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$337.641,65"
+          }
+        ]
       }
     ]
   },
@@ -461,7 +713,7 @@
         "lat": -34.8007,
         "lng": -58.3985,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       },
       {
         "nombre": "Clínica Espora",
@@ -469,7 +721,7 @@
         "lat": -34.795,
         "lng": -58.3881,
         "tipo": "Centro Médico",
-        "prioridad":"blanco"
+        "prioridad": "blanco"
       }
     ]
   },
@@ -483,16 +735,58 @@
         "tipo": "Centro Médico",
         "imagen": "Imagenes/monteGrande.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 81 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 652 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 27 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 9 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 1562 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 11 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 9 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 2676},
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$32.935.622,29"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 81,
+            "facturado": "$604.000,44"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 652,
+            "facturado": "$11.455.297,41"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 27,
+            "facturado": "$766.042,82"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 9,
+            "facturado": "$502.011,05"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 1562,
+            "facturado": "$13.168.918,19"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 11,
+            "facturado": "$83.566,53"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 9
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 2676
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$32.935.622,29"
+          }
+        ]
       }
     ]
   }

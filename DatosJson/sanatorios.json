@@ -9,16 +9,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/callao.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 587 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 41 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 29 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 41 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 942 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$35.646.541,06"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 1,
+            "facturado": "$11.600,96"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 587,
+            "facturado": "$13.378.922,43"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 86,
+            "facturado": "$2.728.171,25"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 41,
+            "facturado": "$3.877.013,34"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 29,
+            "facturado": "$242.307,37"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 41
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 942
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$35.646.541,06"
+          }
+        ]
       },
       {
         "nombre": "IDIM",
@@ -28,16 +70,58 @@
         "tipo": "Centro Médico",
         "imagen": "Imagenes/IDIM.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 23 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 26 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 23 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 77 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$2.811.188,30"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 23,
+            "facturado": "$1.184.674,63"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 26,
+            "facturado": "$154.712,52"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 23
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 77
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$2.811.188,30"
+          }
+        ]
       },
       {
         "nombre": "Centro Médico Monserrat",
@@ -47,16 +131,58 @@
         "tipo": "Centro Médico",
         "imagen": "Imagenes/cmMonserrat.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 13 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 45 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 267 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 363 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$4.351.731,05"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 13,
+            "facturado": "$175.726,76"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 45,
+            "facturado": "$1.024.305,38"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 267,
+            "facturado": "$2.532.258,72"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 363
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$4.351.731,05"
+          }
+        ]
       }
     ]
   },
@@ -70,16 +196,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/otamendi.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 43 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 1160 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 53 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 114 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 481 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 52 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 114 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 2492 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$57.198.819,89"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 43,
+            "facturado": "$364.078,06"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 1160,
+            "facturado": "$15.104.896,29"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 53,
+            "facturado": "$1.448.442,27"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 114,
+            "facturado": "$13.255.717,46"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 481,
+            "facturado": "$4.736.011,80"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 52,
+            "facturado": "$352.575,66"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 114
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 2492
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$57.198.819,89"
+          }
+        ]
       },
       {
         "nombre": "IADT",
@@ -89,16 +257,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/iadt.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 11 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 554 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 54 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 14 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 446 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 15 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 14 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 1170 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$16.942.244,40"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 11,
+            "facturado": "$49.157,96"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 554,
+            "facturado": "$7.266.929,81"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 54,
+            "facturado": "$1.153.166,86"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 14,
+            "facturado": "$1.007.132,59"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 446,
+            "facturado": "$4.559.154,51"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 15,
+            "facturado": "$123.977,36"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 14
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 1170
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$16.942.244,40"
+          }
+        ]
       },
       {
         "nombre": "Clínica y Maternidad Suizo Argentina",
@@ -108,16 +318,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/suizo.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 78 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 12 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 1 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 113 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$1.046.544,31"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 78,
+            "facturado": "$564.783,02"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 12,
+            "facturado": "$113.415,36"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 1,
+            "facturado": "$94.629,76"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 1
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 113
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$1.046.544,31"
+          }
+        ]
       },
       {
         "nombre": "Sanatorio Agote",
@@ -127,16 +379,52 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/agote.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 0 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"Sin datos cargados"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "1501011",
+            "cantidad": 0
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Pátologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturación total",
+            "cantidad": "Sin datos cargados"
+          }
+        ]
       },
       {
         "nombre": "Halitus Instituto Médico",
@@ -146,16 +434,58 @@
         "tipo": "Centro Médico",
         "imagen": "Imagenes/halitus.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 149 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 199 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$1.582.020,54"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 1,
+            "facturado": "$7.097,07"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 149,
+            "facturado": "$1.544.369,89"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 199
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$1.582.020,54"
+          }
+        ]
       },
       {
         "nombre": "Centro Medicus",
@@ -165,16 +495,58 @@
         "tipo": "Centro Médico",
         "imagen": "Imagenes/CMedicus.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 38 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 3 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 4 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 4 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 51 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$948.361,74"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 38,
+            "facturado": "$420.891,42"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 3,
+            "facturado": "$36.428,04"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 4,
+            "facturado": "$199.413,08"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 4
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 51
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$948.361,74"
+          }
+        ]
       },
       {
         "nombre": "SANATORIO FINOCHIETTO",
@@ -184,16 +556,58 @@
         "tipo": "Centro Médico",
         "imagen": "Imagenes/SANATORIO_FINOCHIETTO.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 10 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 1 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 13 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$287.145,99"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 10,
+            "facturado": "$129.067,92"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 1,
+            "facturado": "$27.002,54"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 1,
+            "facturado": "$51.968,54"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 1
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 13
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$287.145,99"
+          }
+        ]
       },
       {
         "nombre": "Sanatorio Anchorena Recoleta",
@@ -203,16 +617,58 @@
         "tipo": "Centro Médico",
         "imagen": "Imagenes/anchorena.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 19 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 2 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 2 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 23 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$351.678,61"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 19,
+            "facturado": "$273.098,50"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 2,
+            "facturado": "$59.226,85"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 2,
+            "facturado": "$7.722,81"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 23
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$351.678,61"
+          }
+        ]
       }
     ]
   },
@@ -226,16 +682,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/trinidad_mitre.jpeg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 2 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$37.718,00"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 1,
+            "facturado": "$14.618,00"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 1,
+            "facturado": "$23.100,00"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 2
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$37.718,00"
+          }
+        ]
       },
       {
         "nombre": "Clínica AMEBPBA",
@@ -245,16 +743,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/amebpba.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 3 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 25 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 6 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 10 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 219 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 10 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 296 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$6.281.765,94"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 3,
+            "facturado": "$31.272,96"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 25,
+            "facturado": "$624.167,00"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 6,
+            "facturado": "$207.731,46"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 10,
+            "facturado": "$788.049,08"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 219,
+            "facturado": "$1.958.273,91"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 10
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 296
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$6.281.765,94"
+          }
+        ]
       },
       {
         "nombre": "Obra Social Luis Pasteur - Centro Médico Congreso",
@@ -264,16 +804,58 @@
         "tipo": "Centro Médico",
         "imagen": "Imagenes/LpCongreso.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 4 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 44 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 61 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 110 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$1.353.464,72"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 4,
+            "facturado": "$40.631,60"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 44,
+            "facturado": "$807.739,24"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 61,
+            "facturado": "$476.652,17"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 110
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$1.353.464,72"
+          }
+        ]
       },
       {
         "nombre": "Sanatorio de la Providencia",
@@ -283,16 +865,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/providencia.png",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 13 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 310 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 28 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 11 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 66 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 10 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 11 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 557 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$9.969.133,84"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 13,
+            "facturado": "$111.430,99"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 310,
+            "facturado": "$5.010.492,64"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 28,
+            "facturado": "$638.638,40"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 11,
+            "facturado": "$542.855,77"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 66,
+            "facturado": "$480.186,99"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 10,
+            "facturado": "$72.426,31"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 11
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 557
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$9.969.133,84"
+          }
+        ]
       }
     ]
   },
@@ -312,16 +936,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/zabala.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 12 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 1 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 1 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 1 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 20 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$140.308,49"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 12,
+            "facturado": "$122.550,44"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 1,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 1,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 1,
+            "facturado": "$7.722,81"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 1
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 20
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$140.308,49"
+          }
+        ]
       },
       {
         "nombre": "Centro Médico Vilella",
@@ -331,16 +997,52 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/vilella.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 10 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 86 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 709 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 966 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$5.469.096,61"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 10
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 86
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 709
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "1501011",
+            "cantidad": 0
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Pátologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 966
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturación total",
+            "cantidad": "$5.469.096,61"
+          }
+        ]
       },
       {
         "nombre": "Obra Social Luis Pasteur - Centro Médico Belgrano",
@@ -350,16 +1052,58 @@
         "tipo": "Centro Médico",
         "imagen": "Imagenes/LpBelgrano.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 6 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 28 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 207 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 242 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$2.245.756,99"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 6,
+            "facturado": "$60.947,40"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 28,
+            "facturado": "$514.015,88"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 207,
+            "facturado": "$1.617.491,79"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 242
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$2.245.756,99"
+          }
+        ]
       }
     ]
   },
@@ -373,16 +1117,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/trindad_palermo.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 20 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 634 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 30 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 17 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 360 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 22 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 17 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 1320 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$20.131.153,49"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 20,
+            "facturado": "$253.329,98"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 634,
+            "facturado": "$8.755.429,16"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 30,
+            "facturado": "$604.502,54"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 17,
+            "facturado": "$1.144.361,08"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 360,
+            "facturado": "$3.485.824,38"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 22,
+            "facturado": "$148.114,05"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 17
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 1320
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$20.132.153,49"
+          }
+        ]
       },
       {
         "nombre": "Sanatorio Los Arcos",
@@ -392,16 +1178,58 @@
         "tipo": "Sanatorio",
         "imagen": "Imagenes/arcos.jpg",
         "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 95 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 15 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 5 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 3 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 5 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 134 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$2.145.270,11"}
-          ]
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 95,
+            "facturado": "$792.723,38"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 15,
+            "facturado": "$288.935,78"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 5,
+            "facturado": "$236.574,40"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 3,
+            "facturado": "$21.291,21"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 5
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 134
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$2.145.270,11"
+          }
+        ]
       }
     ]
   },

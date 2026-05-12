@@ -2087,13 +2087,16 @@ function _colocarMarcadores(localidades, iconCache) {
                 <tr>
                   <th>Nomenclador</th>
                   <th>Cantidad</th>
+                  <th>Facturado</th>
                 </tr>
               </thead>
               <tbody>
                 ${loc.nomencladores.map(n => {
                   const esTotal = n.tipo && (n.tipo.toLowerCase() === "total" || n.tipo.toLowerCase() === "total facturado");
                   const etiqueta = n.tipo && n.tipo.toLowerCase() === "presencia" ? "Presencia Patólogo" : n.tipo && n.tipo.toLowerCase() === "total" ? "Total" : n.codigo;
-                  return `<tr${esTotal ? ' class="popup-fila-total"' : ""}><td>${etiqueta}</td><td>${n.cantidad}</td></tr>`;
+                  const facturado = n.facturado || (n.tipo && n.tipo.toLowerCase() === "total facturado" ? n.cantidad : "");
+                  const cantidadCell = n.tipo && n.tipo.toLowerCase() === "total facturado" ? "" : n.cantidad;
+                  return `<tr${esTotal ? ' class="popup-fila-total"' : ""}><td>${etiqueta}</td><td>${cantidadCell}</td><td>${facturado}</td></tr>`;
                 }).join("")}
               </tbody>
             </table>
