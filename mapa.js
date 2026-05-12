@@ -2029,13 +2029,24 @@ function crearIconoPin(logoUrl, borderColor, callback) {
 function agregarMarcadores(localidades) {
   if (localidades.length === 0) return;
 
-  const coloresUnicos = [...new Set(localidades.map(loc => getColorPorPrioridad(loc.prioridad)))];
-  const iconCache = {};
-  let pendientes = coloresUnicos.length;
+  const vistas = new Set();
+  const pares = [];
+  localidades.forEach(loc => {
+    const logoUrl = loc.logo || "logo_vighi.png";
+    const color = getColorPorPrioridad(loc.prioridad);
+    const key = logoUrl + "\0" + color;
+    if (!vistas.has(key)) {
+      vistas.add(key);
+      pares.push({ logoUrl, color, key });
+    }
+  });
 
-  coloresUnicos.forEach(function(color) {
-    crearIconoPin("logo_vighi.png", color, function(iconUrl, W, H, cx) {
-      iconCache[color] = {
+  const iconCache = {};
+  let pendientes = pares.length;
+
+  pares.forEach(({ logoUrl, color, key }) => {
+    crearIconoPin(logoUrl, color, function(iconUrl, W, H, cx) {
+      iconCache[key] = {
         url: iconUrl,
         scaledSize: new google.maps.Size(W, H),
         anchor: new google.maps.Point(cx, H)
@@ -2050,13 +2061,15 @@ function agregarMarcadores(localidades) {
 
 function _colocarMarcadores(localidades, iconCache) {
   localidades.forEach(loc => {
+    const logoUrl = loc.logo || "logo_vighi.png";
     const color = getColorPorPrioridad(loc.prioridad);
+    const key = logoUrl + "\0" + color;
     const marker = new google.maps.Marker({
       position: { lat: loc.lat, lng: loc.lng },
       map: map,
       title: loc.nombre,
       animation: google.maps.Animation.DROP,
-      icon: iconCache[color]
+      icon: iconCache[key]
     });
 
     marker.addListener("click", () => {

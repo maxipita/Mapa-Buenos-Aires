@@ -302,6 +302,131 @@
         "lng": -69.1997,
         "tipo": "Sanatorio",
         "prioridad":"blanco"
+      },
+      {
+        "nombre": "Gestar Consultorios de Tocoginecología",
+        "direccion": "Juan Bautista Alberdi 136, Q8300HLD Neuquén",
+        "lat": -38.9525,
+        "lng": -69.0570,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Hospital Plottier",
+        "direccion": "Sgto. Cabral 13, Q8316 Plottier, Neuquén",
+        "lat": -38.9489,
+        "lng": -68.2287,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "CENTRO INTEGRAL DE LA MUJER - CIDEM",
+        "direccion": "CIDEM: Mtro. Joaquín González 240, Q8300 Neuquén",
+        "lat": -38.9515,
+        "lng": -68.0554,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Génesis Vita",
+        "direccion": "Juan B. Justo 343, Q8300 Neuquén",
+        "lat": -38.9628,
+        "lng": -68.0595,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "CIMO Centro Integral Medicina del Oeste",
+        "direccion": "Dr. Luis Ramón 4100, Q8300 Neuquén",
+        "lat": -38.8309,
+        "lng": -68.1478,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "CMIC - Centro de Fisiatría y Rehabilitación Madre Teresa",
+        "direccion": "Islas Malvinas 1329, Q8300 Neuquén",
+        "lat": -38.9477,
+        "lng": -68.0407,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "CEM - Centro de Especialidades Médicas",
+        "direccion": "Gdor. Elordi 175, Q8302 Neuquén",
+        "lat": -38.9493,
+        "lng": -68.0615,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Centro Médico Galenos",
+        "direccion": "Juan B. Justo 536, Q8300 Neuquén",
+        "lat": -38.9540,
+        "lng": -68.0669,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Consultorios Avenida",
+        "direccion": "Avenida Argentina 446, Q8300 Neuquén",
+        "lat": -38.9500,
+        "lng": -68.0595,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Centro Medico Elordi",
+        "direccion": "Gdor. Elordi 500-534, Q8302 Neuquén",
+        "lat": -38.9493,
+        "lng": -68.0664,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "CEIN - Centro Medico y Laboratorio de Análisis Clínicos y Alta Complejidad",
+        "direccion": "Gral. Manuel Belgrano 1380, Q8300 Neuquén",
+        "lat": -38.9506,
+        "lng": -68.0783,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Clínica Albor",
+        "direccion": "Q8300BEN, Padre Brentana José 554, Q8300 BEN, Neuquén",
+        "lat": -38.9489,
+        "lng": -68.0719,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      },
+      {
+        "nombre": "Centro Médico Integral Marcus",
+        "direccion": "Caviahue 160, Q8302 Q8300MDH Q8300MDH, Neuquén",
+        "lat": -38.9425,
+        "lng": -68.0566,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
+      }
+    ]
+  },
+  "RIO NEGRO": {
+    "nombre": "Río Negro",
+    "localidades": [
+      {
+        "nombre": "Sanatorio Río Negro",
+        "direccion": "Leandro N. Alem 60, R8324 Cipolletti, Río Negro",
+        "lat": -38.9280,
+        "lng": -67.9991,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco"
+      },
+      {
+        "nombre": "Fundación Médica de Río Negro y Neuquén",
+        "direccion": "Av. Mengelle 273, R8324 Cipolletti, Río Negro",
+        "lat": -38.9373,
+        "lng": -68.0009,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco"
       }
     ]
   }
