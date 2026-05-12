@@ -229,7 +229,8 @@
         "lat": -38.9542,
         "lng": -68.0518,
         "tipo": "Sanatorio",
-        "prioridad":"blanco"
+        "prioridad":"blanco",
+        "logo":"Logo/rania"
       },
       {
         "nombre": "Clínica San Lucas",
