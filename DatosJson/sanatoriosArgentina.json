@@ -210,13 +210,13 @@
     "nombre": "Neuquén",
     "localidades": [
       {
-        "nombre": "Clinica san agustin",
+        "nombre": "Clinica San Agustin",
         "direccion": "Tte. Candelaria 45, Q8300 Neuquén",
         "lat": -38.9551,
         "lng": -68.0776,
         "tipo": "Sanatorio",
         "prioridad": "blanco",
-        "imagen":""
+        "imagen":"Logo/ClinicaSanAgustin.jpg"
       },
       {
         "nombre": "Hospital Dr. Horacio Heller",
@@ -225,7 +225,7 @@
         "lng": -68.1160,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/HospitalHH.jpg"
       },
       {
         "nombre": "Hospital Dr. Castro Rendon",
@@ -234,7 +234,7 @@
         "lng": -68.0570,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/HospitalCR.jpg"
       },
       {
         "nombre": "Swiss Medical | Centro Médico Neuquén",
@@ -243,7 +243,7 @@
         "lng": -68.0689,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/SMGNeuquen.jpg"
       },
       {
         "nombre": "Clínica Dr. Roberto Raña",
@@ -252,7 +252,7 @@
         "lng": -68.0518,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/ClinicaRaña.jpg"
       },
       {
         "nombre": "Clínica San Lucas",
@@ -261,7 +261,7 @@
         "lng": -68.0885,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/ClinicaSanLucas.jpg"
       },
       {
         "nombre": "Policlinico Neuquén",
@@ -270,7 +270,7 @@
         "lng": -68.0554,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/PoliclinicoNeuquen.jpg"
       },
       {
         "nombre": "Hospital Bouquet Roldán",
@@ -279,7 +279,7 @@
         "lng": -68.0858,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/HospitalBR.jpg"
       },
       {
         "nombre": "Hospital Zapala",
@@ -288,7 +288,7 @@
         "lng": -70.0654,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/HospitalZapala.jpg"
       },
       {
         "nombre": "Hospital Complejidad VI Cutral-co",
@@ -297,7 +297,7 @@
         "lng": -69.2124,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/HospitalCutralCo.jpg"
       },
       {
         "nombre": "Hospital Zonal Ricon De Los Sauces",
@@ -306,7 +306,7 @@
         "lng": -69.9262,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/HospitalRDLS.jpg"
       },
       {
         "nombre": "Hospital Zonal Chos Malal",
@@ -315,7 +315,7 @@
         "lng": -70.2734,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/HospitalZonalChosMalal.jpg"
       },
       {
         "nombre": "Hospital Dr. Ramón Carrillo",
@@ -324,7 +324,7 @@
         "lng": -71.3289,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/HospitalRC.jpg"
       },
       {
         "nombre": "Sanatorio Plaza Huincul Petroleros Privados",
@@ -333,7 +333,7 @@
         "lng": -69.1997,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/SanatorioPlazaHuincul.jpg"
       },
       {
         "nombre": "Gestar Consultorios de Tocoginecología",
@@ -342,7 +342,7 @@
         "lng": -69.0570,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/Gestar.jpg"
       },
       {
         "nombre": "Hospital Plottier",
@@ -351,7 +351,7 @@
         "lng": -68.2287,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/HospitalPlottier.jpg"
       },
       {
         "nombre": "CENTRO INTEGRAL DE LA MUJER - CIDEM",
@@ -369,7 +369,7 @@
         "lng": -68.0595,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/GenesisVita.jpg"
       },
       {
         "nombre": "CIMO Centro Integral Medicina del Oeste",
@@ -378,7 +378,7 @@
         "lng": -68.1478,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/CIMO.jpg"
       },
       {
         "nombre": "CMIC - Centro de Fisiatría y Rehabilitación Madre Teresa",
@@ -387,7 +387,7 @@
         "lng": -68.0407,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/CMIC.jpg"
       },
       {
         "nombre": "CEM - Centro de Especialidades Médicas",
@@ -414,7 +414,7 @@
         "lng": -68.0595,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/ConsultoriosAvenida.jpg"
       },
       {
         "nombre": "Centro Medico Elordi",
@@ -441,7 +441,7 @@
         "lng": -68.0719,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/ClinicaAlbor.jpg"
       },
       {
         "nombre": "Centro Médico Integral Marcus",
@@ -450,7 +450,7 @@
         "lng": -68.0566,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":""
+        "imagen":"Logo/CentroMedicoMarcus.jpg"
       }
     ]
   },

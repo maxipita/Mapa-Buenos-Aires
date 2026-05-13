@@ -2075,7 +2075,7 @@ function _colocarMarcadores(localidades, iconCache) {
     marker.addListener("click", () => {
       infoWindowGlobal.setContent(`
         <div class="popup-container">
-          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" class="popup-imagen" style="width:100%;max-height:120px;object-fit:contain;border-radius:8px;margin-bottom:10px;background:#f5f5f5;display:block;">` : ""}
+          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" class="popup-imagen" style="width:100%;max-height:120px;object-fit:contain;border-radius:8px;margin-bottom:10px;background:white;display:block;">` : ""}
           <strong class="popup-nombre">${loc.nombre}</strong>
           <p class="popup-direccion">${loc.direccion}</p>
           <span class="popup-tipo">${loc.tipo}</span>
@@ -2132,6 +2132,29 @@ function centrarInfoWindow() {
   if (iwc) iwc.style.padding = '0';
   var iwt = document.querySelector('.gm-style-iw-t');
   if (iwt) iwt.style.padding = '0';
+  var iwchr = document.querySelector('.gm-style-iw-chr');
+  if (iwchr) {
+    iwchr.style.height = 'auto';
+    iwchr.style.minHeight = '0';
+    iwchr.style.padding = '0';
+    iwchr.style.margin = '0';
+    iwchr.style.lineHeight = '0';
+    var closeBtn = iwchr.querySelector('button');
+    if (closeBtn) {
+      closeBtn.style.background   = 'none';
+      closeBtn.style.display      = 'block';
+      closeBtn.style.border       = '0px';
+      closeBtn.style.margin       = '0px';
+      closeBtn.setAttribute('style', closeBtn.getAttribute('style') + '; padding: 0px !important;');
+      closeBtn.style.textTransform = 'none';
+      closeBtn.style.appearance   = 'none';
+      closeBtn.style.position     = 'relative';
+      closeBtn.style.cursor       = 'pointer';
+      closeBtn.style.userSelect   = 'none';
+      closeBtn.style.width        = '48px';
+      closeBtn.style.height       = '32px';
+    }
+  }
 
   var mapRect = map.getDiv().getBoundingClientRect();
   var iwRect  = iw.getBoundingClientRect();

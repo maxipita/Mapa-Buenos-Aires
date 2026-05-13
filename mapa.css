@@ -585,6 +585,17 @@ body {
 .gm-style-iw-c {
   padding: 0 !important;
 }
+.gm-style-iw-chr {
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  line-height: 0 !important;
+}
+.gm-style-iw-chr button {
+  margin: 0 !important;
+  padding: 4px !important;
+}
 .popup-container {
   padding: 12px;
   max-width: 260px;
@@ -597,7 +608,7 @@ body {
   object-fit: contain;
   border-radius: 8px;
   margin-bottom: 10px;
-  background: #f5f5f5;
+  background: white;
 }
 
 .popup-nombre {
