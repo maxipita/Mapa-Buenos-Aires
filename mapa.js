@@ -2075,7 +2075,7 @@ function _colocarMarcadores(localidades, iconCache) {
     marker.addListener("click", () => {
       infoWindowGlobal.setContent(`
         <div class="popup-container">
-          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" class="popup-imagen">` : ""}
+          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" class="popup-imagen" style="width:100%;max-height:120px;object-fit:contain;border-radius:8px;margin-bottom:10px;background:#f5f5f5;display:block;">` : ""}
           <strong class="popup-nombre">${loc.nombre}</strong>
           <p class="popup-direccion">${loc.direccion}</p>
           <span class="popup-tipo">${loc.tipo}</span>
@@ -2124,6 +2124,15 @@ function centrarEnMarcador(lat, lng) {
 function centrarInfoWindow() {
   var iw = document.querySelector('.gm-style-iw-d');
   if (!iw) return;
+
+  // Eliminar padding interno del InfoWindow de Google Maps
+  iw.style.padding = '0';
+  iw.style.overflow = 'hidden';
+  var iwc = document.querySelector('.gm-style-iw-c');
+  if (iwc) iwc.style.padding = '0';
+  var iwt = document.querySelector('.gm-style-iw-t');
+  if (iwt) iwt.style.padding = '0';
+
   var mapRect = map.getDiv().getBoundingClientRect();
   var iwRect  = iw.getBoundingClientRect();
   var dy = 0;
