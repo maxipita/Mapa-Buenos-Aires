@@ -252,6 +252,9 @@ body {
   color: #059669;
   font-weight: 600;
   margin-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .btn-volver {
@@ -579,6 +582,7 @@ body {
 
 /* ── Popup marcador ── */
 .gm-style-iw-d {
+  max-height: none !important;
   overflow: hidden !important;
   padding: 0 !important;
 }

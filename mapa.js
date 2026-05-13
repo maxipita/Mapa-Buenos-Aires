@@ -843,23 +843,41 @@ function mostrarTodasLasLocalidades() {
   `;
 
   if (regionActiva === "argentina") {
+    const CABA_KEY = "CIUDAD AUTONOMA DE BUENOS AIRES";
+    const BA_KEY   = "BUENOS AIRES";
+
+    // Fusionar CABA dentro de Buenos Aires
     const provinciasConLocs = Object.keys(provinciasData)
-      .map(id => ({ id, ...provinciasData[id], locs: filtrarPorCategoria(provinciasData[id].localidades || []) }))
+      .filter(id => id !== CABA_KEY)
+      .map(id => {
+        let locs = filtrarPorCategoria(provinciasData[id].localidades || []);
+        if (id === BA_KEY && provinciasData[CABA_KEY]) {
+          locs = [...locs, ...filtrarPorCategoria(provinciasData[CABA_KEY].localidades || [])];
+        }
+        return { id, ...provinciasData[id], locs };
+      })
       .filter(p => p.locs.length > 0)
       .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
     const totalArg = provinciasConLocs.reduce((s, p) => s + p.locs.length, 0);
 
-    // Tabla de población por provincia (todas, con o sin prestadores)
+    // Ranking de población — CABA unificada con Buenos Aires
+    const pobBA = (POBLACION_ARGENTINA[BA_KEY] || 0) + (POBLACION_ARGENTINA[CABA_KEY] || 0);
     const pobRanking = Object.keys(POBLACION_ARGENTINA)
-      .sort((a, b) => POBLACION_ARGENTINA[b] - POBLACION_ARGENTINA[a])
+      .filter(prov => prov !== CABA_KEY)
+      .sort((a, b) => {
+        const pa = a === BA_KEY ? pobBA : POBLACION_ARGENTINA[a];
+        const pb = b === BA_KEY ? pobBA : POBLACION_ARGENTINA[b];
+        return pb - pa;
+      })
       .map(prov => {
+        const pob = prov === BA_KEY ? pobBA : POBLACION_ARGENTINA[prov];
         const conLocs = provinciasConLocs.find(p => p.id === prov);
         const cantPrest = conLocs ? conLocs.locs.length : 0;
         const nombre = PROVINCIAS_DISPLAY[prov] || toTitleCase(prov);
         return `
           <div class="pob-row pob-row-activa" onclick="seleccionarProvincia('${prov}')">
             <span class="pob-nombre">${nombre}</span>
-            <span class="pob-numero">${formatPoblacion(POBLACION_ARGENTINA[prov])}</span>
+            <span class="pob-numero">${formatPoblacion(pob)}</span>
             ${cantPrest > 0 ? `<span class="pob-prest">${cantPrest} prest.</span>` : ""}
           </div>`;
       }).join("");
@@ -1454,23 +1472,8 @@ function getProvinciaId(feature) {
   return feature.getProperty("provincia") || null;
 }
 
-function esCaba(feature) {
-  const prov = (getProvinciaId(feature) || "").toUpperCase();
-  return prov.includes("CIUDAD AUTONOMA") || prov.includes("CIUDAD AUTÓNOMA");
-}
-
 function estiloArgentina(feature, seleccionado) {
-  const base = seleccionado ? ESTILO_SELECCIONADO_ARGENTINA : ESTILO_BASE_ARGENTINA;
-  if (esCaba(feature)) {
-    return {
-      fillColor:    base.fillColor,
-      fillOpacity:  base.fillOpacity,
-      strokeColor:  base.fillColor,
-      strokeOpacity: 0,
-      strokeWeight: 0
-    };
-  }
-  return base;
+  return seleccionado ? ESTILO_SELECCIONADO_ARGENTINA : ESTILO_BASE_ARGENTINA;
 }
 
 function aplicarEstiloBaseArgentina() {
@@ -1485,14 +1488,8 @@ function aplicarEstiloExpansionBase() {
   if (argentinaDataLayer) argentinaDataLayer.setStyle(ESTILO_EXPANSION_BASE);
 }
 
-// Provincias que se remarcan juntas al seleccionar cualquiera del grupo
-const PROVINCIAS_AGRUPADAS = {
-  "BUENOS AIRES":                    ["BUENOS AIRES", "CIUDAD AUTONOMA DE BUENOS AIRES"],
-  "CIUDAD AUTONOMA DE BUENOS AIRES": ["BUENOS AIRES", "CIUDAD AUTONOMA DE BUENOS AIRES"],
-};
-
 function getGrupoProvincias(provinciaId) {
-  return PROVINCIAS_AGRUPADAS[provinciaId] || [provinciaId];
+  return [provinciaId];
 }
 
 // ============================================
@@ -1592,7 +1589,9 @@ function mostrarInfoPanelProvincia(provinciaId) {
     });
   });
 
-  const nombre = provincia ? provincia.nombre : toTitleCase(provinciaId);
+  const nombre = (provinciaId === "BUENOS AIRES" || provinciaId === "CIUDAD AUTONOMA DE BUENOS AIRES")
+    ? "Buenos Aires"
+    : (provincia ? provincia.nombre : toTitleCase(provinciaId));
   const pobHtml = pobTotal
     ? `<div class="provincia-poblacion">👥 ${formatPoblacion(pobTotal)} habitantes</div>`
     : "";
@@ -2105,7 +2104,9 @@ function _colocarMarcadores(localidades, iconCache) {
         </div>
       `);
       infoWindowGlobal.open(map, marker);
-      google.maps.event.addListenerOnce(infoWindowGlobal, 'domready', centrarInfoWindow);
+      google.maps.event.addListenerOnce(infoWindowGlobal, 'domready', function() {
+        setTimeout(ajustarInfoWindowVisible, 150);
+      });
     });
 
     marcadoresActivos.push(marker);
@@ -2120,48 +2121,36 @@ function centrarEnMarcador(lat, lng) {
   map.setZoom(16);
 }
 
-// Panea el mapa para que el InfoWindow abierto quede completamente visible
-function centrarInfoWindow() {
-  var iw = document.querySelector('.gm-style-iw-d');
-  if (!iw) return;
+// Panea el mapa para que el InfoWindow quede completamente visible en pantalla
+function ajustarInfoWindowVisible() {
+  // Espera dos frames para que el layout esté realmente pintado
+  requestAnimationFrame(function() {
+    requestAnimationFrame(function() {
+      // Prueba varios selectores según versión de Google Maps
+      var iw = document.querySelector('.gm-style-iw-t')
+             || document.querySelector('.gm-style-iw-c')
+             || document.querySelector('.gm-style-iw');
+      if (!iw) return;
+      var rect = iw.getBoundingClientRect();
+      if (rect.width === 0 || rect.height === 0) return;
 
-  // Eliminar padding interno del InfoWindow de Google Maps
-  iw.style.padding = '0';
-  iw.style.overflow = 'hidden';
-  var iwc = document.querySelector('.gm-style-iw-c');
-  if (iwc) iwc.style.padding = '0';
-  var iwt = document.querySelector('.gm-style-iw-t');
-  if (iwt) iwt.style.padding = '0';
-  var iwchr = document.querySelector('.gm-style-iw-chr');
-  if (iwchr) {
-    iwchr.style.height = 'auto';
-    iwchr.style.minHeight = '0';
-    iwchr.style.padding = '0';
-    iwchr.style.margin = '0';
-    iwchr.style.lineHeight = '0';
-    var closeBtn = iwchr.querySelector('button');
-    if (closeBtn) {
-      closeBtn.style.background   = 'none';
-      closeBtn.style.display      = 'block';
-      closeBtn.style.border       = '0px';
-      closeBtn.style.margin       = '0px';
-      closeBtn.setAttribute('style', closeBtn.getAttribute('style') + '; padding: 0px !important;');
-      closeBtn.style.textTransform = 'none';
-      closeBtn.style.appearance   = 'none';
-      closeBtn.style.position     = 'relative';
-      closeBtn.style.cursor       = 'pointer';
-      closeBtn.style.userSelect   = 'none';
-      closeBtn.style.width        = '48px';
-      closeBtn.style.height       = '32px';
-    }
-  }
+      var pad = 10;
+      var dx = 0, dy = 0;
+      // panBy(x,y) mueve el CENTRO del mapa → los objetos se desplazan en sentido opuesto
+      // InfoWindow sale por arriba (rect.top < pad) → dy negativo → centro sube → IW baja
+      if (rect.top < pad)
+        dy = rect.top - pad;
+      else if (rect.bottom > window.innerHeight - pad)
+        dy = rect.bottom - window.innerHeight + pad;
 
-  var mapRect = map.getDiv().getBoundingClientRect();
-  var iwRect  = iw.getBoundingClientRect();
-  var dy = 0;
-  if (iwRect.top < mapRect.top + 10)    dy = iwRect.top - mapRect.top - 10;
-  if (iwRect.bottom > mapRect.bottom - 10) dy = iwRect.bottom - mapRect.bottom + 10;
-  if (dy !== 0) map.panBy(0, dy);
+      if (rect.left < pad)
+        dx = rect.left - pad;
+      else if (rect.right > window.innerWidth - pad)
+        dx = rect.right - window.innerWidth + pad;
+
+      if (Math.abs(dx) > 1 || Math.abs(dy) > 1) map.panBy(dx, dy);
+    });
+  });
 }
 
 function toggleDesglose(btn) {
@@ -2169,7 +2158,7 @@ function toggleDesglose(btn) {
   if (d.style.display !== 'block') {
     d.style.display = 'block';
     btn.innerHTML = 'Ver menos <span class="popup-btn-flecha">&#9650;</span>';
-    setTimeout(centrarInfoWindow, 50);
+    ajustarInfoWindowVisible();
   } else {
     d.style.display = 'none';
     btn.innerHTML = 'Ver desglose <span class="popup-btn-flecha">&#9660;</span>';
