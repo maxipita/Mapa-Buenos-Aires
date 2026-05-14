@@ -1011,7 +1011,7 @@ function initMap() {
     fullscreenControl: true
   });
 
-  infoWindowGlobal = new google.maps.InfoWindow();
+  infoWindowGlobal = new google.maps.InfoWindow({ disableAutoPan: true });
   ambaDataLayer = new google.maps.Data();
   argentinaDataLayer = new google.maps.Data();
 
@@ -2086,16 +2086,17 @@ function _colocarMarcadores(localidades, iconCache) {
                 <tr>
                   <th>Nomenclador</th>
                   <th>Cantidad</th>
-                  <th>Facturado</th>
+                  ${regionActiva !== 'argentina' ? '<th>Facturado</th>' : ''}
                 </tr>
               </thead>
               <tbody>
                 ${loc.nomencladores.map(n => {
                   const esTotal = n.tipo && (n.tipo.toLowerCase() === "total" || n.tipo.toLowerCase() === "total facturado");
+                  const esTotalFacturado = n.tipo && n.tipo.toLowerCase() === "total facturado";
                   const etiqueta = n.tipo && n.tipo.toLowerCase() === "presencia" ? "Presencia Patólogo" : n.tipo && n.tipo.toLowerCase() === "total" ? "Total" : n.codigo;
-                  const facturado = n.facturado || (n.tipo && n.tipo.toLowerCase() === "total facturado" ? n.cantidad : "");
-                  const cantidadCell = n.tipo && n.tipo.toLowerCase() === "total facturado" ? "" : n.cantidad;
-                  return `<tr${esTotal ? ' class="popup-fila-total"' : ""}><td>${etiqueta}</td><td>${cantidadCell}</td><td>${facturado}</td></tr>`;
+                  const facturado = n.facturado || (esTotalFacturado ? n.cantidad : "");
+                  const cantidadCell = esTotalFacturado ? (regionActiva === 'argentina' ? facturado : "") : n.cantidad;
+                  return `<tr${esTotal ? ' class="popup-fila-total"' : ""}><td>${etiqueta}</td><td>${cantidadCell}</td>${regionActiva !== 'argentina' ? `<td>${facturado}</td>` : ''}</tr>`;
                 }).join("")}
               </tbody>
             </table>
@@ -2103,9 +2104,10 @@ function _colocarMarcadores(localidades, iconCache) {
           ` : ""}
         </div>
       `);
+      map.setCenter(marker.getPosition());
       infoWindowGlobal.open(map, marker);
       google.maps.event.addListenerOnce(infoWindowGlobal, 'domready', function() {
-        setTimeout(ajustarInfoWindowVisible, 150);
+        setTimeout(centrarInfoWindow, 150);
       });
     });
 
@@ -2123,34 +2125,45 @@ function centrarEnMarcador(lat, lng) {
 
 // Panea el mapa para que el InfoWindow quede completamente visible en pantalla
 function ajustarInfoWindowVisible() {
-  // Espera dos frames para que el layout esté realmente pintado
-  requestAnimationFrame(function() {
-    requestAnimationFrame(function() {
-      // Prueba varios selectores según versión de Google Maps
-      var iw = document.querySelector('.gm-style-iw-t')
-             || document.querySelector('.gm-style-iw-c')
-             || document.querySelector('.gm-style-iw');
-      if (!iw) return;
-      var rect = iw.getBoundingClientRect();
-      if (rect.width === 0 || rect.height === 0) return;
+  setTimeout(function() {
+    var iw = document.querySelector('.gm-style-iw-t')
+           || document.querySelector('.gm-style-iw-c')
+           || document.querySelector('.gm-style-iw');
+    if (!iw) return;
+    var rect = iw.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
 
-      var pad = 10;
-      var dx = 0, dy = 0;
-      // panBy(x,y) mueve el CENTRO del mapa → los objetos se desplazan en sentido opuesto
-      // InfoWindow sale por arriba (rect.top < pad) → dy negativo → centro sube → IW baja
-      if (rect.top < pad)
-        dy = rect.top - pad;
-      else if (rect.bottom > window.innerHeight - pad)
-        dy = rect.bottom - window.innerHeight + pad;
+    var pad = 16;
+    var dx = 0, dy = 0;
+    if (rect.top < pad)
+      dy = rect.top - pad;
+    else if (rect.bottom > window.innerHeight - pad)
+      dy = rect.bottom - window.innerHeight + pad;
 
-      if (rect.left < pad)
-        dx = rect.left - pad;
-      else if (rect.right > window.innerWidth - pad)
-        dx = rect.right - window.innerWidth + pad;
+    if (rect.left < pad)
+      dx = rect.left - pad;
+    else if (rect.right > window.innerWidth - pad)
+      dx = rect.right - window.innerWidth + pad;
 
-      if (Math.abs(dx) > 1 || Math.abs(dy) > 1) map.panBy(dx, dy);
-    });
-  });
+    if (Math.abs(dx) > 1 || Math.abs(dy) > 1) map.panBy(dx, dy);
+  }, 300);
+}
+
+function centrarInfoWindow() {
+  var iw = document.querySelector('.gm-style-iw-c')
+         || document.querySelector('.gm-style-iw-t')
+         || document.querySelector('.gm-style-iw');
+  if (!iw) return;
+  var rect = iw.getBoundingClientRect();
+  if (rect.width === 0 || rect.height === 0) return;
+
+  var panel = document.getElementById('sidePanel');
+  var panelWidth = (panel && window.innerWidth > 768) ? panel.offsetWidth : 0;
+  var mapCenterX = panelWidth + (window.innerWidth - panelWidth) / 2;
+  var mapCenterY = window.innerHeight / 2;
+  var dx = (rect.left + rect.width / 2) - mapCenterX;
+  var dy = (rect.top + rect.height / 2) - mapCenterY;
+  if (Math.abs(dx) > 1 || Math.abs(dy) > 1) map.panBy(dx, dy);
 }
 
 function toggleDesglose(btn) {
@@ -2158,7 +2171,7 @@ function toggleDesglose(btn) {
   if (d.style.display !== 'block') {
     d.style.display = 'block';
     btn.innerHTML = 'Ver menos <span class="popup-btn-flecha">&#9650;</span>';
-    ajustarInfoWindowVisible();
+    setTimeout(centrarInfoWindow, 150);
   } else {
     d.style.display = 'none';
     btn.innerHTML = 'Ver desglose <span class="popup-btn-flecha">&#9660;</span>';

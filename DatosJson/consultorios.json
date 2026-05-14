@@ -1416,6 +1416,24 @@
           {"tipo": "total", "codigo": "Total", "cantidad": 1 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$46.789"}
           ]
+      },
+      {
+        "nombre": "PUEYRREDON236",
+        "direccion": "Av. Pueyrredón 236, C1032ABP Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6071,
+        "lng": -58.4062,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 259 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 271 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$2.242.360,54"}
+          ]
       }
     ]
   },
@@ -2045,24 +2063,6 @@
           {"tipo": "total", "codigo": "Total", "cantidad": 16 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$68.311,97"}
           ]
-      },
-      {
-        "nombre": "TRIUNV3705",
-        "direccion": "Av. Triunvirato 3705, C1427 Cdad. Autónoma de Buenos Aires",
-        "lat": -34.5810,
-        "lng": -58.4735,
-        "tipo": "Consultorio",
-        "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 15 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 15 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$122.702,35"}
-          ]
       }
     ]
   },
@@ -2354,24 +2354,6 @@
           { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
           {"tipo": "total", "codigo": "Total", "cantidad": 6 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$27.914,84"}
-          ]
-      },
-      {
-        "nombre": "PUEYRREDON236",
-        "direccion": "Av. Pueyrredón 236, C1032ABP Cdad. Autónoma de Buenos Aires",
-        "lat": -34.6071,
-        "lng": -58.4062,
-        "tipo": "Consultorio",
-        "nomencladores": [
-          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
-          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 259 },
-          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
-          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
-          {"tipo": "total", "codigo": "Total", "cantidad": 271 },
-          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$2.242.360,54"}
           ]
       },
       {
@@ -3064,6 +3046,24 @@
           { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
           {"tipo": "total", "codigo": "Total", "cantidad": 40 },
           {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$368.778,36"}
+          ]
+      },
+      {
+        "nombre": "TRIUNV3705",
+        "direccion": "Av. Triunvirato 3705, C1427 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5810,
+        "lng": -58.4735,
+        "tipo": "Consultorio",
+        "nomencladores": [
+          { "tipo":"Nomenclador","codigo": "150101", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150102", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150103", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150104", "cantidad": 0 },
+          { "tipo":"Nomenclador","codigo": "150106", "cantidad": 15 },
+          { "tipo":"Nomenclador","codigo": "1501011", "cantidad": 0 },
+          { "tipo":"presencia","codigo":"Presencia Pátologo", "cantidad": 0 },
+          {"tipo": "total", "codigo": "Total", "cantidad": 15 },
+          {"tipo":"total facturado","codigo":"Facturación total","cantidad":"$122.702,35"}
           ]
       }
     ]
