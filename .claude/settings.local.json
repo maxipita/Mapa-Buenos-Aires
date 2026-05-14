@@ -20,7 +20,10 @@
       "Bash(grep -iE '\\(color|background|bg\\).*#[0-9a-fA-F]{3,6}')",
       "PowerShell([Environment]::GetFolderPath\\(\"Desktop\"\\))",
       "Bash(sed -i 's|C:\\\\\\\\\\\\\\\\Users\\\\\\\\\\\\\\\\tiago.baca\\\\\\\\\\\\\\\\Desktop|C:\\\\\\\\\\\\\\\\Users\\\\\\\\\\\\\\\\tiago.baca\\\\\\\\\\\\\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\\\\\\\\\\\\\Escritorio|' \"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Local\\\\Temp\\\\create_vighi_pptx.js\")",
-      "Bash(NODE_PATH=\"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\" node \"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Local\\\\Temp\\\\create_vighi_pptx.js\")"
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\" node \"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Local\\\\Temp\\\\create_vighi_pptx.js\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "WebFetch(domain:docs.google.com)",
+      "WebFetch(domain:doc-04-24-sheets.googleusercontent.com)"
     ]
   }
 }
