@@ -237,11 +237,12 @@ function cargarDatosExternos() {
       Object.keys(fuente).forEach(function (id) {
         const locs = (fuente[id].localidades || []).filter(l => l.nombre);
         if (locs.length === 0) return;
-        if (provinciasData[id]) {
-          if (!Array.isArray(provinciasData[id].localidades)) provinciasData[id].localidades = [];
-          provinciasData[id].localidades = provinciasData[id].localidades.concat(locs);
+        const provId = id === "CABA" ? "CIUDAD AUTONOMA DE BUENOS AIRES" : id;
+        if (provinciasData[provId]) {
+          if (!Array.isArray(provinciasData[provId].localidades)) provinciasData[provId].localidades = [];
+          provinciasData[provId].localidades = provinciasData[provId].localidades.concat(locs);
         } else {
-          provinciasData[id] = { nombre: fuente[id].nombre || id, localidades: locs };
+          provinciasData[provId] = { nombre: fuente[id].nombre || id, localidades: locs };
         }
       });
     });
@@ -846,31 +847,25 @@ function mostrarTodasLasLocalidades() {
     const CABA_KEY = "CIUDAD AUTONOMA DE BUENOS AIRES";
     const BA_KEY   = "BUENOS AIRES";
 
-    // Fusionar CABA dentro de Buenos Aires
+    // CABA y Buenos Aires como entidades separadas
     const provinciasConLocs = Object.keys(provinciasData)
-      .filter(id => id !== CABA_KEY)
       .map(id => {
-        let locs = filtrarPorCategoria(provinciasData[id].localidades || []);
-        if (id === BA_KEY && provinciasData[CABA_KEY]) {
-          locs = [...locs, ...filtrarPorCategoria(provinciasData[CABA_KEY].localidades || [])];
-        }
+        const locs = filtrarPorCategoria(provinciasData[id].localidades || []);
         return { id, ...provinciasData[id], locs };
       })
       .filter(p => p.locs.length > 0)
-      .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+      .sort((a, b) => {
+        const na = PROVINCIAS_DISPLAY[a.id] || toTitleCase(a.id);
+        const nb = PROVINCIAS_DISPLAY[b.id] || toTitleCase(b.id);
+        return na.localeCompare(nb, 'es');
+      });
     const totalArg = provinciasConLocs.reduce((s, p) => s + p.locs.length, 0);
 
-    // Ranking de población — CABA unificada con Buenos Aires
-    const pobBA = (POBLACION_ARGENTINA[BA_KEY] || 0) + (POBLACION_ARGENTINA[CABA_KEY] || 0);
+    // Ranking de población — CABA y Buenos Aires por separado
     const pobRanking = Object.keys(POBLACION_ARGENTINA)
-      .filter(prov => prov !== CABA_KEY)
-      .sort((a, b) => {
-        const pa = a === BA_KEY ? pobBA : POBLACION_ARGENTINA[a];
-        const pb = b === BA_KEY ? pobBA : POBLACION_ARGENTINA[b];
-        return pb - pa;
-      })
+      .sort((a, b) => (POBLACION_ARGENTINA[b] || 0) - (POBLACION_ARGENTINA[a] || 0))
       .map(prov => {
-        const pob = prov === BA_KEY ? pobBA : POBLACION_ARGENTINA[prov];
+        const pob = POBLACION_ARGENTINA[prov];
         const conLocs = provinciasConLocs.find(p => p.id === prov);
         const cantPrest = conLocs ? conLocs.locs.length : 0;
         const nombre = PROVINCIAS_DISPLAY[prov] || toTitleCase(prov);
@@ -1075,32 +1070,8 @@ function crearLabelSVG(provKey) {
 function mostrarEtiquetasPoblacion() {
   ocultarEtiquetasPoblacion();
 
-  const CABA_KEY = "CIUDAD AUTONOMA DE BUENOS AIRES";
-  const BA_KEY   = "BUENOS AIRES";
-  const unificadas = new Set([CABA_KEY, BA_KEY]);
-
-  // Etiqueta unificada Buenos Aires + CABA
-  const pobBA   = POBLACION_ARGENTINA[BA_KEY]   || 0;
-  const pobCABA = POBLACION_ARGENTINA[CABA_KEY] || 0;
-  const pobTotal = pobBA + pobCABA;
-  const labelUnif = crearLabelSVGUnificado("Buenos Aires", pobTotal);
-  const posUnif = { lat: -35.5, lng: -59.0 };
-  const markerUnif = new google.maps.Marker({
-    position: posUnif,
-    map: map,
-    icon: {
-      url: labelUnif.url,
-      scaledSize: new google.maps.Size(labelUnif.w, labelUnif.h),
-      anchor: new google.maps.Point(labelUnif.w / 2, labelUnif.h / 2)
-    },
-    clickable: false,
-    zIndex: 10
-  });
-  marcadoresPoblacion.push(markerUnif);
-
-  // Resto de provincias
+  // Etiquetas separadas para todas las provincias incluyendo CABA
   Object.keys(CENTROIDES_ARGENTINA).forEach(function (prov) {
-    if (unificadas.has(prov)) return;
     const centroide = CENTROIDES_ARGENTINA[prov];
     const iconUrl = crearLabelSVG(prov);
     const pob = POBLACION_ARGENTINA[prov];
@@ -1461,6 +1432,7 @@ function cargarGeoJSONArgentina() {
         seleccionarProvincia(provinciaId);
       }
     });
+
   });
 }
 
@@ -1524,6 +1496,11 @@ function seleccionarProvincia(provinciaId) {
         });
       }
     });
+    if (bounds.isEmpty() && provinciaId === "CIUDAD AUTONOMA DE BUENOS AIRES") {
+      // CABA todavía no terminó de cargar, usar bounds conocidos
+      bounds.extend({ lat: -34.705, lng: -58.532 });
+      bounds.extend({ lat: -34.527, lng: -58.335 });
+    }
     if (!bounds.isEmpty()) {
       const padding = esMobile()
         ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
@@ -1589,7 +1566,9 @@ function mostrarInfoPanelProvincia(provinciaId) {
     });
   });
 
-  const nombre = (provinciaId === "BUENOS AIRES" || provinciaId === "CIUDAD AUTONOMA DE BUENOS AIRES")
+  const nombre = provinciaId === "CIUDAD AUTONOMA DE BUENOS AIRES"
+    ? "Capital Federal"
+    : provinciaId === "BUENOS AIRES"
     ? "Buenos Aires"
     : (provincia ? provincia.nombre : toTitleCase(provinciaId));
   const pobHtml = pobTotal
@@ -1993,7 +1972,7 @@ function crearIconoPin(logoUrl, borderColor, callback) {
     const rInner = r - 5;
     ctx.beginPath();
     ctx.arc(cx, cy, rInner, 0, Math.PI * 2);
-    ctx.fillStyle = "#a020a8";
+    ctx.fillStyle = borderColor === "#ffffff" ? "#ffffff" : "#a020a8";
     ctx.fill();
 
     ctx.beginPath();

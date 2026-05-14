@@ -1,16 +1,6 @@
-{
-  "BUENOS AIRES": {
-    "nombre": "Buenos Aires",
-    "localidades": [
-      {
-        "nombre": "Casa Hospital San Juan de Dios (Ramos Mejía)",
-        "direccion": "Dr. Gabriel Ardoino 714, B1704EIP Ramos Mejía, Provincia de Buenos Aires",
-        "lat": -34.6380,
-        "lng": -58.5559,
-        "tipo": "Sanatorio",
-        "prioridad":"blanco",
-        "imagen": "Logo/SanJuandeDios-RM.jpg"
-      },
+{"CABA":{
+  "nombre": "Capital Federal",
+  "localidades":[
       {
         "nombre": "Sanatorio Otamendi",
         "direccion": "Azcuénaga 870, C1115AAB Cdad. Autónoma de Buenos Aires",
@@ -26,6 +16,21 @@
         "lng": -58.424,
         "tipo": "Sanatorio",
         "imagen": "Logo/SanatorioTP.jpg"
+      }
+  ]
+},
+  "BUENOS AIRES": {
+    "nombre": "Buenos Aires",
+    "localidades": [
+      {
+        "nombre": "Casa Hospital San Juan de Dios (Ramos Mejía)",
+        "direccion": "Dr. Gabriel Ardoino 714, B1704EIP Ramos Mejía, Provincia de Buenos Aires",
+        "lat": -34.6380,
+        "lng": -58.5559,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco",
+        "imagen": "Logo/SanJuandeDios-RM.jpg",
+        "logo": "Logo/SanJuandeDios-RM.jpg"
       },
       {
         "nombre": "SAN JUAN DE DIOS",
@@ -34,7 +39,8 @@
         "lng": -58.6567,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/SanJuandeDios.jpg"
+        "imagen": "Logo/SanJuandeDios.jpg",
+        "logo": "Logo/SanJuandeDios.jpg"
       },
       {
         "nombre": "Sanatorio del Oeste",
@@ -43,7 +49,9 @@
         "lng": -58.6605,
         "tipo": "Centro Médico",
         "prioridad":"blanco",
-        "imagen": "Logo/SanatoriodelOeste.jpg"
+        "imagen": "Logo/SanatoriodelOeste.jpg",
+        "logo":"Logo/SanatoriodelOeste.jpg"
+        
       },
       {
         "nombre": "DIM – Diagnóstico Integral Morón",
@@ -52,7 +60,8 @@
         "lng": -58.5661,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/DIMMoron.jpg"
+        "imagen":"Logo/DIMMoron.jpg",
+        "logo":"Logo/DIMMoron.jpg"
       },
       {
         "nombre": "Clínica Güemes – Luján",
@@ -61,7 +70,8 @@
         "lng": -59.1155,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/ClinicaGuemes.jpg"
+        "imagen": "Logo/ClinicaGuemes.jpg",
+        "logo": "Logo/ClinicaGuemes.jpg"
       },
       {
         "nombre": "Corporación Médica del Oeste",
@@ -70,7 +80,8 @@
         "lng": -58.5390,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/CorporacionMedicaOeste.jpg"
+        "imagen": "Logo/CorporacionMedicaOeste.jpg",
+        "logo": "Logo/CorporacionMedicaOeste.jpg"
       },
       {
         "nombre": "Clínica Cruz Celeste",
@@ -79,7 +90,9 @@
         "lng": -58.5854,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/ClinicaCruzCeleste.jpg"
+        "imagen": "Logo/ClinicaCruzCeleste.jpg",
+        "logo": "Logo/ClinicaCruzCeleste.jpg"
+
       },
       {
         "nombre": "Sanatorio Nuestra Señora del Pilar",
@@ -88,7 +101,8 @@
         "lng": -58.5424,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/SanatorioNSDP.jpg"
+        "imagen": "Logo/SanatorioNSDP.jpg",
+        "logo": "Logo/SanatorioNSDP.jpg"
       },
       {
         "nombre": "CEPEM",
@@ -97,7 +111,8 @@
         "lng": -58.6195,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/Cepem_Logo.jpg"
+        "imagen": "Logo/Cepem_Logo.jpg",
+        "logo": "Logo/Cepem_Logo.jpg"
       },
       {
         "nombre": "Clínica Privada del Oeste (CPC)",
@@ -106,7 +121,8 @@
         "lng": -58.4991,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/ClinicaPrivadadelOeste.jpg"
+        "imagen": "Logo/ClinicaPrivadadelOeste.jpg",
+        "logo": "Logo/ClinicaPrivadadelOeste.jpg"
       },
       {
         "nombre": "Sanatorio Caseros",
@@ -115,7 +131,8 @@
         "lng": -58.5639,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/SanatorioCaseros.jpg"
+        "imagen": "Logo/SanatorioCaseros.jpg",
+        "logo": "Logo/SanatorioCaseros.jpg"
       },
       {
         "nombre": "Hospital Privado SADIV",
@@ -124,7 +141,8 @@
         "lng": -59.670923,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/SADIV.jpg"
+        "imagen": "Logo/SADIV.jpg",
+        "logo": "Logo/SADIV.jpg"
       },
       {
         "nombre": "Sanatorio San Juan Bautista",
@@ -133,7 +151,8 @@
         "lng": -58.6712,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/SanatorioSJB.jpg"
+        "imagen": "Logo/SanatorioSJB.jpg",
+        "logo": "Logo/SanatorioSJB.jpg"
       },
       {
         "nombre": "Clínica Santa María",
@@ -142,7 +161,8 @@
         "lng": -58.6930,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/ClinicaSM.jpg"
+        "imagen": "Logo/ClinicaSM.jpg",
+        "logo": "Logo/ClinicaSM.jpg"
       },
       {
         "nombre": "Clínica Modelo de Morón",
@@ -151,7 +171,8 @@
         "lng": -58.6171,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/ClinicaModeloMoron.jpg"
+        "imagen":"Logo/ClinicaModeloMoron.jpg",
+        "logo":"Logo/ClinicaModeloMoron.jpg"
       }
 
     ]
@@ -166,7 +187,8 @@
         "lng": -67.6988,
         "tipo": "Sanatorio",
         "prioridad": "blanco",
-        "imagen": "Logo/HospitalRegionalRG.jpg"
+        "imagen": "Logo/HospitalRegionalRG.jpg",
+        "logo": "Logo/HospitalRegionalRG.jpg"
       },
       {
         "nombre": "Hospital Regional Gdor. Ernesto Campos",
@@ -175,7 +197,8 @@
         "lng": -68.3236,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/HospitalRegionalGEC.jpg"
+        "imagen": "Logo/HospitalRegionalGEC.jpg",
+        "logo": "Logo/HospitalRegionalGEC.jpg"
       },
       {
         "nombre": "Sanatorio Fueguino",
@@ -184,7 +207,8 @@
         "lng": -67.7098,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen": "Logo/SanatorioFuegino.jpg"
+        "imagen": "Logo/SanatorioFuegino.jpg",
+        "logo": "Logo/SanatorioFuegino.jpg"
       },
       {
         "nombre": "Clínica CEMEP - Rio Grande",
@@ -193,7 +217,8 @@
         "lng": -67.7123,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/ClinicaCemep.jpg"
+        "imagen":"Logo/ClinicaCemep.jpg",
+        "logo":"Logo/ClinicaCemep.jpg"
       },
       {
         "nombre": "Clínica Privada del Oeste",
@@ -202,7 +227,8 @@
         "lng": -68.3258,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/ClinicaSanJorge.jpg"
+        "imagen":"Logo/ClinicaSanJorge.jpg",
+        "logo":"Logo/ClinicaSanJorge.jpg"
       }
     ]
   },
@@ -216,7 +242,8 @@
         "lng": -68.0776,
         "tipo": "Sanatorio",
         "prioridad": "blanco",
-        "imagen":"Logo/ClinicaSanAgustin.jpg"
+        "imagen":"Logo/ClinicaSanAgustin.jpg",
+        "logo":"Logo/ClinicaSanAgustin.jpg"
       },
       {
         "nombre": "Hospital Dr. Horacio Heller",
@@ -225,7 +252,8 @@
         "lng": -68.1160,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/HospitalHH.jpg"
+        "imagen":"Logo/HospitalHH.jpg",
+        "logo":"Logo/HospitalHH.jpg"
       },
       {
         "nombre": "Hospital Dr. Castro Rendon",
@@ -234,7 +262,8 @@
         "lng": -68.0570,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/HospitalCR.jpg"
+        "imagen":"Logo/HospitalCR.jpg",
+        "logo":"Logo/HospitalCR.jpg"
       },
       {
         "nombre": "Swiss Medical | Centro Médico Neuquén",
@@ -243,7 +272,8 @@
         "lng": -68.0689,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/SMGNeuquen.jpg"
+        "imagen":"Logo/SMGNeuquen.jpg",
+        "logo":"Logo/SMGNeuquen.jpg"
       },
       {
         "nombre": "Clínica Dr. Roberto Raña",
@@ -252,7 +282,8 @@
         "lng": -68.0518,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/ClinicaRaña.jpg"
+        "imagen":"Logo/ClinicaRaña.jpg",
+        "logo":"Logo/ClinicaRaña.jpg"
       },
       {
         "nombre": "Clínica San Lucas",
@@ -261,7 +292,8 @@
         "lng": -68.0885,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/ClinicaSanLucas.jpg"
+        "imagen":"Logo/ClinicaSanLucas.jpg",
+        "logo":"Logo/ClinicaSanLucas.jpg"
       },
       {
         "nombre": "Policlinico Neuquén",
@@ -270,7 +302,8 @@
         "lng": -68.0554,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/PoliclinicoNeuquen.jpg"
+        "imagen":"Logo/PoliclinicoNeuquen.jpg",
+        "logo":"Logo/PoliclinicoNeuquen.jpg"
       },
       {
         "nombre": "Hospital Bouquet Roldán",
@@ -279,7 +312,8 @@
         "lng": -68.0858,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/HospitalBR.jpg"
+        "imagen":"Logo/HospitalBR.jpg",
+        "logo":"Logo/HospitalBR.jpg"
       },
       {
         "nombre": "Hospital Zapala",
@@ -288,7 +322,8 @@
         "lng": -70.0654,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/HospitalZapala.jpg"
+        "imagen":"Logo/HospitalZapala.jpg",
+        "logo":"Logo/HospitalZapala.jpg"
       },
       {
         "nombre": "Hospital Complejidad VI Cutral-co",
@@ -297,7 +332,8 @@
         "lng": -69.2124,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/HospitalCutralCo.jpg"
+        "imagen":"Logo/HospitalCutralCo.jpg",
+        "logo":"Logo/HospitalCutralCo.jpg"
       },
       {
         "nombre": "Hospital Zonal Ricon De Los Sauces",
@@ -306,7 +342,8 @@
         "lng": -69.9262,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/HospitalRDLS.jpg"
+        "imagen":"Logo/HospitalRDLS.jpg",
+        "logo":"Logo/HospitalRDLS.jpg"
       },
       {
         "nombre": "Hospital Zonal Chos Malal",
@@ -315,7 +352,8 @@
         "lng": -70.2734,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/HospitalZonalChosMalal.jpg"
+        "imagen":"Logo/HospitalZonalChosMalal.jpg",
+        "logo":"Logo/HospitalZonalChosMalal.jpg"
       },
       {
         "nombre": "Hospital Dr. Ramón Carrillo",
@@ -324,7 +362,8 @@
         "lng": -71.3289,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/HospitalRC.jpg"
+        "imagen":"Logo/HospitalRC.jpg",
+        "logo":"Logo/HospitalRC.jpg"
       },
       {
         "nombre": "Sanatorio Plaza Huincul Petroleros Privados",
@@ -333,7 +372,8 @@
         "lng": -69.1997,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/SanatorioPlazaHuincul.jpg"
+        "imagen":"Logo/SanatorioPlazaHuincul.jpg",
+        "logo":"Logo/SanatorioPlazaHuincul.jpg"
       },
       {
         "nombre": "Gestar Consultorios de Tocoginecología",
@@ -342,7 +382,8 @@
         "lng": -69.0570,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/Gestar.jpg"
+        "imagen":"Logo/Gestar.jpg",
+        "logo":"Logo/Gestar.jpg"
       },
       {
         "nombre": "Hospital Plottier",
@@ -351,7 +392,8 @@
         "lng": -68.2287,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/HospitalPlottier.jpg"
+        "imagen":"Logo/HospitalPlottier.jpg",
+        "logo":"Logo/HospitalPlottier.jpg"
       },
       {
         "nombre": "CENTRO INTEGRAL DE LA MUJER - CIDEM",
@@ -360,7 +402,8 @@
         "lng": -68.0554,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CIDEM.jpg"
+        "imagen":"Logo/CIDEM.jpg",
+        "logo":"Logo/CIDEM.jpg"
       },
       {
         "nombre": "Génesis Vita",
@@ -369,7 +412,8 @@
         "lng": -68.0595,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/GenesisVita.jpg"
+        "imagen":"Logo/GenesisVita.jpg",
+        "logo":"Logo/GenesisVita.jpg"
       },
       {
         "nombre": "CIMO Centro Integral Medicina del Oeste",
@@ -378,7 +422,8 @@
         "lng": -68.1478,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CIMO.jpg"
+        "imagen":"Logo/CIMO.jpg",
+        "logo":"Logo/CIMO.jpg"
       },
       {
         "nombre": "CMIC - Centro de Fisiatría y Rehabilitación Madre Teresa",
@@ -387,7 +432,8 @@
         "lng": -68.0407,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CMIC.jpg"
+        "imagen":"Logo/CMIC.jpg",
+        "logo":"Logo/CMIC.jpg"
       },
       {
         "nombre": "CEM - Centro de Especialidades Médicas",
@@ -396,7 +442,8 @@
         "lng": -68.0615,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CEM.jpg"
+        "imagen":"Logo/CEM.jpg",
+        "logo":"Logo/CEM.jpg"
       },
       {
         "nombre": "Centro Médico Galenos",
@@ -405,7 +452,8 @@
         "lng": -68.0669,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CentroMedicoGalenos.jpg"
+        "imagen":"Logo/CentroMedicoGalenos.jpg",
+        "logo":"Logo/CentroMedicoGalenos.jpg"
       },
       {
         "nombre": "Consultorios Avenida",
@@ -414,7 +462,8 @@
         "lng": -68.0595,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/ConsultoriosAvenida.jpg"
+        "imagen":"Logo/ConsultoriosAvenida.jpg",
+        "logo":"Logo/ConsultoriosAvenida.jpg"
       },
       {
         "nombre": "Centro Medico Elordi",
@@ -423,7 +472,8 @@
         "lng": -68.0664,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CentroMedicoElordi.jpg"
+        "imagen":"Logo/CentroMedicoElordi.jpg",
+        "logo":"Logo/CentroMedicoElordi.jpg"
       },
       {
         "nombre": "CEIN - Centro Medico y Laboratorio de Análisis Clínicos y Alta Complejidad",
@@ -432,7 +482,8 @@
         "lng": -68.0783,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CEIN.jpg"
+        "imagen":"Logo/CEIN.jpg",
+        "logo":"Logo/CEIN.jpg"
       },
       {
         "nombre": "Clínica Albor",
@@ -441,7 +492,8 @@
         "lng": -68.0719,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/ClinicaAlbor.jpg"
+        "imagen":"Logo/ClinicaAlbor.jpg",
+        "logo":"Logo/ClinicaAlbor.jpg"
       },
       {
         "nombre": "Centro Médico Integral Marcus",
@@ -450,7 +502,8 @@
         "lng": -68.0566,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CentroMedicoMarcus.jpg"
+        "imagen":"Logo/CentroMedicoMarcus.jpg",
+        "logo":"Logo/CentroMedicoMarcus.jpg"
       },
       {
         "nombre": "Centro Médico Olascoaga",
@@ -459,7 +512,8 @@
         "lng": -68.0595,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CentroMedicoMarcus.jpg"
+        "imagen":"Logo/CentroMedicoMarcus.jpg",
+        "logo":"Logo/CentroMedicoMarcus.jpg"
       }
     ]
   },
@@ -473,7 +527,8 @@
         "lng": -67.9991,
         "tipo": "Sanatorio",
         "prioridad": "blanco",
-        "imagen":"Logo/SanatorioRN.jpg"
+        "imagen":"Logo/SanatorioRN.jpg",
+        "logo":"Logo/SanatorioRN.jpg"
       },
       {
         "nombre": "Fundación Médica de Río Negro y Neuquén",
@@ -482,7 +537,8 @@
         "lng": -68.0009,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/FundacionMedicaRN.jpg"
+        "imagen":"Logo/FundacionMedicaRN.jpg",
+        "logo":"Logo/FundacionMedicaRN.jpg"
       }
     ]
   }
