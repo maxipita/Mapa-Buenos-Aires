@@ -451,6 +451,15 @@
         "tipo": "Sanatorio",
         "prioridad":"blanco",
         "imagen":"Logo/CentroMedicoMarcus.jpg"
+      },
+      {
+        "nombre": "Centro Médico Olascoaga",
+        "direccion": "Av. Coronel Olascoaga 735, Q8300 Neuquén",
+        "lat": -38.9628,
+        "lng": -68.0595,
+        "tipo": "Sanatorio",
+        "prioridad":"blanco",
+        "imagen":"Logo/CentroMedicoMarcus.jpg"
       }
     ]
   },
