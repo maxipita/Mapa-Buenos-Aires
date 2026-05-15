@@ -354,11 +354,35 @@ body {
   border-left: 4px solid #2980b9;
 }
 
+.cliente-sheet-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .cliente-sheet-item strong {
   color: #1a3a5c;
   display: block;
   font-size: 14px;
   margin-bottom: 4px;
+}
+
+.cliente-sheet-arrow {
+  font-size: 11px;
+  color: #2980b9;
+  flex-shrink: 0;
+  margin-left: 8px;
+  transition: transform 0.15s;
+}
+
+.cliente-sheet-item:hover .cliente-sheet-arrow {
+  transform: translateX(3px);
+}
+
+.cliente-sheet-desglose {
+  margin-top: 8px;
+  border-top: 1px solid #c8dff0;
+  padding-top: 8px;
 }
 
 .cliente-sheet-tipo {
@@ -956,4 +980,16 @@ body {
   border-radius: 10px;
   padding: 1px 7px;
   white-space: nowrap;
+}
+
+.pob-row-total {
+  background: #f0e4f7;
+  border-radius: 8px;
+  padding: 7px 8px;
+  margin-bottom: 6px;
+  border-left: 3px solid #a020a8;
+}
+
+.pob-prest-total {
+  background: #6a0dad;
 }
