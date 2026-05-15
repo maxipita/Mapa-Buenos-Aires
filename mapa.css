@@ -345,6 +345,68 @@ body {
   padding: 16px 0;
 }
 
+/* ── Clientes del sheet (PROVINCIAS) ── */
+.cliente-sheet-item {
+  background: #f0f7ff;
+  padding: 12px 14px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border-left: 4px solid #2980b9;
+}
+
+.cliente-sheet-item strong {
+  color: #1a3a5c;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.cliente-sheet-tipo {
+  font-size: 11px;
+  color: #5d8aa8;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 6px;
+}
+
+.cliente-sheet-caps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 6px;
+}
+
+.cliente-sheet-label {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: #5d8aa8;
+  margin-top: 6px;
+  margin-bottom: 3px;
+}
+
+.cliente-sheet-badge {
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+.cliente-sheet-badge--ef {
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.cliente-sheet-facturacion {
+  font-size: 12px;
+  color: #2c7a2c;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
 /* ── Listado "todas las ubicaciones" ── */
 .todas-header {
   font-size: 12px;

@@ -5,7 +5,7 @@ const GEOJSON_URL = "DatosGeoJson/barriosGeoJson.json";
 const GEOJSON_AMBA_URL = "DatosGeoJson/ambaGeoJson.json";
 const GEOJSON_ARGENTINA_URL = "DatosGeoJson/agrentinaProvincesGeoJson.json";
 
-const SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/1LWynrRdnZSB9kaYPBZsRtswAAHDJIQHDwrRRdR2jwa8/gviz/tq?tqx=out:csv&sheet=resumen";
+const SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/1LWynrRdnZSB9kaYPBZsRtswAAHDJIQHDwrRRdR2jwa8/gviz/tq?tqx=out:csv&gid=269143430";
 
 // Mapeo de PROVINCIA_ZONA del Sheet a los IDs de provincia del GeoJSON
 const ZONA_A_PROVINCIA = {
@@ -93,9 +93,38 @@ function cargarDesdeSheetsArgentina() {
         });
       });
 
+      const CLIENTE_A_PROVINCIA = {
+        "AMBA TOTAL": "BUENOS AIRES",
+      };
+      const ZONA_A_GEOJSON = {};
+
       filas.slice(1).forEach(row => {
         const nombre = (row[COL.cliente] || "").trim();
         if (!nombre || nombre.toUpperCase() === "TOTAL") return;
+
+        const zona = (row[COL.zona] || "").toUpperCase().trim();
+
+        const provinciaDestino = zona === "PROVINCIAS"
+          ? (CLIENTE_A_PROVINCIA[nombre.toUpperCase()] || nombre.toUpperCase())
+          : ZONA_A_GEOJSON[zona] || null;
+
+        if (provinciaDestino) {
+          if (!clientesProvinciasSheets[provinciaDestino]) clientesProvinciasSheets[provinciaDestino] = [];
+          clientesProvinciasSheets[provinciaDestino].push({
+            nombre,
+            tipo: (row[COL.tipo] || "").trim(),
+            qx:        row[COL.qx]        || "",
+            amb:       row[COL.amb]       || "",
+            salaEndo:  row[COL.salaEndo]  || "",
+            ce:        row[COL.ce]        || "",
+            qx2:       row[COL.qx2]       || "",
+            amb2:      row[COL.amb2]      || "",
+            salaEndo2: row[COL.salaEndo2] || "",
+            ce2:       row[COL.ce2]       || "",
+            facturacion: row[COL.facturacion] || "",
+          });
+          return;
+        }
 
         const nomencladores = [
           { tipo: "eficiencia",     codigo: "QX",                  cantidad: row[COL.qx]       || "-" },
@@ -424,6 +453,7 @@ let regionActiva = null;
 let geojsonCargados = 0;
 const provinciasData = {};
 const provinciasDataExpansion = {};
+const clientesProvinciasSheets = {};
 
 // ============================================
 // SECTORES DEL PROYECTO DE EXPANSIÓN
@@ -1580,6 +1610,36 @@ function mostrarInfoPanelProvincia(provinciaId) {
 
   const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
+  // Clientes del sheet con PROVINCIA/ZONA = "PROVINCIAS"
+  const clientesSheet = clientesProvinciasSheets[provinciaId] || [];
+  const clientesHtml = clientesSheet.length > 0
+    ? clientesSheet.map(c => {
+        const eficiencia = [
+          c.qx       && c.qx       !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">QX: ${c.qx}</span>`             : "",
+          c.amb      && c.amb      !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">AMB: ${c.amb}</span>`            : "",
+          c.salaEndo && c.salaEndo !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">SALA ENDO: ${c.salaEndo}</span>` : "",
+          c.ce       && c.ce       !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">CE: ${c.ce}</span>`              : "",
+        ].filter(Boolean).join("");
+        const caps = [
+          c.qx2 && c.qx2 !== "0"        ? `<span class="cliente-sheet-badge">QX: ${c.qx2}</span>` : "",
+          c.amb2 && c.amb2 !== "0"       ? `<span class="cliente-sheet-badge">AMB: ${c.amb2}</span>` : "",
+          c.salaEndo2 && c.salaEndo2 !== "0" ? `<span class="cliente-sheet-badge">SALA ENDO: ${c.salaEndo2}</span>` : "",
+          c.ce2 && c.ce2 !== "0"         ? `<span class="cliente-sheet-badge">CE: ${c.ce2}</span>` : "",
+        ].filter(Boolean).join("");
+        const facHtmlCliente = c.facturacion
+          ? `<div class="cliente-sheet-facturacion">💰 ${c.facturacion}</div>`
+          : "";
+        return `
+          <div class="cliente-sheet-item">
+            <strong>${c.nombre}</strong>
+            ${c.tipo ? `<div class="cliente-sheet-tipo">${c.tipo}</div>` : ""}
+            ${eficiencia ? `<div class="cliente-sheet-label">Eficiencia</div><div class="cliente-sheet-caps">${eficiencia}</div>` : ""}
+            ${caps ? `<div class="cliente-sheet-label">Capacidad instalada</div><div class="cliente-sheet-caps">${caps}</div>` : ""}
+            ${facHtmlCliente}
+          </div>`;
+      }).join("")
+    : "";
+
   const localidadesHtml = locOrdenadas.length > 0
     ? locOrdenadas.map(loc => `
         <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
@@ -1598,7 +1658,8 @@ function mostrarInfoPanelProvincia(provinciaId) {
       ${pobHtml}
       ${facHtml}
     </div>
-    <div class="seccion-titulo">Localidades de interés</div>
+    ${clientesSheet.length > 0 ? `<div class="seccion-titulo">Clientes en esta provincia</div>${clientesHtml}` : ""}
+    <div class="seccion-titulo">Sanatorios</div>
     ${localidadesHtml}
   `;
 
