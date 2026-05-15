@@ -1,9 +1,0 @@
-
-input[type=checkbox] {display: none;}
-input[type=checkbox] .mr-1 {display: none;}
-input[type=checkbox] + label {vertical-align: middle; margin: 0px; margin-right: 5px; text-align: left; height: 20px; background: url(unchecked.png) no-repeat; border: none; cursor: pointer; display: block; padding-left: 15px; font-weight:normal; text-indent: 10px;}
-input[type=checkbox]:hover + label {background: url(checked-hover.png) no-repeat;}
-input[type=checkbox]:checked + label {background: url(checked.png) no-repeat;}
-span.aspNetDisabled input[type=checkbox] + label {color: #ccc;}
-input [type=checkbox]:checked + label{background: url(checked.png) no-repeat;}
-.form-group label {display: block; padding-left: 0px; text-indent: 0px; font-weight:500; } /* Igual a h5 */

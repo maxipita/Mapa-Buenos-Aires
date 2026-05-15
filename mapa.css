@@ -599,9 +599,10 @@ body {
 .gm-style-iw-chr button {
   margin: 0 !important;
   padding: 4px !important;
+  height: 35px !important;
 }
 .popup-container {
-  padding: 12px;
+  padding: 0px 12px 12px 12px;
   max-width: 260px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -663,7 +664,7 @@ body {
 
 .popup-tabla td {
   padding: 4px 6px;
-  color: #7f8c8d;
+  color: #1a1a1a;
   border-bottom: 1px solid #f5f5f5;
 }
 

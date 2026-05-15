@@ -2086,6 +2086,7 @@ function _colocarMarcadores(localidades, iconCache) {
       map.setCenter(marker.getPosition());
       infoWindowGlobal.open(map, marker);
       google.maps.event.addListenerOnce(infoWindowGlobal, 'domready', function() {
+        liberarAlturaInfoWindow();
         setTimeout(centrarInfoWindow, 150);
       });
     });
@@ -2145,11 +2146,37 @@ function centrarInfoWindow() {
   if (Math.abs(dx) > 1 || Math.abs(dy) > 1) map.panBy(dx, dy);
 }
 
+function liberarAlturaInfoWindow() {
+  // Google Maps aplica max-height inline via JS después del CSS — hay que forzarlo desde domready
+  var iwd = document.querySelector('.gm-style-iw-d');
+  if (iwd) {
+    iwd.setAttribute('style',
+      (iwd.getAttribute('style') || '').replace(/max-height:[^;]+;?/g, '') +
+      '; max-height: none !important; overflow-y: auto !important;'
+    );
+  }
+  var iwc = document.querySelector('.gm-style-iw-c');
+  if (iwc) {
+    iwc.setAttribute('style',
+      (iwc.getAttribute('style') || '').replace(/max-height:[^;]+;?/g, '') +
+      '; max-height: none !important;'
+    );
+  }
+  // Forzar padding 0 en el botón X (no alcanza con element.style, requiere setAttribute)
+  var closeBtn = document.querySelector('.gm-style-iw-chr button');
+  if (closeBtn) {
+    closeBtn.setAttribute('style',
+      (closeBtn.getAttribute('style') || '') + '; padding: 0px !important;'
+    );
+  }
+}
+
 function toggleDesglose(btn) {
   var d = document.getElementById('nomDesglose');
   if (d.style.display !== 'block') {
     d.style.display = 'block';
     btn.innerHTML = 'Ver menos <span class="popup-btn-flecha">&#9650;</span>';
+    liberarAlturaInfoWindow();
     setTimeout(centrarInfoWindow, 150);
   } else {
     d.style.display = 'none';

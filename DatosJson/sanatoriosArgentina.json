@@ -408,8 +408,8 @@
       {
         "nombre": "Génesis Vita",
         "direccion": "Juan B. Justo 343, Q8300 Neuquén",
-        "lat": -38.9628,
-        "lng": -68.0595,
+        "lat": -38.9537,
+        "lng": -68.0640,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
         "imagen":"Logo/GenesisVita.jpg",
@@ -512,8 +512,8 @@
         "lng": -68.0595,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
-        "imagen":"Logo/CentroMedicoMarcus.jpg",
-        "logo":"Logo/CentroMedicoMarcus.jpg"
+        "imagen":"Logo/CentroMedicoOlascoaga.jpg",
+        "logo":"Logo/CentroMedicoOlascoaga.jpg"
       }
     ]
   },
