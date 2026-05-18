@@ -1529,6 +1529,8 @@ function seleccionarProvincia(provinciaId) {
 
   ocultarEtiquetasPoblacion();
 
+  if (infoWindowGlobal) infoWindowGlobal.close();
+
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
 
