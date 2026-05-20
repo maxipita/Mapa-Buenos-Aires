@@ -526,9 +526,9 @@ body {
   border-radius: 10px;
   letter-spacing: 0.3px;
 }
-.amba-zona-norte { color: #1a6fa8; background: #dbeeff; }
-.amba-zona-oeste { color: #b97309; background: #fff0d0; }
-.amba-zona-sur   { color: #a93226; background: #ffe5e3; }
+.amba-zona-norte,
+.amba-zona-oeste,
+.amba-zona-sur   { color: #7c22a0; background: #f3e6fa; }
 
 .amba-zona-grupo-titulo {
   font-size: 10.5px;
@@ -539,19 +539,20 @@ body {
   margin: 8px 0 2px;
   border-radius: 5px;
 }
-.amba-zona-grupo-norte { color: #1a6fa8; background: #dbeeff; }
-.amba-zona-grupo-oeste { color: #b97309; background: #fff0d0; }
-.amba-zona-grupo-sur   { color: #a93226; background: #ffe5e3; }
-.ba-interior-titulo    { color: #4b5563; background: #f3f4f6; }
+.amba-zona-grupo-norte,
+.amba-zona-grupo-oeste,
+.amba-zona-grupo-sur   { color: #7c22a0; background: #f3e6fa; }
+.ba-interior-titulo              { color: #7c22a0; background: #f3e6fa; }
+.ba-interior-titulo.ba-interior-activa { background: #e4c8f5; box-shadow: inset 3px 0 0 #7c22a0; }
 
 /* Zona BA clickeable */
 .zona-ba-titulo { display: flex; align-items: center; justify-content: space-between; transition: filter 0.15s, box-shadow 0.15s; }
 .zona-ba-titulo[data-zona]:hover { filter: brightness(0.92); box-shadow: 0 1px 4px rgba(0,0,0,.12); }
 .zona-ba-flecha { font-size: 9px; opacity: 0.6; transition: transform 0.15s, opacity 0.15s; }
 .zona-ba-titulo.zona-ba-activa .zona-ba-flecha { transform: rotate(90deg); opacity: 1; }
-.zona-ba-titulo.zona-ba-activa.amba-zona-grupo-norte { background: #b3d9f7; box-shadow: inset 3px 0 0 #1a6fa8; }
-.zona-ba-titulo.zona-ba-activa.amba-zona-grupo-oeste { background: #fce3a8; box-shadow: inset 3px 0 0 #b97309; }
-.zona-ba-titulo.zona-ba-activa.amba-zona-grupo-sur   { background: #ffc8c4; box-shadow: inset 3px 0 0 #a93226; }
+.zona-ba-titulo.zona-ba-activa.amba-zona-grupo-norte,
+.zona-ba-titulo.zona-ba-activa.amba-zona-grupo-oeste,
+.zona-ba-titulo.zona-ba-activa.amba-zona-grupo-sur   { background: #e4c8f5; box-shadow: inset 3px 0 0 #7c22a0; }
 
 /* ── Categoría activa ── */
 .categoria-bar {

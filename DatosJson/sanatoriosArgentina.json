@@ -117,8 +117,8 @@
       {
         "nombre": "Clínica Privada del Oeste (CPC)",
         "direccion": "San Martín 675, B6640 Bragado, Provincia de Buenos Aires",
-        "lat": -34.1182,
-        "lng": -58.4991,
+        "lat": -35.05945505501983,
+        "lng": -60.49439381611924,
         "tipo": "Sanatorio",
         "prioridad":"blanco",
         "imagen": "Logo/ClinicaPrivadadelOeste.jpg",

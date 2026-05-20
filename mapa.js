@@ -448,6 +448,9 @@ let argentinaLoaded = false;
 // Polígonos nativos para mostrar los partidos AMBA sobre el mapa de Argentina
 // Los google.maps.Polygon siempre se dibujan encima de cualquier Data layer
 let ambaPolygonsArgentina = [];
+// Bordes precalculados de cada zona (unión de polígonos) — para mostrar solo el contorno exterior
+let _zonaBorders = null;       // { norte: Polygon[], oeste: Polygon[], sur: Polygon[] }
+let _zonaBorderPolys = {};     // google.maps.Polygon activos por zona
 let marcadoresActivos = [];
 const iconCache = {};
 let marcadoresPoblacion = [];
@@ -584,9 +587,9 @@ const ZONA_BA_NOMBRE = {
 };
 
 const COLORES_ZONA_AMBA = {
-  norte: { fill: "#3498db", stroke: "#1a6fa8" },
-  oeste: { fill: "#f39c12", stroke: "#b97309" },
-  sur:   { fill: "#e74c3c", stroke: "#a93226" },
+  norte: { fill: "#b94fd4", stroke: "#8b21a8" },
+  oeste: { fill: "#9b3cc4", stroke: "#6e1a96" },
+  sur:   { fill: "#cc6de0", stroke: "#a040c0" },
 };
 
 function getEstiloZonaAmba(partidoId, seleccionado) {
@@ -1604,72 +1607,98 @@ function ocultarFlechasExpansion() {
 // POLYGONS AMBA SOBRE ARGENTINA
 // google.maps.Polygon siempre queda encima de cualquier Data layer
 // ============================================
-const ESTILO_AMBA_BASE    = { fillOpacity: 0,    strokeColor: "#374151", strokeWeight: 1.2, clickable: false };
-const ESTILO_AMBA_RESALT  = { fillOpacity: 0.28, strokeColor: "#6b21a8", strokeWeight: 2,   clickable: false };
-const ESTILO_AMBA_OPACO   = { fillOpacity: 0,    strokeColor: "#9ca3af", strokeWeight: 0.7, clickable: false };
+const ESTILO_AMBA_BASE    = { fillOpacity: 0, strokeOpacity: 0, strokeWeight: 0, clickable: false };
+const ESTILO_AMBA_RESALT  = { fillOpacity: 0.3, fillColor: "#9b3cc4", strokeOpacity: 0, strokeWeight: 0, clickable: false };
+const ESTILO_AMBA_OPACO   = { fillOpacity: 0, strokeOpacity: 0, strokeWeight: 0, clickable: false };
+const ESTILO_ZONA_BORDE   = { fillOpacity: 0, strokeColor: "#6b21a8", strokeWeight: 2.5, strokeOpacity: 1, clickable: false };
+
+function _cargarZonaBorders(callback) {
+  if (_zonaBorders) { callback(); return; }
+  fetch("DatosGeoJson/zonasBA.json")
+    .then(r => r.json())
+    .then(data => {
+      _zonaBorders = data;
+      callback();
+    });
+}
+
+function _mostrarBordeZona(zona) {
+  _ocultarBordesZona();
+  if (!_zonaBorders || !_zonaBorders[zona]) return;
+  const geom = _zonaBorders[zona].geometry;
+  const polys = geom.type === "MultiPolygon" ? geom.coordinates : [geom.coordinates];
+  _zonaBorderPolys[zona] = polys.map(coords => {
+    const paths = coords.map(ring => ring.map(c => ({ lat: c[1], lng: c[0] })));
+    return new google.maps.Polygon(Object.assign({ paths, map }, ESTILO_ZONA_BORDE));
+  });
+}
+
+function _ocultarBordesZona() {
+  Object.values(_zonaBorderPolys).forEach(arr => arr.forEach(p => p.setMap(null)));
+  _zonaBorderPolys = {};
+}
 
 let zonaBASeleccionada = null; // zona actualmente resaltada en el mapa de Argentina
 
 let _baDeptLayerCargado = false;
 let _baDeptLayer = null;
 
+function _crearPolygonsDesdeBAFeatures(features) {
+  features.forEach(function(feature) {
+    const geom = feature.getGeometry();
+    if (!geom) return;
+    const tipo = geom.getType();
+    const nombreDep = (feature.getProperty("departamento") || "").toUpperCase().trim();
+    const zona = ZONA_BA_NOMBRE[nombreDep] || "interior";
+
+    function crearPoly(paths) {
+      const polygon = new google.maps.Polygon(Object.assign({ paths, map }, ESTILO_AMBA_BASE));
+      ambaPolygonsArgentina.push({ polygon, zona });
+    }
+
+    if (tipo === "Polygon") {
+      crearPoly(geom.getArray().map(ring => ring.getArray()));
+    } else if (tipo === "MultiPolygon") {
+      geom.getArray().forEach(poly => crearPoly(poly.getArray().map(ring => ring.getArray())));
+    }
+  });
+}
+
 function mostrarPolygonsAmbaEnArgentina() {
-  // Si ya están creados, solo mostrarlos y resetear estilos
+  // Si ya están creados, solo mostrarlos
   if (ambaPolygonsArgentina.length > 0) {
     ambaPolygonsArgentina.forEach(item => item.polygon.setMap(map));
     resetEstiloPolygonsAmba();
     return;
   }
-
-  function crearPolygonsDesdeFeatures(features) {
-    features.forEach(function(feature) {
-      const geom = feature.getGeometry();
-      if (!geom) return;
-      const tipo = geom.getType();
-      const nombreDep = (feature.getProperty("departamento") || "").toUpperCase().trim();
-      const zona = ZONA_BA_NOMBRE[nombreDep] || null;
-      // Solo renderizar partidos de zona (Norte/Oeste/Sur), no el interior de Bs. As.
-      if (!zona) return;
-
-      function crearPoly(paths) {
-        const polygon = new google.maps.Polygon(Object.assign({ paths, map }, ESTILO_AMBA_BASE));
-        ambaPolygonsArgentina.push({ polygon, zona });
-      }
-
-      if (tipo === "Polygon") {
-        crearPoly(geom.getArray().map(ring => ring.getArray()));
-      } else if (tipo === "MultiPolygon") {
-        geom.getArray().forEach(poly => crearPoly(poly.getArray().map(ring => ring.getArray())));
-      }
-    });
-  }
-
+  // Si el GeoJSON ya está cargado, crear los polígonos (incluye interior)
   if (_baDeptLayerCargado && _baDeptLayer) {
-    // Ya cargado en una sesión anterior, reusar
     const features = [];
     _baDeptLayer.forEach(f => features.push(f));
-    crearPolygonsDesdeFeatures(features);
+    _crearPolygonsDesdeBAFeatures(features);
     return;
   }
-
   // Primera vez: cargar el GeoJSON de departamentos de Buenos Aires
   _baDeptLayer = new google.maps.Data();
   _baDeptLayer.loadGeoJson(GEOJSON_BA_DEPARTAMENTOS_URL, null, function() {
     _baDeptLayerCargado = true;
     const features = [];
     _baDeptLayer.forEach(f => features.push(f));
-    crearPolygonsDesdeFeatures(features);
+    _crearPolygonsDesdeBAFeatures(features);
   });
 }
 
 function ocultarPolygonsAmbaEnArgentina() {
   ambaPolygonsArgentina.forEach(item => item.polygon.setMap(null));
+  ambaPolygonsArgentina = []; // resetear para reconstruir con todos los polígonos la próxima vez
   zonaBASeleccionada = null;
 }
 
 function resetEstiloPolygonsAmba() {
   ambaPolygonsArgentina.forEach(item => item.polygon.setOptions(ESTILO_AMBA_BASE));
+  _ocultarBordesZona();
   zonaBASeleccionada = null;
+  document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.remove("ba-interior-activa"));
 }
 
 function resaltarZonaBA(zona) {
@@ -1677,12 +1706,15 @@ function resaltarZonaBA(zona) {
   if (zonaBASeleccionada === zona) {
     resetEstiloPolygonsAmba();
     document.querySelectorAll(".zona-ba-titulo").forEach(el => el.classList.remove("zona-ba-activa"));
+    document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.remove("ba-interior-activa"));
     return;
   }
   zonaBASeleccionada = zona;
   ambaPolygonsArgentina.forEach(item => {
     item.polygon.setOptions(item.zona === zona ? ESTILO_AMBA_RESALT : ESTILO_AMBA_OPACO);
   });
+  // Dibujar borde exterior precalculado (todas las zonas, incluido interior)
+  _cargarZonaBorders(() => _mostrarBordeZona(zona));
 
   // Hacer zoom a los límites de la zona seleccionada
   const bounds = new google.maps.LatLngBounds();
@@ -1697,12 +1729,22 @@ function resaltarZonaBA(zona) {
       ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
       : { top: 60, right: 60, bottom: 60, left: 60 };
     map.fitBounds(bounds, padding);
+    // Para interior (área muy grande) hacer un zoom extra después del fitBounds
+    if (zona === "interior") {
+      setTimeout(() => map.setZoom(map.getZoom() + 1), 300);
+    }
   }
 
   // Marcar el título activo en el panel
   document.querySelectorAll(".zona-ba-titulo").forEach(el => el.classList.remove("zona-ba-activa"));
   const activo = document.querySelector(`.zona-ba-titulo[data-zona="${zona}"]`);
   if (activo) activo.classList.add("zona-ba-activa");
+  // Interior activo: también marcar con clase especial
+  if (zona === "interior") {
+    document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.add("ba-interior-activa"));
+  } else {
+    document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.remove("ba-interior-activa"));
+  }
 }
 
 // CARGAR GEOJSON ARGENTINA
@@ -2026,11 +2068,10 @@ function mostrarInfoPanelProvincia(provinciaId) {
     ];
     ZONA_CFG.forEach(({ key, label, cls }) => {
       if (grupos[key].length === 0) return;
-      const esAmba = key !== "interior";
-      const claseBase = esAmba ? `amba-zona-grupo-titulo amba-zona-grupo-${key}` : `amba-zona-grupo-titulo ba-interior-titulo`;
-      const onclick = esAmba ? `onclick="resaltarZonaBA('${key}')"` : "";
-      const dataCursor = esAmba ? `data-zona="${key}" style="cursor:pointer;"` : "";
-      localidadesHtml += `<div class="${claseBase} zona-ba-titulo" ${dataCursor} ${onclick}>${label}${esAmba ? ' <span class="zona-ba-flecha">▶</span>' : ""}</div>`;
+      const claseBase = key !== "interior"
+        ? `amba-zona-grupo-titulo amba-zona-grupo-${key}`
+        : `amba-zona-grupo-titulo ba-interior-titulo`;
+      localidadesHtml += `<div class="${claseBase} zona-ba-titulo" data-zona="${key}" style="cursor:pointer;" onclick="resaltarZonaBA('${key}')">${label} <span class="zona-ba-flecha">▶</span></div>`;
       localidadesHtml += grupos[key].map(renderLoc).join("");
     });
   } else {
