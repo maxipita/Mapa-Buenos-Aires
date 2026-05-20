@@ -4,6 +4,7 @@
 const GEOJSON_URL = "DatosGeoJson/barriosGeoJson.json";
 const GEOJSON_AMBA_URL = "DatosGeoJson/ambaGeoJson.json";
 const GEOJSON_ARGENTINA_URL = "DatosGeoJson/agrentinaProvincesGeoJson-simplified.json";
+const GEOJSON_BA_DEPARTAMENTOS_URL = "DatosGeoJson/departamentos-buenos_aires.json";
 
 const SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/1LWynrRdnZSB9kaYPBZsRtswAAHDJIQHDwrRRdR2jwa8/gviz/tq?tqx=out:csv&gid=269143430";
 
@@ -444,6 +445,9 @@ let map;
 let ambaDataLayer;
 let argentinaDataLayer;
 let argentinaLoaded = false;
+// Polígonos nativos para mostrar los partidos AMBA sobre el mapa de Argentina
+// Los google.maps.Polygon siempre se dibujan encima de cualquier Data layer
+let ambaPolygonsArgentina = [];
 let marcadoresActivos = [];
 const iconCache = {};
 let marcadoresPoblacion = [];
@@ -506,6 +510,97 @@ let ESTILO_BASE;
 let ESTILO_SELECCIONADO;
 let ESTILO_BASE_ARGENTINA;
 let ESTILO_SELECCIONADO_ARGENTINA;
+
+// ============================================
+// ZONAS AMBA — clasificación de partidos por zona
+// ============================================
+// Zonas por código in1 (GeoJSON AMBA — 24 partidos del 1er y 2do cordón)
+const ZONA_AMBA = {
+  "06861": "norte",  // Vicente López
+  "06756": "norte",  // San Isidro
+  "06749": "norte",  // San Fernando
+  "06805": "norte",  // Tigre
+  "06515": "norte",  // Malvinas Argentinas
+  "06371": "norte",  // General San Martín
+  "06412": "norte",  // José C. Paz
+  "06760": "norte",  // San Miguel
+  "06427": "oeste",  // La Matanza
+  "06539": "oeste",  // Merlo
+  "06560": "oeste",  // Moreno
+  "06408": "oeste",  // Hurlingham
+  "06568": "oeste",  // Morón
+  "06410": "oeste",  // Ituzaingó
+  "06840": "oeste",  // Tres de Febrero
+  "06028": "sur",    // Almirante Brown
+  "06091": "sur",    // Berazategui
+  "06270": "sur",    // Ezeiza
+  "06260": "sur",    // Esteban Echeverría
+  "06274": "sur",    // Florencio Varela
+  "06658": "sur",    // Quilmes
+  "06434": "sur",    // Lanús
+  "06490": "sur",    // Lomas de Zamora
+  "06035": "sur",    // Avellaneda
+};
+
+// Zonas por nombre de departamento (GeoJSON BA completo — incluye 3er cordón)
+// Nombres en mayúsculas sin tildes, tal como vienen en la propiedad "departamento"
+const ZONA_BA_NOMBRE = {
+  // Norte — 1er y 2do cordón
+  "VICENTE LOPEZ":        "norte",
+  "SAN ISIDRO":           "norte",
+  "SAN FERNANDO":         "norte",
+  "TIGRE":                "norte",
+  "MALVINAS ARGENTINAS":  "norte",
+  "GENERAL SAN MARTIN":   "norte",
+  "JOSE C PAZ":           "norte",
+  "SAN MIGUEL":           "norte",
+  // Norte — 3er cordón
+  "ESCOBAR":              "norte",
+  "PILAR":                "norte",
+  // Oeste — 1er y 2do cordón
+  "LA MATANZA":           "oeste",
+  "MORON":                "oeste",
+  "TRES DE FEBRERO":      "oeste",
+  "HURLINGHAM":           "oeste",
+  "ITUZAINGO":            "oeste",
+  "MERLO":                "oeste",
+  "MORENO":               "oeste",
+  // Oeste — 3er cordón
+  "GENERAL RODRIGUEZ":    "oeste",
+  "MARCOS PAZ":           "oeste",
+  // Sur — 1er y 2do cordón
+  "AVELLANEDA":           "sur",
+  "LANUS":                "sur",
+  "LOMAS DE ZAMORA":      "sur",
+  "ALMIRANTE BROWN":      "sur",
+  "BERAZATEGUI":          "sur",
+  "ESTEBAN ECHEVERRIA":   "sur",
+  "EZEIZA":               "sur",
+  "FLORENCIO VARELA":     "sur",
+  "QUILMES":              "sur",
+  // Sur — 3er cordón
+  "PRESIDENTE PERON":     "sur",
+  "SAN VICENTE":          "sur",
+};
+
+const COLORES_ZONA_AMBA = {
+  norte: { fill: "#3498db", stroke: "#1a6fa8" },
+  oeste: { fill: "#f39c12", stroke: "#b97309" },
+  sur:   { fill: "#e74c3c", stroke: "#a93226" },
+};
+
+function getEstiloZonaAmba(partidoId, seleccionado) {
+  if (seleccionado) return ESTILO_SELECCIONADO;
+  const zona = ZONA_AMBA[partidoId];
+  const color = zona ? COLORES_ZONA_AMBA[zona] : null;
+  if (!color) return ESTILO_BASE;
+  return {
+    fillColor:    color.fill,
+    fillOpacity:  0.35,
+    strokeColor:  color.stroke,
+    strokeWeight: 1.5,
+  };
+}
 
 function initEstilos() {
   const v = name => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -761,6 +856,8 @@ function seleccionarCategoria(cat, region) {
       map.data.setMap(null);
       if (ambaDataLayer) ambaDataLayer.setMap(null);
       if (argentinaDataLayer) argentinaDataLayer.setMap(map);
+      // Polígonos AMBA encima de Argentina (siempre por encima de Data layers)
+      mostrarPolygonsAmbaEnArgentina();
       map.setCenter({ lat: -38.5, lng: -65 });
       map.setZoom(4);
       if (regionActiva === "expansion") {
@@ -771,8 +868,12 @@ function seleccionarCategoria(cat, region) {
   } else {
     if (map) {
       map.data.setMap(map);
-      if (ambaDataLayer) ambaDataLayer.setMap(map);
       if (argentinaDataLayer) argentinaDataLayer.setMap(null);
+      ocultarPolygonsAmbaEnArgentina();
+      if (ambaDataLayer) {
+        ambaDataLayer.setMap(map);
+        aplicarEstiloBaseAmba();
+      }
       map.setCenter({ lat: -34.62, lng: -58.52 });
       map.setZoom(11);
     }
@@ -798,6 +899,7 @@ function volverAlMenu() {
     aplicarEstiloBase();
     aplicarEstiloBaseAmba();
     if (argentinaDataLayer) argentinaDataLayer.setMap(null);
+    ocultarPolygonsAmbaEnArgentina();
   }
 
   const input = document.getElementById("searchInput");
@@ -1030,7 +1132,28 @@ function mostrarTodasLasLocalidades() {
 
   if (partidosConLocs.length > 0) {
     html += `<div class="region-subtitulo">🗺️ Conurbano Bonaerense</div>`;
-    html += renderItems(partidosConLocs, "seleccionarPartido", "amba");
+    html += `
+      <div class="amba-zona-leyenda">
+        <span class="amba-zona-chip amba-zona-norte">● Norte</span>
+        <span class="amba-zona-chip amba-zona-oeste">● Oeste</span>
+        <span class="amba-zona-chip amba-zona-sur">● Sur</span>
+      </div>`;
+    // Agrupar por zona para el panel
+    const ZONA_LABEL = { norte: "Norte", oeste: "Oeste", sur: "Sur" };
+    const ZONA_ORDEN = ["norte", "oeste", "sur"];
+    const grupos = { norte: [], oeste: [], sur: [], sin_zona: [] };
+    partidosConLocs.forEach(p => {
+      const zona = ZONA_AMBA[p.id] || "sin_zona";
+      grupos[zona].push(p);
+    });
+    ZONA_ORDEN.forEach(zona => {
+      if (grupos[zona].length === 0) return;
+      html += `<div class="amba-zona-grupo-titulo amba-zona-grupo-${zona}">${ZONA_LABEL[zona]}</div>`;
+      html += renderItems(grupos[zona], "seleccionarPartido", "amba");
+    });
+    if (grupos.sin_zona.length > 0) {
+      html += renderItems(grupos.sin_zona, "seleccionarPartido", "amba");
+    }
   }
 
   panelBody.innerHTML = html;
@@ -1477,6 +1600,111 @@ function ocultarFlechasExpansion() {
 }
 
 // ============================================
+// ============================================
+// POLYGONS AMBA SOBRE ARGENTINA
+// google.maps.Polygon siempre queda encima de cualquier Data layer
+// ============================================
+const ESTILO_AMBA_BASE    = { fillOpacity: 0,    strokeColor: "#374151", strokeWeight: 1.2, clickable: false };
+const ESTILO_AMBA_RESALT  = { fillOpacity: 0.28, strokeColor: "#6b21a8", strokeWeight: 2,   clickable: false };
+const ESTILO_AMBA_OPACO   = { fillOpacity: 0,    strokeColor: "#9ca3af", strokeWeight: 0.7, clickable: false };
+
+let zonaBASeleccionada = null; // zona actualmente resaltada en el mapa de Argentina
+
+let _baDeptLayerCargado = false;
+let _baDeptLayer = null;
+
+function mostrarPolygonsAmbaEnArgentina() {
+  // Si ya están creados, solo mostrarlos y resetear estilos
+  if (ambaPolygonsArgentina.length > 0) {
+    ambaPolygonsArgentina.forEach(item => item.polygon.setMap(map));
+    resetEstiloPolygonsAmba();
+    return;
+  }
+
+  function crearPolygonsDesdeFeatures(features) {
+    features.forEach(function(feature) {
+      const geom = feature.getGeometry();
+      if (!geom) return;
+      const tipo = geom.getType();
+      const nombreDep = (feature.getProperty("departamento") || "").toUpperCase().trim();
+      const zona = ZONA_BA_NOMBRE[nombreDep] || null;
+      // Solo renderizar partidos de zona (Norte/Oeste/Sur), no el interior de Bs. As.
+      if (!zona) return;
+
+      function crearPoly(paths) {
+        const polygon = new google.maps.Polygon(Object.assign({ paths, map }, ESTILO_AMBA_BASE));
+        ambaPolygonsArgentina.push({ polygon, zona });
+      }
+
+      if (tipo === "Polygon") {
+        crearPoly(geom.getArray().map(ring => ring.getArray()));
+      } else if (tipo === "MultiPolygon") {
+        geom.getArray().forEach(poly => crearPoly(poly.getArray().map(ring => ring.getArray())));
+      }
+    });
+  }
+
+  if (_baDeptLayerCargado && _baDeptLayer) {
+    // Ya cargado en una sesión anterior, reusar
+    const features = [];
+    _baDeptLayer.forEach(f => features.push(f));
+    crearPolygonsDesdeFeatures(features);
+    return;
+  }
+
+  // Primera vez: cargar el GeoJSON de departamentos de Buenos Aires
+  _baDeptLayer = new google.maps.Data();
+  _baDeptLayer.loadGeoJson(GEOJSON_BA_DEPARTAMENTOS_URL, null, function() {
+    _baDeptLayerCargado = true;
+    const features = [];
+    _baDeptLayer.forEach(f => features.push(f));
+    crearPolygonsDesdeFeatures(features);
+  });
+}
+
+function ocultarPolygonsAmbaEnArgentina() {
+  ambaPolygonsArgentina.forEach(item => item.polygon.setMap(null));
+  zonaBASeleccionada = null;
+}
+
+function resetEstiloPolygonsAmba() {
+  ambaPolygonsArgentina.forEach(item => item.polygon.setOptions(ESTILO_AMBA_BASE));
+  zonaBASeleccionada = null;
+}
+
+function resaltarZonaBA(zona) {
+  // Toggle: click mismo zona la deselecciona
+  if (zonaBASeleccionada === zona) {
+    resetEstiloPolygonsAmba();
+    document.querySelectorAll(".zona-ba-titulo").forEach(el => el.classList.remove("zona-ba-activa"));
+    return;
+  }
+  zonaBASeleccionada = zona;
+  ambaPolygonsArgentina.forEach(item => {
+    item.polygon.setOptions(item.zona === zona ? ESTILO_AMBA_RESALT : ESTILO_AMBA_OPACO);
+  });
+
+  // Hacer zoom a los límites de la zona seleccionada
+  const bounds = new google.maps.LatLngBounds();
+  ambaPolygonsArgentina.forEach(item => {
+    if (item.zona !== zona) return;
+    item.polygon.getPaths().forEach(path => {
+      path.forEach(latLng => bounds.extend(latLng));
+    });
+  });
+  if (!bounds.isEmpty()) {
+    const padding = esMobile()
+      ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
+      : { top: 60, right: 60, bottom: 60, left: 60 };
+    map.fitBounds(bounds, padding);
+  }
+
+  // Marcar el título activo en el panel
+  document.querySelectorAll(".zona-ba-titulo").forEach(el => el.classList.remove("zona-ba-activa"));
+  const activo = document.querySelector(`.zona-ba-titulo[data-zona="${zona}"]`);
+  if (activo) activo.classList.add("zona-ba-activa");
+}
+
 // CARGAR GEOJSON ARGENTINA
 // ============================================
 function cargarGeoJSONArgentina() {
@@ -1694,6 +1922,49 @@ function mostrarInfoPanelProvincia(provinciaId) {
 
   const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
+  // Para Buenos Aires: clasificar por zona AMBA (Norte/Oeste/Sur) o Interior
+  function getZonaLocalidad(loc) {
+    if (!getZonaLocalidad._lookup) {
+      const lookup = new Map();
+      // Partidos del 1er/2do cordón (con barrios detallados)
+      Object.entries(ZONA_AMBA).forEach(([pId, zona]) => {
+        const p = partidosData[pId];
+        if (!p) return;
+        lookup.set(normalizarNombre(p.nombre), zona);
+        (p.barrios || []).forEach(b => lookup.set(normalizarNombre(b), zona));
+      });
+      // Partidos del 3er cordón (nombre de ciudad = nombre del partido)
+      const tercer = { "escobar": "norte", "pilar": "norte", "general rodriguez": "oeste", "marcos paz": "oeste", "presidente peron": "sur", "san vicente": "sur" };
+      Object.entries(tercer).forEach(([n, z]) => lookup.set(n, z));
+      getZonaLocalidad._lookup = lookup;
+    }
+    const lookup = getZonaLocalidad._lookup;
+
+    function matchToken(texto) {
+      const n = normalizarNombre(texto || "");
+      for (const [token, zona] of lookup) {
+        if (new RegExp("(?:^|\\s)" + token.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "(?:\\s|$)", "i").test(n)) {
+          return zona;
+        }
+      }
+      return null;
+    }
+
+    // 1. Ciudad extraída del código postal argentino (ej: "B1704EIP Ramos Mejía" → "Ramos Mejía")
+    //    Evita falsos positivos por nombres de calles como "Mariano Moreno"
+    const cpMatch = (loc.direccion || "").match(/[A-Z]\d{4}[A-Za-z]*\s+([^,]+)/i);
+    if (cpMatch) {
+      const z = matchToken(cpMatch[1].trim());
+      if (z) return z;
+    }
+
+    // 2. Nombre de la facility (ej: "Clínica Modelo de Morón")
+    const z2 = matchToken(loc.nombre);
+    if (z2) return z2;
+
+    return "interior";
+  }
+
   // Clientes del sheet con PROVINCIA/ZONA = "PROVINCIAS"
   const clientesSheet = clientesProvinciasSheets[provinciaId] || [];
   window._clienteSheetData = {};
@@ -1732,14 +2003,41 @@ function mostrarInfoPanelProvincia(provinciaId) {
       }).join("")
     : "";
 
-  const localidadesHtml = locOrdenadas.length > 0
-    ? locOrdenadas.map(loc => `
-        <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
-          <strong>${loc.nombre}</strong>
-          <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
-        </div>
-      `).join("")
-    : `<p class="sin-datos">Sin localidades registradas para esta provincia.</p>`;
+  function renderLoc(loc) {
+    return `
+      <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
+        <strong>${loc.nombre}</strong>
+        <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
+      </div>`;
+  }
+
+  let localidadesHtml = "";
+  if (locOrdenadas.length === 0) {
+    localidadesHtml = `<p class="sin-datos">Sin localidades registradas para esta provincia.</p>`;
+  } else if (provinciaId === "BUENOS AIRES") {
+    // Agrupar por zona AMBA
+    const grupos = { norte: [], oeste: [], sur: [], interior: [] };
+    locOrdenadas.forEach(loc => { grupos[getZonaLocalidad(loc)].push(loc); });
+    const ZONA_CFG = [
+      { key: "norte",    label: "Zona Norte",    cls: "amba-zona-norte" },
+      { key: "oeste",    label: "Zona Oeste",    cls: "amba-zona-oeste" },
+      { key: "sur",      label: "Zona Sur",      cls: "amba-zona-sur"   },
+      { key: "interior", label: "Interior",      cls: "ba-interior"     },
+    ];
+    ZONA_CFG.forEach(({ key, label, cls }) => {
+      if (grupos[key].length === 0) return;
+      const esAmba = key !== "interior";
+      const claseBase = esAmba ? `amba-zona-grupo-titulo amba-zona-grupo-${key}` : `amba-zona-grupo-titulo ba-interior-titulo`;
+      const onclick = esAmba ? `onclick="resaltarZonaBA('${key}')"` : "";
+      const dataCursor = esAmba ? `data-zona="${key}" style="cursor:pointer;"` : "";
+      localidadesHtml += `<div class="${claseBase} zona-ba-titulo" ${dataCursor} ${onclick}>${label}${esAmba ? ' <span class="zona-ba-flecha">▶</span>' : ""}</div>`;
+      localidadesHtml += grupos[key].map(renderLoc).join("");
+    });
+  } else {
+    localidadesHtml = locOrdenadas.map(renderLoc).join("");
+  }
+
+  const seccionLabel = categoriaActiva === "consultorios" ? "Consultorios" : "Sanatorios";
 
   document.getElementById("panelBody").innerHTML = `
     <div class="comuna-header">
@@ -1751,7 +2049,7 @@ function mostrarInfoPanelProvincia(provinciaId) {
       ${facHtml}
     </div>
     ${clientesSheet.length > 0 ? `<div class="seccion-titulo">Clientes en esta provincia</div>${clientesHtml}` : ""}
-    <div class="seccion-titulo">Sanatorios</div>
+    ${locOrdenadas.length > 0 ? `<div class="seccion-titulo">${seccionLabel}</div>` : ""}
     ${localidadesHtml}
   `;
 
@@ -1784,10 +2082,13 @@ function cargarGeoJSONAmba() {
     ambaDataLayer.setMap(map);
 
     ambaDataLayer.addListener("click", function (event) {
+      if (regionActiva === "argentina" || regionActiva === "expansion") return;
       const partidoId = getPartidoId(event.feature);
       if (!partidoId) return;
       seleccionarPartido(partidoId);
     });
+
+    // (Los polygons de Argentina usan el GeoJSON de departamentos BA, no este)
 
     verificarYAjustarBounds();
   });
@@ -1813,7 +2114,11 @@ function aplicarEstiloBase() {
 }
 
 function aplicarEstiloBaseAmba() {
-  if (ambaDataLayer) ambaDataLayer.setStyle(ESTILO_BASE);
+  if (ambaDataLayer) {
+    ambaDataLayer.setStyle(function(feature) {
+      return getEstiloZonaAmba(getPartidoId(feature), false);
+    });
+  }
 }
 
 // ============================================
@@ -1862,7 +2167,8 @@ function seleccionarPartido(partidoId) {
   aplicarEstiloBase();
 
   ambaDataLayer.setStyle(function (feature) {
-    return getPartidoId(feature) === partidoId ? ESTILO_SELECCIONADO : ESTILO_BASE;
+    const id = getPartidoId(feature);
+    return getEstiloZonaAmba(id, id === partidoId);
   });
 
   const bounds = new google.maps.LatLngBounds();
@@ -1994,6 +2300,7 @@ function volverAlListado() {
 
   aplicarEstiloBase();
   aplicarEstiloBaseAmba();
+  resetEstiloPolygonsAmba();
   if (regionActiva === "expansion") {
     aplicarEstiloExpansionBase();
   } else {
@@ -2065,16 +2372,25 @@ function mostrarInfoPanelPartido(partidoId) {
       `).join("")
     : `<p class="sin-datos">Sin localidades registradas para este partido.</p>`;
 
+  const zonaPartido = ZONA_AMBA[partidoId];
+  const ZONA_LABEL_MAP = { norte: "Norte", oeste: "Oeste", sur: "Sur" };
+  const zonaBadge = zonaPartido
+    ? `<span class="amba-zona-chip amba-zona-${zonaPartido}" style="font-size:10px;padding:2px 8px;">● ${ZONA_LABEL_MAP[zonaPartido]}</span>`
+    : "";
+
   document.getElementById("panelBody").innerHTML = `
     <div class="comuna-header">
       <div class="comuna-header-top">
         <h3>🗺️ ${nombre}</h3>
         <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
       </div>
-      ${partido && partido.barrios && partido.barrios.length > 0
-        ? `<div class="barrios-tag"><strong>Localidades:</strong> ${partido.barrios.join(", ")}</div>`
-        : `<div class="barrios-tag"><strong>Partido del GBA</strong></div>`
-      }
+      <div class="barrios-tag" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+        ${zonaBadge}
+        ${partido && partido.barrios && partido.barrios.length > 0
+          ? `<strong>Localidades:</strong> ${partido.barrios.join(", ")}`
+          : `<strong>Partido del GBA</strong>`
+        }
+      </div>
     </div>
     <div class="seccion-titulo">Localidades de interés</div>
     ${localidadesHtml}

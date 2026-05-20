@@ -512,6 +512,47 @@ body {
   letter-spacing: 0;
 }
 
+/* ── Zonas AMBA ── */
+.amba-zona-leyenda {
+  display: flex;
+  gap: 8px;
+  padding: 4px 8px 8px;
+  flex-wrap: wrap;
+}
+.amba-zona-chip {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 10px;
+  border-radius: 10px;
+  letter-spacing: 0.3px;
+}
+.amba-zona-norte { color: #1a6fa8; background: #dbeeff; }
+.amba-zona-oeste { color: #b97309; background: #fff0d0; }
+.amba-zona-sur   { color: #a93226; background: #ffe5e3; }
+
+.amba-zona-grupo-titulo {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  padding: 4px 8px;
+  margin: 8px 0 2px;
+  border-radius: 5px;
+}
+.amba-zona-grupo-norte { color: #1a6fa8; background: #dbeeff; }
+.amba-zona-grupo-oeste { color: #b97309; background: #fff0d0; }
+.amba-zona-grupo-sur   { color: #a93226; background: #ffe5e3; }
+.ba-interior-titulo    { color: #4b5563; background: #f3f4f6; }
+
+/* Zona BA clickeable */
+.zona-ba-titulo { display: flex; align-items: center; justify-content: space-between; transition: filter 0.15s, box-shadow 0.15s; }
+.zona-ba-titulo[data-zona]:hover { filter: brightness(0.92); box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+.zona-ba-flecha { font-size: 9px; opacity: 0.6; transition: transform 0.15s, opacity 0.15s; }
+.zona-ba-titulo.zona-ba-activa .zona-ba-flecha { transform: rotate(90deg); opacity: 1; }
+.zona-ba-titulo.zona-ba-activa.amba-zona-grupo-norte { background: #b3d9f7; box-shadow: inset 3px 0 0 #1a6fa8; }
+.zona-ba-titulo.zona-ba-activa.amba-zona-grupo-oeste { background: #fce3a8; box-shadow: inset 3px 0 0 #b97309; }
+.zona-ba-titulo.zona-ba-activa.amba-zona-grupo-sur   { background: #ffc8c4; box-shadow: inset 3px 0 0 #a93226; }
+
 /* ── Categoría activa ── */
 .categoria-bar {
   display: flex;
