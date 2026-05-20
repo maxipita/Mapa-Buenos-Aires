@@ -3,7 +3,7 @@
 // ============================================
 const GEOJSON_URL = "DatosGeoJson/barriosGeoJson.json";
 const GEOJSON_AMBA_URL = "DatosGeoJson/ambaGeoJson.json";
-const GEOJSON_ARGENTINA_URL = "DatosGeoJson/agrentinaProvincesGeoJson.json";
+const GEOJSON_ARGENTINA_URL = "DatosGeoJson/agrentinaProvincesGeoJson-simplified.json";
 
 const SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/1LWynrRdnZSB9kaYPBZsRtswAAHDJIQHDwrRRdR2jwa8/gviz/tq?tqx=out:csv&gid=269143430";
 
@@ -442,7 +442,9 @@ function irALocalidad(areaId, lat, lng, region) {
 let map;
 let ambaDataLayer;
 let argentinaDataLayer;
+let argentinaLoaded = false;
 let marcadoresActivos = [];
+const iconCache = {};
 let marcadoresPoblacion = [];
 let marcadoresSector = [];
 let flechasExpansion = [];
@@ -750,6 +752,10 @@ function seleccionarCategoria(cat, region) {
 
   // Mostrar/ocultar capas según región
   if (regionActiva === "argentina" || regionActiva === "expansion") {
+    // Cargar Argentina bajo demanda si aún no fue cargado
+    if (!argentinaLoaded && regionActiva === "argentina") {
+      cargarGeoJSONArgentina();
+    }
     if (map) {
       map.data.setMap(null);
       if (ambaDataLayer) ambaDataLayer.setMap(null);
@@ -1068,7 +1074,7 @@ function initMap() {
     cargarDesdeSheetsArgentina();
     cargarGeoJSON();
     cargarGeoJSONAmba();
-    cargarGeoJSONArgentina();
+    // Argentina se cargará bajo demanda (lazy loading) cuando el usuario lo seleccione
   });
 }
 
@@ -1473,8 +1479,12 @@ function cargarGeoJSONArgentina() {
     });
 
     aplicarEstiloBaseArgentina();
-    // No se muestra hasta que el usuario seleccione Argentina
-    argentinaDataLayer.setMap(null);
+    // Si ya se está mostrando Argentina (carga lazy), mostrar la capa; si no, ocultarla
+    if (regionActiva === "argentina" || regionActiva === "expansion") {
+      argentinaDataLayer.setMap(map);
+    } else {
+      argentinaDataLayer.setMap(null);
+    }
 
     argentinaDataLayer.addListener("click", function (event) {
       const provinciaId = getProvinciaId(event.feature);
@@ -1487,6 +1497,7 @@ function cargarGeoJSONArgentina() {
       }
     });
 
+    argentinaLoaded = true;
   });
 }
 
@@ -2129,10 +2140,15 @@ function agregarMarcadores(localidades) {
     }
   });
 
-  const iconCache = {};
-  let pendientes = pares.length;
+  const paresNuevos = pares.filter(({ key }) => !iconCache[key]);
+  if (paresNuevos.length === 0) {
+    _colocarMarcadores(localidades, iconCache);
+    return;
+  }
 
-  pares.forEach(({ logoUrl, color, key }) => {
+  let pendientes = paresNuevos.length;
+
+  paresNuevos.forEach(({ logoUrl, color, key }) => {
     crearIconoPin(logoUrl, color, function(iconUrl, W, H, cx) {
       iconCache[key] = {
         url: iconUrl,

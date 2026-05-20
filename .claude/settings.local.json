@@ -24,7 +24,10 @@
       "mcp__Claude_in_Chrome__tabs_context_mcp",
       "WebFetch(domain:docs.google.com)",
       "WebFetch(domain:doc-04-24-sheets.googleusercontent.com)",
-      "Bash(ls \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\\")"
+      "Bash(ls \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\\")",
+      "Bash(git fetch *)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ]
   }
 }
