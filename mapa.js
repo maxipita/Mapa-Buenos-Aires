@@ -102,6 +102,7 @@ function cargarDesdeSheetsArgentina() {
         const nombre = (row[COL.cliente] || "").trim();
         if (!nombre || nombre.toUpperCase() === "TOTAL") return;
 
+
         const zona = (row[COL.zona] || "").toUpperCase().trim();
 
         const provinciaDestino = zona === "PROVINCIAS"
@@ -913,11 +914,43 @@ function mostrarTodasLasLocalidades() {
 
     // Fila total Argentina
     const pobTotalArg = Object.values(POBLACION_ARGENTINA).reduce((s, v) => s + v, 0);
+    // Sumar facturación de todas las provincias con dedup por nombre
+    const datos = getProvinciasDataActivo();
+    let facturacionTotalArgentina = 0;
+    const _vistasArgFac = new Set();
+    Object.keys(datos).forEach(provId => {
+      ((datos[provId] || {}).localidades || []).forEach(loc => {
+        const key = normalizarNombre(loc.nombre);
+        if (_vistasArgFac.has(key)) return;
+        _vistasArgFac.add(key);
+        (loc.nomencladores || []).forEach(n => {
+          if (n.tipo === "total facturado") {
+            const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
+            if (!isNaN(val)) facturacionTotalArgentina += val;
+          }
+        });
+      });
+    });
+    // Sumar también los clientes de provincias (clientesProvinciasSheets)
+    Object.values(clientesProvinciasSheets).forEach(clientes => {
+      clientes.forEach(c => {
+        const key = normalizarNombre(c.nombre);
+        if (_vistasArgFac.has(key)) return;
+        _vistasArgFac.add(key);
+        const val = parseFloat((c.facturacion || "").replace(/[^0-9.]/g, ""));
+        if (!isNaN(val)) facturacionTotalArgentina += val;
+      });
+    });
+
+    const facArgStr = facturacionTotalArgentina > 0
+      ? `<div style="font-size:11px;margin-top:5px;width:100%;display:flex;justify-content:space-between;align-items:center;"><span style="display:flex;align-items:center;gap:4px;">💰 <strong>Facturación total:</strong></span><span style="color:#27ae60;font-weight:600;">$${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>`
+      : "";
     const filaArgentina = `
-      <div class="pob-row pob-row-total">
-        <span class="pob-nombre"><strong>Argentina</strong></span>
+      <div class="pob-row pob-row-total" style="flex-wrap:wrap;">
+        <span class="pob-nombre"><strong>🗺️Argentina</strong></span>
         <span class="pob-numero"><strong>${formatPoblacion(pobTotalArg)}</strong></span>
         ${totalArg > 0 ? `<span class="pob-prest pob-prest-total">${totalArg} prest.</span>` : ""}
+        ${facArgStr}
       </div>`;
 
     // Ranking de población — CABA y Buenos Aires por separado
