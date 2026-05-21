@@ -555,6 +555,9 @@ body {
 .zona-ba-titulo.zona-ba-activa.amba-zona-grupo-oeste,
 .zona-ba-titulo.zona-ba-activa.amba-zona-grupo-sur   { background: #e4c8f5; box-shadow: inset 3px 0 0 #7c22a0; }
 
+/* Lista colapsable de sanatorios por zona BA */
+.zona-ba-lista { display: none; }
+
 /* ── Categoría activa ── */
 .categoria-bar {
   display: flex;

@@ -33,7 +33,14 @@
       "WebFetch(domain:es.wikipedia.org)",
       "Bash(node -e \"require\\('@turf/union'\\)\")",
       "Bash(npm init *)",
-      "Bash(node -e \"const t = require\\('@turf/union'\\); console.log\\(typeof t, typeof t.default, Object.keys\\(t\\).slice\\(0,5\\)\\);\")"
+      "Bash(node -e \"const t = require\\('@turf/union'\\); console.log\\(typeof t, typeof t.default, Object.keys\\(t\\).slice\\(0,5\\)\\);\")",
+      "Bash(Get-ChildItem \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\LogoPin\")",
+      "Bash(Select-Object Name)",
+      "Bash(Sort-Object Name)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\LogoPin\" -Recurse | ForEach-Object { $_.FullName.Replace\\(\"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\LogoPin\\\\\", \"\"\\) } | Sort-Object)",
+      "PowerShell(\\(Get-Content \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\DatosJson\\\\sanatoriosArgentina.json\" | Measure-Object -Line\\).Lines)",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagn�stico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\Logo\\\\Mendoza\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagn�stico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\LogoPin\\\\Mendoza\")"
     ]
   }
 }

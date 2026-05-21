@@ -83,7 +83,7 @@ function cargarDesdeSheetsArgentina() {
       const filas = parsearCSVSheets(texto);
       if (filas.length < 2) return;
 
-      const COL = { cliente:0, zona:1, tipo:2, qx:3, amb:4, salaEndo:5, ce:6, qx2:7, amb2:8, salaEndo2:9, ce2:10, facturacion:11 };
+      const COL = { cliente:0, zona:1, tipo:2, sector:3, qx:4, amb:5, salaEndo:6, ce:7, qx2:8, amb2:9, salaEndo2:10, ce2:11, facturacion:12 };
 
       // Construir índice de localidades de provinciasData por nombre normalizado
       const indicePorNombre = {};
@@ -1713,6 +1713,14 @@ function resetEstiloPolygonsAmba() {
   _ocultarBordesZona();
   zonaBASeleccionada = null;
   document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.remove("ba-interior-activa"));
+  _ocultarTodasListasZonaBA();
+}
+
+function _ocultarTodasListasZonaBA() {
+  ["norte","oeste","sur","interior"].forEach(k => {
+    const el = document.getElementById(`zona-lista-${k}`);
+    if (el) el.style.display = "none";
+  });
 }
 
 function resaltarZonaBA(zona) {
@@ -1722,6 +1730,8 @@ function resaltarZonaBA(zona) {
     document.querySelectorAll(".zona-ba-titulo").forEach(el => el.classList.remove("zona-ba-activa"));
     document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.remove("ba-interior-activa"));
     infoWindowGlobal.close();
+    _ocultarTodasListasZonaBA();
+    zonaBASeleccionada = null;
     return;
   }
   zonaBASeleccionada = zona;
@@ -1766,6 +1776,15 @@ function resaltarZonaBA(zona) {
     document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.add("ba-interior-activa"));
   } else {
     document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.remove("ba-interior-activa"));
+  }
+
+  // Mostrar lista de la zona seleccionada, ocultar las demás
+  _ocultarTodasListasZonaBA();
+  const listaEl = document.getElementById(`zona-lista-${zona}`);
+  if (listaEl) {
+    listaEl.style.display = "block";
+    // Scroll suave al encabezado de zona en el panel
+    if (activo) setTimeout(() => activo.scrollIntoView({ behavior: "smooth", block: "nearest" }), 50);
   }
 }
 
@@ -2164,7 +2183,9 @@ function mostrarInfoPanelProvincia(provinciaId) {
         : `amba-zona-grupo-titulo ba-interior-titulo`;
       const total = grupos[key].length;
       localidadesHtml += `<div class="${claseBase} zona-ba-titulo" data-zona="${key}" style="cursor:pointer;" onclick="resaltarZonaBA('${key}')">${label} <span class="zona-ba-total">(${total})</span> <span class="zona-ba-flecha">▶</span></div>`;
+      localidadesHtml += `<div id="zona-lista-${key}" class="zona-ba-lista">`;
       localidadesHtml += grupos[key].map(renderLoc).join("");
+      localidadesHtml += `</div>`;
     });
   } else {
     localidadesHtml = locOrdenadas.map(renderLoc).join("");
