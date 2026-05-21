@@ -548,6 +548,7 @@ body {
 /* Zona BA clickeable */
 .zona-ba-titulo { display: flex; align-items: center; justify-content: space-between; transition: filter 0.15s, box-shadow 0.15s; }
 .zona-ba-titulo[data-zona]:hover { filter: brightness(0.92); box-shadow: 0 1px 4px rgba(0,0,0,.12); }
+.zona-ba-total { font-size: 10px; font-weight: 600; opacity: 0.75; margin-left: 4px; margin-right: auto; }
 .zona-ba-flecha { font-size: 9px; opacity: 0.6; transition: transform 0.15s, opacity 0.15s; }
 .zona-ba-titulo.zona-ba-activa .zona-ba-flecha { transform: rotate(90deg); opacity: 1; }
 .zona-ba-titulo.zona-ba-activa.amba-zona-grupo-norte,

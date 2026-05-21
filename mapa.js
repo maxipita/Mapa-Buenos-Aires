@@ -103,8 +103,21 @@ function cargarDesdeSheetsArgentina() {
         const nombre = (row[COL.cliente] || "").trim();
         if (!nombre || nombre.toUpperCase() === "TOTAL") return;
 
-
         const zona = (row[COL.zona] || "").toUpperCase().trim();
+
+        // Datos de zona BA desde el Sheet (identificados por nombre en col A)
+        const ZONA_BA_KEY = { "ZONA NORTE": "norte", "ZONA OESTE": "oeste", "ZONA SUR": "sur", "INTERIOR": "interior" };
+        if (ZONA_BA_KEY[nombre.toUpperCase()]) {
+          clientesZonasBA[ZONA_BA_KEY[nombre.toUpperCase()]] = {
+            nombre, tipo: (row[COL.tipo] || "").trim(),
+            qx: row[COL.qx] || "", amb: row[COL.amb] || "",
+            salaEndo: row[COL.salaEndo] || "", ce: row[COL.ce] || "",
+            qx2: row[COL.qx2] || "", amb2: row[COL.amb2] || "",
+            salaEndo2: row[COL.salaEndo2] || "", ce2: row[COL.ce2] || "",
+            facturacion: row[COL.facturacion] || "",
+          };
+          return;
+        }
 
         const provinciaDestino = zona === "PROVINCIAS"
           ? (CLIENTE_A_PROVINCIA[nombre.toUpperCase()] || nombre.toUpperCase())
@@ -469,6 +482,7 @@ let geojsonCargados = 0;
 const provinciasData = {};
 const provinciasDataExpansion = {};
 const clientesProvinciasSheets = {};
+const clientesZonasBA = { norte: null, oeste: null, sur: null, interior: null }; // datos del Sheet por zona BA
 
 // ============================================
 // SECTORES DEL PROYECTO DE EXPANSIÓN
@@ -1707,9 +1721,11 @@ function resaltarZonaBA(zona) {
     resetEstiloPolygonsAmba();
     document.querySelectorAll(".zona-ba-titulo").forEach(el => el.classList.remove("zona-ba-activa"));
     document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.remove("ba-interior-activa"));
+    infoWindowGlobal.close();
     return;
   }
   zonaBASeleccionada = zona;
+  if (infoWindowGlobal) infoWindowGlobal.close();
   ambaPolygonsArgentina.forEach(item => {
     item.polygon.setOptions(item.zona === zona ? ESTILO_AMBA_RESALT : ESTILO_AMBA_OPACO);
   });
@@ -1733,6 +1749,12 @@ function resaltarZonaBA(zona) {
     if (zona === "interior") {
       setTimeout(() => map.setZoom(map.getZoom() + 1), 300);
     }
+    // Mostrar infowindow del Sheet centrado en la zona (solo para norte/oeste/sur)
+    const datosZona = clientesZonasBA[zona];
+    if (datosZona) {
+      const centro = bounds.getCenter();
+      setTimeout(() => _mostrarInfoWindowZonaBA(datosZona, zona, centro), 400);
+    }
   }
 
   // Marcar el título activo en el panel
@@ -1745,6 +1767,44 @@ function resaltarZonaBA(zona) {
   } else {
     document.querySelectorAll(".ba-interior-titulo").forEach(el => el.classList.remove("ba-interior-activa"));
   }
+}
+
+function _mostrarInfoWindowZonaBA(c, zona, pos) {
+  const ZONA_LABEL = { norte: "ZONA NORTE", oeste: "ZONA OESTE", sur: "ZONA SUR", interior: "INTERIOR" };
+  const eficiencia = [
+    c.qx       && c.qx       !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">QX: ${c.qx}</span>`             : "",
+    c.amb      && c.amb      !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">AMB: ${c.amb}</span>`            : "",
+    c.salaEndo && c.salaEndo !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">SALA ENDO: ${c.salaEndo}</span>` : "",
+    c.ce       && c.ce       !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">CE: ${c.ce}</span>`              : "",
+  ].filter(Boolean).join("");
+  const caps = [
+    c.qx2      && c.qx2      !== "0" ? `<span class="cliente-sheet-badge">QX: ${c.qx2}</span>`             : "",
+    c.amb2     && c.amb2     !== "0" ? `<span class="cliente-sheet-badge">AMB: ${c.amb2}</span>`            : "",
+    c.salaEndo2 && c.salaEndo2 !== "0" ? `<span class="cliente-sheet-badge">SALA ENDO: ${c.salaEndo2}</span>` : "",
+    c.ce2      && c.ce2      !== "0" ? `<span class="cliente-sheet-badge">CE: ${c.ce2}</span>`              : "",
+  ].filter(Boolean).join("");
+
+  const contenido = `
+    <div class="popup-container">
+      <strong class="popup-nombre">${c.nombre}</strong>
+      <p class="popup-direccion">${ZONA_LABEL[zona] || zona.toUpperCase()}</p>
+      ${eficiencia || caps || c.facturacion ? `
+        <button class="popup-btn-desglose" onclick="toggleDesglose(this)">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
+        <div id="nomDesglose" class="popup-desglose">
+          ${eficiencia ? `<div class="cliente-sheet-label" style="margin-top:8px;color:#1a1a1a;">Eficiencia</div><div class="cliente-sheet-caps">${eficiencia}</div>` : ""}
+          ${caps ? `<div class="cliente-sheet-label" style="margin-top:8px;color:#1a1a1a;">Capacidad instalada</div><div class="cliente-sheet-caps">${caps}</div>` : ""}
+          ${c.facturacion ? `<div class="cliente-sheet-facturacion" style="margin-top:8px;">💰 ${c.facturacion}</div>` : ""}
+        </div>
+      ` : ""}
+    </div>
+  `;
+  infoWindowGlobal.setContent(contenido);
+  infoWindowGlobal.setPosition(pos);
+  infoWindowGlobal.open(map);
+  google.maps.event.addListenerOnce(infoWindowGlobal, 'domready', function () {
+    liberarAlturaInfoWindow();
+    setTimeout(centrarInfoWindow, 150);
+  });
 }
 
 // CARGAR GEOJSON ARGENTINA
@@ -1844,6 +1904,9 @@ function seleccionarProvincia(provinciaId) {
   ocultarEtiquetasPoblacion();
 
   if (infoWindowGlobal) infoWindowGlobal.close();
+
+  // Resetear sombreado de zonas BA si venía de Buenos Aires
+  resetEstiloPolygonsAmba();
 
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
@@ -2013,6 +2076,33 @@ function mostrarInfoPanelProvincia(provinciaId) {
   const clientesHtml = clientesSheet.length > 0
     ? clientesSheet.map((c, idx) => {
         const id = `cs_${provinciaId.replace(/\s/g,'_')}_${idx}`;
+
+        // Para "AMBA TOTAL" en Buenos Aires: combinar con INTERIOR
+        const esAmbaBsAs = provinciaId === "BUENOS AIRES" && c.nombre.toUpperCase() === "AMBA TOTAL";
+        const interior = esAmbaBsAs ? clientesZonasBA.interior : null;
+
+        function sumarNum(a, b) {
+          const va = parseFloat((a || "").replace(/[^0-9.]/g, ""));
+          const vb = parseFloat((b || "").replace(/[^0-9.]/g, ""));
+          const total = (!isNaN(va) ? va : 0) + (!isNaN(vb) ? vb : 0);
+          return total > 0 ? String(total) : "0";
+        }
+        function sumarFac(a, b) {
+          const va = parseFloat((a || "").replace(/[^0-9.]/g, ""));
+          const vb = parseFloat((b || "").replace(/[^0-9.]/g, ""));
+          const total = (!isNaN(va) ? va : 0) + (!isNaN(vb) ? vb : 0);
+          return total > 0 ? `$ ${total.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "";
+        }
+
+        const displayNombre = esAmbaBsAs ? "BUENOS AIRES" : c.nombre;
+        const displayTipo   = esAmbaBsAs ? "AMBA + INTERIOR" : (c.tipo || "");
+
+        const qx2      = esAmbaBsAs ? sumarNum(c.qx2,      interior?.qx2)      : c.qx2;
+        const amb2     = esAmbaBsAs ? sumarNum(c.amb2,     interior?.amb2)     : c.amb2;
+        const salaEndo2= esAmbaBsAs ? sumarNum(c.salaEndo2,interior?.salaEndo2): c.salaEndo2;
+        const ce2      = esAmbaBsAs ? sumarNum(c.ce2,      interior?.ce2)      : c.ce2;
+        const facTotal = esAmbaBsAs ? sumarFac(c.facturacion, interior?.facturacion) : (c.facturacion || "");
+
         const eficiencia = [
           c.qx       && c.qx       !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">QX: ${c.qx}</span>`             : "",
           c.amb      && c.amb      !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">AMB: ${c.amb}</span>`            : "",
@@ -2020,27 +2110,28 @@ function mostrarInfoPanelProvincia(provinciaId) {
           c.ce       && c.ce       !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">CE: ${c.ce}</span>`              : "",
         ].filter(Boolean).join("");
         const caps = [
-          c.qx2 && c.qx2 !== "0"             ? `<span class="cliente-sheet-badge">QX: ${c.qx2}</span>`       : "",
-          c.amb2 && c.amb2 !== "0"            ? `<span class="cliente-sheet-badge">AMB: ${c.amb2}</span>`      : "",
-          c.salaEndo2 && c.salaEndo2 !== "0"  ? `<span class="cliente-sheet-badge">SALA ENDO: ${c.salaEndo2}</span>` : "",
-          c.ce2 && c.ce2 !== "0"              ? `<span class="cliente-sheet-badge">CE: ${c.ce2}</span>`        : "",
+          qx2       && qx2       !== "0" ? `<span class="cliente-sheet-badge">QX: ${qx2}</span>`             : "",
+          amb2      && amb2      !== "0" ? `<span class="cliente-sheet-badge">AMB: ${amb2}</span>`            : "",
+          salaEndo2 && salaEndo2 !== "0" ? `<span class="cliente-sheet-badge">SALA ENDO: ${salaEndo2}</span>` : "",
+          ce2       && ce2       !== "0" ? `<span class="cliente-sheet-badge">CE: ${ce2}</span>`              : "",
         ].filter(Boolean).join("");
+
         window._clienteSheetData[id] = {
-          nombre: c.nombre,
-          tipo: c.tipo || "",
+          nombre: displayNombre,
+          tipo: displayTipo,
           eficiencia,
           caps,
-          facturacion: c.facturacion || "",
+          facturacion: facTotal,
           poblacion: pobTotal || 0,
           nombreProvincia: nombre
         };
         return `
           <div class="cliente-sheet-item" onclick="abrirInfoClienteSheet('${id}')" style="cursor:pointer;">
             <div class="cliente-sheet-header">
-              <strong>${c.nombre}</strong>
+              <strong>${displayNombre}</strong>
               <span class="cliente-sheet-arrow">▶</span>
             </div>
-            ${c.tipo ? `<div class="cliente-sheet-tipo">${c.tipo}</div>` : ""}
+            ${displayTipo ? `<div class="cliente-sheet-tipo">${displayTipo}</div>` : ""}
           </div>`;
       }).join("")
     : "";
@@ -2061,17 +2152,18 @@ function mostrarInfoPanelProvincia(provinciaId) {
     const grupos = { norte: [], oeste: [], sur: [], interior: [] };
     locOrdenadas.forEach(loc => { grupos[getZonaLocalidad(loc)].push(loc); });
     const ZONA_CFG = [
-      { key: "norte",    label: "Zona Norte",    cls: "amba-zona-norte" },
-      { key: "oeste",    label: "Zona Oeste",    cls: "amba-zona-oeste" },
-      { key: "sur",      label: "Zona Sur",      cls: "amba-zona-sur"   },
-      { key: "interior", label: "Interior",      cls: "ba-interior"     },
+      { key: "norte",    label: "ZONA NORTE",    cls: "amba-zona-norte" },
+      { key: "oeste",    label: "ZONA OESTE",    cls: "amba-zona-oeste" },
+      { key: "sur",      label: "ZONA SUR",      cls: "amba-zona-sur"   },
+      { key: "interior", label: "INTERIOR",      cls: "ba-interior"     },
     ];
     ZONA_CFG.forEach(({ key, label, cls }) => {
       if (grupos[key].length === 0) return;
       const claseBase = key !== "interior"
         ? `amba-zona-grupo-titulo amba-zona-grupo-${key}`
         : `amba-zona-grupo-titulo ba-interior-titulo`;
-      localidadesHtml += `<div class="${claseBase} zona-ba-titulo" data-zona="${key}" style="cursor:pointer;" onclick="resaltarZonaBA('${key}')">${label} <span class="zona-ba-flecha">▶</span></div>`;
+      const total = grupos[key].length;
+      localidadesHtml += `<div class="${claseBase} zona-ba-titulo" data-zona="${key}" style="cursor:pointer;" onclick="resaltarZonaBA('${key}')">${label} <span class="zona-ba-total">(${total})</span> <span class="zona-ba-flecha">▶</span></div>`;
       localidadesHtml += grupos[key].map(renderLoc).join("");
     });
   } else {

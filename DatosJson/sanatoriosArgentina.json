@@ -165,16 +165,715 @@
         "logo": "LogoPin/ClinicaSM.jpg"
       },
       {
+        "nombre": "Centro Medico Ramos Mejía",
+        "direccion": "Alsina 360, B1704EVH Ramos Mejía, Provincia de Buenos Aires",
+        "lat": -34.6434,
+        "lng": -58.5691,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoRamosMejia.jpg",
+        "logo": "LogoPin/CentroMedicoRamosMejia.jpg"
+      },
+      {
         "nombre": "Clínica Modelo de Morón",
         "direccion": "República Oriental del Uruguay 234, C1015 Morón, Provincia de Buenos Aires",
         "lat": -34.6506,
-        "lng": -58.6171,
+        "lng": -58.617,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaModeloMoron.jpg",
+        "logo": "LogoPin/ClinicaModeloMoron.jpg"
+      },
+      {
+        "nombre": "Hospital Austral",
+        "direccion": "Av. Pres. Juan Domingo Peron 1500, B1629 Pilar Centro, Provincia de Buenos Aires",
+        "lat": -34.4560,
+        "lng": -58.8646,
         "tipo": "Sanatorio",
-        "prioridad":"blanco",
-        "imagen":"Logo/ClinicaModeloMoron.jpg",
-        "logo":"LogoPin/ClinicaModeloMoron.jpg"
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalAustral.jpg",
+        "logo": "LogoPin/HospitalAustral.jpg"
+      },
+      {
+        "nombre": "Clínica Olivos",
+        "direccion": "Av. Maipú 1660, B1602ABQ Florida, Provincia de Buenos Aires",
+        "lat": -34.5227,
+        "lng": -58.4850,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaOlivos.jpg",
+        "logo": "LogoPin/ClinicaOlivos.jpg"
+      },
+      {
+        "nombre": "Hospital Central de San Isidro",
+        "direccion": "Av. Sta Fe 431, B1641 San Isidro, Provincia de Buenos Aires",
+        "lat": -34.4773,
+        "lng": -58.5100,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalCentralSanIsidro.jpg",
+        "logo": "LogoPin/HospitalCentralSanIsidro.jpg"
+      },
+      {
+        "nombre": "Hospital de Pilar Juan Cirilo Sanguinetti",
+        "direccion": "Victor Vergani 860, B1629AJB Pilar, Provincia de Buenos Aires",
+        "lat": -34.4607,
+        "lng": -58.9103,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalPilarSanguinetti.jpg",
+        "logo": "LogoPin/HospitalPilarSanguinetti.jpg"
+      },
+      {
+        "nombre": "Centro Médico Deragopyan Pilar",
+        "direccion": "Panamericana Km 52.5, B1629 Pilar, Provincia de Buenos Aires",
+        "lat": -34.4478,
+        "lng": -58.8923,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/DeragopyanPilar.jpg",
+        "logo": "LogoPin/DeragopyanPilar.jpg"
+      },
+      {
+        "nombre": "Centro de la Mujer Nordelta",
+        "direccion": "Alvear 1459, B1646EZO San Fernando, Provincia de Buenos Aires",
+        "lat": -34.4377,
+        "lng": -58.5638,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMujerNordelta.jpg",
+        "logo": "LogoPin/CentroMujerNordelta.jpg"
+      },
+      {
+        "nombre": "Procrearte Pilar",
+        "direccion": "Las Camelias 3324 Oficina 102 Km 43.5, B1069 Manuel Alberti, Provincia de Buenos Aires",
+        "lat": -34.4379,
+        "lng": -58.7924,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/ProreartePilar.jpg",
+        "logo": "LogoPin/ProreartePilar.jpg"
+      },
+      {
+        "nombre": "Diagnóstico Maipú Sede Norte",
+        "direccion": "Av. Sta Fe 1459, B1640IFB Martínez, Provincia de Buenos Aires",
+        "lat": -34.4848,
+        "lng": -58.5036,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/DiagnosticoMaipuNorte.jpg",
+        "logo": "LogoPin/DiagnosticoMaipuNorte.jpg"
+      },
+      {
+        "nombre": "Grupo Médico Maschwitz",
+        "direccion": "Av. Eugenia Tapia de Cruz 1382, B1625 Belén de Escobar, Provincia de Buenos Aires",
+        "lat": -34.3526,
+        "lng": -58.8000,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/GrupoMedicoMaschwitz.jpg",
+        "logo": "LogoPin/GrupoMedicoMaschwitz.jpg"
+      },
+      {
+        "nombre": "Swiss Medical Center Nordelta",
+        "direccion": "Av. de los Lagos 2485, B1670NCW Tigre, Provincia de Buenos Aires",
+        "lat": -34.4322,
+        "lng": -58.6433,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/SwissMedicalNordelta.jpg",
+        "logo": "LogoPin/SwissMedicalNordelta.jpg"
+      },
+      {
+        "nombre": "Hospital Municipal San Fernando",
+        "direccion": "Belgrano 1955, B1646 San Fernando, Provincia de Buenos Aires",
+        "lat": -34.4484,
+        "lng": -58.5521,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalMunicipalSanFernando.jpg",
+        "logo": "LogoPin/HospitalMunicipalSanFernando.jpg"
+      },
+      {
+        "nombre": "Centro Médico Talar",
+        "direccion": "RN197 1618, B1618 El Talar, Provincia de Buenos Aires",
+        "lat": -34.4758,
+        "lng": -58.6638,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoTalar.jpg",
+        "logo": "LogoPin/CentroMedicoTalar.jpg"
+      },
+      {
+        "nombre": "Centro Médico Pilarica",
+        "direccion": "Hilario Ascasubi 698, B1629KRD Pilar, Provincia de Buenos Aires",
+        "lat": -34.4628,
+        "lng": -58.8904,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoPilarica.jpg",
+        "logo": "LogoPin/CentroMedicoPilarica.jpg"
+      },
+      {
+        "nombre": "Clínica Delta",
+        "direccion": "Blvd. Sarmiento 154, B2810 Campana, Provincia de Buenos Aires",
+        "lat": -34.1591,
+        "lng": -58.9630,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaDelta.jpg",
+        "logo": "LogoPin/ClinicaDelta.jpg"
+      },
+      {
+        "nombre": "CEGYR Zona Norte",
+        "direccion": "México 2250, B1640 Martínez, Provincia de Buenos Aires",
+        "lat": -34.50397044131364,
+        "lng": -58.5261100952292,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CEGYRZonaNorte.jpg",
+        "logo": "LogoPin/CEGYRZonaNorte.jpg"
+      },
+      {
+        "nombre": "Centros Médicos Osdepym - Vicente López",
+        "direccion": "Av. Maipú 1960, B1638 Vicente López, Provincia de Buenos Aires",
+        "lat": -34.51889228074703,
+        "lng": -58.486718215345434,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/OsdepymVicenteLopez.jpg",
+        "logo": "LogoPin/OsdepymVicenteLopez.jpg"
+      },
+      {
+        "nombre": "Sanatorio Las Lomas - Sede Nordelta",
+        "direccion": "Av. de los Lagos 6785, B1670NGE Rincón de Milberg, Provincia de Buenos Aires",
+        "lat": -34.40047471601501,
+        "lng": -58.653091583925324,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/SanatorioLasLomasNordelta.jpg",
+        "logo": "LogoPin/SanatorioLasLomasNordelta.jpg"
+      },
+      {
+        "nombre": "Hospital de Diagnóstico Inmediato Dr. Valentín Nores: DIC",
+        "direccion": "Maipú 257, B1648 Tigre, Provincia de Buenos Aires",
+        "lat": -34.4141306548482,
+        "lng": -58.58776790282562,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalDICTigre.jpg",
+        "logo": "LogoPin/HospitalDICTigre.jpg"
+      },
+      {
+        "nombre": "Centro Gens Quilmes | Clínica de Medicina Reproductiva y Fertilidad",
+        "direccion": "Alvear 514, B1878 Quilmes, Provincia de Buenos Aires",
+        "lat": -34.71969170601172,
+        "lng": -58.25621758746954,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroGensQuilmes.jpg",
+        "logo": "LogoPin/CentroGensQuilmes.jpg"
+      },
+      {
+        "nombre": "Centro Medico Temperley",
+        "direccion": "Av. Almte. Brown 3521, B1834 Temperley, Provincia de Buenos Aires",
+        "lat": -34.77733003048982,
+        "lng": -58.39151270404583,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoTemperley.jpg",
+        "logo": "LogoPin/CentroMedicoTemperley.jpg"
+      },
+      {
+        "nombre": "Centro Médico Lanús Éste",
+        "direccion": "Pres. Domingo Faustino Sarmiento 167 B, B1823AMK Gerli, Provincia de Buenos Aires",
+        "lat": -34.6929985741353,
+        "lng": -58.37212652963138,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoLanusEste.jpg",
+        "logo": "LogoPin/CentroMedicoLanusEste.jpg"
+      },
+      {
+        "nombre": "Centro Medico Banfield",
+        "direccion": "Galería Verona, Maipú 431 Local 11, B1828IJI Gran Buenos Aires, Provincia de Buenos Aires",
+        "lat": -34.74379319886378,
+        "lng": -58.38927279747271,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoBanfield.jpg",
+        "logo": "LogoPin/CentroMedicoBanfield.jpg"
+      },
+      {
+        "nombre": "Centro médico Quilmes IOSFA",
+        "direccion": "Nicolás Videla 14, B1878 Quilmes, Provincia de Buenos Aires",
+        "lat": -34.72235078955002,
+        "lng": -58.2615794856151,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoQuilmesIOSFA.jpg",
+        "logo": "LogoPin/CentroMedicoQuilmesIOSFA.jpg"
+      },
+      {
+        "nombre": "Centro Medico Lomas",
+        "direccion": "Cochabamba 220, B1828 Banfield, Provincia de Buenos Aires",
+        "lat": -34.744094126800796,
+        "lng": -58.39279618746882,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoLomas.jpg",
+        "logo": "LogoPin/CentroMedicoLomas.jpg"
+      },
+      {
+        "nombre": "Centro Medico Hospital Britanico Lomas de Zamora",
+        "direccion": "Av. Hipólito Yrigoyen 8338, B1832 Lomas de Zamora, Provincia de Buenos Aires",
+        "lat": -34.75254248723987,
+        "lng": -58.40073831630493,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalBritanicoLomas.jpg",
+        "logo": "LogoPin/HospitalBritanicoLomas.jpg"
+      },
+      {
+        "nombre": "Policlínico Lomas",
+        "direccion": "Av. Hipólito Yrigoyen 8439, B1832BQD Lomas de Zamora, Provincia de Buenos Aires",
+        "lat": -34.75349191455423,
+        "lng": -58.40143080466839,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/PoliclinicoLomas.jpg",
+        "logo": "LogoPin/PoliclinicoLomas.jpg"
+      },
+      {
+        "nombre": "Policlinico Regional Avellaneda",
+        "direccion": "Av. Hipólito Yrigoyen 670, B1868 Avellaneda, Provincia de Buenos Aires",
+        "lat": -34.665178132000726,
+        "lng": -58.377674118162396,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/PolclionicoRegionalAvellaneda.jpg",
+        "logo": "LogoPin/PoliclinicoRegionalAvellaneda.jpg"
+      },
+      {
+        "nombre": "Clinica Privada Ranelagh",
+        "direccion": "CIO, km 28.5, Cno. Gral. Belgrano 4786, B1837 Berazategui, Provincia de Buenos Aires",
+        "lat": -34.80510617237801,
+        "lng": -58.2173276112078,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaPrivadaRanelagh.jpg",
+        "logo": "LogoPin/ClinicaPrivadaRanelagh.jpg"
+      },
+      {
+        "nombre": "Clinica Modelo de Lanus",
+        "direccion": "Av. Hipólito Yrigoyen 4835, B1824 Buenos Aires, Provincia de Buenos Aires",
+        "lat": -34.71062370228507,
+        "lng": -58.39252868747016,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaModeloLanus.jpg",
+        "logo": "LogoPin/ClinicaModeloLanus.jpg"
+      },
+      {
+        "nombre": "Clinica Calchaqui",
+        "direccion": "Av. Calchaquí 24, B1879 Quilmes, Provincia de Buenos Aires",
+        "lat": -34.72895733245573,
+        "lng": -58.29936751816025,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaCalchaqui.jpg",
+        "logo": "LogoPin/ClinicaCalchaqui.jpg"
+      },
+      {
+        "nombre": "Clinica Nuestra Señora de la Dulce Espera",
+        "direccion": "Gral Ferré 521, B1872 Sarandí, Provincia de Buenos Aires",
+        "lat": -34.68524315075969,
+        "lng": -58.350417133507136,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaDulceEspera.jpg",
+        "logo": "LogoPin/ClinicaDulceEspera.jpg"
+      },
+      {
+        "nombre": "Sanatorio Anchorena Itoiz",
+        "direccion": "Alsina 174, B1870 Avellaneda, Provincia de Buenos Aires",
+        "lat": -34.66393510358624,
+        "lng": -58.3659380739807,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/SanatorioAnchorenaItoiz.jpg",
+        "logo": "LogoPin/SanatorioAnchorenaItoiz.jpg"
+      },
+      {
+        "nombre": "Clinica Espora",
+        "direccion": "Av. Tomás Espora 645, B1846BTE Adrogué, Provincia de Buenos Aires",
+        "lat": -34.79619144470828,
+        "lng": -58.38842193164857,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaEspora.jpg",
+        "logo": "LogoPin/ClinicaEspora.jpg"
+      },
+      {
+        "nombre": "Clinica del Niño Quilmes",
+        "direccion": "Av. Gral. Lamadrid 444, B1878 Quilmes, Provincia de Buenos Aires",
+        "lat": -34.715746180022784,
+        "lng": -58.2727187009607,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaNinoQuilmes.jpg",
+        "logo": "LogoPin/ClinicaNinoQuilmes.jpg"
+      },
+      {
+        "nombre": "Sanatorio Modelo Quilmes",
+        "direccion": "Andrés Baranda 282, B1878 Quilmes, Provincia de Buenos Aires",
+        "lat": -34.718785137446574,
+        "lng": -58.27366925863326,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/SanatorioModeloQuilmes.jpg",
+        "logo": "LogoPin/SanatorioModeloQuilmes.jpg"
+      },
+      {
+        "nombre": "Sanatorio Bernal",
+        "direccion": "Av. San Martín 572, B1876 Bernal, Provincia de Buenos Aires",
+        "lat": -34.70860357705438,
+        "lng": -58.28324284699716,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/SanatorioBernal.jpg",
+        "logo": "LogoPin/SanatorioBernal.jpg"
+      },
+      {
+        "nombre": "Clínica Boedo SRL",
+        "direccion": "Mariano Boedo 549, B1832 Lomas de Zamora, Provincia de Buenos Aires",
+        "lat": -34.75868931407521,
+        "lng": -58.40392128746825,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaBoedo.jpg",
+        "logo": "LogoPin/ClinicaBoedo.jpg"
+      },
+      {
+        "nombre": "Clínica Privada Monte Grande",
+        "direccion": "Gral. Rodríguez 158, B1842DID Monte Grande, Provincia de Buenos Aires",
+        "lat": -34.814,
+        "lng": -58.466,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaPrivadaMonteGrande.jpg",
+        "logo": "LogoPin/ClinicaPrivadaMonteGrande.jpg"
+      },
+      {
+        "nombre": "Clínica IMA",
+        "direccion": "Francisco Seguí 593, B1846 Adrogué, Provincia de Buenos Aires",
+        "lat": -34.80087342456984,
+        "lng": -58.39846638208917,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaIMA.jpg",
+        "logo": "LogoPin/ClinicaIMA.jpg"
+      },
+      {
+        "nombre": "Sanatorio Juncal",
+        "direccion": "Av. Almte. Brown 2779, B1834 Temperley, Provincia de Buenos Aires",
+        "lat": -34.7697110616434,
+        "lng": -58.396728404667854,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/SanatorioJuncal.jpg",
+        "logo": "LogoPin/SanatorioJuncal.jpg"
+      },
+      {
+        "nombre": "Hospital Z.G.A Dr. Isidoro Iriarte de Quilmes",
+        "direccion": "Allison Bell 770, B1878 Quilmes, Provincia de Buenos Aires",
+        "lat": -34.72024119566541,
+        "lng": -58.24671946234213,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalIriarteQuilmes.jpg",
+        "logo": "LogoPin/HospitalIriarteQuilmes.jpg"
+      },
+      {
+        "nombre": "Hospital Mi Pueblo",
+        "direccion": "B1888 Villa Vatteone, Provincia de Buenos Aires",
+        "lat": -34.81947607838903,
+        "lng": -58.27175344094336,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalMiPueblo.jpg",
+        "logo": "LogoPin/HospitalMiPueblo.jpg"
+      },
+      {
+        "nombre": "Hospital Fiorito",
+        "direccion": "Av. Manuel Belgrano 827, B1870 Avellaneda, Provincia de Buenos Aires",
+        "lat": -34.66622968510284,
+        "lng": -58.36546557583513,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalFiorito.jpg",
+        "logo": "LogoPin/HospitalFiorito.jpg"
+      },
+      {
+        "nombre": "Hospital Luisa C. de Gandulfo",
+        "direccion": "Balcarce 351, B1832 Lomas de Zamora, Provincia de Buenos Aires",
+        "lat": -34.761811606037284,
+        "lng": -58.39297007397727,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalGandulfo.jpg",
+        "logo": "LogoPin/HospitalGandulfo.jpg"
+      },
+      {
+        "nombre": "Hospital Narciso Lopez",
+        "direccion": "Gral. Guido, B1824 Lanús, Provincia de Buenos Aires",
+        "lat": -34.70366218939805,
+        "lng": -58.38283417583378,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalNarcisoLopez.jpg",
+        "logo": "LogoPin/HospitalNarcisoLopez.jpg"
+      },
+      {
+        "nombre": "Hospital Dr. Arturo Oñativia",
+        "direccion": "Dr. Ramón Carrillo 1339, B1847 Rafael Calzada, Provincia de Buenos Aires",
+        "lat": -34.78434954013266,
+        "lng": -58.35206758375853,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalOñativia.jpg",
+        "logo": "LogoPin/HospitalOñativia.jpg"
+      },
+      {
+        "nombre": "H.Z.G.A. Dr. Lucio Meléndez",
+        "direccion": "Tte. Gral. Juan Domingo Perón 859, B1852AFK Buenos Aires, Provincia de Buenos Aires",
+        "lat": -34.812009342614196,
+        "lng": -58.38613411630274,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HZGALucioMelendez.jpg",
+        "logo": "LogoPin/HZGALucioMelendez.jpg"
+      },
+      {
+        "nombre": "Hospital Evita Pueblo",
+        "direccion": "C. 136 2905, B1884 Berazategui, Provincia de Buenos Aires",
+        "lat": -34.78273799570499,
+        "lng": -58.2110164046675,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalEvitaPueblo.jpg",
+        "logo": "LogoPin/HospitalEvitaPueblo.jpg"
+      },
+      {
+        "nombre": "Hospital de Alta Complejidad del Bicentenario Esteban Echeverria",
+        "direccion": "San Martín 504, B1842DOL Monte Grande, Provincia de Buenos Aires",
+        "lat": -34.807930763420195,
+        "lng": -58.46549161815746,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalBicentenarioEE.jpg",
+        "logo": "LogoPin/HospitalBicentenarioEE.jpg"
+      },
+      {
+        "nombre": "Hospital El Cruce Dr. Néstor Kirchner",
+        "direccion": "Av. Calchaquí 5401, B1888 Florencio Varela, Provincia de Buenos Aires",
+        "lat": -34.77218247879753,
+        "lng": -58.270921733504146,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalElCruce.jpg",
+        "logo": "LogoPin/HospitalElCruce.jpg"
+      },
+      {
+        "nombre": "Centro Integral Medico en Salud Sexual Reproductiva y No Reproductiva",
+        "direccion": "Haití 1902, B1714IIV Ituzaingó, Provincia de Buenos Aires",
+        "lat": -34.65641981269443,
+        "lng": -58.698845780836955,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroIntegralSaludSexualItuzaingo.jpg",
+        "logo": "LogoPin/CentroIntegralSaludSexualItuzaingo.jpg"
+      },
+      {
+        "nombre": "Centro Medico Superior Lujan",
+        "direccion": "Av. Pellegrini 741, B6700 Luján, Provincia de Buenos Aires",
+        "lat": -34.5607,
+        "lng": -59.1087,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoSuperiorLujan.jpg",
+        "logo": "LogoPin/CentroMedicoSuperiorLujan.jpg"
+      },
+      {
+        "nombre": "Clínica Alcorta",
+        "direccion": "Aristóbulo del Valle 2629, B1744HND Moreno, Provincia de Buenos Aires",
+        "lat": -34.6520,
+        "lng": -58.7885,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaAlcorta.jpg",
+        "logo": "LogoPin/ClinicaAlcorta.jpg"
+      },
+      {
+        "nombre": "Consultorios Externos Clínica Constituyentes",
+        "direccion": "Av. Gral. Miguel de Azcuénaga 705, B1708 Morón, Provincia de Buenos Aires",
+        "lat": -34.6436,
+        "lng": -58.6204,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaConstituyentes.jpg",
+        "logo": "LogoPin/ClinicaConstituyentes.jpg"
+      },
+      {
+        "nombre": "Clínica Dres. Tachella",
+        "direccion": "Av. Rivadavia 15577, B1706 Haedo, Provincia de Buenos Aires",
+        "lat": -34.6432,
+        "lng": -58.5859,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaTachella.jpg",
+        "logo": "LogoPin/ClinicaTachella.jpg"
+      },
+      {
+        "nombre": "Clinica Modelo Los Cedros",
+        "direccion": "Av. Pres. Dr. Arturo Umberto Illia 2275, B1754IUI San Justo, Provincia de Buenos Aires",
+        "lat": -34.6741,
+        "lng": -58.5626,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaModeloLosCedros.jpg",
+        "logo": "LogoPin/ClinicaModeloLosCedros.jpg"
+      },
+      {
+        "nombre": "Clínica Privada Provincial Merlo",
+        "direccion": "Avenida Argentina 1095, B1722MHF Merlo, Provincia de Buenos Aires",
+        "lat": -34.6717,
+        "lng": -58.7232,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/ClinicaProvincialMerlo.jpg",
+        "logo": "LogoPin/ClinicaProvincialMerlo.jpg"
+      },
+      {
+        "nombre": "Hospital Güemes de Haedo",
+        "direccion": "Av. Rivadavia 15000, 1706 Haedo, Provincia de Buenos Aires",
+        "lat": -34.6415,
+        "lng": -58.5799,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalGuemesHaedo.jpg",
+        "logo": "LogoPin/HospitalGuemesHaedo.jpg"
+      },
+      {
+        "nombre": "Hospital Italiano de San Justo",
+        "direccion": "Pres. Juan Domingo Perón 2231, B1702 Buenos Aires, Provincia de Buenos Aires",
+        "lat": -34.6692,
+        "lng": -58.5675,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalItalianoSanJusto.jpg",
+        "logo": "LogoPin/HospitalItalianoSanJusto.jpg"
+      },
+      {
+        "nombre": "Hospital Municipal Ostaciana B. De Lavignole",
+        "direccion": "Dr. Rodolfo Monte 848, B1708HPR Morón, Provincia de Buenos Aires",
+        "lat": -34.6588,
+        "lng": -58.6099,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalOstaciana.jpg",
+        "logo": "LogoPin/HospitalOstaciana.jpg"
+      },
+      {
+        "nombre": "Hospital Paroissien",
+        "direccion": "Avenida Brigadier General Juan Manuel de Rosas 6000, B1765 Isidro Casanova, Provincia de Buenos Aires",
+        "lat": -34.6891,
+        "lng": -58.5819,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalParoissien.jpg",
+        "logo": "LogoPin/HospitalParoissien.jpg"
+      },
+      {
+        "nombre": "Hospital Posadas",
+        "direccion": "Av. Presidente Arturo U. Illia s/n, B1684 El Palomar, Provincia de Buenos Aires",
+        "lat": -34.6298,
+        "lng": -58.5752,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalPosadas.jpg",
+        "logo": "LogoPin/HospitalPosadas.jpg"
+      },
+      {
+        "nombre": "Hospital Simplemente Evita",
+        "direccion": "Av. José Equiza 6310, B1759LTF González Catán, Provincia de Buenos Aires",
+        "lat": -34.7874,
+        "lng": -58.6230,
+        "tipo": "Sanatorio",
+        "prioridad": "blanco",
+        "imagen": "Logo/HospitalSimplemeneteEvita.jpg",
+        "logo": "LogoPin/HospitalSimplemeneteEvita.jpg"
+      },
+      {
+        "nombre": "Medicina Catán",
+        "direccion": "José León Larre 250, B1759 González Catán, Provincia de Buenos Aires",
+        "lat": -34.76725674666108,
+        "lng": -58.64482633614347,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/MedicinaCatan.jpg",
+        "logo": "LogoPin/MedicinaCatan.jpg"
+      },
+      {
+        "nombre": "Instituto Médico Agüero",
+        "direccion": "Int. Agüero 1548, B1708CGZ Morón, Provincia de Buenos Aires",
+        "lat": -34.6700,
+        "lng": -58.6115,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/InstitutoMedicoAguero.jpg",
+        "logo": "LogoPin/InstitutoMedicoAguero.jpg"
+      },
+      {
+        "nombre": "Centro Medico Castelar",
+        "direccion": "Sta. Rosa 427, B1712LSK Castelar, Provincia de Buenos Aires",
+        "lat": -34.6529,
+        "lng": -58.6589,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoCastelar.jpg",
+        "logo": "LogoPin/CentroMedicoCastelar.jpg"
+      },
+      {
+        "nombre": "Centro Médico Hurlingham",
+        "direccion": "Arturo Jauretche 954, B1686 Hurlingham, Provincia de Buenos Aires",
+        "lat": -34.5883,
+        "lng": -58.6305,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoHurlingham.jpg",
+        "logo": "LogoPin/CentroMedicoHurlingham.jpg"
+      },
+      {
+        "nombre": "Centro Médico Integral Moreno",
+        "direccion": "Av. Bartolomé Mitre 2360, B1744OHU Moreno, Provincia de Buenos Aires",
+        "lat": -34.6506,
+        "lng": -58.7841,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoIntegralMoreno.jpg",
+        "logo": "LogoPin/CentroMedicoIntegralMoreno.jpg"
+      },
+      {
+        "nombre": "Centro Médico Ituzaingó",
+        "direccion": "Intendente C J Ratti 1064, B1714 Ituzaingó Centro, Provincia de Buenos Aires",
+        "lat": -34.6473,
+        "lng": -58.6826,
+        "tipo": "Centro Médico",
+        "prioridad": "blanco",
+        "imagen": "Logo/CentroMedicoItuzaingo.jpg",
+        "logo": "LogoPin/CentroMedicoItuzaingo.jpg"
       }
-
     ]
   },
   "TIERRA DEL FUEGO": {
