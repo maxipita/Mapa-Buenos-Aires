@@ -43,7 +43,7 @@
                                          "direccion":  "Soler 5552, C1425BYF Cdad. Autónoma de Buenos Aires",
                                          "lat":  -34.5811,
                                          "lng":  -58.4321,
-                                         "tipo":  "Consultorio",
+                                         "tipo":  "Centro Médico",
                                          "prioridad":  "blanco",
                                          "imagen":  "Logo/CABA/Ivi.jpg",
                                          "logo":  "LogoPin/IVI.jpg"
@@ -360,8 +360,8 @@
                                                  "lng":  -58.9630,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaDelta.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/ClinicaDelta.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Interior/ClínicaDelta.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Interior/ClínicaDelta.jpg"
                                              },
                                              {
                                                  "nombre":  "CEGYR Zona Norte",
@@ -410,8 +410,8 @@
                                                  "lng":  -58.25621758746954,
                                                  "tipo":  "Centro Médico",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/CentroGensQuilmes.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/CentroGensQuilmes.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/CentroGensQuilmes.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/CentroGensQuilmes.jpg"
                                              },
                                              {
                                                  "nombre":  "Centro Medico Temperley",
@@ -420,8 +420,8 @@
                                                  "lng":  -58.39151270404583,
                                                  "tipo":  "Centro Médico",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/CentroMedicoTemperley.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/CentroMedicoTemperley.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/CentroMedicoTemperley.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/CentroMedicoTemperley.jpg"
                                              },
                                              {
                                                  "nombre":  "Centro Médico Lanús Éste",
@@ -430,18 +430,8 @@
                                                  "lng":  -58.37212652963138,
                                                  "tipo":  "Centro Médico",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/CentroMedicoLanusEste.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/CentroMedicoLanusEste.jpg"
-                                             },
-                                             {
-                                                 "nombre":  "Centro Medico Banfield",
-                                                 "direccion":  "Galería Verona, Maipú 431 Local 11, B1828IJI Gran Buenos Aires, Provincia de Buenos Aires",
-                                                 "lat":  -34.74379319886378,
-                                                 "lng":  -58.38927279747271,
-                                                 "tipo":  "Centro Médico",
-                                                 "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/CentroMedicoBanfield.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/CentroMedicoBanfield.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/CentroMedicoLanusEste.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/CentroMedicoLanusEste.jpg"
                                              },
                                              {
                                                  "nombre":  "Centro médico Quilmes IOSFA",
@@ -450,8 +440,8 @@
                                                  "lng":  -58.2615794856151,
                                                  "tipo":  "Centro Médico",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/CentroMedicoQuilmesIOSFA.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/CentroMedicoQuilmesIOSFA.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/CentromédicoQuilmesIOSFA.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/CentromédicoQuilmesIOSFA.jpg"
                                              },
                                              {
                                                  "nombre":  "Centro Medico Lomas",
@@ -460,8 +450,8 @@
                                                  "lng":  -58.39279618746882,
                                                  "tipo":  "Centro Médico",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/CentroMedicoLomas.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/CentroMedicoLomas.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/CentroMedicoLomas.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/CentroMedicoLomas.jpg"
                                              },
                                              {
                                                  "nombre":  "Centro Medico Hospital Britanico Lomas de Zamora",
@@ -470,8 +460,8 @@
                                                  "lng":  -58.40073831630493,
                                                  "tipo":  "Centro Médico",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalBritanicoLomas.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/HospitalBritanicoLomas.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/CentroMedicoHospitalBritanico.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/CentroMedicoHospitalBritanico.jpg"
                                              },
                                              {
                                                  "nombre":  "Policlínico Lomas",
@@ -480,8 +470,8 @@
                                                  "lng":  -58.40143080466839,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/PoliclinicoLomas.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/PoliclinicoLomas.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/PoliclinicoLomas.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/PoliclinicoLomas.jpg"
                                              },
                                              {
                                                  "nombre":  "Policlinico Regional Avellaneda",
@@ -490,8 +480,8 @@
                                                  "lng":  -58.377674118162396,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/PolclionicoRegionalAvellaneda.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/PolclionicoRegionalAvellaneda.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/PoliclinicoRegionalAvellaneda.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/PoliclinicoRegionalAvellaneda.jpg"
                                              },
                                              {
                                                  "nombre":  "Clinica Privada Ranelagh",
@@ -500,8 +490,8 @@
                                                  "lng":  -58.2173276112078,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaPrivadaRanelagh.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/ClinicaPrivadaRanelagh.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/ClinicaPrivadaRanelagh.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/ClinicaPrivadaRanelagh.jpg"
                                              },
                                              {
                                                  "nombre":  "Clinica Modelo de Lanus",
@@ -510,8 +500,8 @@
                                                  "lng":  -58.39252868747016,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaModeloLanus.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/ClinicaModeloLanus.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/ClinicaModelodeLanus.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/ClinicaModelodeLanus.jpg"
                                              },
                                              {
                                                  "nombre":  "Clinica Calchaqui",
@@ -520,8 +510,8 @@
                                                  "lng":  -58.29936751816025,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaCalchaqui.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/ClinicaCalchaqui.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/ClinicaCalchaqui.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/ClinicaCalchaqui.jpg"
                                              },
                                              {
                                                  "nombre":  "Clinica Nuestra Señora de la Dulce Espera",
@@ -530,8 +520,8 @@
                                                  "lng":  -58.350417133507136,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaDulceEspera.jpg",
-                                                 "logo":  "LogoPin/Buenos_Aires/ClinicaDulceEspera.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/ClinicaNuestraSeñoradelaDulceEspera.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/ClinicaNuestraSeñoradelaDulceEspera.jpg"
                                              },
                                              {
                                                  "nombre":  "Sanatorio Anchorena Itoiz",
@@ -540,8 +530,8 @@
                                                  "lng":  -58.3659380739807,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/SanatorioAnchorenaItoiz.jpg",
-                                                 "logo":  "LogoPin/SanatorioAnchorenaItoiz.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/SanatorioAnchorenaItoiz.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/SanatorioAnchorenaItoiz.jpg"
                                              },
                                              {
                                                  "nombre":  "Clinica Espora",
@@ -550,8 +540,8 @@
                                                  "lng":  -58.38842193164857,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaEspora.jpg",
-                                                 "logo":  "LogoPin/ClinicaEspora.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/ClinicaEspora.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/ClinicaEspora.jpg"
                                              },
                                              {
                                                  "nombre":  "Clinica del Niño Quilmes",
@@ -560,8 +550,8 @@
                                                  "lng":  -58.2727187009607,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaNinoQuilmes.jpg",
-                                                 "logo":  "LogoPin/ClinicaNinoQuilmes.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/ClinicadelNiñoQuilmes.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/ClinicadelNiñoQuilmes.jpg"
                                              },
                                              {
                                                  "nombre":  "Sanatorio Modelo Quilmes",
@@ -570,8 +560,8 @@
                                                  "lng":  -58.27366925863326,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/SanatorioModeloQuilmes.jpg",
-                                                 "logo":  "LogoPin/SanatorioModeloQuilmes.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/SanatorioModeloQuilmes.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/SanatorioModeloQuilmes.jpg"
                                              },
                                              {
                                                  "nombre":  "Sanatorio Bernal",
@@ -580,8 +570,8 @@
                                                  "lng":  -58.28324284699716,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/SanatorioBernal.jpg",
-                                                 "logo":  "LogoPin/SanatorioBernal.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/SanatorioBernal.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/SanatorioBernal.jpg"
                                              },
                                              {
                                                  "nombre":  "Clínica Boedo SRL",
@@ -590,8 +580,8 @@
                                                  "lng":  -58.40392128746825,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaBoedo.jpg",
-                                                 "logo":  "LogoPin/ClinicaBoedo.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/ClínicaBoedo.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/ClínicaBoedo.jpg"
                                              },
                                              {
                                                  "nombre":  "Clínica Privada Monte Grande",
@@ -600,8 +590,8 @@
                                                  "lng":  -58.466,
                                                  "tipo":  "Centro Médico",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaPrivadaMonteGrande.jpg",
-                                                 "logo":  "LogoPin/ClinicaPrivadaMonteGrande.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/ClinicaMonteGrande.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/ClinicaMonteGrande.jpg"
                                              },
                                              {
                                                  "nombre":  "Clínica IMA",
@@ -610,8 +600,8 @@
                                                  "lng":  -58.39846638208917,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/ClinicaIMA.jpg",
-                                                 "logo":  "LogoPin/ClinicaIMA.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/ClinicaIMA.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/ClinicaIMA.jpg"
                                              },
                                              {
                                                  "nombre":  "Sanatorio Juncal",
@@ -620,8 +610,8 @@
                                                  "lng":  -58.396728404667854,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/SanatorioJuncal.jpg",
-                                                 "logo":  "LogoPin/SanatorioJuncal.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/SanatorioJuncal.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/SanatorioJuncal.jpg"
                                              },
                                              {
                                                  "nombre":  "Hospital Z.G.A Dr. Isidoro Iriarte de Quilmes",
@@ -630,8 +620,8 @@
                                                  "lng":  -58.24671946234213,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalIriarteQuilmes.jpg",
-                                                 "logo":  "LogoPin/HospitalIriarteQuilmes.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/HospitalZ.G.A.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/HospitalZ.G.A.jpg"
                                              },
                                              {
                                                  "nombre":  "Hospital Mi Pueblo",
@@ -640,8 +630,8 @@
                                                  "lng":  -58.27175344094336,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalMiPueblo.jpg",
-                                                 "logo":  "LogoPin/HospitalMiPueblo.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/HospitalMiPueblo.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/HospitalMiPueblo.jpg"
                                              },
                                              {
                                                  "nombre":  "Hospital Fiorito",
@@ -650,8 +640,8 @@
                                                  "lng":  -58.36546557583513,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalFiorito.jpg",
-                                                 "logo":  "LogoPin/HospitalFiorito.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/HospitalFiorito.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/HospitalFiorito.jpg"
                                              },
                                              {
                                                  "nombre":  "Hospital Luisa C. de Gandulfo",
@@ -660,8 +650,8 @@
                                                  "lng":  -58.39297007397727,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalGandulfo.jpg",
-                                                 "logo":  "LogoPin/HospitalGandulfo.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/HospitalLuisaCdeGandulfo.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/HospitalLuisaCdeGandulfo.jpg"
                                              },
                                              {
                                                  "nombre":  "Hospital Narciso Lopez",
@@ -670,8 +660,8 @@
                                                  "lng":  -58.38283417583378,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalNarcisoLopez.jpg",
-                                                 "logo":  "LogoPin/HospitalNarcisoLopez.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/HospitalNarcisoLopez.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/HospitalNarcisoLopez.jpg"
                                              },
                                              {
                                                  "nombre":  "Hospital Dr. Arturo Oñativia",
@@ -680,8 +670,8 @@
                                                  "lng":  -58.35206758375853,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalOñativia.jpg",
-                                                 "logo":  "LogoPin/HospitalOñativia.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/HospitalDrArturoOñativia.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/HospitalDrArturoOñativia.jpg"
                                              },
                                              {
                                                  "nombre":  "H.Z.G.A. Dr. Lucio Meléndez",
@@ -690,8 +680,8 @@
                                                  "lng":  -58.38613411630274,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HZGALucioMelendez.jpg",
-                                                 "logo":  "LogoPin/HZGALucioMelendez.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/H.Z.G.A.DrLucioMeléndez.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/H.Z.G.A.DrLucioMeléndez.jpg"
                                              },
                                              {
                                                  "nombre":  "Hospital Evita Pueblo",
@@ -700,8 +690,8 @@
                                                  "lng":  -58.2110164046675,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalEvitaPueblo.jpg",
-                                                 "logo":  "LogoPin/HospitalEvitaPueblo.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/HospitalEvitaPueblo.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/HospitalEvitaPueblo.jpg"
                                              },
                                              {
                                                  "nombre":  "Hospital de Alta Complejidad del Bicentenario Esteban Echeverria",
@@ -710,8 +700,8 @@
                                                  "lng":  -58.46549161815746,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalBicentenarioEE.jpg",
-                                                 "logo":  "LogoPin/HospitalBicentenarioEE.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/HospitalAltaComplejidad.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/HospitalAltaComplejidad.jpg"
                                              },
                                              {
                                                  "nombre":  "Hospital El Cruce Dr. Néstor Kirchner",
@@ -720,8 +710,8 @@
                                                  "lng":  -58.270921733504146,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/HospitalElCruce.jpg",
-                                                 "logo":  "LogoPin/HospitalElCruce.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Sur/HospitalElCruce.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Sur/HospitalElCruce.jpg"
                                              },
                                              {
                                                  "nombre":  "Centro Integral Medico en Salud Sexual Reproductiva y No Reproductiva",
@@ -734,14 +724,14 @@
                                                  "logo":  "LogoPin/Buenos_Aires/Oeste/CIM_SSRYNR.jpg"
                                              },
                                              {
-                                                 "nombre":  "Centro Medico Superior Lujan",
+                                                 "nombre":  "Centro Medico Superior Lujan | Consultorios de Salud Femenina",
                                                  "direccion":  "Av. Pellegrini 741, B6700 Luján, Provincia de Buenos Aires",
                                                  "lat":  -34.5607,
                                                  "lng":  -59.1087,
                                                  "tipo":  "Centro Médico",
                                                  "prioridad":  "blanco",
-                                                 "imagen":  "Logo/Buenos_Aires/CentroMedicoSuperiorLujan.jpg",
-                                                 "logo":  "LogoPin/CentroMedicoSuperiorLujan.jpg"
+                                                 "imagen":  "Logo/Buenos_Aires/Interior/ConsultoriosdeSaludFemenina.jpg",
+                                                 "logo":  "LogoPin/Buenos_Aires/Interior/ConsultoriosdeSaludFemenina.jpg"
                                              },
                                              {
                                                  "nombre":  "Clinica Privada Alcorta",
@@ -1461,7 +1451,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Catamarca/ClinicadelValle.jpg",
-          "logo": "LogoPin/Catamarca/ClinicadelValle.jpg"
+          "logo": "LogoPin/Chubut/ClinicadelValle.jpg"
         },
         {
           "nombre": "Instituto Medico de la Comunidad",
@@ -1485,8 +1475,8 @@
           "lng": -58.9769,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Chaco/HospitalJulioCPerrando.jpg",
-          "logo": "LogoPin/HospitalJulioCPerrando.jpg"
+          "imagen": "Logo/Chaco/HospitalJulioPerrando.jpg",
+          "logo": "LogoPin/Chaco/HospitalJulioPerrando.jpg"
         },
         {
           "nombre": "Hospital Pediatrico Dr Avelino Castelán",
@@ -1495,8 +1485,8 @@
           "lng": -58.9773,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Chaco/HospitalPediatricoAvelinoCastelan.jpg",
-          "logo": "LogoPin/HospitalPediatricoAvelinoCastelan.jpg"
+          "imagen": "Logo/Chaco/HospitalPediatrico.jpg",
+          "logo": "LogoPin/Chaco/HospitalPediatrico.jpg"
         },
         {
           "nombre": "Hospital 4 de Junio",
@@ -1505,8 +1495,8 @@
           "lng": -60.4467,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Chaco/Hospital4deJunio.jpg",
-          "logo": "LogoPin/Hospital4deJunio.jpg"
+          "imagen": "Logo/Chaco/Hospital4Junio.jpg",
+          "logo": "LogoPin/Chaco/Hospital4Junio.jpg"
         },
         {
           "nombre": "Hospital Bicentenario General Guemes",
@@ -1516,7 +1506,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chaco/HospitalBicentenarioGeneralGuemes.jpg",
-          "logo": "LogoPin/HospitalBicentenarioGeneralGuemes.jpg"
+          "logo": "LogoPin/Chaco/HospitalBicentenarioGeneralGuemes.jpg"
         },
         {
           "nombre": "Sanatorio Chaco",
@@ -1526,7 +1516,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chaco/SanatorioChaco.jpg",
-          "logo": "LogoPin/SanatorioChaco.jpg"
+          "logo": "LogoPin/Chaco/SanatorioChaco.jpg"
         },
         {
           "nombre": "Sanatorio Antártida",
@@ -1536,7 +1526,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chaco/SanatorioAntartida.jpg",
-          "logo": "LogoPin/SanatorioAntartida.jpg"
+          "logo": "LogoPin/Chaco/SanatorioAntartida.jpg"
         },
         {
           "nombre": "Clinica Sarmiento",
@@ -1546,7 +1536,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chaco/ClinicaSarmiento.jpg",
-          "logo": "LogoPin/ClinicaSarmiento.jpg"
+          "logo": "LogoPin/Chaco/ClinicaSarmiento.jpg"
         },
         {
           "nombre": "Sanatorio Frangioli",
@@ -1556,7 +1546,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chaco/SanatorioFrangioli.jpg",
-          "logo": "LogoPin/SanatorioFrangioli.jpg"
+          "logo": "LogoPin/Chaco/SanatorioFrangioli.jpg"
         },
         {
           "nombre": "Instituto de Medicina Regional",
@@ -1565,8 +1555,8 @@
           "lng": -58.9826,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Chaco/InstitutoDeMedicinaRegional.jpg",
-          "logo": "LogoPin/InstitutoDeMedicinaRegional.jpg"
+          "imagen": "Logo/Chaco/InstitutoMedicoRegional.jpg",
+          "logo": "LogoPin/Chaco/InstitutoMedicoRegional.jpg"
         }
       ]
     },
@@ -1580,8 +1570,8 @@
           "lng": -67.4875,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Chubut/HospitalRegionalComodoro.jpg",
-          "logo": "LogoPin/HospitalRegionalComodoro.jpg"
+          "imagen": "Logo/Chubut/HospitalRegional.jpg",
+          "logo": "LogoPin/Chubut/HospitalRegional.jpg"
         },
         {
           "nombre": "Hospital Zonal Trelew Adolfo Margara",
@@ -1591,7 +1581,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chubut/HospitalZonalTrelew.jpg",
-          "logo": "LogoPin/HospitalZonalTrelew.jpg"
+          "logo": "LogoPin/Chubut/HospitalZonalTrelew.jpg"
         },
         {
           "nombre": "Hospital Zonal Andres Isola",
@@ -1601,7 +1591,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chubut/HospitalZonalAndresIsola.jpg",
-          "logo": "LogoPin/HospitalZonalAndresIsola.jpg"
+          "logo": "LogoPin/Chubut/HospitalZonalAndresIsola.jpg"
         },
         {
           "nombre": "Hospital Zonal Esquel",
@@ -1611,7 +1601,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chubut/HospitalZonalEsquel.jpg",
-          "logo": "LogoPin/HospitalZonalEsquel.jpg"
+          "logo": "LogoPin/Chubut/HospitalZonalEsquel.jpg"
         },
         {
           "nombre": "Hospital Alvear",
@@ -1621,7 +1611,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chubut/HospitalAlvear.jpg",
-          "logo": "LogoPin/HospitalAlvear.jpg"
+          "logo": "LogoPin/Chubut/HospitalAlvear.jpg"
         },
         {
           "nombre": "Clinica Pueyrredón",
@@ -1631,7 +1621,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chubut/ClinicaPueyrredon.jpg",
-          "logo": "LogoPin/ClinicaPueyrredon.jpg"
+          "logo": "LogoPin/Chubut/ClinicaPueyrredon.jpg"
         },
         {
           "nombre": "Sanatorio La Española",
@@ -1640,8 +1630,8 @@
           "lng": -67.4832,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Chubut/SanatorioLaEspanola.jpg",
-          "logo": "LogoPin/SanatorioLaEspanola.jpg"
+          "imagen": "Logo/Chubut/SanatorioLaEspañola.jpg",
+          "logo": "LogoPin/Chubut/SanatorioLaEspañola.jpg"
         },
         {
           "nombre": "Sanatorio Trelew",
@@ -1651,7 +1641,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chubut/SanatorioTrelew.jpg",
-          "logo": "LogoPin/SanatorioTrelew.jpg"
+          "logo": "LogoPin/Chubut/SanatorioTrelew.jpg"
         },
         {
           "nombre": "Clinica del Valle",
@@ -1660,8 +1650,8 @@
           "lng": -67.4939,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Chubut/ClinicaDelValle.jpg",
-          "logo": "LogoPin/Catamarca/ClinicadelValle.jpg"
+          "imagen": "Logo/Chubut/ClinicadelValle.jpg",
+          "logo": "LogoPin/Chubut/ClinicadelValle.jpg"
         },
         {
           "nombre": "Clinica Esquel",
@@ -1671,7 +1661,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chubut/ClinicaEsquel.jpg",
-          "logo": "LogoPin/ClinicaEsquel.jpg"
+          "logo": "LogoPin/Chubut/ClinicaEsquel.jpg"
         },
         {
           "nombre": "Clinica Los Alerces",
@@ -1681,7 +1671,7 @@
           "tipo": "Sanatorio",
           "prioridad": "blanco",
           "imagen": "Logo/Chubut/ClinicaLosAlerces.jpg",
-          "logo": "LogoPin/ClinicaLosAlerces.jpg"
+          "logo": "LogoPin/Chubut/ClinicaLosAlerces.jpg"
         },
         {
           "nombre": "GES Gastroenterologia y Endoscopia del Sur",
@@ -1691,7 +1681,7 @@
           "tipo": "Centro Médico",
           "prioridad": "blanco",
           "imagen": "Logo/Chubut/GES.jpg",
-          "logo": "LogoPin/GES.jpg"
+          "logo": "LogoPin/Chubut/GES.jpg"
         }
       ]
     },
@@ -1715,8 +1705,8 @@
           "lng": -64.1873,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/SanatorioAllendeNueva.jpg",
-          "logo": "LogoPin/Cordoba/SanatorioAllendeNueva.jpg"
+          "imagen": "Logo/Cordoba/SanatorioAllende.jpg",
+          "logo": "LogoPin/Cordoba/SanatorioAllende.jpg"
         },
         {
           "nombre": "Sanatorio Allende Cerro",
@@ -1735,8 +1725,8 @@
           "lng": -64.1646,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/HospitalItaliano.jpg",
-          "logo": "LogoPin/Cordoba/HospitalItaliano.jpg"
+          "imagen": "Logo/Cordoba/HospitalItalianoCordoba.jpg",
+          "logo": "LogoPin/Cordoba/HospitalItalianoCordoba.jpg"
         },
         {
           "nombre": "Clínica Universitaria Reina Fabiola (C.U.R.F.)",
@@ -1745,8 +1735,8 @@
           "lng": -64.1680,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/ClinicaReinaFabiola.jpg",
-          "logo": "LogoPin/Cordoba/ClinicaReinaFabiola.jpg"
+          "imagen": "Logo/Cordoba/ClínicaUniversitaria.jpg",
+          "logo": "LogoPin/Cordoba/ClínicaUniversitaria.jpg"
         },
         {
           "nombre": "Hospital Misericordia",
@@ -1785,8 +1775,8 @@
           "lng": -64.1834,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/ClinicaMaternidadDelSol.jpg",
-          "logo": "LogoPin/Cordoba/ClinicaMaternidadDelSol.jpg"
+          "imagen": "Logo/Cordoba/ClinicayMaternidaddelSol.jpg",
+          "logo": "LogoPin/Cordoba/ClinicayMaternidaddelSol.jpg"
         },
         {
           "nombre": "Clínica Privada Vélez Sarsfield",
@@ -1795,8 +1785,8 @@
           "lng": -64.2077,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/ClinicaVelezSarsfield.jpg",
-          "logo": "LogoPin/Cordoba/ClinicaVelezSarsfield.jpg"
+          "imagen": "Logo/Cordoba/ClínicaPrivadaVS.jpg",
+          "logo": "LogoPin/Cordoba/ClínicaPrivadaVS.jpg"
         },
         {
           "nombre": "Sanatorio Aconcagua",
@@ -1825,8 +1815,8 @@
           "lng": -64.1972,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/SanatorioLaCanada.jpg",
-          "logo": "LogoPin/Cordoba/SanatorioLaCanada.jpg"
+          "imagen": "Logo/Cordoba/SanatoriodelaCañada.JPG",
+          "logo": "LogoPin/Cordoba/SanatoriodelaCañada.JPG"
         },
         {
           "nombre": "Clinica Chutro",
@@ -1865,18 +1855,18 @@
           "lng": -64.3515,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/ClinicaRegionalDelSud.jpg",
-          "logo": "LogoPin/Cordoba/ClinicaRegionalDelSud.jpg"
+          "imagen": "Logo/Cordoba/ClínicaRegionaldelSud.jpg",
+          "logo": "LogoPin/Cordoba/ClínicaRegionaldelSud.jpg"
         },
         {
           "nombre": "Nuevo Hospital Río Cuarto San Antonio de Padua",
           "direccion": "Guardias Nacionales 1027, X5806 Río Cuarto, Córdoba",
-          "lat": -33.1091,
-          "lng": -64.3555,
+          "lat": -33.10913352432039,
+          "lng": -64.3554455981455,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/HospitalRioCuarto.jpg",
-          "logo": "LogoPin/Cordoba/HospitalRioCuarto.jpg"
+          "imagen": "Logo/Cordoba/NuevoHospitalRíoCuarto.jpg",
+          "logo": "LogoPin/Cordoba/NuevoHospitalRíoCuarto.jpg"
         },
         {
           "nombre": "Fundación Fecundart",
@@ -1885,8 +1875,8 @@
           "lng": -64.1800,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/Fecundart.jpg",
-          "logo": "LogoPin/Cordoba/Fecundart.jpg"
+          "imagen": "Logo/Cordoba/FundaciónFecundart.jpg",
+          "logo": "LogoPin/Cordoba/FundaciónFecundart.jpg"
         },
         {
           "nombre": "PROCREARTE Río Cuarto",
@@ -1895,8 +1885,38 @@
           "lng": -64.3543,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Cordoba/ProcreaRteRioCuarto.jpg",
-          "logo": "LogoPin/Cordoba/ProcreaRteRioCuarto.jpg"
+          "imagen": "Logo/Cordoba/Procrearte.jpg",
+          "logo": "LogoPin/Cordoba/Procrearte.jpg"
+        },
+        {
+          "nombre": "Hospital Regional Jose Bernardo Iturraspe",
+          "direccion": "Dominga Cullen 450, X2400 San Francisco, Córdoba",
+          "lat": -31.427722066816692,
+          "lng": -62.068217398145485,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Cordoba/HospitalRegionalJBIturraspe.jpg",
+          "logo": "LogoPin/Cordoba/HospitalRegionalJBIturraspe.jpg"
+        },
+        {
+          "nombre": "Centro Integral de la Mujer",
+          "direccion": "Santiago del Estero 333, X5022 Córdoba",
+          "lat": -31.413906118958984,
+          "lng": -64.17585001349093,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Cordoba/CentroIntegraldelaMujer.jpg",
+          "logo": "LogoPin/Cordoba/CentroIntegraldelaMujer.jpg"
+        },
+        {
+          "nombre": "Nascentis Medicina Reproductiva",
+          "direccion": "Islas del Atlántico Sur 4685, X5022 Córdoba",
+          "lat": -31.35436237948528,
+          "lng": -64.24054861349094,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Cordoba/Nascentis.jpg",
+          "logo": "LogoPin/Cordoba/Nascentis.jpg"
         }
       ]
     },
@@ -1910,8 +1930,8 @@
           "lng": -66.83576811618993,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/La_Rioja/HospitalRegionalVeraBar.jpg",
-          "logo": "LogoPin/La_Rioja/HospitalRegionalVeraBar.jpg"
+          "imagen": "Logo/La_Rioja/Hospital Regional.jpg",
+          "logo": "LogoPin/La_Rioja/Hospital Regional.jpg"
         },
         {
           "nombre": "Hospital de la Madre y el Niño",
@@ -1920,8 +1940,8 @@
           "lng": -66.84204577014846,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/La_Rioja/HospitalMadreYNino.jpg",
-          "logo": "LogoPin/La_Rioja/HospitalMadreYNino.jpg"
+          "imagen": "Logo/La_Rioja/HospitaldelaMadreyelNiño.jpg",
+          "logo": "LogoPin/La_Rioja/HospitaldelaMadreyelNiño.jpg"
         },
         {
           "nombre": "Hospital Eleazar Herrera Motta",
@@ -1950,8 +1970,8 @@
           "lng": -66.8596555542612,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/La_Rioja/SanatorioRioja.jpg",
-          "logo": "LogoPin/La_Rioja/SanatorioRioja.jpg"
+          "imagen": "Logo/La_Rioja/SanatorioRiojaSA.jpg",
+          "logo": "LogoPin/La_Rioja/SanatorioRiojaSA.jpg"
         },
         {
           "nombre": "Incor Consultorios Médicos",
@@ -1970,8 +1990,8 @@
           "lng": -66.85946730084771,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/La_Rioja/InstitutoMercadoLuna.jpg",
-          "logo": "LogoPin/La_Rioja/InstitutoMercadoLuna.jpg"
+          "imagen": "Logo/La_Rioja/InstitutoMedicoQuirurgicoML.jpg",
+          "logo": "LogoPin/La_Rioja/InstitutoMedicoQuirurgicoML.jpg"
         }
       ]
     },
@@ -2087,6 +2107,126 @@
           "prioridad": "blanco",
           "imagen": "Logo/Misiones/MontecarloSalud.jpg",
           "logo": "LogoPin/Misiones/MontecarloSalud.jpg"
+        },
+        {
+          "nombre": "Hospital Nivel III Dr. René Favaloro",
+          "direccion": "Av. Tambor de Tacuarí 7300, N3300 Posadas, Misiones",
+          "lat": -27.36468536621595,
+          "lng": -55.94923789451106,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/HospitalFavaloro.jpg",
+          "logo": "LogoPin/Misiones/HospitalFavaloro.jpg"
+        },
+        {
+          "nombre": "Hospital Dra. Marta T. Schwarz",
+          "direccion": "Av. Victoria Aguirre 131, N3370 Puerto Iguazu, Misiones",
+          "lat": -25.600644113220266,
+          "lng": -54.57347354934589,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/HospitalSchwarz.jpg",
+          "logo": "LogoPin/Misiones/HospitalSchwarz.jpg"
+        },
+        {
+          "nombre": "Hospital Samic Alem",
+          "direccion": "N3315 Leandro N. Alem, Misiones",
+          "lat": -27.60748605817225,
+          "lng": -55.33037576317136,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/HospitalSamicAlem.jpg",
+          "logo": "LogoPin/Misiones/HospitalSamicAlem.jpg"
+        },
+        {
+          "nombre": "Hospital Apóstoles Dr. Bernardo Allassia",
+          "direccion": "Tucumán 569, N3350 Apóstoles, Misiones",
+          "lat": -27.906653928653487,
+          "lng": -55.74958679079402,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/HospitalAllassia.jpg",
+          "logo": "LogoPin/Misiones/HospitalAllassia.jpg"
+        },
+        {
+          "nombre": "Sanatorio Posadas",
+          "direccion": "Junín 1840, N3300 Posadas, Misiones",
+          "lat": -27.3664218856936,
+          "lng": -55.89770887916624,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/SanatorioPostadas.jpg",
+          "logo": "LogoPin/Misiones/SanatorioPostadas.jpg"
+        },
+        {
+          "nombre": "Sanatorio Camino",
+          "direccion": "Junín 2459, N3301 Posadas, Misiones",
+          "lat": -27.3721077864677,
+          "lng": -55.8986555019151,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/SanatorioCamino.jpg",
+          "logo": "LogoPin/Misiones/SanatorioCamino.jpg"
+        },
+        {
+          "nombre": "Instituto Adventista Oberá",
+          "direccion": "Catamarca 201, N3360 Oberá, Misiones",
+          "lat": -27.48451304982913,
+          "lng": -55.1286786784422,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/InstitutoAdventista.jpg",
+          "logo": "LogoPin/Misiones/InstitutoAdventista.jpg"
+        },
+        {
+          "nombre": "CTO Centro Traumatológico Oberá",
+          "direccion": "Av. Sarmiento 1325, N3360 Oberá, Misiones",
+          "lat": -27.486584879051037,
+          "lng": -55.12626061720073,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/CTOObera.jpg",
+          "logo": "LogoPin/Misiones/CTOObera.jpg"
+        },
+        {
+          "nombre": "Clínica Integral Apóstoles",
+          "direccion": "Tucumán 569, N3350 Apóstoles, Misiones",
+          "lat": -27.90748707598669,
+          "lng": -55.75006540455284,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/ClinicaIntegralApostoles.jpg",
+          "logo": "LogoPin/Misiones/ClinicaIntegralApostoles.jpg"
+        },
+        {
+          "nombre": "Instituto Higía - Gastroenterología Integral Avanzada",
+          "direccion": "Belgrano 1942, N3301FZF Posadas, Misiones",
+          "lat": -27.36281869941358,
+          "lng": -55.89449629481251,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/InstitutoHigia.jpg",
+          "logo": "LogoPin/Misiones/InstitutoHigia.jpg"
+        },
+        {
+          "nombre": "Instituto Gema - Diagnóstico por Imágenes",
+          "direccion": "Bolívar 2377, N3300 Posadas, Misiones",
+          "lat": -27.366429422750862,
+          "lng": -55.90003011329397,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/InstitutoGema.jpg",
+          "logo": "LogoPin/Misiones/InstitutoGema.jpg"
+        },
+        {
+          "nombre": "TESAI Misiones",
+          "direccion": "Félix de Azara 2507, N3300 Posadas, Misiones",
+          "lat": -27.339964290707574,
+          "lng": -55.90614791860942,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Misiones/TesaiMisiones.jpg",
+          "logo": "LogoPin/Misiones/TesaiMisiones.jpg"
         }
       ]
     },
@@ -2314,6 +2454,1621 @@
           "logo": "LogoPin/Mendoza/CentroDiagnosticoMendoza.jpg"
         }
       ]
+    },
+    "SALTA": {
+      "nombre": "Salta",
+      "localidades": [
+        {
+          "nombre": "Hospital Publico Materno Infantil",
+          "direccion": "Av. Sarmiento 1301, A4400 Salta",
+          "lat": -24.77137952112103,
+          "lng": -65.41531954179838,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/HospitalMaternoInfantil.jpg",
+          "logo": "LogoPin/Salta/HospitalMaternoInfantil.jpg"
+        },
+        {
+          "nombre": "Hospital San Bernardo",
+          "direccion": "Av. José Tobias 69, A4400 Salta",
+          "lat": -24.79124268466134,
+          "lng": -65.39955476506957,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/HospitalSanBernardo.jpg",
+          "logo": "LogoPin/Salta/HospitalSanBernardo.jpg"
+        },
+        {
+          "nombre": "Hospital Señor del Milagro",
+          "direccion": "Av. Sarmiento 557, A4400 Salta",
+          "lat": -24.782531629338575,
+          "lng": -65.41609382699589,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/HospitalSenorDelMilagro.jpg",
+          "logo": "LogoPin/Salta/HospitalSenorDelMilagro.jpg"
+        },
+        {
+          "nombre": "Hospital Papa Francisco",
+          "direccion": "Calle C. Perdiguero, A4400 Salta",
+          "lat": -24.83919044833858,
+          "lng": -65.39134873670211,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/HospitalPapaFrancisco.jpg",
+          "logo": "LogoPin/Salta/HospitalPapaFrancisco.jpg"
+        },
+        {
+          "nombre": "Hospital Dr. Arturo Oñativia",
+          "direccion": "Ramón Carrillo 1339, A4400 Salta",
+          "lat": -24.78942807351492,
+          "lng": -65.39850836135493,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/HospitalOñativia.jpg",
+          "logo": "LogoPin/Salta/HospitalOñativia.jpg"
+        },
+        {
+          "nombre": "Hospital de Tartagal Juan Domingo Perón",
+          "direccion": "Alberdi 855, A4560 Tartagal, Salta",
+          "lat": -22.51730604855461,
+          "lng": -63.79802727492005,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/HospitalTartagal.jpg",
+          "logo": "LogoPin/Salta/HospitalTartagal.jpg"
+        },
+        {
+          "nombre": "Hospital San Vicente de Paul",
+          "direccion": "Pueyrredón, A4530 San Ramón de la Nueva Orán, Salta",
+          "lat": -23.143495167035102,
+          "lng": -64.32420550373776,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/HospitalSanVicenteDePaul.jpg",
+          "logo": "LogoPin/Salta/HospitalSanVicenteDePaul.jpg"
+        },
+        {
+          "nombre": "Hospital Santa Clara",
+          "direccion": "Urquiza 964, A4400 Salta",
+          "lat": -24.79167229714372,
+          "lng": -65.41594535950838,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/HospitalSantaClara.jpg",
+          "logo": "LogoPin/Salta/HospitalSantaClara.jpg"
+        },
+        {
+          "nombre": "Sanatorio El Carmen",
+          "direccion": "Av. Belgrano 875, A4400 Salta",
+          "lat": -24.78687091296532,
+          "lng": -65.41482522421838,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/SanatorioElCarmen.jpg",
+          "logo": "LogoPin/Salta/SanatorioElCarmen.jpg"
+        },
+        {
+          "nombre": "Sanatorio Modelo Salta",
+          "direccion": "Gral. Mitre 484, A4400 Salta",
+          "lat": -24.783837664741075,
+          "lng": -65.41014075950861,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/SanatorioModeloSalta.jpg",
+          "logo": "LogoPin/Salta/SanatorioModeloSalta.jpg"
+        },
+        {
+          "nombre": "Sanatorio San Roque",
+          "direccion": "Av. del Bicentenario de la Batalla de Salta 1518, A4408 Salta",
+          "lat": -24.77000898487945,
+          "lng": -65.39738077526785,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/SanatorioSanRoque.jpg",
+          "logo": "LogoPin/Salta/SanatorioSanRoque.jpg"
+        },
+        {
+          "nombre": "Clinica Cruz Azul",
+          "direccion": "Alberdi 359, A4402 Salta",
+          "lat": -24.793391053019434,
+          "lng": -65.41117304049065,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/ClinicaCruzAzul.jpg",
+          "logo": "LogoPin/Salta/ClinicaCruzAzul.jpg"
+        },
+        {
+          "nombre": "Instituto de Medicina CENESA",
+          "direccion": "Zabala 432, A4400 Salta",
+          "lat": -24.80239025064143,
+          "lng": -65.41001533621235,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/CENESA.jpg",
+          "logo": "LogoPin/Salta/CENESA.jpg"
+        },
+        {
+          "nombre": "Mater - Ginecología y Obstetricia",
+          "direccion": "12 de Octubre 254, A4400 Salta",
+          "lat": -24.774961122958675,
+          "lng": -65.40489340368502,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/Mater.jpg",
+          "logo": "LogoPin/Salta/Mater.jpg"
+        },
+        {
+          "nombre": "Medicina Mitre",
+          "direccion": "Bartolomé Mitre 656, A4400 Salta",
+          "lat": -24.7818862275048,
+          "lng": -65.41021738471807,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/MedicinaMitre.jpg",
+          "logo": "LogoPin/Salta/MedicinaMitre.jpg"
+        },
+        {
+          "nombre": "Centro de Salud Ciudad del Milagro",
+          "direccion": "Gral. Juan Sánchez 743, A4400 Salta",
+          "lat": -24.723652105632723,
+          "lng": -65.40838143067526,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Salta/CentroSaludCiudadMilagro.jpg",
+          "logo": "LogoPin/Salta/CentroSaludCiudadMilagro.jpg"
+        }
+      ]
+    },
+    "SANTA FE": {
+      "nombre": "Santa Fe",
+      "localidades": [
+        {
+          "nombre": "Hospital José María Cullen",
+          "direccion": "Av. Gdor. Freyre 2138, S3000 Santa Fe",
+          "lat": -31.648423841160753,
+          "lng": -60.71877979279932,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/HospitalCullen.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalCullen.jpg"
+        },
+        {
+          "nombre": "Hospital J.B. Iturraspe",
+          "direccion": "Berutti 5650, S3000 Santa Fe",
+          "lat": -31.583808,
+          "lng": -60.728155,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/HospitalIturraspe.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalIturraspe.jpg"
+        },
+        {
+          "nombre": "Hospital Dr. Orlando Alassia",
+          "direccion": "Mendoza 4151, S3000 Santa Fe",
+          "lat": -31.643773928943816,
+          "lng": -60.727622099597504,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/HospitalAlassia.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalAlassia.jpg"
+        },
+        {
+          "nombre": "Sanatorio Garay",
+          "direccion": "Rivadavia 3130, S3000 Santa Fe",
+          "lat": -31.640186393982905,
+          "lng": -60.702270848596044,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioGaray.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioGaray.jpg"
+        },
+        {
+          "nombre": "Sanatorio Diagnóstico",
+          "direccion": "25 de Mayo 3240, S3000 Santa Fe",
+          "lat": -31.638143204488117,
+          "lng": -60.70354293028879,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioDiagnostico.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioDiagnostico.jpg"
+        },
+        {
+          "nombre": "Sanatorio Americano",
+          "direccion": "Candido Pujato 3098, S3000 Santa Fe",
+          "lat": -31.63265747241223,
+          "lng": -60.708101007540236,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioAmericano.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioAmericano.jpg"
+        },
+        {
+          "nombre": "Grupo MIT - Medicina Interdisciplinaria y Trasplante",
+          "direccion": "Av. Gdor. Freyre 3074, S3000 Santa Fe",
+          "lat": -31.63791412551298,
+          "lng": -60.71602436069741,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/GrupoMIT.jpg",
+          "logo": "LogoPin/Santa_Fe/GrupoMIT.jpg"
+        },
+        {
+          "nombre": "Sanatorio Mayo",
+          "direccion": "Suipacha 2453, S3000 Santa Fe de la Vera Cruz, Santa Fe",
+          "lat": -31.592876677738243,
+          "lng": -60.681218237226695,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioMayo.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioMayo.jpg"
+        },
+        {
+          "nombre": "Hospital de Emergencias Dr. Clemente Álvarez",
+          "direccion": "Av. Pellegrini 3205, S2000 Rosario, Santa Fe",
+          "lat": -32.9520776756932,
+          "lng": -60.67030799089142,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/HospitalAlvarez.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalAlvarez.jpg"
+        },
+        {
+          "nombre": "Hospital del Centenario",
+          "direccion": "Urquiza 3101, S2002 Rosario, Santa Fe",
+          "lat": -32.93805047236526,
+          "lng": -60.66503610677196,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/HospitalCentenario.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalCentenario.jpg"
+        },
+        {
+          "nombre": "Hospital Roque Sáenz Peña",
+          "direccion": "Laprida 5381 Sur, S2011 Rosario, Santa Fe",
+          "lat": -32.998714740823665,
+          "lng": -60.64669247604757,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/HospitalRoqueSaenzPena.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalRoqueSaenzPena.jpg"
+        },
+        {
+          "nombre": "Sanatorio Parque",
+          "direccion": "Blvd. Oroño 860, S2000 Rosario, Santa Fe",
+          "lat": -32.94406608995157,
+          "lng": -60.65429752158424,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioParque.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioParque.jpg"
+        },
+        {
+          "nombre": "Sanatorio Británico",
+          "direccion": "Paraguay 40, S2000 Rosario, Santa Fe",
+          "lat": -32.93626389440974,
+          "lng": -60.642241275556785,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioBritanico.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioBritanico.jpg"
+        },
+        {
+          "nombre": "Gammalab | Grupo Gamma",
+          "direccion": "Catamarca 1367, S2000 Rosario, Santa Fe",
+          "lat": -32.93915121797311,
+          "lng": -60.64034216415355,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/Gammalab.jpg",
+          "logo": "LogoPin/Santa_Fe/Gammalab.jpg"
+        },
+        {
+          "nombre": "Sanatorio de La Mujer",
+          "direccion": "San Luis 2483, S2002 Rosario, Santa Fe",
+          "lat": -32.944891,
+          "lng": -60.656941,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioDeLaMujer.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioDeLaMujer.jpg"
+        },
+        {
+          "nombre": "Sanatorio Mapaci",
+          "direccion": "Blvd. Oroño 1458, S2000 Rosario, Santa Fe",
+          "lat": -32.95153701569548,
+          "lng": -60.65576752057019,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioMapaci.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioMapaci.jpg"
+        },
+        {
+          "nombre": "Sanatorio Rosendo García | RED BASA",
+          "direccion": "3 de Febrero 754, S2000 Rosario, Santa Fe",
+          "lat": -32.953370935605264,
+          "lng": -60.634933816877094,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioRosendoGarcia.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioRosendoGarcia.jpg"
+        },
+        {
+          "nombre": "Sanatorio de Niños",
+          "direccion": "Alvear 863, S2000 Rosario, Santa Fe",
+          "lat": -32.94419819712363,
+          "lng": -60.654807618723915,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/SanatorioDeNinos.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatorioDeNinos.jpg"
+        },
+        {
+          "nombre": "CEMAR - Centro de Especialidades Médicas Ambulatorias",
+          "direccion": "San Luis 2020, S2000 Rosario, Santa Fe",
+          "lat": -32.94635001877183,
+          "lng": -60.65128900338298,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/CEMAR.jpg",
+          "logo": "LogoPin/Santa_Fe/CEMAR.jpg"
+        },
+        {
+          "nombre": "Centro Integral de la Mujer",
+          "direccion": "3 de Febrero 68, S2300 Rafaela, Santa Fe",
+          "lat": -31.250749,
+          "lng": -61.494815,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/CentroIntegralMujer.jpg",
+          "logo": "LogoPin/Santa_Fe/CentroIntegralMujer.jpg"
+        },
+        {
+          "nombre": "Fertya Medicina Reproductiva",
+          "direccion": "Rioja 2282, S2000 Rosario, Santa Fe",
+          "lat": -32.94426107444244,
+          "lng": -60.65448525472202,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/Fertya.jpg",
+          "logo": "LogoPin/Santa_Fe/Fertya.jpg"
+        },
+        {
+          "nombre": "Procrearte Rosario",
+          "direccion": "Blvd. Oroño 185 bis, S2000 Rosario, Santa Fe",
+          "lat": -32.93227380553787,
+          "lng": -60.65029159173587,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/ProcreaRteRosario.jpg",
+          "logo": "LogoPin/Santa_Fe/ProcreaRteRosario.jpg"
+        },
+        {
+          "nombre": "Centro Médico Rafaela",
+          "direccion": "Maipú 708, S2300 Rafaela, Santa Fe",
+          "lat": -31.24921610897922,
+          "lng": -61.49927436953499,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Fe/CentroMedicoRafaela.jpg",
+          "logo": "LogoPin/Santa_Fe/CentroMedicoRafaela.jpg"
+        }
+      ]
+    },
+    "TUCUMAN": {
+      "nombre": "Tucumán",
+      "localidades": [
+        {
+          "nombre": "Hospital Ángel C. Padilla",
+          "direccion": "Juan Bautista Alberdi 550, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.83566854485154,
+          "lng": -65.21571212546442,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/HospitalPadilla.jpg",
+          "logo": "LogoPin/Tucuman/HospitalPadilla.jpg"
+        },
+        {
+          "nombre": "Centro de Salud Dr. Zenón J. Santillán",
+          "direccion": "Av. Nicolás Avellaneda 750, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.821273661009638,
+          "lng": -65.19564448684741,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/CentroSaludSantillan.jpg",
+          "logo": "LogoPin/Tucuman/CentroSaludSantillan.jpg"
+        },
+        {
+          "nombre": "Instituto de Maternidad y Ginecología Nuestra Señora de las Mercedes",
+          "direccion": "Av. Mate de Luna 1535, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.826674361672858,
+          "lng": -65.22134324028468,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/InstitutoMaternidadMercedes.jpg",
+          "logo": "LogoPin/Tucuman/InstitutoMaternidadMercedes.jpg"
+        },
+        {
+          "nombre": "Hospital de Clínicas Dr. Nicolás Avellaneda",
+          "direccion": "Catamarca 2000, T4001 San Miguel de Tucumán, Tucumán",
+          "lat": -26.80147243628318,
+          "lng": -65.20527593062124,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/HospitalClinicas.jpg",
+          "logo": "LogoPin/Tucuman/HospitalClinicas.jpg"
+        },
+        {
+          "nombre": "Hospital Del Este",
+          "direccion": "Camino del Carmen, Ruta Nacional 9, T4109 Banda del Río Salí, Tucumán",
+          "lat": -26.85254258575218,
+          "lng": -65.16501845667241,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/HospitalDelEste.jpg",
+          "logo": "LogoPin/Tucuman/HospitalDelEste.jpg"
+        },
+        {
+          "nombre": "Hospital Regional de Concepción",
+          "direccion": "San Luis 150, T4146 Concepción, Tucumán",
+          "lat": -27.344914945343124,
+          "lng": -65.60405936383307,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/HospitalRegionalConcepcion.jpg",
+          "logo": "LogoPin/Tucuman/HospitalRegionalConcepcion.jpg"
+        },
+        {
+          "nombre": "Sanatorio 9 de Julio",
+          "direccion": "25 de Mayo 372, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.826062330364568,
+          "lng": -65.20383288684543,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/Sanatorio9deJulio.jpg",
+          "logo": "LogoPin/Tucuman/Sanatorio9deJulio.jpg"
+        },
+        {
+          "nombre": "Sanatorio del Norte",
+          "direccion": "Maipú 617, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.8212514590551,
+          "lng": -65.20531304081551,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/SanatorioDelNorte.jpg",
+          "logo": "LogoPin/Tucuman/SanatorioDelNorte.jpg"
+        },
+        {
+          "nombre": "Sanatorio Rivadavia",
+          "direccion": "Virgen de la Merced 546, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.823744161996814,
+          "lng": -65.20035471753428,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/SanatorioRivadavia.jpg",
+          "logo": "LogoPin/Tucuman/SanatorioRivadavia.jpg"
+        },
+        {
+          "nombre": "Sanatorio Modelo Tucumán",
+          "direccion": "25 de Mayo 559, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.822799883145596,
+          "lng": -65.20320005907013,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/SanatorioModeloTucuman.jpg",
+          "logo": "LogoPin/Tucuman/SanatorioModeloTucuman.jpg"
+        },
+        {
+          "nombre": "Clinica Mayo Tucumán",
+          "direccion": "9 de Julio 279, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.834304580797482,
+          "lng": -65.20581377724821,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/ClinicaMayo.jpg",
+          "logo": "LogoPin/Tucuman/ClinicaMayo.jpg"
+        },
+        {
+          "nombre": "Sanatorio Del Sol",
+          "direccion": "Catamarca 250, T4158 Juan Bautista Alberdi, Tucumán",
+          "lat": -27.59010988155933,
+          "lng": -65.6194478705836,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/SanatorioDelSol.jpg",
+          "logo": "LogoPin/Tucuman/SanatorioDelSol.jpg"
+        },
+        {
+          "nombre": "Centro Medico Integral Tucumán",
+          "direccion": "Marcos Paz 1366, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.81822696180184,
+          "lng": -65.21508091039296,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/CentroMedicoIntegral.jpg",
+          "logo": "LogoPin/Tucuman/CentroMedicoIntegral.jpg"
+        },
+        {
+          "nombre": "Clinica Integral para La Mujer",
+          "direccion": "Jujuy 111, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.830363,
+          "lng": -65.211003,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/ClinicaIntegralMujer.jpg",
+          "logo": "LogoPin/Tucuman/ClinicaIntegralMujer.jpg"
+        },
+        {
+          "nombre": "Centro Médico Reproducir",
+          "direccion": "Virgen de la Merced 420, T4000 San Miguel de Tucumán, Tucumán",
+          "lat": -26.824309328772603,
+          "lng": -65.2019925780756,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/CentroMedicoReproducir.jpg",
+          "logo": "LogoPin/Tucuman/CentroMedicoReproducir.jpg"
+        },
+        {
+          "nombre": "Centro Médico Yerba Buena",
+          "direccion": "Cariola 1681, T4107 Yerba Buena, Tucumán",
+          "lat": -26.814449287188005,
+          "lng": -65.29359638470976,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Tucuman/CentroMedicoYerbaBuena.jpg",
+          "logo": "LogoPin/Tucuman/CentroMedicoYerbaBuena.jpg"
+        }
+      ]
+    },
+    "SAN JUAN": {
+      "nombre": "San Juan",
+      "localidades": [
+        {
+          "nombre": "Sanatorio Argentino",
+          "direccion": "San Luis Oeste 432, J5400 San Juan",
+          "lat": -31.533077,
+          "lng": -68.533074,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Juan/SanatorioArgentino.jpg",
+          "logo": "LogoPin/San_Juan/SanatorioArgentino.jpg"
+        },
+        {
+          "nombre": "Clínica El Castaño",
+          "direccion": "Av. Libertador Gral. San Martín Este 952, J5400 San Juan",
+          "lat": -31.531743807786917,
+          "lng": -68.51207023407537,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Juan/ClinicaElCastano.jpg",
+          "logo": "LogoPin/San_Juan/ClinicaElCastano.jpg"
+        },
+        {
+          "nombre": "Hospital Privado del Colegio Médico de San Juan",
+          "direccion": "Rivadavia Este 542, J5402 San Juan",
+          "lat": -31.535945484713846,
+          "lng": -68.51838429509935,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Juan/HospitalPrivadoColegioMedico.jpg",
+          "logo": "LogoPin/San_Juan/HospitalPrivadoColegioMedico.jpg"
+        },
+        {
+          "nombre": "Clínica Santa Clara",
+          "direccion": "Mendoza Sur 602, J5402 San Juan",
+          "lat": -31.541573864592987,
+          "lng": -68.52507308486739,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Juan/ClinicaSantaClara.jpg",
+          "logo": "LogoPin/San_Juan/ClinicaSantaClara.jpg"
+        },
+        {
+          "nombre": "Clínica Mercedario",
+          "direccion": "Av. España Nte. 503, J5400 San Juan",
+          "lat": -31.52843414584374,
+          "lng": -68.53684719225616,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Juan/ClinicaMercedario.jpg",
+          "logo": "LogoPin/San_Juan/ClinicaMercedario.jpg"
+        },
+        {
+          "nombre": "Clínica del Sol",
+          "direccion": "Francisco N. Laprida Este 369, J5400 San Juan",
+          "lat": -31.534497333417743,
+          "lng": -68.52082206897255,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Juan/ClinicaDelSol.jpg",
+          "logo": "LogoPin/San_Juan/ClinicaDelSol.jpg"
+        },
+        {
+          "nombre": "Clínica de la Ciudad",
+          "direccion": "Santa Fe Este 645, J5402 San Juan",
+          "lat": -31.537968136786244,
+          "lng": -68.51655449225069,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Juan/ClinicaDeLaCiudad.jpg",
+          "logo": "LogoPin/San_Juan/ClinicaDeLaCiudad.jpg"
+        }
+      ]
+    },
+    "SAN LUIS": {
+      "nombre": "San Luis",
+      "localidades": [
+        {
+          "nombre": "Clínica Privada Italia",
+          "direccion": "Av. Italia 2124, D5702 San Luis",
+          "lat": -33.285569021973295,
+          "lng": -66.34270979192577,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Luis/ClinicaPrivadaItalia.jpg",
+          "logo": "LogoPin/San_Luis/ClinicaPrivadaItalia.jpg"
+        },
+        {
+          "nombre": "Clínica del Aconcagua",
+          "direccion": "Gral. Paz 1516, D5732 Villa Mercedes, San Luis",
+          "lat": -33.57899816842125,
+          "lng": -65.47801833172149,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Luis/ClinicaDelAconcagua.jpg",
+          "logo": "LogoPin/San_Luis/ClinicaDelAconcagua.jpg"
+        },
+        {
+          "nombre": "Sanatorio y Clínica Rivadavia",
+          "direccion": "Rivadavia 1059, D5700 San Luis",
+          "lat": -33.29751902715842,
+          "lng": -66.33714172983579,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Luis/SanatorioClinicaRivadavia.jpg",
+          "logo": "LogoPin/San_Luis/SanatorioClinicaRivadavia.jpg"
+        },
+        {
+          "nombre": "Clinica Del Valle",
+          "direccion": "Av. del Centenario 529, D5773 Tilisarao, San Luis",
+          "lat": -32.728400452891044,
+          "lng": -65.28831079239774,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Luis/ClinicaDelValle.jpg",
+          "logo": "LogoPin/San_Luis/ClinicaDelValle.jpg"
+        },
+        {
+          "nombre": "Centro de Especialidades Medicas",
+          "direccion": "Presidente Perón 911, D5700 San Luis",
+          "lat": -33.297866,
+          "lng": -66.328379,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/San_Luis/CentroEspecialidadesMedicas.jpg",
+          "logo": "LogoPin/San_Luis/CentroEspecialidadesMedicas.jpg"
+        }
+      ]
+    },
+    "ENTRE RIOS": {
+      "nombre": "Entre Ríos",
+      "localidades": [
+        {
+          "nombre": "Sanatorio La Entrerriana",
+          "direccion": "Buenos Aires 550, E3100 Paraná, Entre Ríos",
+          "lat": -31.722835866381747,
+          "lng": -60.52847014558332,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/SanatorioLaEntrerriana.jpg",
+          "logo": "LogoPin/Entre_Rios/SanatorioLaEntrerriana.jpg"
+        },
+        {
+          "nombre": "Clínica Modelo Paraná",
+          "direccion": "Gral. José de San Martín 1238, E3100 Paraná, Entre Ríos",
+          "lat": -31.735140509745495,
+          "lng": -60.53245016092045,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/ClinicaModeloParana.jpg",
+          "logo": "LogoPin/Entre_Rios/ClinicaModeloParana.jpg"
+        },
+        {
+          "nombre": "Sanatorio Adventista del Plata",
+          "direccion": "25 de Mayo 255, E3103 Libertador San Martín, Entre Ríos",
+          "lat": -32.07338270829124,
+          "lng": -60.46258032315617,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/SanatorioAdventista.jpg",
+          "logo": "LogoPin/Entre_Rios/SanatorioAdventista.jpg"
+        },
+        {
+          "nombre": "Sanatorio Garat",
+          "direccion": "Concejal Veiga 660, E3202 Concordia, Entre Ríos",
+          "lat": -31.394706828871776,
+          "lng": -58.02759036164534,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/SanatorioGarat.jpg",
+          "logo": "LogoPin/Entre_Rios/SanatorioGarat.jpg"
+        },
+        {
+          "nombre": "Sanatorio Concordia",
+          "direccion": "1 de Mayo 393, E3200 Concordia, Entre Ríos",
+          "lat": -31.39874351064846,
+          "lng": -58.01071506905085,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/SanatorioConcordia.jpg",
+          "logo": "LogoPin/Entre_Rios/SanatorioConcordia.jpg"
+        },
+        {
+          "nombre": "Clínica Uruguay",
+          "direccion": "Gral. Galarza 574, E3260 Concepción del Uruguay, Entre Ríos",
+          "lat": -32.473433905507434,
+          "lng": -58.23261718637631,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/ClinicaUruguay.jpg",
+          "logo": "LogoPin/Entre_Rios/ClinicaUruguay.jpg"
+        },
+        {
+          "nombre": "Cooperativa Médica Concepción del Uruguay",
+          "direccion": "14 de Julio 377, E3260 Concepción del Uruguay, Entre Ríos",
+          "lat": -32.41424562118145,
+          "lng": -58.22183749470631,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/CooperativaMedica.jpg",
+          "logo": "LogoPin/Entre_Rios/CooperativaMedica.jpg"
+        },
+        {
+          "nombre": "Pronto Gualeguaychú",
+          "direccion": "Urquiza 1081, E3269 Gualeguaychú, Entre Ríos",
+          "lat": -33.008695130574964,
+          "lng": -58.52003779138569,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/ProntoGualeguaychu.jpg",
+          "logo": "LogoPin/Entre_Rios/ProntoGualeguaychu.jpg"
+        },
+        {
+          "nombre": "Sanatorio del Niño",
+          "direccion": "Libertad 78, E3100 Paraná, Entre Ríos",
+          "lat": -31.731012079244657,
+          "lng": -60.534502492139275,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/SanatorioDelNino.jpg",
+          "logo": "LogoPin/Entre_Rios/SanatorioDelNino.jpg"
+        },
+        {
+          "nombre": "Centro Medico Crespo",
+          "direccion": "Bv. F. Ramírez 1325, E3116 Crespo, Entre Ríos",
+          "lat": -32.03100469222245,
+          "lng": -60.31330133006065,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/CentroMedicoCrespo.jpg",
+          "logo": "LogoPin/Entre_Rios/CentroMedicoCrespo.jpg"
+        },
+        {
+          "nombre": "Clínica Parque",
+          "direccion": "25 de Mayo 1053, E3116 Crespo, Entre Ríos",
+          "lat": -32.00888378010357,
+          "lng": -60.28073032353448,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/ClinicaParque.jpg",
+          "logo": "LogoPin/Entre_Rios/ClinicaParque.jpg"
+        },
+        {
+          "nombre": "Hospital San José",
+          "direccion": "Dr. Chessini 106, E3206 Federación, Entre Ríos",
+          "lat": -30.98566987157636,
+          "lng": -57.92257909309497,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/HospitalSanJose.jpg",
+          "logo": "LogoPin/Entre_Rios/HospitalSanJose.jpg"
+        },
+        {
+          "nombre": "Instituto del Diagnóstico",
+          "direccion": "Salta 142, E3202 Concordia, Entre Ríos",
+          "lat": -31.39345192146621,
+          "lng": -58.01508195418515,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/InstitutoDelDiagnostico.jpg",
+          "logo": "LogoPin/Entre_Rios/InstitutoDelDiagnostico.jpg"
+        },
+        {
+          "nombre": "Centro Medico Victoria",
+          "direccion": "Victoria 255, E3100 Paraná, Entre Ríos",
+          "lat": -31.727065273008236,
+          "lng": -60.52335428420552,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Entre_Rios/CentroMedicoVictoria.jpg",
+          "logo": "LogoPin/Entre_Rios/CentroMedicoVictoria.jpg"
+        }
+      ]
+    }
+,
+    "FORMOSA": {
+      "nombre": "Formosa",
+      "localidades": [
+        {
+          "nombre": "Hospital de Alta Complejidad Pte. Juan Domingo Perón",
+          "direccion": "Av. Pantaleón Gómez & Av. Dr. Néstor Kirchner, P3600 Formosa",
+          "lat": -26.180924409513402,
+          "lng": -58.18902203319441,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/HospitalAltaComplejidadPeron.jpg",
+          "logo": "LogoPin/Formosa/HospitalAltaComplejidadPeron.jpg"
+        },
+        {
+          "nombre": "Hospital Central",
+          "direccion": "Padre Patiño 1163, P3600 Formosa",
+          "lat": -26.188406594842355,
+          "lng": -58.167739064406994,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/HospitalCentral.jpg",
+          "logo": "LogoPin/Formosa/HospitalCentral.jpg"
+        },
+        {
+          "nombre": "Hospital de la Madre y el Niño",
+          "direccion": "Córdoba 1450, P3600GIV Formosa",
+          "lat": -26.192385304732674,
+          "lng": -58.17403784165322,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/HospitalMadreNino.jpg",
+          "logo": "LogoPin/Formosa/HospitalMadreNino.jpg"
+        },
+        {
+          "nombre": "Hospital Distrito Sanitario N°8 Eva Perón",
+          "direccion": "Av. Ana Esther Elías de Canepa 1898, P3600HLK Formosa",
+          "lat": -26.140735477191882,
+          "lng": -58.15798811786997,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/HospitalEvaPeron.jpg",
+          "logo": "LogoPin/Formosa/HospitalEvaPeron.jpg"
+        },
+        {
+          "nombre": "Hospital Doctor Cruz Felipe Arnedo",
+          "direccion": "Av. San Martín 1202, P3610 Clorinda, Formosa",
+          "lat": -25.28623448293232,
+          "lng": -57.721144179654196,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/HospitalArnedo.jpg",
+          "logo": "LogoPin/Formosa/HospitalArnedo.jpg"
+        },
+        {
+          "nombre": "Hospital Las Lomitas",
+          "direccion": "Av. Belgrano y Av. Entre Ríos, Las Lomitas, Formosa",
+          "lat": -24.701815419186133,
+          "lng": -60.594622149766636,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/HospitalLasLomitas.jpg",
+          "logo": "LogoPin/Formosa/HospitalLasLomitas.jpg"
+        },
+        {
+          "nombre": "Hospital El Colorado",
+          "direccion": "Santa Fe S/N, P3603 El Colorado, Formosa",
+          "lat": -26.3082957898795,
+          "lng": -59.36791284106846,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/HospitalElColorado.jpg",
+          "logo": "LogoPin/Formosa/HospitalElColorado.jpg"
+        },
+        {
+          "nombre": "Hospital Laguna Blanca",
+          "direccion": "Laguna Blanca, Formosa",
+          "lat": -25.121484031651637,
+          "lng": -58.253756187406516,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/HospitalLagunaBlanca.jpg",
+          "logo": "LogoPin/Formosa/HospitalLagunaBlanca.jpg"
+        },
+        {
+          "nombre": "Sanatorio Formosa",
+          "direccion": "Pringles 131, P3600 Formosa",
+          "lat": -26.17839193549328,
+          "lng": -58.166882125787716,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/SanatorioFormosa.jpg",
+          "logo": "LogoPin/Formosa/SanatorioFormosa.jpg"
+        },
+        {
+          "nombre": "Sanatorio González Lelong",
+          "direccion": "Av. González Lelong 197, P3600DDX Formosa",
+          "lat": -26.173553770472097,
+          "lng": -58.16954271044618,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/SanatorioGonzalezLelong.jpg",
+          "logo": "LogoPin/Formosa/SanatorioGonzalezLelong.jpg"
+        },
+        {
+          "nombre": "Clínica Dr. Jorge Vrsalovic",
+          "direccion": "Jujuy 975, P3600LBM Formosa",
+          "lat": -26.18904765559827,
+          "lng": -58.18068057922241,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/ClinicaVrsalovic.jpg",
+          "logo": "LogoPin/Formosa/ClinicaVrsalovic.jpg"
+        },
+        {
+          "nombre": "Sala De Salud La Pilar",
+          "direccion": "Hipólito Irigoyen 1831, P3600 Formosa",
+          "lat": -26.191321,
+          "lng": -58.184045,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Formosa/SalaSaludLaPilar.jpg",
+          "logo": "LogoPin/Formosa/SalaSaludLaPilar.jpg"
+        }
+      ]
+    }
+
+    ,"LA PAMPA": {
+      "nombre": "La Pampa",
+      "localidades": [
+        {
+          "nombre": "Hospital Dr. Lucio Molas",
+          "direccion": "Raúl B. Díaz Pilcomayo, L6302BJS Santa Rosa, La Pampa",
+          "lat": -36.59851847035812,
+          "lng": -64.29044258419279,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/HospitalLucioMolas.jpg",
+          "logo": "LogoPin/La_Pampa/HospitalLucioMolas.jpg"
+        },
+        {
+          "nombre": "Establecimiento Asistencial Gobernador Centeno",
+          "direccion": "C. 17 Oeste 500, L6360 Gral. Pico, La Pampa",
+          "lat": -35.67187543991307,
+          "lng": -63.766953929597946,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/HospitalGobernadorCenteno.jpg",
+          "logo": "LogoPin/La_Pampa/HospitalGobernadorCenteno.jpg"
+        },
+        {
+          "nombre": "Hospital Padre Ángel Buodo",
+          "direccion": "Las Cautivas, L8200 Gral. Acha, La Pampa",
+          "lat": -37.36730850907048,
+          "lng": -64.59626050396405,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/HospitalPadreAngelBuodo.jpg",
+          "logo": "LogoPin/La_Pampa/HospitalPadreAngelBuodo.jpg"
+        },
+        {
+          "nombre": "Sanatorio Santa Rosa",
+          "direccion": "Bartolomé Mitre 188, L6300 Santa Rosa, La Pampa",
+          "lat": -36.62269571286464,
+          "lng": -64.29159784255324,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/SanatorioSantaRosa.jpg",
+          "logo": "LogoPin/La_Pampa/SanatorioSantaRosa.jpg"
+        },
+        {
+          "nombre": "Clínica Modelo SA",
+          "direccion": "Av. San Martín 452, L6300 Santa Rosa, La Pampa",
+          "lat": -36.62078911853246,
+          "lng": -64.28562045789842,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/ClinicaModelo.jpg",
+          "logo": "LogoPin/La_Pampa/ClinicaModelo.jpg"
+        },
+        {
+          "nombre": "Polymedic SRL",
+          "direccion": "1 de Mayo 640, L6302ECM Santa Rosa, La Pampa",
+          "lat": -36.61485603845896,
+          "lng": -64.29007651239871,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/Polymedic.jpg",
+          "logo": "LogoPin/La_Pampa/Polymedic.jpg"
+        },
+        {
+          "nombre": "Clínica Regional SRL",
+          "direccion": "Av. San Martín 400, L6360 Gral. Pico, La Pampa",
+          "lat": -35.65814240370984,
+          "lng": -63.758911915154684,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/ClinicaRegional.jpg",
+          "logo": "LogoPin/La_Pampa/ClinicaRegional.jpg"
+        },
+        {
+          "nombre": "Clínica Argentina SRL",
+          "direccion": "Av. San Martín 740, L6360 Gral. Pico, La Pampa",
+          "lat": -35.660985604770396,
+          "lng": -63.75459721834762,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/ClinicaArgentina.jpg",
+          "logo": "LogoPin/La_Pampa/ClinicaArgentina.jpg"
+        },
+        {
+          "nombre": "Clínica Integral Macachin",
+          "direccion": "E. F. Parodi 460, L6307 Macachín, La Pampa",
+          "lat": -37.138238986894734,
+          "lng": -63.668307149620354,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/ClinicaIntegralMacachin.jpg",
+          "logo": "LogoPin/La_Pampa/ClinicaIntegralMacachin.jpg"
+        },
+        {
+          "nombre": "Clínica Integral Realicó SA",
+          "direccion": "Francia 1344, L6200 Realicó, La Pampa",
+          "lat": -35.03532668770403,
+          "lng": -64.24894685892033,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/ClinicaIntegralRealico.jpg",
+          "logo": "LogoPin/La_Pampa/ClinicaIntegralRealico.jpg"
+        },
+        {
+          "nombre": "Centro Integral Para la Salud CIS",
+          "direccion": "C. 7 876, L6360 Gral. Pico, La Pampa",
+          "lat": -35.656785608992045,
+          "lng": -63.758195074396696,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/CIS.jpg",
+          "logo": "LogoPin/La_Pampa/CIS.jpg"
+        },
+        {
+          "nombre": "Diagnosis",
+          "direccion": "Marcelo T. de Alvear 246, L6300AIE Santa Rosa, La Pampa",
+          "lat": -36.61632163313734,
+          "lng": -64.28818953514937,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/Diagnosis.jpg",
+          "logo": "LogoPin/La_Pampa/Diagnosis.jpg"
+        },
+        {
+          "nombre": "Torre Médica",
+          "direccion": "Lisandro de la Torre 400, L6300BQG Santa Rosa, La Pampa",
+          "lat": -36.621449791193264,
+          "lng": -64.28541132720996,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/La_Pampa/TorreMedica.jpg",
+          "logo": "LogoPin/La_Pampa/TorreMedica.jpg"
+        }
+      ]
+    }
+
+    ,"CORRIENTES": {
+      "nombre": "Corrientes",
+      "localidades": [
+        {
+          "nombre": "Hospital Escuela \"José de San Martín\"",
+          "direccion": "Av. 3 de Abril 1224, W3410 Corrientes",
+          "lat": -27.47515582208,
+          "lng": -58.83561443307918,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/HospitalEscuelaSanMartin.jpg",
+          "logo": "LogoPin/Corrientes/HospitalEscuelaSanMartin.jpg"
+        },
+        {
+          "nombre": "Hospital José Ramón Vidal",
+          "direccion": "José Ramón Vidal 1902, W3410 Corrientes",
+          "lat": -27.479022811918917,
+          "lng": -58.838894940484934,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/HospitalVidal.jpg",
+          "logo": "LogoPin/Corrientes/HospitalVidal.jpg"
+        },
+        {
+          "nombre": "Hospital \"Ángela Iglesia de Llano\"",
+          "direccion": "Av. Ayacucho 3298, W3402 Corrientes",
+          "lat": -27.471782336458734,
+          "lng": -58.81077828652062,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/HospitalAngelaIglesia.jpg",
+          "logo": "LogoPin/Corrientes/HospitalAngelaIglesia.jpg"
+        },
+        {
+          "nombre": "Hospital Pediátrico Juan Pablo II",
+          "direccion": "Av. Artigas 1435, W3400 Corrientes",
+          "lat": -27.475315418098564,
+          "lng": -58.82085838566248,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/HospitalJuanPabloII.jpg",
+          "logo": "LogoPin/Corrientes/HospitalJuanPabloII.jpg"
+        },
+        {
+          "nombre": "Hospital Zonal Dr. Camilo Muniagurria",
+          "direccion": "Av. Mazzanti 550, W3450 Goya, Corrientes",
+          "lat": -29.13615517148704,
+          "lng": -59.24696843961919,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/HospitalMuniagurria.jpg",
+          "logo": "LogoPin/Corrientes/HospitalMuniagurria.jpg"
+        },
+        {
+          "nombre": "Hospital Las Mercedes",
+          "direccion": "Juan Ramon Lacour 1051, W3470 Mercedes, Corrientes",
+          "lat": -29.187902092651623,
+          "lng": -58.077939785622966,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/HospitalLasMercedes.jpg",
+          "logo": "LogoPin/Corrientes/HospitalLasMercedes.jpg"
+        },
+        {
+          "nombre": "Hospital San Jose",
+          "direccion": "Av. Di Tomaso 1700, W3230 Paso de los Libres, Corrientes",
+          "lat": -29.71132875912032,
+          "lng": -57.10560778760712,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/HospitalSanJose.jpg",
+          "logo": "LogoPin/Corrientes/HospitalSanJose.jpg"
+        },
+        {
+          "nombre": "Hospital Provincial Dr. Fernando Irastorza y Centro Oncológico Anna Rocca de Bonatti",
+          "direccion": "Berón de Astrada 1350, W3460 Curuzu Cuatia, Corrientes",
+          "lat": -29.789673961722624,
+          "lng": -58.06309152392088,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/HospitalIrastorza.jpg",
+          "logo": "LogoPin/Corrientes/HospitalIrastorza.jpg"
+        },
+        {
+          "nombre": "Instituto de Cardiología de Corrientes \"Juana Francisca Cabral\"",
+          "direccion": "Bolívar 1334, W3400CDS Corrientes",
+          "lat": -27.470736082291275,
+          "lng": -58.83501518255265,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/InstitutoCardiologia.jpg",
+          "logo": "LogoPin/Corrientes/InstitutoCardiologia.jpg"
+        },
+        {
+          "nombre": "Sanatorio del Norte SRL",
+          "direccion": "Carlos Pellegrini 1354, W3400 Corrientes",
+          "lat": -27.465213116093175,
+          "lng": -58.83343600980406,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/SanatorioDelNorte.jpg",
+          "logo": "LogoPin/Corrientes/SanatorioDelNorte.jpg"
+        },
+        {
+          "nombre": "Sanatorio San Juan",
+          "direccion": "San Juan 975, W3400CBJ Corrientes",
+          "lat": -27.364075997549538,
+          "lng": -58.783251022862714,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/SanatorioSanJuan.jpg",
+          "logo": "LogoPin/Corrientes/SanatorioSanJuan.jpg"
+        },
+        {
+          "nombre": "Clínica del Iberá",
+          "direccion": "Córdoba 420, W3400 Corrientes",
+          "lat": -27.415249608555584,
+          "lng": -58.830315314443496,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/ClinicaDelIbera.jpg",
+          "logo": "LogoPin/Corrientes/ClinicaDelIbera.jpg"
+        },
+        {
+          "nombre": "Clínica del Sol",
+          "direccion": "Medrano 1612, W3408KGD Corrientes",
+          "lat": -27.481386412545554,
+          "lng": -58.79851814048364,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/ClinicaDelSol.jpg",
+          "logo": "LogoPin/Corrientes/ClinicaDelSol.jpg"
+        },
+        {
+          "nombre": "Clínica El Modelo SRL",
+          "direccion": "Mariano Moreno 1343, W3400ACY Corrientes",
+          "lat": -27.47263980821701,
+          "lng": -58.834574663239884,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/ClinicaElModelo.jpg",
+          "logo": "LogoPin/Corrientes/ClinicaElModelo.jpg"
+        },
+        {
+          "nombre": "Sanatorio y Maternidad Mercedes",
+          "direccion": "Alvear S/N, W3470 Mercedes, Corrientes",
+          "lat": -29.182753022382872,
+          "lng": -58.078905878218215,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/SanatorioMercedes.jpg",
+          "logo": "LogoPin/Corrientes/SanatorioMercedes.jpg"
+        },
+        {
+          "nombre": "Sanatorio Curuzú Cuatiá SRL",
+          "direccion": "Juan de Vera 765, W3460 Curuzú Cuatiá, Corrientes",
+          "lat": -29.789047242148047,
+          "lng": -58.05626727503494,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/SanatorioCuruzuCuatia.jpg",
+          "logo": "LogoPin/Corrientes/SanatorioCuruzuCuatia.jpg"
+        },
+        {
+          "nombre": "Clínica Virasoro",
+          "direccion": "Arturo Navajas S/N, W3342 Gdor. Virasoro, Corrientes",
+          "lat": -28.053280630220296,
+          "lng": -56.02357289415835,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Corrientes/ClinicaVirasoro.jpg",
+          "logo": "LogoPin/Corrientes/ClinicaVirasoro.jpg"
+        }
+      ]
+    }
+
+    ,"SANTA CRUZ": {
+      "nombre": "Santa Cruz",
+      "localidades": [
+        {
+          "nombre": "Hospital Regional Río Gallegos",
+          "direccion": "José Ingenieros 98, Z9400 Río Gallegos, Santa Cruz",
+          "lat": -51.62758552164557,
+          "lng": -69.21965541627014,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/HospitalRegionalRioGallegos.jpg",
+          "logo": "LogoPin/Santa_Cruz/HospitalRegionalRioGallegos.jpg"
+        },
+        {
+          "nombre": "Hospital Zonal de Caleta Olivia \"Padre Pedro Tardivo\"",
+          "direccion": "Av. Eva Perón 430, Z9011 Caleta Olivia, Santa Cruz",
+          "lat": -46.44447028226229,
+          "lng": -67.51228058142372,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/HospitalCaletaOlivia.jpg",
+          "logo": "LogoPin/Santa_Cruz/HospitalCaletaOlivia.jpg"
+        },
+        {
+          "nombre": "Hospital SAMIC El Calafate",
+          "direccion": "Av. Jorge Newbery S/N, Z9405 El Calafate, Santa Cruz",
+          "lat": -50.334065954287496,
+          "lng": -72.23886991684765,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/HospitalSamicElCalafate.jpg",
+          "logo": "LogoPin/Santa_Cruz/HospitalSamicElCalafate.jpg"
+        },
+        {
+          "nombre": "Hospital Distrital Pico Truncado",
+          "direccion": "Sarmiento & Velez Sarsfield, Pico Truncado, Santa Cruz",
+          "lat": -46.79668482422192,
+          "lng": -67.96005923563827,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/HospitalPicoTruncado.jpg",
+          "logo": "LogoPin/Santa_Cruz/HospitalPicoTruncado.jpg"
+        },
+        {
+          "nombre": "Hospital Distrital M. Lombardich",
+          "direccion": "Av. Hernando de Magallanes 875, Z9310 Puerto San Julián, Santa Cruz",
+          "lat": -49.30449030375599,
+          "lng": -67.72328542168141,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/HospitalLombardich.jpg",
+          "logo": "LogoPin/Santa_Cruz/HospitalLombardich.jpg"
+        },
+        {
+          "nombre": "Hospital Puerto Deseado",
+          "direccion": "Colón 1100, Z9050ARD Puerto Deseado, Santa Cruz",
+          "lat": -47.756546421746336,
+          "lng": -65.89595445761381,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/HospitalPuertoDeseado.jpg",
+          "logo": "LogoPin/Santa_Cruz/HospitalPuertoDeseado.jpg"
+        },
+        {
+          "nombre": "Hospital Distrital Las Heras",
+          "direccion": "28 de Noviembre & Juan Jose Paso, Las Heras, Santa Cruz",
+          "lat": -46.54896787131768,
+          "lng": -68.92247789259218,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/HospitalLasHeras.jpg",
+          "logo": "LogoPin/Santa_Cruz/HospitalLasHeras.jpg"
+        },
+        {
+          "nombre": "Clínica Cruz del Sur",
+          "direccion": "Pje. Tamarisco 735, Z9011 Caleta Olivia, Santa Cruz",
+          "lat": -46.44063845254514,
+          "lng": -67.51447829729901,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/ClinicaCruzDelSur.jpg",
+          "logo": "LogoPin/Santa_Cruz/ClinicaCruzDelSur.jpg"
+        },
+        {
+          "nombre": "Policlínico del Atlántico Sur - Medisur SA",
+          "direccion": "Maipú 555, Z9400BFK Río Gallegos, Santa Cruz",
+          "lat": -51.626996859534216,
+          "lng": -69.2092131236786,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/MedisurSA.jpg",
+          "logo": "LogoPin/Santa_Cruz/MedisurSA.jpg"
+        },
+        {
+          "nombre": "Fundación Suma",
+          "direccion": "Maipú 144, Z9400BFD Río Gallegos, Santa Cruz",
+          "lat": -51.62420522183144,
+          "lng": -69.21539927712092,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/FundacionSuma.jpg",
+          "logo": "LogoPin/Santa_Cruz/FundacionSuma.jpg"
+        },
+        {
+          "nombre": "Centro Médico Dr. Rubén Martínez",
+          "direccion": "Campaña del Desierto 1407, Z9405 El Calafate, Santa Cruz",
+          "lat": -50.34062455786471,
+          "lng": -72.26976290149803,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/CentroMedicoMartinez.jpg",
+          "logo": "LogoPin/Santa_Cruz/CentroMedicoMartinez.jpg"
+        },
+        {
+          "nombre": "Centro Médico Santa Cruz",
+          "direccion": "Mariano Moreno 107, Z9011 Caleta Olivia, Santa Cruz",
+          "lat": -46.44239647180276,
+          "lng": -67.51167996608123,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/CentroMedicoSantaCruz.jpg",
+          "logo": "LogoPin/Santa_Cruz/CentroMedicoSantaCruz.jpg"
+        },
+        {
+          "nombre": "Centro Empleados de Comercio Puerto San Julián",
+          "direccion": "Urquiza 1152, Z9310 Puerto San Julián, Santa Cruz",
+          "lat": -49.30506482067623,
+          "lng": -67.72999001771264,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santa_Cruz/CentroEmpleadosComercio.jpg",
+          "logo": "LogoPin/Santa_Cruz/CentroEmpleadosComercio.jpg"
+        }
+      ]
+    }
+
+    ,"JUJUY": {
+      "nombre": "Jujuy",
+      "localidades": [
+        {
+          "nombre": "Hospital Pablo Soria",
+          "direccion": "Gral. Güemes 1345, Y4600APO San Salvador de Jujuy, Jujuy",
+          "lat": -24.18244401906803,
+          "lng": -65.31184117302243,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Jujuy/HospitalPabloSoria.jpg",
+          "logo": "LogoPin/Jujuy/HospitalPabloSoria.jpg"
+        },
+        {
+          "nombre": "Hospital Materno Infantil \"Dr. Héctor Quintana\"",
+          "direccion": "José Hernández 624, Y4600 San Salvador de Jujuy, Jujuy",
+          "lat": -24.181029319328715,
+          "lng": -65.31504803410911,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Jujuy/HospitalMaternoInfantil.jpg",
+          "logo": "LogoPin/Jujuy/HospitalMaternoInfantil.jpg"
+        },
+        {
+          "nombre": "Hospital Dr. Guillermo C. Paterson",
+          "direccion": "Av. Siria 44, Y4500 San Pedro de Jujuy, Jujuy",
+          "lat": -24.23418719574982,
+          "lng": -64.87187723438436,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Jujuy/HospitalGuillermoPaterson.jpg",
+          "logo": "LogoPin/Jujuy/HospitalGuillermoPaterson.jpg"
+        },
+        {
+          "nombre": "Hospital Nuestra Señora del Carmen",
+          "direccion": "San Martín 399, Y4603DOG El Carmen, Jujuy",
+          "lat": -24.382598663229395,
+          "lng": -65.26097551369648,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Jujuy/HospitalNuestraSeñoradelCarmen.jpg",
+          "logo": "LogoPin/Jujuy/HospitalNuestraSeñoradelCarmen.jpg"
+        },
+        {
+          "nombre": "Hospital Dr. Jorge Uro",
+          "direccion": "Patricias Argentinas 185, Y4650 La Quiaca, Jujuy",
+          "lat": -22.11020952262939,
+          "lng": -65.59758978658104,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Jujuy/HospitalJorgeUro.jpg",
+          "logo": "LogoPin/Jujuy/HospitalJorgeUro.jpg"
+        },
+        {
+          "nombre": "Sanatorio Los Lapachos",
+          "direccion": "Av. Hipolito Yrigoyen 596, Y4600 San Salvador de Jujuy, Jujuy",
+          "lat": -24.1901972313245,
+          "lng": -65.29719834418691,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Jujuy/ClinicaLosLapachos.jpg",
+          "logo": "LogoPin/Jujuy/ClinicaLosLapachos.jpg"
+        },
+        {
+          "nombre": "Clínica Mayo",
+          "direccion": "Gral. Álvear 1299, Y4600 San Salvador de Jujuy, Jujuy",
+          "lat": -24.184058104026644,
+          "lng": -65.3107059017104,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Jujuy/ClinicaMayo.jpg",
+          "logo": "LogoPin/Jujuy/ClinicaMayo.jpg"
+        }
+      ]
+    }
+
+    ,"SANTIAGO DEL ESTERO": {
+      "nombre": "Santiago del Estero",
+      "localidades": [
+        {
+          "nombre": "Hospital Regional Ramón Carrillo",
+          "direccion": "Av. Belgrano Sur 2273, G4200 Santiago del Estero",
+          "lat": -27.804339969395542,
+          "lng": -64.25120566307031,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/HospitalRamonCarrillo.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/HospitalRamonCarrillo.jpg"
+        },
+        {
+          "nombre": "Hospital Independencia",
+          "direccion": "Av. Belgrano Nte. 660, G4200 Santiago del Estero",
+          "lat": -27.778488253373038,
+          "lng": -64.27087249430002,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/HospitalIndependencia.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/HospitalIndependencia.jpg"
+        },
+        {
+          "nombre": "Centro Provincial de Salud Infantil Eva Perón",
+          "direccion": "Misiones 1087, G4200 Santiago del Estero",
+          "lat": -27.778676607274562,
+          "lng": -64.27400093186725,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/CentroSaludInfantil.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/CentroSaludInfantil.jpg"
+        },
+        {
+          "nombre": "Hogar de Madres Maternidad Dr. Faustino Herrera",
+          "direccion": "San Carlos Centro, G4300 La Banda, Santiago del Estero",
+          "lat": -27.73305881222387,
+          "lng": -64.24453096363519,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/MaternidadHerrera.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/MaternidadHerrera.jpg"
+        },
+        {
+          "nombre": "Hospital Zonal Añatuya",
+          "direccion": "José Ingenieros 106, G3760 Añatuya, Santiago del Estero",
+          "lat": -28.467489318320947,
+          "lng": -62.83863632463007,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/HospitalAnatuya.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/HospitalAnatuya.jpg"
+        },
+        {
+          "nombre": "Centro Integral de Salud La Banda",
+          "direccion": "San Martin 449, G4300 La Banda, Santiago del Estero",
+          "lat": -27.732489,
+          "lng": -64.237475,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/CentroIntegralLaBanda.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/CentroIntegralLaBanda.jpg"
+        },
+        {
+          "nombre": "Sanatorio Alvear",
+          "direccion": "Av. Moreno Sur 266, G4200 Santiago del Estero",
+          "lat": -27.78856492187016,
+          "lng": -64.26551027895094,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/SanatorioAlvear.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/SanatorioAlvear.jpg"
+        },
+        {
+          "nombre": "Clínica Yunes",
+          "direccion": "Av. Libertad 626, G4200 Santiago del Estero",
+          "lat": -27.78836775241763,
+          "lng": -64.26206341350326,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/ClinicaYunes.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/ClinicaYunes.jpg"
+        },
+        {
+          "nombre": "Sanatorio 9 de Julio",
+          "direccion": "9 de Julio 580, G4200 Santiago del Estero",
+          "lat": -27.785044202813104,
+          "lng": -64.25396477207266,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/Sanatorio9deJulio.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/Sanatorio9deJulio.jpg"
+        },
+        {
+          "nombre": "Clínica del Sol SRL",
+          "direccion": "Av. Roca Sur 643, G4200 Santiago del Estero",
+          "lat": -27.78446783770354,
+          "lng": -64.25637347101669,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/ClinicaDelSol.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/ClinicaDelSol.jpg"
+        },
+        {
+          "nombre": "Clínica Galeno SRL",
+          "direccion": "Jujuy 450, G4200 Santiago del Estero",
+          "lat": -27.78158150422683,
+          "lng": -64.25967795511269,
+          "tipo": "Sanatorio",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/ClinicaGaleno.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/ClinicaGaleno.jpg"
+        },
+        {
+          "nombre": "Centro Integral Mujer Santiago",
+          "direccion": "Sáenz Peña 120, G4300 La Banda, Santiago del Estero",
+          "lat": -27.73320533910675,
+          "lng": -64.24259420173101,
+          "tipo": "Centro Médico",
+          "prioridad": "blanco",
+          "imagen": "Logo/Santiago_del_Estero/CentroIntegralMujer.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/CentroIntegralMujer.jpg"
+        }
+      ]
     }
 }
-
