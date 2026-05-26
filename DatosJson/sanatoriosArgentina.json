@@ -916,7 +916,7 @@
                                                      "tipo":  "Sanatorio",
                                                      "prioridad":  "blanco",
                                                      "imagen":  "Logo/Tierra_del_Fuego/HospitalRegionalRG.jpg",
-                                                     "logo":  "LogoPin/Rio_Negro/HospitalRegionalRG.jpg"
+                                                     "logo":  "LogoPin/Tierra_del_Fuego/HospitalRegionalRG.jpg"
                                                  },
                                                  {
                                                      "nombre":  "Hospital Regional Gdor. Ernesto Campos",
@@ -926,7 +926,7 @@
                                                      "tipo":  "Sanatorio",
                                                      "prioridad":  "blanco",
                                                      "imagen":  "Logo/Tierra_del_Fuego/HospitalRegionalGEC.jpg",
-                                                     "logo":  "LogoPin/Rio_Negro/HospitalRegionalGEC.jpg"
+                                                     "logo":  "LogoPin/Tierra_del_Fuego/HospitalRegionalGEC.jpg"
                                                  },
                                                  {
                                                      "nombre":  "Sanatorio Fueguino",
@@ -946,7 +946,7 @@
                                                      "tipo":  "Sanatorio",
                                                      "prioridad":  "blanco",
                                                      "imagen":  "Logo/Tierra_del_Fuego/ClinicaCemep.jpg",
-                                                     "logo":  "LogoPin/Neuquen/ClinicaCemep.jpg"
+                                                     "logo":  "LogoPin/Tierra_del_Fuego/ClinicaCemep.jpg"
                                                  },
                                                  {
                                                      "nombre":  "Clínica Privada del Oeste",
@@ -956,7 +956,7 @@
                                                      "tipo":  "Sanatorio",
                                                      "prioridad":  "blanco",
                                                      "imagen":  "Logo/Tierra_del_Fuego/ClinicaSanJorge.jpg",
-                                                     "logo":  "LogoPin/Neuquen/ClinicaSanJorge.jpg"
+                                                     "logo":  "LogoPin/Tierra_del_Fuego/ClinicaSanJorge.jpg"
                                                  }
                                              ]
                          },
@@ -1255,8 +1255,8 @@
           "lng": -67.99984937168158,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Rio_Negro/SanatorioRioNegro.jpg",
-          "logo": "LogoPin/Rio_Negro/SanatorioRioNegro.jpg"
+          "imagen": "Logo/Rio_Negro/SanatorioRN.jpg",
+          "logo": "LogoPin/Rio_Negro/SanatorioRN.jpg"
         },
         {
           "nombre": "Fundación Médica de Río Negro y Neuquén",
@@ -1285,8 +1285,8 @@
           "lng": -71.30000760874621,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Rio_Negro/HospitalZonalRamonCarrillo.jpg",
-          "logo": "LogoPin/Rio_Negro/HospitalZonalRamonCarrillo.jpg"
+          "imagen": "Logo/Rio_Negro/HospitalZonalRC.jpg",
+          "logo": "LogoPin/Rio_Negro/HospitalZonalRC.jpg"
         },
         {
           "nombre": "Hospital Artémides Zatti",
@@ -1295,8 +1295,8 @@
           "lng": -62.99004999363475,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Rio_Negro/HospitalArtemídesZatti.jpg",
-          "logo": "LogoPin/Rio_Negro/HospitalArtemídesZatti.jpg"
+          "imagen": "Logo/Rio_Negro/HospitalArtémidesZatti.jpg",
+          "logo": "LogoPin/Rio_Negro/HospitalArtémidesZatti.jpeg"
         },
         {
           "nombre": "Hospital Dr. Pedro Moguillansky",
@@ -1345,8 +1345,8 @@
           "lng": -71.31200483202578,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Rio_Negro/HospitalPrivadoRegionaldelSur.jpg",
-          "logo": "LogoPin/Rio_Negro/HospitalPrivadoRegionaldelSur.jpg"
+          "imagen": "Logo/Rio_Negro/HospitalPrivadoRegionalBariloche.jpg",
+          "logo": "LogoPin/Rio_Negro/HospitalPrivadoRegionalBariloche.jpg"
         },
         {
           "nombre": "Clinica Roca",
@@ -1357,16 +1357,6 @@
           "prioridad": "blanco",
           "imagen": "Logo/Rio_Negro/ClinicaRoca.jpg",
           "logo": "LogoPin/Rio_Negro/ClinicaRoca.jpg"
-        },
-        {
-          "nombre": "CEMYN Rio Negro",
-          "direccion": "Mitre 310, General Roca, Río Negro",
-          "lat": -38.937817723181,
-          "lng": -67.99722337724819,
-          "tipo": "Centro Médico",
-          "prioridad": "blanco",
-          "imagen": "Logo/Rio_Negro/CEMYNRioNegro.jpg",
-          "logo": "LogoPin/Rio_Negro/CEMYNRioNegro.jpg"
         }
       ]
     },
@@ -2005,8 +1995,8 @@
           "lng": -55.88920705083852,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Misiones/HospitalMadariaga.jpg",
-          "logo": "LogoPin/Misiones/HospitalMadariaga.jpg"
+          "imagen": "Logo/Misiones/HospitalEscueladeAgudos.jpg",
+          "logo": "LogoPin/Misiones/HospitalEscueladeAgudos.jpg"
         },
         {
           "nombre": "Hospital Neonatal de Posadas",
@@ -2015,8 +2005,8 @@
           "lng": -55.888472633125886,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Misiones/HospitalNeonatalPosadas.jpg",
-          "logo": "LogoPin/Misiones/HospitalNeonatalPosadas.jpg"
+          "imagen": "Logo/Misiones/HospitalNeonataldePosadas.jpg",
+          "logo": "LogoPin/Misiones/HospitalNeonataldePosadas.jpg"
         },
         {
           "nombre": "Hospital Pediátrico Dr. Fernando Barreyro",
@@ -2025,8 +2015,8 @@
           "lng": -55.89045768656623,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Misiones/HospitalPediatricoBarreyro.jpg",
-          "logo": "LogoPin/Misiones/HospitalPediatricoBarreyro.jpg"
+          "imagen": "Logo/Misiones/HospitalPediátrico.jpg",
+          "logo": "LogoPin/Misiones/HospitalPediátrico.jpg"
         },
         {
           "nombre": "Hospital Samic Eldorado",
@@ -2035,8 +2025,8 @@
           "lng": -54.59739964842953,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Misiones/HospitalSamicEldorado.jpg",
-          "logo": "LogoPin/Misiones/HospitalSamicEldorado.jpg"
+          "imagen": "Logo/Misiones/HospitalSAMIC.jpg",
+          "logo": "LogoPin/Misiones/HospitalSAMIC.jpg"
         },
         {
           "nombre": "Hospital Samic de Oberá",
@@ -2045,8 +2035,8 @@
           "lng": -55.14406286375914,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Misiones/HospitalSamicObera.jpg",
-          "logo": "LogoPin/Misiones/HospitalSamicObera.jpg"
+          "imagen": "Logo/Misiones/HospitalSAMICOberá.jpg",
+          "logo": "LogoPin/Misiones/HospitalSAMICOberá.jpg"
         },
         {
           "nombre": "Sanatorio Boratti",
@@ -2055,8 +2045,8 @@
           "lng": -55.899934848474764,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Misiones/SanatorioBoratti.jpg",
-          "logo": "LogoPin/Misiones/SanatorioBoratti.jpg"
+          "imagen": "Logo/Misiones/SanatorioBoratti.JPG",
+          "logo": "LogoPin/Misiones/SanatorioBoratti.JPG"
         },
         {
           "nombre": "Sanatorio Nosiglia",
@@ -2075,8 +2065,8 @@
           "lng": -55.8994770791665,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Misiones/SanatorioIntegralIOT.jpg",
-          "logo": "LogoPin/Misiones/SanatorioIntegralIOT.jpg"
+          "imagen": "Logo/Misiones/SanatorioIntegralIOT.jpeg",
+          "logo": "LogoPin/Misiones/SanatorioIntegralIOT.jpeg"
         },
         {
           "nombre": "Sanatorio Buddenberg",
@@ -2095,8 +2085,8 @@
           "lng": -55.32838613301206,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Misiones/CentroMedicoIntegral.jpg",
-          "logo": "LogoPin/Misiones/CentroMedicoIntegral.jpg"
+          "imagen": "Logo/Misiones/CentroMedicoIntegralSanatorio.jpg",
+          "logo": "LogoPin/Misiones/CentroMedicoIntegralSanatorio.jpg"
         },
         {
           "nombre": "Montecarlo Salud",
@@ -2260,8 +2250,8 @@
           "lng": -68.80418422214062,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/HospitalNotti.jpg",
-          "logo": "LogoPin/Mendoza/HospitalNotti.jpg"
+          "imagen": "Logo/Mendoza/HospitalPediátricoNotti.jpg",
+          "logo": "LogoPin/Mendoza/HospitalPediátricoNotti.jpg"
         },
         {
           "nombre": "OSEP - Hospital del Carmen",
@@ -2270,8 +2260,8 @@
           "lng": -68.8591943295305,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/HospitalDelCarmen.jpg",
-          "logo": "LogoPin/Mendoza/HospitalDelCarmen.jpg"
+          "imagen": "Logo/Mendoza/OSEP.jpg",
+          "logo": "LogoPin/Mendoza/OSEP.jpg"
         },
         {
           "nombre": "Hospital Español de Mendoza",
@@ -2280,8 +2270,8 @@
           "lng": -68.84539930186243,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/HospitalEspanol.jpg",
-          "logo": "LogoPin/Mendoza/HospitalEspanol.jpg"
+          "imagen": "Logo/Mendoza/HospitalEspañol.jpg",
+          "logo": "LogoPin/Mendoza/HospitalEspañol.jpg"
         },
         {
           "nombre": "Hospital Italiano de Mendoza",
@@ -2290,8 +2280,8 @@
           "lng": -68.82147982954899,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/HospitalItaliano.jpg",
-          "logo": "LogoPin/Mendoza/HospitalItaliano.jpg"
+          "imagen": "Logo/Mendoza/HospitalItalianodeMendoza.jpg",
+          "logo": "LogoPin/Mendoza/HospitalItalianodeMendoza.jpg"
         },
         {
           "nombre": "Clínica de Cuyo",
@@ -2300,8 +2290,8 @@
           "lng": -68.84013422161355,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/ClinicaDeCuyo.jpg",
-          "logo": "LogoPin/Mendoza/ClinicaDeCuyo.jpg"
+          "imagen": "Logo/Mendoza/ClínicadeCuyo.jpg",
+          "logo": "LogoPin/Mendoza/ClínicadeCuyo.jpg"
         },
         {
           "nombre": "Clínica Santa María",
@@ -2310,8 +2300,8 @@
           "lng": -68.83283376024329,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/ClinicaSantaMaria.jpg",
-          "logo": "LogoPin/Mendoza/ClinicaSantaMaria.jpg"
+          "imagen": "Logo/Mendoza/ClínicaSantaMaría.jpg",
+          "logo": "LogoPin/Mendoza/ClínicaSantaMaría.jpg"
         },
         {
           "nombre": "Clinica Francesa",
@@ -2330,8 +2320,8 @@
           "lng": -68.84606066022535,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/ClinicaSantaClara.jpg",
-          "logo": "LogoPin/Mendoza/ClinicaSantaClara.jpg"
+          "imagen": "Logo/Mendoza/Sanatorio_SC.jpg",
+          "logo": "LogoPin/Mendoza/Sanatorio_SC.jpg"
         },
         {
           "nombre": "Clinica Arizu",
@@ -2360,8 +2350,8 @@
           "lng": -68.32500875971033,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/HospitalSchestakow.jpg",
-          "logo": "LogoPin/Mendoza/HospitalSchestakow.jpg"
+          "imagen": "Logo/Mendoza/HospitalTeodoroSchestakow.jpg",
+          "logo": "LogoPin/Mendoza/HospitalTeodoroSchestakow.jpg"
         },
         {
           "nombre": "Hospital Regional Dr. Alfredo I. Perrupato",
@@ -2370,8 +2360,8 @@
           "lng": -68.4870116072156,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/HospitalPerrupato.jpg",
-          "logo": "LogoPin/Mendoza/HospitalPerrupato.jpg"
+          "imagen": "Logo/Mendoza/HospitalRegionalPerrupato.jpg",
+          "logo": "LogoPin/Mendoza/HospitalRegionalPerrupato.jpg"
         },
         {
           "nombre": "Hospital Regional Antonio J. Scaravelli",
@@ -2380,8 +2370,8 @@
           "lng": -69.01007497569903,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/HospitalScaravelli.jpg",
-          "logo": "LogoPin/Mendoza/HospitalScaravelli.jpg"
+          "imagen": "Logo/Mendoza/HospitalRegionalScaravelli.jpg",
+          "logo": "LogoPin/Mendoza/HospitalRegionalScaravelli.jpg"
         },
         {
           "nombre": "Hospital Enfermeros Argentinos",
@@ -2420,8 +2410,8 @@
           "lng": -68.81652294542414,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/InstitutoMedicoMujer.jpg",
-          "logo": "LogoPin/Mendoza/InstitutoMedicoMujer.jpg"
+          "imagen": "Logo/Mendoza/ElInstitutoMedicodelaMujer.jpg",
+          "logo": "LogoPin/Mendoza/ElInstitutoMedicodelaMujer.jpg"
         },
         {
           "nombre": "IMR - Medicina Reproductiva",
@@ -2430,8 +2420,8 @@
           "lng": -68.85067607610961,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/IMR.jpg",
-          "logo": "LogoPin/Mendoza/IMR.jpg"
+          "imagen": "Logo/Mendoza/InstitutodeMedicinaReproductiva.jpg",
+          "logo": "LogoPin/Mendoza/InstitutodeMedicinaReproductiva.jpg"
         },
         {
           "nombre": "CREO Fertilidad",
@@ -2440,8 +2430,8 @@
           "lng": -68.84768597489943,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/CreoFertilidad.jpg",
-          "logo": "LogoPin/Mendoza/CreoFertilidad.jpg"
+          "imagen": "Logo/Mendoza/CREOFertilidad.jpg",
+          "logo": "LogoPin/Mendoza/CREOFertilidad.jpg"
         },
         {
           "nombre": "Centro Diagnóstico Mendoza",
@@ -2450,8 +2440,8 @@
           "lng": -68.84898434823093,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Mendoza/CentroDiagnosticoMendoza.jpg",
-          "logo": "LogoPin/Mendoza/CentroDiagnosticoMendoza.jpg"
+          "imagen": "Logo/Mendoza/CENTRODIAGNOSTICOMENDOZA.jpg",
+          "logo": "LogoPin/Mendoza/CENTRODIAGNOSTICOMENDOZA.jpg"
         }
       ]
     },
