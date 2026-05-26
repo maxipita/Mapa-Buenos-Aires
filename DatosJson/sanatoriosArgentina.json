@@ -2455,8 +2455,8 @@
           "lng": -65.41531954179838,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/HospitalMaternoInfantil.jpg",
-          "logo": "LogoPin/Salta/HospitalMaternoInfantil.jpg"
+          "imagen": "Logo/Salta/HospitalPublicoMaternoInfantil.jpg",
+          "logo": "LogoPin/Salta/HospitalPublicoMaternoInfantil.jpg"
         },
         {
           "nombre": "Hospital San Bernardo",
@@ -2475,8 +2475,8 @@
           "lng": -65.41609382699589,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/HospitalSenorDelMilagro.jpg",
-          "logo": "LogoPin/Salta/HospitalSenorDelMilagro.jpg"
+          "imagen": "Logo/Salta/HospitalSeñordelMilagro.jpg",
+          "logo": "LogoPin/Salta/HospitalSeñordelMilagro.jpg"
         },
         {
           "nombre": "Hospital Papa Francisco",
@@ -2485,8 +2485,8 @@
           "lng": -65.39134873670211,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/HospitalPapaFrancisco.jpg",
-          "logo": "LogoPin/Salta/HospitalPapaFrancisco.jpg"
+          "imagen": "Logo/Salta/HospitalPápaFrancisco.jpg",
+          "logo": "LogoPin/Salta/HospitalPápaFrancisco.jpg"
         },
         {
           "nombre": "Hospital Dr. Arturo Oñativia",
@@ -2495,8 +2495,8 @@
           "lng": -65.39850836135493,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/HospitalOñativia.jpg",
-          "logo": "LogoPin/Salta/HospitalOñativia.jpg"
+          "imagen": "Logo/Salta/HospitalArturoOñativia.jpg",
+          "logo": "LogoPin/Salta/HospitalArturoOñativia.jpg"
         },
         {
           "nombre": "Hospital de Tartagal Juan Domingo Perón",
@@ -2505,8 +2505,8 @@
           "lng": -63.79802727492005,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/HospitalTartagal.jpg",
-          "logo": "LogoPin/Salta/HospitalTartagal.jpg"
+          "imagen": "Logo/Salta/HospitalJuanDomingoPeronTartagal.jpg",
+          "logo": "LogoPin/Salta/HospitalJuanDomingoPeronTartagal.jpg"
         },
         {
           "nombre": "Hospital San Vicente de Paul",
@@ -2515,8 +2515,8 @@
           "lng": -64.32420550373776,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/HospitalSanVicenteDePaul.jpg",
-          "logo": "LogoPin/Salta/HospitalSanVicenteDePaul.jpg"
+          "imagen": "Logo/Salta/HospitalSanVicentedePaulOran.jpg",
+          "logo": "LogoPin/Salta/HospitalSanVicentedePaulOran.jpg"
         },
         {
           "nombre": "Hospital Santa Clara",
@@ -2525,8 +2525,8 @@
           "lng": -65.41594535950838,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/HospitalSantaClara.jpg",
-          "logo": "LogoPin/Salta/HospitalSantaClara.jpg"
+          "imagen": "Logo/Salta/ClinicaSantaClaradeAsis.jpg",
+          "logo": "LogoPin/Salta/ClinicaSantaClaradeAsis.jpg"
         },
         {
           "nombre": "Sanatorio El Carmen",
@@ -2545,8 +2545,8 @@
           "lng": -65.41014075950861,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/SanatorioModeloSalta.jpg",
-          "logo": "LogoPin/Salta/SanatorioModeloSalta.jpg"
+          "imagen": "Logo/Salta/SanatorioModelo.jpg",
+          "logo": "LogoPin/Salta/SanatorioModelo.jpg"
         },
         {
           "nombre": "Sanatorio San Roque",
@@ -2585,18 +2585,18 @@
           "lng": -65.40489340368502,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/Mater.jpg",
-          "logo": "LogoPin/Salta/Mater.jpg"
+          "imagen": "Logo/Salta/MATER.jpg",
+          "logo": "LogoPin/Salta/MATER.jpg"
         },
         {
-          "nombre": "Medicina Mitre",
+          "nombre": "Hospital Privado Tres Cerritos",
           "direccion": "Bartolomé Mitre 656, A4400 Salta",
           "lat": -24.7818862275048,
           "lng": -65.41021738471807,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/MedicinaMitre.jpg",
-          "logo": "LogoPin/Salta/MedicinaMitre.jpg"
+          "imagen": "Logo/Salta/HospitalTresCerritos.jpg",
+          "logo": "LogoPin/Salta/HospitalTresCerritos.jpg"
         },
         {
           "nombre": "Centro de Salud Ciudad del Milagro",
@@ -2605,8 +2605,8 @@
           "lng": -65.40838143067526,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Salta/CentroSaludCiudadMilagro.jpg",
-          "logo": "LogoPin/Salta/CentroSaludCiudadMilagro.jpg"
+          "imagen": "Logo/Salta/CentrodeSaludN11.jpg",
+          "logo": "LogoPin/Salta/CentrodeSaludN11.jpg"
         }
       ]
     },
