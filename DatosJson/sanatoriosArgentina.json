@@ -2620,8 +2620,8 @@
           "lng": -60.71877979279932,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/HospitalCullen.jpg",
-          "logo": "LogoPin/Santa_Fe/HospitalCullen.jpg"
+          "imagen": "Logo/Santa_Fe/HospitalJoseMariaCullen.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalJoseMariaCullen.jpg"
         },
         {
           "nombre": "Hospital J.B. Iturraspe",
@@ -2630,8 +2630,8 @@
           "lng": -60.728155,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/HospitalIturraspe.jpg",
-          "logo": "LogoPin/Santa_Fe/HospitalIturraspe.jpg"
+          "imagen": "Logo/Santa_Fe/HospitalJIturraspe.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalJIturraspe.jpg"
         },
         {
           "nombre": "Hospital Dr. Orlando Alassia",
@@ -2640,8 +2640,8 @@
           "lng": -60.727622099597504,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/HospitalAlassia.jpg",
-          "logo": "LogoPin/Santa_Fe/HospitalAlassia.jpg"
+          "imagen": "Logo/Santa_Fe/HospitaldeNiñosOrlandoAlassia.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitaldeNiñosOrlandoAlassia.jpg"
         },
         {
           "nombre": "Sanatorio Garay",
@@ -2700,8 +2700,8 @@
           "lng": -60.67030799089142,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/HospitalAlvarez.jpg",
-          "logo": "LogoPin/Santa_Fe/HospitalAlvarez.jpg"
+          "imagen": "Logo/Santa_Fe/HECA.jpg",
+          "logo": "LogoPin/Santa_Fe/HECA.jpg"
         },
         {
           "nombre": "Hospital del Centenario",
@@ -2710,8 +2710,8 @@
           "lng": -60.66503610677196,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/HospitalCentenario.jpg",
-          "logo": "LogoPin/Santa_Fe/HospitalCentenario.jpg"
+          "imagen": "Logo/Santa_Fe/HospitalProvincialdelCentenario.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalProvincialdelCentenario.jpg"
         },
         {
           "nombre": "Hospital Roque Sáenz Peña",
@@ -2720,8 +2720,8 @@
           "lng": -60.64669247604757,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/HospitalRoqueSaenzPena.jpg",
-          "logo": "LogoPin/Santa_Fe/HospitalRoqueSaenzPena.jpg"
+          "imagen": "Logo/Santa_Fe/HospitalRoqueSaenzPeña.jpg",
+          "logo": "LogoPin/Santa_Fe/HospitalRoqueSaenzPeña.jpg"
         },
         {
           "nombre": "Sanatorio Parque",
@@ -2750,8 +2750,8 @@
           "lng": -60.64034216415355,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/Gammalab.jpg",
-          "logo": "LogoPin/Santa_Fe/Gammalab.jpg"
+          "imagen": "Logo/Santa_Fe/GrupoGamma.jpg",
+          "logo": "LogoPin/Santa_Fe/GrupoGamma.jpg"
         },
         {
           "nombre": "Sanatorio de La Mujer",
@@ -2760,8 +2760,8 @@
           "lng": -60.656941,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/SanatorioDeLaMujer.jpg",
-          "logo": "LogoPin/Santa_Fe/SanatorioDeLaMujer.jpg"
+          "imagen": "Logo/Santa_Fe/SanatoriodelaMujer.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatoriodelaMujer.jpg"
         },
         {
           "nombre": "Sanatorio Mapaci",
@@ -2780,8 +2780,8 @@
           "lng": -60.634933816877094,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/SanatorioRosendoGarcia.jpg",
-          "logo": "LogoPin/Santa_Fe/SanatorioRosendoGarcia.jpg"
+          "imagen": "Logo/Santa_Fe/SRG.jpg",
+          "logo": "LogoPin/Santa_Fe/SRG.jpg"
         },
         {
           "nombre": "Sanatorio de Niños",
@@ -2790,8 +2790,8 @@
           "lng": -60.654807618723915,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/SanatorioDeNinos.jpg",
-          "logo": "LogoPin/Santa_Fe/SanatorioDeNinos.jpg"
+          "imagen": "Logo/Santa_Fe/SanatoriodeNiños.jpg",
+          "logo": "LogoPin/Santa_Fe/SanatoriodeNiños.jpg"
         },
         {
           "nombre": "CEMAR - Centro de Especialidades Médicas Ambulatorias",
@@ -2810,8 +2810,8 @@
           "lng": -61.494815,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/CentroIntegralMujer.jpg",
-          "logo": "LogoPin/Santa_Fe/CentroIntegralMujer.jpg"
+          "imagen": "Logo/Santa_Fe/CIM.jpg",
+          "logo": "LogoPin/Santa_Fe/CIM.jpg"
         },
         {
           "nombre": "Fertya Medicina Reproductiva",
@@ -2820,8 +2820,8 @@
           "lng": -60.65448525472202,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/Fertya.jpg",
-          "logo": "LogoPin/Santa_Fe/Fertya.jpg"
+          "imagen": "Logo/Santa_Fe/FERTYA.jpg",
+          "logo": "LogoPin/Santa_Fe/FERTYA.jpg"
         },
         {
           "nombre": "Procrearte Rosario",
@@ -2830,8 +2830,8 @@
           "lng": -60.65029159173587,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Santa_Fe/ProcreaRteRosario.jpg",
-          "logo": "LogoPin/Santa_Fe/ProcreaRteRosario.jpg"
+          "imagen": "Logo/Santa_Fe/Procrearte.jpg",
+          "logo": "LogoPin/Santa_Fe/Procrearte.jpg"
         },
         {
           "nombre": "Centro Médico Rafaela",
@@ -2865,8 +2865,8 @@
           "lng": -65.19564448684741,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Tucuman/CentroSaludSantillan.jpg",
-          "logo": "LogoPin/Tucuman/CentroSaludSantillan.jpg"
+          "imagen": "Logo/Tucuman/HospitalCentrodeSaludZenonSantillan.jpg",
+          "logo": "LogoPin/Tucuman/HospitalCentrodeSaludZenonSantillan.jpg"
         },
         {
           "nombre": "Instituto de Maternidad y Ginecología Nuestra Señora de las Mercedes",
@@ -2875,8 +2875,8 @@
           "lng": -65.22134324028468,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Tucuman/InstitutoMaternidadMercedes.jpg",
-          "logo": "LogoPin/Tucuman/InstitutoMaternidadMercedes.jpg"
+          "imagen": "Logo/Tucuman/InstitutoMaternidad.jpg",
+          "logo": "LogoPin/Tucuman/InstitutoMaternidad.jpg"
         },
         {
           "nombre": "Hospital de Clínicas Dr. Nicolás Avellaneda",
@@ -2885,8 +2885,8 @@
           "lng": -65.20527593062124,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Tucuman/HospitalClinicas.jpg",
-          "logo": "LogoPin/Tucuman/HospitalClinicas.jpg"
+          "imagen": "Logo/Tucuman/HospitaldeClínicas.jpg",
+          "logo": "LogoPin/Tucuman/HospitaldeClínicas.jpg"
         },
         {
           "nombre": "Hospital Del Este",
@@ -2905,8 +2905,8 @@
           "lng": -65.60405936383307,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Tucuman/HospitalRegionalConcepcion.jpg",
-          "logo": "LogoPin/Tucuman/HospitalRegionalConcepcion.jpg"
+          "imagen": "Logo/Tucuman/HospitalRegionaldeConcepcion.jpg",
+          "logo": "LogoPin/Tucuman/HospitalRegionaldeConcepcion.jpg"
         },
         {
           "nombre": "Sanatorio 9 de Julio",
@@ -2925,8 +2925,8 @@
           "lng": -65.20531304081551,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Tucuman/SanatorioDelNorte.jpg",
-          "logo": "LogoPin/Tucuman/SanatorioDelNorte.jpg"
+          "imagen": "Logo/Tucuman/SanatoriodelNorte.jpg",
+          "logo": "LogoPin/Tucuman/SanatoriodelNorte.jpg"
         },
         {
           "nombre": "Sanatorio Rivadavia",
@@ -2945,8 +2945,8 @@
           "lng": -65.20320005907013,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Tucuman/SanatorioModeloTucuman.jpg",
-          "logo": "LogoPin/Tucuman/SanatorioModeloTucuman.jpg"
+          "imagen": "Logo/Tucuman/SanatorioModelo.jpg",
+          "logo": "LogoPin/Tucuman/SanatorioModelo.jpg"
         },
         {
           "nombre": "Clinica Mayo Tucumán",
@@ -2965,8 +2965,8 @@
           "lng": -65.6194478705836,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Tucuman/SanatorioDelSol.jpg",
-          "logo": "LogoPin/Tucuman/SanatorioDelSol.jpg"
+          "imagen": "Logo/Tucuman/SanatoriodelSol.jpg",
+          "logo": "LogoPin/Tucuman/SanatoriodelSol.jpg"
         },
         {
           "nombre": "Centro Medico Integral Tucumán",
@@ -2985,8 +2985,8 @@
           "lng": -65.211003,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Tucuman/ClinicaIntegralMujer.jpg",
-          "logo": "LogoPin/Tucuman/ClinicaIntegralMujer.jpg"
+          "imagen": "Logo/Tucuman/ClinicaIntegralparaLaMujer.jpg",
+          "logo": "LogoPin/Tucuman/ClinicaIntegralparaLaMujer.jpg"
         },
         {
           "nombre": "Centro Médico Reproducir",
@@ -2995,8 +2995,8 @@
           "lng": -65.2019925780756,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Tucuman/CentroMedicoReproducir.jpg",
-          "logo": "LogoPin/Tucuman/CentroMedicoReproducir.jpg"
+          "imagen": "Logo/Tucuman/CentroMédicoReproducir.jpg",
+          "logo": "LogoPin/Tucuman/CentroMédicoReproducir.jpg"
         },
         {
           "nombre": "Centro Médico Yerba Buena",
@@ -3030,8 +3030,8 @@
           "lng": -68.51207023407537,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Juan/ClinicaElCastano.jpg",
-          "logo": "LogoPin/San_Juan/ClinicaElCastano.jpg"
+          "imagen": "Logo/San_Juan/ClínicaElCastaño.jpg",
+          "logo": "LogoPin/San_Juan/ClínicaElCastaño.jpg"
         },
         {
           "nombre": "Hospital Privado del Colegio Médico de San Juan",
@@ -3040,8 +3040,8 @@
           "lng": -68.51838429509935,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Juan/HospitalPrivadoColegioMedico.jpg",
-          "logo": "LogoPin/San_Juan/HospitalPrivadoColegioMedico.jpg"
+          "imagen": "Logo/San_Juan/HospitalPrivadodelColegioMédico.jpg",
+          "logo": "LogoPin/San_Juan/HospitalPrivadodelColegioMédico.jpg"
         },
         {
           "nombre": "Clínica Santa Clara",
@@ -3050,8 +3050,8 @@
           "lng": -68.52507308486739,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Juan/ClinicaSantaClara.jpg",
-          "logo": "LogoPin/San_Juan/ClinicaSantaClara.jpg"
+          "imagen": "Logo/San_Juan/Sanatorio_SC.jpg",
+          "logo": "LogoPin/San_Juan/Sanatorio_SC.jpg"
         },
         {
           "nombre": "Clínica Mercedario",
@@ -3060,8 +3060,8 @@
           "lng": -68.53684719225616,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Juan/ClinicaMercedario.jpg",
-          "logo": "LogoPin/San_Juan/ClinicaMercedario.jpg"
+          "imagen": "Logo/San_Juan/ClínicaMercedario.jpg",
+          "logo": "LogoPin/San_Juan/ClínicaMercedario.jpg"
         },
         {
           "nombre": "Clínica del Sol",
@@ -3070,8 +3070,8 @@
           "lng": -68.52082206897255,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Juan/ClinicaDelSol.jpg",
-          "logo": "LogoPin/San_Juan/ClinicaDelSol.jpg"
+          "imagen": "Logo/San_Juan/ClínicadelSol.jpg",
+          "logo": "LogoPin/San_Juan/ClínicadelSol.jpg"
         },
         {
           "nombre": "Clínica de la Ciudad",
@@ -3080,8 +3080,8 @@
           "lng": -68.51655449225069,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Juan/ClinicaDeLaCiudad.jpg",
-          "logo": "LogoPin/San_Juan/ClinicaDeLaCiudad.jpg"
+          "imagen": "Logo/San_Juan/ClínicadelaCiudad.jpg",
+          "logo": "LogoPin/San_Juan/ClínicadelaCiudad.jpg"
         }
       ]
     },
@@ -3095,8 +3095,8 @@
           "lng": -66.34270979192577,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Luis/ClinicaPrivadaItalia.jpg",
-          "logo": "LogoPin/San_Luis/ClinicaPrivadaItalia.jpg"
+          "imagen": "Logo/San_Luis/ClínicaPrivadaItalia.jpg",
+          "logo": "LogoPin/San_Luis/ClínicaPrivadaItalia.jpg"
         },
         {
           "nombre": "Clínica del Aconcagua",
@@ -3105,8 +3105,8 @@
           "lng": -65.47801833172149,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Luis/ClinicaDelAconcagua.jpg",
-          "logo": "LogoPin/San_Luis/ClinicaDelAconcagua.jpg"
+          "imagen": "Logo/San_Luis/ClínicaAconcagua.jpg",
+          "logo": "LogoPin/San_Luis/ClínicaAconcagua.jpg"
         },
         {
           "nombre": "Sanatorio y Clínica Rivadavia",
@@ -3115,8 +3115,8 @@
           "lng": -66.33714172983579,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Luis/SanatorioClinicaRivadavia.jpg",
-          "logo": "LogoPin/San_Luis/SanatorioClinicaRivadavia.jpg"
+          "imagen": "Logo/San_Luis/SanatorioRivadavia.jpg",
+          "logo": "LogoPin/San_Luis/SanatorioRivadavia.jpg"
         },
         {
           "nombre": "Clinica Del Valle",
@@ -3125,8 +3125,8 @@
           "lng": -65.28831079239774,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Luis/ClinicaDelValle.jpg",
-          "logo": "LogoPin/San_Luis/ClinicaDelValle.jpg"
+          "imagen": "Logo/San_Luis/ClinicadelValle.jpg",
+          "logo": "LogoPin/San_Luis/ClinicadelValle.jpg"
         },
         {
           "nombre": "Centro de Especialidades Medicas",
@@ -3135,8 +3135,8 @@
           "lng": -66.328379,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/San_Luis/CentroEspecialidadesMedicas.jpg",
-          "logo": "LogoPin/San_Luis/CentroEspecialidadesMedicas.jpg"
+          "imagen": "Logo/San_Luis/CentrodeEspecialidadesMédicas.jpg",
+          "logo": "LogoPin/San_Luis/CentrodeEspecialidadesMédicas.jpg"
         }
       ]
     },
@@ -3946,8 +3946,8 @@
           "lng": -64.25120566307031,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santiago_del_Estero/HospitalRamonCarrillo.jpg",
-          "logo": "LogoPin/Santiago_del_Estero/HospitalRamonCarrillo.jpg"
+          "imagen": "Logo/Santiago_del_Estero/HospitalRegionalRamonCarrillo.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/HospitalRegionalRamonCarrillo.jpg"
         },
         {
           "nombre": "Hospital Independencia",
@@ -3966,8 +3966,8 @@
           "lng": -64.27400093186725,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Santiago_del_Estero/CentroSaludInfantil.jpg",
-          "logo": "LogoPin/Santiago_del_Estero/CentroSaludInfantil.jpg"
+          "imagen": "Logo/Santiago_del_Estero/CentroProvincialdeSaludInfantil.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/CentroProvincialdeSaludInfantil.jpg"
         },
         {
           "nombre": "Hogar de Madres Maternidad Dr. Faustino Herrera",
@@ -3976,8 +3976,8 @@
           "lng": -64.24453096363519,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santiago_del_Estero/MaternidadHerrera.jpg",
-          "logo": "LogoPin/Santiago_del_Estero/MaternidadHerrera.jpg"
+          "imagen": "Logo/Santiago_del_Estero/MaternidadFaustinoHerrera.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/MaternidadFaustinoHerrera.jpg"
         },
         {
           "nombre": "Hospital Zonal Añatuya",
@@ -3986,8 +3986,8 @@
           "lng": -62.83863632463007,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santiago_del_Estero/HospitalAnatuya.jpg",
-          "logo": "LogoPin/Santiago_del_Estero/HospitalAnatuya.jpg"
+          "imagen": "Logo/Santiago_del_Estero/HospitalZonalAñatuya.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/HospitalZonalAñatuya.jpg"
         },
         {
           "nombre": "Centro Integral de Salud La Banda",
@@ -3996,8 +3996,8 @@
           "lng": -64.237475,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Santiago_del_Estero/CentroIntegralLaBanda.jpg",
-          "logo": "LogoPin/Santiago_del_Estero/CentroIntegralLaBanda.jpg"
+          "imagen": "Logo/Santiago_del_Estero/HospitalZonalLaBanda.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/HospitalZonalLaBanda.jpg"
         },
         {
           "nombre": "Sanatorio Alvear",
@@ -4036,8 +4036,8 @@
           "lng": -64.25637347101669,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santiago_del_Estero/ClinicaDelSol.jpg",
-          "logo": "LogoPin/Santiago_del_Estero/ClinicaDelSol.jpg"
+          "imagen": "Logo/Santiago_del_Estero/ClinicadelSol.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/ClinicadelSol.jpg"
         },
         {
           "nombre": "Clínica Galeno SRL",
@@ -4046,8 +4046,8 @@
           "lng": -64.25967795511269,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Santiago_del_Estero/ClinicaGaleno.jpg",
-          "logo": "LogoPin/Santiago_del_Estero/ClinicaGaleno.jpg"
+          "imagen": "Logo/Santiago_del_Estero/ClínicaGaleno.jpg",
+          "logo": "LogoPin/Santiago_del_Estero/ClínicaGaleno.jpg"
         },
         {
           "nombre": "Centro Integral Mujer Santiago",
