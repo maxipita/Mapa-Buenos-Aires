@@ -3150,8 +3150,8 @@
           "lng": -60.52847014558332,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/SanatorioLaEntrerriana.jpg",
-          "logo": "LogoPin/Entre_Rios/SanatorioLaEntrerriana.jpg"
+          "imagen": "Logo/Entre_Rios/sanatoriolaentrerriana.jpg",
+          "logo": "LogoPin/Entre_Rios/sanatoriolaentrerriana.jpg"
         },
         {
           "nombre": "Clínica Modelo Paraná",
@@ -3160,8 +3160,8 @@
           "lng": -60.53245016092045,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/ClinicaModeloParana.jpg",
-          "logo": "LogoPin/Entre_Rios/ClinicaModeloParana.jpg"
+          "imagen": "Logo/Entre_Rios/ClínicaModelo.jpg",
+          "logo": "LogoPin/Entre_Rios/ClínicaModelo.jpg"
         },
         {
           "nombre": "Sanatorio Adventista del Plata",
@@ -3170,8 +3170,8 @@
           "lng": -60.46258032315617,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/SanatorioAdventista.jpg",
-          "logo": "LogoPin/Entre_Rios/SanatorioAdventista.jpg"
+          "imagen": "Logo/Entre_Rios/SanatorioAdventistadelPlata.jpg",
+          "logo": "LogoPin/Entre_Rios/SanatorioAdventistadelPlata.jpg"
         },
         {
           "nombre": "Sanatorio Garat",
@@ -3180,8 +3180,8 @@
           "lng": -58.02759036164534,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/SanatorioGarat.jpg",
-          "logo": "LogoPin/Entre_Rios/SanatorioGarat.jpg"
+          "imagen": "Logo/Entre_Rios/InstitutoMédicoQuirúrgicoGarat.jpg",
+          "logo": "LogoPin/Entre_Rios/InstitutoMédicoQuirúrgicoGarat.jpg"
         },
         {
           "nombre": "Sanatorio Concordia",
@@ -3200,8 +3200,8 @@
           "lng": -58.23261718637631,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/ClinicaUruguay.jpg",
-          "logo": "LogoPin/Entre_Rios/ClinicaUruguay.jpg"
+          "imagen": "Logo/Entre_Rios/ClínicaUruguay.jpg",
+          "logo": "LogoPin/Entre_Rios/ClínicaUruguay.jpg"
         },
         {
           "nombre": "Cooperativa Médica Concepción del Uruguay",
@@ -3220,8 +3220,8 @@
           "lng": -58.52003779138569,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/ProntoGualeguaychu.jpg",
-          "logo": "LogoPin/Entre_Rios/ProntoGualeguaychu.jpg"
+          "imagen": "Logo/Entre_Rios/Pronto.jpg",
+          "logo": "LogoPin/Entre_Rios/Pronto.jpg"
         },
         {
           "nombre": "Sanatorio del Niño",
@@ -3230,8 +3230,8 @@
           "lng": -60.534502492139275,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/SanatorioDelNino.jpg",
-          "logo": "LogoPin/Entre_Rios/SanatorioDelNino.jpg"
+          "imagen": "Logo/Entre_Rios/SanatoriodelNiño.jpg",
+          "logo": "LogoPin/Entre_Rios/SanatoriodelNiño.jpg"
         },
         {
           "nombre": "Centro Medico Crespo",
@@ -3250,8 +3250,8 @@
           "lng": -60.28073032353448,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/ClinicaParque.jpg",
-          "logo": "LogoPin/Entre_Rios/ClinicaParque.jpg"
+          "imagen": "Logo/Entre_Rios/ClínicaParque.jpg",
+          "logo": "LogoPin/Entre_Rios/ClínicaParque.jpg"
         },
         {
           "nombre": "Hospital San José",
@@ -3260,8 +3260,8 @@
           "lng": -57.92257909309497,
           "tipo": "Sanatorio",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/HospitalSanJose.jpg",
-          "logo": "LogoPin/Entre_Rios/HospitalSanJose.jpg"
+          "imagen": "Logo/Entre_Rios/SanatorioSanJoséFederación.jpg",
+          "logo": "LogoPin/Entre_Rios/SanatorioSanJoséFederación.jpg"
         },
         {
           "nombre": "Instituto del Diagnóstico",
@@ -3270,8 +3270,8 @@
           "lng": -58.01508195418515,
           "tipo": "Centro Médico",
           "prioridad": "blanco",
-          "imagen": "Logo/Entre_Rios/InstitutoDelDiagnostico.jpg",
-          "logo": "LogoPin/Entre_Rios/InstitutoDelDiagnostico.jpg"
+          "imagen": "Logo/Entre_Rios/InstitutodeDiagnósticoyTratamientoConcordia.jpg",
+          "logo": "LogoPin/Entre_Rios/InstitutodeDiagnósticoyTratamientoConcordia.jpg"
         },
         {
           "nombre": "Centro Medico Victoria",
