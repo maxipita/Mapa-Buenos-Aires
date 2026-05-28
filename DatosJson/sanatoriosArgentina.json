@@ -24,9 +24,7 @@
                                          "lat":  -34.5935,
                                          "lng":  -58.4021,
                                          "tipo":  "Sanatorio",
-                                         "prioridad":  "blanco",
-                                         "imagen":  "Logo/CABA/ClinicaSuizo.jpg",
-                                         "logo":  "LogoPin/SuizoArgentina.jpg"
+                                         "imagen":  "Logo/CABA/ClinicaSuizo.jpg"
                                      },
                                      {
                                          "nombre":  "Halitus Instituto Médico",
@@ -34,9 +32,7 @@
                                          "lat":  -34.5973,
                                          "lng":  -58.3972,
                                          "tipo":  "Centro Médico",
-                                         "prioridad":  "blanco",
-                                         "imagen":  "Logo/CABA/Halitus.jpg",
-                                         "logo":  "LogoPin/Halitus.jpg"
+                                         "imagen":  "Logo/CABA/Halitus.jpg"
                                      },
                                      {
                                          "nombre":  "IVI",
@@ -44,9 +40,7 @@
                                          "lat":  -34.5811,
                                          "lng":  -58.4321,
                                          "tipo":  "Centro Médico",
-                                         "prioridad":  "blanco",
-                                         "imagen":  "Logo/CABA/Ivi.jpg",
-                                         "logo":  "LogoPin/IVI.jpg"
+                                         "imagen":  "Logo/CABA/Ivi.jpg"
                                      }
                                  ]
              },
