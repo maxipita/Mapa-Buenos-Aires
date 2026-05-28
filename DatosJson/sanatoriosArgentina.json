@@ -1730,7 +1730,7 @@
                                               "logo":  "LogoPin/Catamarca/HospitalJoseChaínHerrera.jpg"
                                           },
                                           {
-                                              "nombre":  "Hospital San José",
+                                              "nombre":  "Hospital San José - Catamarca",
                                               "direccion":  "K4139 San Jose, Catamarca",
                                               "lat":  -26.7998,
                                               "lng":  -66.0687,
@@ -1760,7 +1760,7 @@
                                               "logo":  "LogoPin/Catamarca/SanatorioJunín.jpg"
                                           },
                                           {
-                                              "nombre":  "Clinica del Valle",
+                                              "nombre":  "Clinica del Valle - Catamarca",
                                               "direccion":  "San Martín 1050, K4700 San Fernando del Valle de Catamarca, Catamarca",
                                               "lat":  -28.4686,
                                               "lng":  -65.7718,
@@ -1960,7 +1960,7 @@
                                            "logo":  "LogoPin/Chubut/SanatorioTrelew.jpg"
                                        },
                                        {
-                                           "nombre":  "Clinica del Valle",
+                                           "nombre":  "Clinica del Valle - Chubut",
                                            "direccion":  "Av. Alsina 656, U9003AAJ Comodoro Rivadavia, Chubut",
                                            "lat":  -45.8635,
                                            "lng":  -67.4939,
@@ -2115,7 +2115,7 @@
                                             "logo":  "LogoPin/Cordoba/SanatorioAconcagua.jpg"
                                         },
                                         {
-                                            "nombre":  "Sanatorio Mayo",
+                                            "nombre":  "Sanatorio Mayo - Córdoba",
                                             "direccion":  "Humberto 1º 520, X5000FAL Córdoba",
                                             "lat":  -31.4077,
                                             "lng":  -64.1887,
@@ -2215,7 +2215,7 @@
                                             "logo":  "LogoPin/Cordoba/HospitalRegionalJBIturraspe.jpg"
                                         },
                                         {
-                                            "nombre":  "Centro Integral de la Mujer",
+                                            "nombre":  "Centro Integral de la Mujer - Cordoba",
                                             "direccion":  "Santiago del Estero 333, X5022 Córdoba",
                                             "lat":  -31.413906118958984,
                                             "lng":  -64.17585001349093,
@@ -2250,7 +2250,7 @@
                                              "logo":  "LogoPin/La_Rioja/Hospital Regional.jpg"
                                          },
                                          {
-                                             "nombre":  "Hospital de la Madre y el Niño",
+                                             "nombre":  "Hospital de la Madre y el Niño - La Rioja",
                                              "direccion":  "1 de Marzo, La Rioja",
                                              "lat":  -29.43000999605148,
                                              "lng":  -66.84204577014846,
@@ -2540,7 +2540,7 @@
                     "nombre":  "Mendoza",
                     "localidades":  [
                                         {
-                                            "nombre":  "Hospital Central",
+                                            "nombre":  "Hospital Central - Mendoza",
                                             "direccion":  "L. N. Alem \u0026 Salta, M5502 Mendoza",
                                             "lat":  -32.89192259143172,
                                             "lng":  -68.83313164489554,
@@ -2610,7 +2610,7 @@
                                             "logo":  "LogoPin/Mendoza/ClínicadeCuyo.jpg"
                                         },
                                         {
-                                            "nombre":  "Clínica Santa María",
+                                            "nombre":  "Clínica Santa María - Mendoza",
                                             "direccion":  "José Federico Moreno 1519, M5500 Mendoza",
                                             "lat":  -32.885160908605165,
                                             "lng":  -68.83283376024329,
@@ -2630,7 +2630,7 @@
                                             "logo":  "LogoPin/Mendoza/ClinicaFrancesa.jpg"
                                         },
                                         {
-                                            "nombre":  "Clínica Santa Clara",
+                                            "nombre":  "Clínica Santa Clara - Mendoza",
                                             "direccion":  "Av. San Martín 835, M5501 Godoy Cruz, Mendoza",
                                             "lat":  -32.91513755232614,
                                             "lng":  -68.84606066022535,
@@ -2805,7 +2805,7 @@
                                           "logo":  "LogoPin/Salta/HospitalPápaFrancisco.jpg"
                                       },
                                       {
-                                          "nombre":  "Hospital Dr. Arturo Oñativia",
+                                          "nombre":  "Hospital Dr. Arturo Oñativia - Salta",
                                           "direccion":  "Ramón Carrillo 1339, A4400 Salta",
                                           "lat":  -24.78942807351492,
                                           "lng":  -65.39850836135493,
@@ -2875,7 +2875,7 @@
                                           "logo":  "LogoPin/Salta/SanatorioSanRoque.jpg"
                                       },
                                       {
-                                          "nombre":  "Clinica Cruz Azul",
+                                          "nombre":  "Clinica Cruz Azul - Salta",
                                           "direccion":  "Alberdi 359, A4402 Salta",
                                           "lat":  -24.793391053019434,
                                           "lng":  -65.41117304049065,
@@ -3131,7 +3131,7 @@
                                              "logo":  "LogoPin/Santa_Fe/CEMAR.jpg"
                                          },
                                          {
-                                             "nombre":  "Centro Integral de la Mujer",
+                                             "nombre":  "Centro Integral de la Mujer - Santa Fe",
                                              "direccion":  "3 de Febrero 68, S2300 Rafaela, Santa Fe",
                                              "lat":  -31.250749,
                                              "lng":  -61.494815,
@@ -3236,7 +3236,7 @@
                                             "logo":  "LogoPin/Tucuman/HospitalRegionaldeConcepcion.jpg"
                                         },
                                         {
-                                            "nombre":  "Sanatorio 9 de Julio",
+                                            "nombre":  "Sanatorio 9 de Julio - Tucumán",
                                             "direccion":  "25 de Mayo 372, T4000 San Miguel de Tucumán, Tucumán",
                                             "lat":  -26.826062330364568,
                                             "lng":  -65.20383288684543,
@@ -3341,7 +3341,7 @@
                      "nombre":  "San Juan",
                      "localidades":  [
                                          {
-                                             "nombre":  "Sanatorio Argentino",
+                                             "nombre":  "Sanatorio Argentino - San Juan",
                                              "direccion":  "San Luis Oeste 432, J5400 San Juan",
                                              "lat":  -31.533077,
                                              "lng":  -68.533074,
@@ -3371,7 +3371,7 @@
                                              "logo":  "LogoPin/San_Juan/HospitalPrivadodelColegioMédico.jpg"
                                          },
                                          {
-                                             "nombre":  "Clínica Santa Clara",
+                                             "nombre":  "Clínica Santa Clara - San Juan",
                                              "direccion":  "Mendoza Sur 602, J5402 San Juan",
                                              "lat":  -31.541573864592987,
                                              "lng":  -68.52507308486739,
@@ -3391,7 +3391,7 @@
                                              "logo":  "LogoPin/San_Juan/ClínicaMercedario.jpg"
                                          },
                                          {
-                                             "nombre":  "Clínica del Sol",
+                                             "nombre":  "Clínica del Sol - San Juan",
                                              "direccion":  "Francisco N. Laprida Este 369, J5400 San Juan",
                                              "lat":  -31.534497333417743,
                                              "lng":  -68.52082206897255,
@@ -3581,7 +3581,7 @@
                                                "logo":  "LogoPin/Entre_Rios/ClínicaParque.jpg"
                                            },
                                            {
-                                               "nombre":  "Hospital San José",
+                                               "nombre":  "Hospital San José - Entre Rios",
                                                "direccion":  "Dr. Chessini 106, E3206 Federación, Entre Ríos",
                                                "lat":  -30.98566987157636,
                                                "lng":  -57.92257909309497,
@@ -3626,7 +3626,7 @@
                                             "logo":  "LogoPin/Formosa/HospitaldeAltaComplejidad.jpg"
                                         },
                                         {
-                                            "nombre":  "Hospital Central",
+                                            "nombre":  "Hospital Central - Formosa",
                                             "direccion":  "Padre Patiño 1163, P3600 Formosa",
                                             "lat":  -26.188406594842355,
                                             "lng":  -58.167739064406994,
@@ -3636,7 +3636,7 @@
                                             "logo":  "LogoPin/Formosa/HospitalCentral.jpg"
                                         },
                                         {
-                                            "nombre":  "Hospital de la Madre y el Niño",
+                                            "nombre":  "Hospital de la Madre y el Niño - Formosa",
                                             "direccion":  "Córdoba 1450, P3600GIV Formosa",
                                             "lat":  -26.192385304732674,
                                             "lng":  -58.17403784165322,
@@ -3996,7 +3996,7 @@
                                                "logo":  "LogoPin/Corrientes/ClínicaMaternaldelIberá.jpg"
                                            },
                                            {
-                                               "nombre":  "Clínica del Sol",
+                                               "nombre":  "Clínica del Sol - Corrientes",
                                                "direccion":  "Medrano 1612, W3408KGD Corrientes",
                                                "lat":  -27.481386412545554,
                                                "lng":  -58.79851814048364,
@@ -4341,7 +4341,7 @@
                                                         "logo":  "LogoPin/Santiago_del_Estero/ClinicaYunes.jpg"
                                                     },
                                                     {
-                                                        "nombre":  "Sanatorio 9 de Julio",
+                                                        "nombre":  "Sanatorio 9 de Julio - Stgo. Del Estero",
                                                         "direccion":  "9 de Julio 580, G4200 Santiago del Estero",
                                                         "lat":  -27.785044202813104,
                                                         "lng":  -64.25396477207266,

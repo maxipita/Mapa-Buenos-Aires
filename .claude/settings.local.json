@@ -53,7 +53,11 @@
       "Bash(cp \"C:\\\\Users\\\\maximo.pita\\\\Desktop\\\\Presentaciones\\\\Flujo_Exclusivo_GEDYT.pptx\" \"C:\\\\Users\\\\maximo.pita\\\\Desktop\\\\Flujo_Exclusivo_GEDYT.pptx\" && echo \"✓ Archivo en Desktop\")",
       "Bash(node crear_flujo_compacto.js)",
       "Bash(powershell -Command \"\\(Get-Content DatosJson/sanatoriosArgentina.json\\) | Select-String -Pattern '\\\\\"[A-Z]' | Select-Object -First 50\")",
-      "PowerShell($json = Get-Content 'DatosJson/sanatoriosArgentina.json' -Raw | ConvertFrom-Json; $json.PSObject.Properties.Name)"
+      "PowerShell($json = Get-Content 'DatosJson/sanatoriosArgentina.json' -Raw | ConvertFrom-Json; $json.PSObject.Properties.Name)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(curl -s \"https://api.github.com/repos/maxipita/Mapa-Buenos-Aires/contents/\")",
+      "WebFetch(domain:maxipita.github.io)",
+      "Bash(awk '$1 > 1')"
     ]
   }
 }
