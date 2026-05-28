@@ -1100,8 +1100,8 @@
                                              {
                                                  "nombre":  "Hospital Municipal San Jose",
                                                  "direccion":  "Jacob 350, B2804 Campana, Provincia de Buenos Aires",
-                                                 "lat":  -34.15283930203066,
-                                                 "lng":  -58.950307613489066,
+                                                 "lat":  -34.16773798308079,
+                                                 "lng":  -58.949152919879,
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalMunicipalSanJosé.jpg",
@@ -1180,8 +1180,8 @@
                                              {
                                                  "nombre":  "Hospital Pedro T. Orellana",
                                                  "direccion":  "Castelli 150, B6400 Trenque Lauquen, Provincia de Buenos Aires",
-                                                 "lat":  -35.805715531022464,
-                                                 "lng":  -62.846588808415845,
+                                                 "lat":  -35.97453490290899,
+                                                 "lng":  -62.72838631859523,        
                                                  "tipo":  "Sanatorio",
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalPedroOrellana.jpg",
