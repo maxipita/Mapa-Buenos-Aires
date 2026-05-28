@@ -48,8 +48,9 @@
                                          "tipo":  "Centro Médico",
                                          "lat":  -34.608567994376934,
                                          "lng":  -58.428555047489475,
-                                         "imagen":  "LogoPin/CABA/Interior/InstiutoAltaComplejidad.jpg",
-                                         "logo": "LogoPin/CABA/Interior/InstiutoAltaComplejidad.jpg"
+                                         "prioridad":"blanco",
+                                         "imagen":  "LogoPin/CABA/InstiutoAltaComplejidad.jpg",
+                                         "logo": "LogoPin/CABA/InstiutoAltaComplejidad.jpg"
                                      }
                                  ]
              },
