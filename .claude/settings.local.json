@@ -40,7 +40,20 @@
       "PowerShell(Get-ChildItem \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\LogoPin\" -Recurse | ForEach-Object { $_.FullName.Replace\\(\"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\LogoPin\\\\\", \"\"\\) } | Sort-Object)",
       "PowerShell(\\(Get-Content \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\DatosJson\\\\sanatoriosArgentina.json\" | Measure-Object -Line\\).Lines)",
       "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagn�stico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\Logo\\\\Mendoza\")",
-      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagn�stico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\LogoPin\\\\Mendoza\")"
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagn�stico Susana Vighi SRL\\\\Escritorio\\\\MAP\\\\Mapa-Buenos-Aires\\\\LogoPin\\\\Mendoza\")",
+      "Bash(node create_presentation.js)",
+      "Bash(python scripts/office/soffice.py --headless --convert-to pdf Flujo_Exclusivo_GEDYT.pptx)",
+      "Bash(dir \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Mapa Caba\\\\Flujo_Exclusivo_GEDYT.pptx\")",
+      "Bash(python -m zipfile -l Flujo_Exclusivo_GEDYT.pptx)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Mapa Caba\\\\Flujo_Exclusivo_GEDYT.pptx\" -ErrorAction SilentlyContinue)",
+      "Bash(Select-Object FullName, Length)",
+      "PowerShell(\\(Get-Item \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Mapa Caba\\\\Flujo_Exclusivo_GEDYT.pptx\" -ErrorAction SilentlyContinue\\) -ne $null -and \\(Get-Item \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Mapa Caba\\\\Flujo_Exclusivo_GEDYT.pptx\"\\).FullName)",
+      "Bash(node create_presentation_single.js)",
+      "Bash(node crear_flujo.js)",
+      "Bash(cp \"C:\\\\Users\\\\maximo.pita\\\\Desktop\\\\Presentaciones\\\\Flujo_Exclusivo_GEDYT.pptx\" \"C:\\\\Users\\\\maximo.pita\\\\Desktop\\\\Flujo_Exclusivo_GEDYT.pptx\" && echo \"✓ Archivo en Desktop\")",
+      "Bash(node crear_flujo_compacto.js)",
+      "Bash(powershell -Command \"\\(Get-Content DatosJson/sanatoriosArgentina.json\\) | Select-String -Pattern '\\\\\"[A-Z]' | Select-Object -First 50\")",
+      "PowerShell($json = Get-Content 'DatosJson/sanatoriosArgentina.json' -Raw | ConvertFrom-Json; $json.PSObject.Properties.Name)"
     ]
   }
 }

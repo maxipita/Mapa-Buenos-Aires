@@ -41,6 +41,15 @@
                                          "lng":  -58.4321,
                                          "tipo":  "Centro Médico",
                                          "imagen":  "Logo/CABA/Ivi.jpg"
+                                     },
+                                     {
+                                         "nombre":  "Instituto Médico de Alta Complejidad IMAC",
+                                         "direccion":  "Av. Díaz Vélez 4363, C1200AAK Cdad. Autónoma de Buenos Aires",
+                                         "tipo":  "Centro Médico",
+                                         "lat":  -34.608567994376934,
+                                         "lng":  -58.428555047489475,
+                                         "imagen":  "LogoPin/CABA/IMAC.jpg",
+                                         "logo": "LogoPin/CABA/Interior/InstiutoAltaComplejidad.jpg"
                                      }
                                  ]
              },
@@ -896,8 +905,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Oeste/CentroMedicoItuzaingo.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Oeste/CentroMedicoItuzaingo.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Interzonal General de Agudos Dr. Oscar E. Alende",
                                                  "direccion":  "Av. Juan B. Justo 6701, B7600 Mar del Plata, Provincia de Buenos Aires",
@@ -907,8 +915,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalInterzonalGeneraldeAgudos.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalInterzonalGeneraldeAgudos.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Clinica Colon",
                                                  "direccion":  "Av. Colon 3629, B7600 Mar del Plata, Provincia de Buenos Aires",
@@ -918,8 +925,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/ClínicaColón.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/ClínicaColón.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Privado de Comunidad",
                                                  "direccion":  "Cordoba 4545, B7602 Mar del Plata, Provincia de Buenos Aires",
@@ -929,8 +935,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalPrivadodeComunidad.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalPrivadodeComunidad.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Sanatorio Belgrano",
                                                  "direccion":  "Belgrano 4329, B7600 Mar del Plata, Provincia de Buenos Aires",
@@ -940,8 +945,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/SanatorioBelgrano.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/SanatorioBelgrano.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Interzonal Dr. Jose Penna",
                                                  "direccion":  "Av. Lainez 2401, B8000 Bahia Blanca, Provincia de Buenos Aires",
@@ -951,8 +955,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalInterzonalGeneralJoséPenna.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalInterzonalGeneralJoséPenna.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Municipal de Agudos Dr. Leonidas Lucero",
                                                  "direccion":  "Estomba 968, B8000 Bahia Blanca, Provincia de Buenos Aires",
@@ -962,8 +965,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalMunicipaldeAgudos.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalMunicipaldeAgudos.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Privado Dr. Raul Matera",
                                                  "direccion":  "9 de Julio 461, B8000 Bahia Blanca, Provincia de Buenos Aires",
@@ -973,8 +975,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalPrivadoRaúlMatera.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalPrivadoRaúlMatera.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "H.I.G.A. San Martin La Plata",
                                                  "direccion":  "Av. 1 y 70, B1900 La Plata, Provincia de Buenos Aires",
@@ -984,8 +985,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/H.I.G.A.SANMARTINLAPLATA.jpeg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/H.I.G.A.SANMARTINLAPLATA.jpeg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Italiano La Plata",
                                                  "direccion":  "Av. 51, B1900AXI La Plata, Provincia de Buenos Aires",
@@ -995,8 +995,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalItalianoLaPlata.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalItalianoLaPlata.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Instituto Medico Platense",
                                                  "direccion":  "Av. 51 315, B1900AVG La Plata, Provincia de Buenos Aires",
@@ -1006,8 +1005,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/InstitutoMédicoPlatense.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/InstitutoMédicoPlatense.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Sanatorio Argentino",
                                                  "direccion":  "C. 56 874, B1900 La Plata, Provincia de Buenos Aires",
@@ -1017,8 +1015,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/SanatorioArgentino.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/SanatorioArgentino.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Ramon Santamarina S.I.S.P.",
                                                  "direccion":  "Gral. Paz 1406, B7000 Tandil, Provincia de Buenos Aires",
@@ -1028,8 +1025,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalS.I.S.P.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalS.I.S.P.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Sanatorio Tandil",
                                                  "direccion":  "Domingo Faustino Sarmiento 770, B7000 Tandil, Provincia de Buenos Aires",
@@ -1039,8 +1035,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/SanatorioTandil.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/SanatorioTandil.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Nueva Clinica Chacabuco",
                                                  "direccion":  "Chacabuco 340, B7000 Tandil, Provincia de Buenos Aires",
@@ -1050,8 +1045,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/NuevaClínicaChacabuco.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/NuevaClínicaChacabuco.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Municipal Doctor Hector M. Cura",
                                                  "direccion":  "Av. Domingo Faustino Sarmiento 2669, B7400 Olavarria, Provincia de Buenos Aires",
@@ -1061,8 +1055,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalMunicipalHectorCura.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalMunicipalHectorCura.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Clinica Maria Auxiliadora",
                                                  "direccion":  "Espana 2759, B7400 Olavarria, Provincia de Buenos Aires",
@@ -1072,8 +1065,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/ClínicaMaríaAuxiliadora.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/ClínicaMaríaAuxiliadora.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Interzonal General de Agudos Dr. Abraham Felix Pineyro",
                                                  "direccion":  "Lavalle 1084, B6000 Junin, Provincia de Buenos Aires",
@@ -1083,8 +1075,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalInterzonalGeneraldeAgudosPiñeyro.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalInterzonalGeneraldeAgudosPiñeyro.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Clinica Centro",
                                                  "direccion":  "Pres. Quintana 249, B6022 Junin, Provincia de Buenos Aires",
@@ -1094,8 +1085,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/ClínicaCentro.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/ClínicaCentro.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Sanatorio Junin",
                                                  "direccion":  "Almafuerte 68, B6000CGF Junin, Provincia de Buenos Aires",
@@ -1105,8 +1095,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/SanatorioJunín.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/SanatorioJunín.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Municipal San Jose",
                                                  "direccion":  "Jacob 350, B2804 Campana, Provincia de Buenos Aires",
@@ -1116,8 +1105,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalMunicipalSanJosé.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalMunicipalSanJosé.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Clinica Pergamino S.A.",
                                                  "direccion":  "Av. de Mayo 1115, B2700CPM Pergamino, Provincia de Buenos Aires",
@@ -1127,8 +1115,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/ClínicaPergamino.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/ClínicaPergamino.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Emilio Ferreyra",
                                                  "direccion":  "Av. 59 4801, B7630 Necochea, Provincia de Buenos Aires",
@@ -1138,8 +1125,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalMunicipalEmilioFerreyra.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalMunicipalEmilioFerreyra.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Clinica Cruz Azul",
                                                  "direccion":  "C. 60 2601, B7630GTK Necochea, Provincia de Buenos Aires",
@@ -1149,8 +1135,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/ClínicaCruzAzul.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/ClínicaCruzAzul.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Municipal Doctor Angel Pintos",
                                                  "direccion":  "Amado Diab 270, B7300 Azul, Provincia de Buenos Aires",
@@ -1160,8 +1145,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalMunicipalÁngelPintos.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalMunicipalÁngelPintos.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Clinica San Martin",
                                                  "direccion":  "San Martin 902, B7300 Azul, Provincia de Buenos Aires",
@@ -1171,8 +1155,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/Clínica San Martín.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/Clínica San Martín.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Municipal Subzonal Felipe Fossati",
                                                  "direccion":  "C. 19 926, C7620 Balcarce, Provincia de Buenos Aires",
@@ -1182,8 +1165,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalMunicipalFelipeFossati.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalMunicipalFelipeFossati.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Policlinica Privada de Balcarce",
                                                  "direccion":  "C. 28 919, B7620 Balcarce, Provincia de Buenos Aires",
@@ -1193,8 +1175,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/PoliclinicaPrivadadeBalcarce.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/PoliclinicaPrivadadeBalcarce.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Pedro T. Orellana",
                                                  "direccion":  "Castelli 150, B6400 Trenque Lauquen, Provincia de Buenos Aires",
@@ -1204,8 +1185,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalPedroOrellana.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalPedroOrellana.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Hospital Municipal Dr. Raul Caccavo",
                                                  "direccion":  "Garibaldi 599, B7540 Coronel Suarez, Provincia de Buenos Aires",
@@ -1215,8 +1195,7 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/HospitalMunicipalRaúlCaccavo.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/HospitalMunicipalRaúlCaccavo.jpg"
-                                             }
-                                             ,
+                                             },
                                              {
                                                  "nombre":  "Clinica Coronel Suarez",
                                                  "direccion":  "Av. Adolfo Alsina 335, B7540 Coronel Suarez, Provincia de Buenos Aires",
@@ -1226,6 +1205,16 @@
                                                  "prioridad":  "blanco",
                                                  "imagen":  "Logo/Buenos_Aires/Interior/ClínicaCoronelSuárez.jpg",
                                                  "logo":  "LogoPin/Buenos_Aires/Interior/ClínicaCoronelSuárez.jpg"
+                                             },
+                                             {
+                                                 "lat":  -35.392138702993257,
+                                                 "prioridad":  "blanco",
+                                                 "nombre":  "Hospital Garré",
+                                                 "imagen":  "Logo/Buenos_Aires/Interior/HospitalGarre.png",
+                                                 "logo":  "LogoPin/Buenos_Aires/Interior/HospitalGarre.jpg",
+                                                 "direccion":  "E. Y S. Garre N° 950, B6455 Carlos Tejedor, Provincia de Buenos Aires",
+                                                 "tipo":  "Sanatorio",
+                                                 "lng":  -62.42814443848296
                                              }
                                          ]
                      },
@@ -1681,6 +1670,18 @@
                                               "prioridad":  "blanco",
                                               "imagen":  "Logo/Rio_Negro/ClinicaRoca.jpg",
                                               "logo":  "LogoPin/Rio_Negro/ClinicaRoca.jpg"
+                                          },
+                                          {
+                                              "lat":  -38.934173758017835,
+                                              "prioridad":  "blanco",
+                                              "nombre":  "CENTRO DE LA MUJER",
+                                              "imagen":  "Logo/Rio_Negro/CentroDeLaMujer.jpg",
+                                              "logo":  "LogoPin/Rio_Negro/CentroDeLaMujer.jpg",
+                                              "direccion":  "Córdoba 55, R8324 Cipolletti, Río Negro",
+                                              "tipo":  "Centro Médico",
+                                              "lng":  -67.990516819452566,
+                                              "imagen":"Logo/Rio_Negro/CentroDeLaMujer.jpg",
+                                              "logo":"LogoPin/Rio_Negro/CentroDeLaMujer.jpg"
                                           }
                                       ]
                   },
@@ -2921,6 +2922,17 @@
                                           "prioridad":  "blanco",
                                           "imagen":  "Logo/Salta/CentrodeSaludN11.jpg",
                                           "logo":  "LogoPin/Salta/CentrodeSaludN11.jpg"
+                                      },
+                                      {
+                                          "lat":  -24.743966059870029,
+                                          "prioridad":  "blanco",
+                                          "nombre":  "Centro Médico San Lorenzo",
+                                          "imagen":  "Logo/Salta/ClinicaSanLoreno.jpg",
+                                          "logo":  "LogoPin/Salta/ClinicaSanLoreno.jpg",
+                                          "direccion":  "Av. San Martín 866, A4401 Villa San Lorenzo, Salta",
+                                          "tipo":  "Centro Médico",
+                                          "lng":  -65.484308735504982
+                    
                                       }
                                   ]
               },
