@@ -555,6 +555,21 @@ body {
 .zona-ba-titulo.zona-ba-activa.amba-zona-grupo-oeste,
 .zona-ba-titulo.zona-ba-activa.amba-zona-grupo-sur   { background: #e4c8f5; box-shadow: inset 3px 0 0 #7c22a0; }
 
+/* Desglose de sectores por zona */
+.zona-sector-breakdown {
+  padding: 8px 12px;
+  background-color: #f9f6fc;
+  border-left: 3px solid #d534db;
+  font-size: 12px;
+  color: #6b5b7f;
+  margin: 0 0 8px 0;
+}
+
+.zona-sector-info {
+  display: block;
+  font-weight: 500;
+}
+
 /* Lista colapsable de sanatorios por zona BA */
 .zona-ba-lista { display: none; }
 
@@ -1075,40 +1090,150 @@ body {
   margin-bottom: 2px;
 }
 
-.sector-filter-container select {
-  padding: 9px 12px 9px 40px;
+.sector-filter-buttons {
+  display: flex;
+  gap: 6px;
+  width: 100%;
+}
+
+.sector-btn {
+  flex: 1;
+  padding: 9px 12px;
   border: 2px solid #d8cce8;
   border-radius: 6px;
   font-size: 12px;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
-  width: 100%;
   background-color: white;
-  color: #2c3e50;
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a020a8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 13px;
+  color: #6b5b7f;
   transition: all 0.2s ease;
-  box-shadow: 0 2px 4px rgba(160, 32, 168, 0.08);
+  text-transform: capitalize;
 }
 
-.sector-filter-container select:hover {
+.sector-btn:hover {
   border-color: #a020a8;
-  box-shadow: 0 4px 8px rgba(160, 32, 168, 0.12);
-  background-color: #fafbff;
+  color: #a020a8;
+  box-shadow: 0 2px 6px rgba(160, 32, 168, 0.12);
 }
 
-.sector-filter-container select:focus {
-  outline: none;
+.sector-btn-active {
+  background: linear-gradient(135deg, #a020a8 0%, #d534db 100%);
+  color: white;
   border-color: #a020a8;
-  box-shadow: 0 0 0 3px rgba(160, 32, 168, 0.15);
-  background-color: #fafbff;
+  box-shadow: 0 4px 12px rgba(160, 32, 168, 0.25);
 }
 
-.sector-filter-container select option {
-  padding: 8px;
+.sector-stats {
+  display: flex;
+  gap: 12px;
+  margin: 0 0 12px 0;
+  padding: 12px;
+  background-color: #f8f4fc;
+  border-radius: 6px;
+  border: 1px solid #e8dff5;
+}
+
+.sector-stat-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.sector-stat-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #6b5b7f;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.sector-stat-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #a020a8;
+}
+
+.sector-stat-percent {
+  font-size: 11px;
+  color: #9070a8;
+  font-weight: 500;
+}
+
+/* Resumen de sanatorios en la provincia */
+.sanatorios-resumen-provincia {
+  margin: 0 0 16px 0;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #f0f4fc 0%, #f8f2fd 100%);
+  border-radius: 8px;
+  border: 1.5px solid #e8dff5;
+}
+
+.sanatorios-resumen-titulo {
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b5b7f;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(160, 32, 168, 0.1);
+}
+
+.sanatorios-resumen-contenido {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sanatorios-resumen-total {
+  font-size: 13px;
   color: #2c3e50;
-  background-color: white;
+  font-weight: 500;
+}
+
+.sanatorios-resumen-total strong {
+  color: #a020a8;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.sanatorios-resumen-desglose {
+  display: flex;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.sanatorios-resumen-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 3px;
+  padding: 6px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 6px;
+}
+
+.sanatorios-resumen-label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #6b5b7f;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+}
+
+.sanatorios-resumen-valor {
+  font-size: 16px;
+  font-weight: 700;
+  color: #a020a8;
+}
+
+.sanatorios-resumen-porcentaje {
+  font-size: 10px;
+  color: #9070a8;
+  font-weight: 500;
 }

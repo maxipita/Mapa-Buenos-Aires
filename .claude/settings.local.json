@@ -62,7 +62,13 @@
       "Bash(Select-Object FullName)",
       "Bash(node -c mapa.js)",
       "Bash(timeout 5 python -m http.server 8080)",
-      "mcp__Claude_Preview__preview_start"
+      "mcp__Claude_Preview__preview_start",
+      "Bash(curl -s \"https://docs.google.com/spreadsheets/d/1LWynrRdnZSB9kaYPBZsRtswAAHDJIQHDwrRRdR2jwa8/gviz/tq?tqx=out:csv&gid=269143430\")",
+      "Bash(node actualizarSector.js)",
+      "Bash(curl -s http://localhost:8080/)",
+      "Bash(pkill -f \"python -m http.server 8080\")",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "Bash(curl -s http://localhost:3000/)"
     ]
   }
 }

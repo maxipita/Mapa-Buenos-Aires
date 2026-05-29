@@ -312,7 +312,48 @@ function cargarDatosExternos() {
         }
       });
     });
+
+    // Asignar sector por defecto a todas las localidades que no lo tengan
+    asignarSectorPorDefecto();
   });
+}
+
+function asignarSectorPorDefecto() {
+  // CABA
+  Object.values(comunasData).forEach(comuna => {
+    (comuna.localidades || []).forEach(loc => {
+      if (!loc.sector) loc.sector = "privado";
+    });
+  });
+
+  // AMBA
+  Object.values(partidosData).forEach(partido => {
+    (partido.localidades || []).forEach(loc => {
+      if (!loc.sector) loc.sector = "privado";
+    });
+  });
+
+  // ARGENTINA
+  Object.values(provinciasData).forEach(provincia => {
+    (provincia.localidades || []).forEach(loc => {
+      if (!loc.sector) loc.sector = "privado";
+    });
+  });
+
+  // EXPANSIÓN
+  Object.values(provinciasDataExpansion).forEach(provincia => {
+    (provincia.localidades || []).forEach(loc => {
+      if (!loc.sector) loc.sector = "privado";
+    });
+  });
+}
+
+function aseguraSectorEnLocalidades(localidades) {
+  // Asegurar que cada localidad tenga un sector asignado
+  return localidades.map(loc => ({
+    ...loc,
+    sector: loc.sector || "privado"
+  }));
 }
 
 // ============================================
@@ -478,6 +519,7 @@ let flechaZoomListener = null;
 let comunaSeleccionadaId = null;
 let partidoSeleccionadoId = null;
 let provinciaSeleccionadaId = null;
+let provinciaAnteriorId = null;
 let _provinciaCentroLatLng = null;   // centro geométrico de la provincia seleccionada
 let infoWindowGlobal = null;
 let categoriaActiva = null;
@@ -976,6 +1018,10 @@ function aplicarFiltroSector(valor) {
   filtroSectorActivo = valor || null;
   const provinciaId = provinciaSeleccionadaId;
   if (provinciaId) {
+    // Limpiar marcadores antes de recrear con nuevo filtro
+    marcadoresActivos.forEach(m => m.setMap(null));
+    marcadoresActivos = [];
+
     mostrarInfoPanelProvincia(provinciaId);
   }
 }
@@ -2020,7 +2066,6 @@ function seleccionarProvincia(provinciaId) {
   });
 
   mostrarInfoPanelProvincia(provinciaId);
-  agregarMarcadores(filtrarPorCategoria(todasLasLocalidades));
 }
 
 function getLocalidadesDeProvincia(provinciaId) {
@@ -2039,7 +2084,11 @@ function getLocalidadesDeProvincia(provinciaId) {
 }
 
 function mostrarInfoPanelProvincia(provinciaId) {
-  resetFiltroSector();
+  // Solo resetear el filtro si cambió de provincia
+  if (provinciaAnteriorId !== provinciaId) {
+    resetFiltroSector();
+    provinciaAnteriorId = provinciaId;
+  }
 
   const provincia = getProvinciasDataActivo()[provinciaId];
   const localidades = getLocalidadesDeProvincia(provinciaId);
@@ -2189,7 +2238,10 @@ function mostrarInfoPanelProvincia(provinciaId) {
           caps,
           facturacion: facTotal,
           poblacion: pobTotal || 0,
-          nombreProvincia: nombre
+          nombreProvincia: nombre,
+          sanatoriosPrivados: conteoSector.privado,
+          sanatoriosPublicos: conteoSector.publico,
+          sanatoriosTotal: conteoSector.privado + conteoSector.publico
         };
         return `
           <div class="cliente-sheet-item" onclick="abrirInfoClienteSheet('${id}')" style="cursor:pointer;">
@@ -2210,21 +2262,68 @@ function mostrarInfoPanelProvincia(provinciaId) {
       </div>`;
   }
 
-  // Construir HTML del selector de filtro con porcentajes
+  // Construir HTML del filtro de sector con botones tipo tabs
   const totalLocales = locOrdenadas.length;
-  const pctPrivado = totalLocales > 0 ? Math.round((conteoSector.privado / totalLocales) * 100) : 0;
-  const pctPublico = totalLocales > 0 ? Math.round((conteoSector.publico / totalLocales) * 100) : 0;
+
+  // Calcular porcentajes
+  const totalSectores = conteoSector.privado + conteoSector.publico;
+  const porcentajePrivado = totalSectores > 0 ? ((conteoSector.privado / totalSectores) * 100).toFixed(1) : 0;
+  const porcentajePublico = totalSectores > 0 ? ((conteoSector.publico / totalSectores) * 100).toFixed(1) : 0;
+
+  // Resumen de sanatorios en la provincia para sección de clientes
+  const sanatoriosResumenHtml = `
+    <div class="sanatorios-resumen-provincia">
+      <div class="sanatorios-resumen-titulo">📊 Sanatorios en esta provincia</div>
+      <div class="sanatorios-resumen-contenido">
+        <div class="sanatorios-resumen-total">Total: <strong>${totalSectores}</strong> sanatorios</div>
+        <div class="sanatorios-resumen-desglose">
+          <div class="sanatorios-resumen-item">
+            <span class="sanatorios-resumen-label">Privados:</span>
+            <span class="sanatorios-resumen-valor">${conteoSector.privado}</span>
+            <span class="sanatorios-resumen-porcentaje">${porcentajePrivado}%</span>
+          </div>
+          <div class="sanatorios-resumen-item">
+            <span class="sanatorios-resumen-label">Públicos:</span>
+            <span class="sanatorios-resumen-valor">${conteoSector.publico}</span>
+            <span class="sanatorios-resumen-porcentaje">${porcentajePublico}%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
 
   const filtroHtml = totalLocales > 0 ? `
     <div class="sector-filter-container">
       <label>Filtrar por sector:</label>
-      <select id="filtroSector" onchange="aplicarFiltroSector(event.target.value)">
-        <option value="">Mostrar todos (${totalLocales})</option>
-        <option value="privado">Solo privados (${conteoSector.privado}) ${pctPrivado}%</option>
-        <option value="publico">Solo públicos (${conteoSector.publico}) ${pctPublico}%</option>
-      </select>
+      <div class="sector-filter-buttons">
+        <button class="sector-btn ${!filtroSectorActivo ? 'sector-btn-active' : ''}" onclick="aplicarFiltroSector('')">
+          Todo
+        </button>
+        <button class="sector-btn ${filtroSectorActivo === 'privado' ? 'sector-btn-active' : ''}" onclick="aplicarFiltroSector('privado')">
+          Privado
+        </button>
+        <button class="sector-btn ${filtroSectorActivo === 'publico' ? 'sector-btn-active' : ''}" onclick="aplicarFiltroSector('publico')">
+          Público
+        </button>
+      </div>
     </div>
   ` : "";
+
+  // HTML de estadísticas de sector
+  const sectorStatsHtml = `
+    <div class="sector-stats">
+      <div class="sector-stat-item">
+        <span class="sector-stat-label">Privados:</span>
+        <span class="sector-stat-value">${conteoSector.privado}</span>
+        <span class="sector-stat-percent">${porcentajePrivado}%</span>
+      </div>
+      <div class="sector-stat-item">
+        <span class="sector-stat-label">Públicos:</span>
+        <span class="sector-stat-value">${conteoSector.publico}</span>
+        <span class="sector-stat-percent">${porcentajePublico}%</span>
+      </div>
+    </div>
+  `;
 
   let localidadesHtml = "";
   if (locFiltradasPorSector.length === 0) {
@@ -2247,7 +2346,17 @@ function mostrarInfoPanelProvincia(provinciaId) {
         ? `amba-zona-grupo-titulo amba-zona-grupo-${key}`
         : `amba-zona-grupo-titulo ba-interior-titulo`;
       const total = grupos[key].length;
+
+      // Calcular privados y públicos para esta zona
+      const zonaPrivados = grupos[key].filter(loc => (loc.sector || "privado") === "privado").length;
+      const zonaPublicos = grupos[key].filter(loc => (loc.sector || "privado") === "publico").length;
+      const porcentajeZonaPrivado = total > 0 ? ((zonaPrivados / total) * 100).toFixed(1) : 0;
+      const porcentajeZonaPublico = total > 0 ? ((zonaPublicos / total) * 100).toFixed(1) : 0;
+
+      const sectorInfoHtml = `<span class="zona-sector-info">Privados: ${zonaPrivados} (${porcentajeZonaPrivado}%) | Públicos: ${zonaPublicos} (${porcentajeZonaPublico}%)</span>`;
+
       localidadesHtml += `<div class="${claseBase} zona-ba-titulo" data-zona="${key}" style="cursor:pointer;" onclick="resaltarZonaBA('${key}')">${label} <span class="zona-ba-total">(${total})</span> <span class="zona-ba-flecha">▶</span></div>`;
+      localidadesHtml += `<div class="zona-sector-breakdown">${sectorInfoHtml}</div>`;
       localidadesHtml += `<div id="zona-lista-${key}" class="zona-ba-lista">`;
       localidadesHtml += grupos[key].map(renderLoc).join("");
       localidadesHtml += `</div>`;
@@ -2268,10 +2377,31 @@ function mostrarInfoPanelProvincia(provinciaId) {
       ${facHtml}
     </div>
     ${filtroHtml}
-    ${clientesSheet.length > 0 ? `<div class="seccion-titulo">Clientes en esta provincia</div>${clientesHtml}` : ""}
+    <div class="seccion-titulo">Clientes en esta provincia</div>
+    ${clientesSheet.length > 0 ? clientesHtml : ""}
     ${locFiltradasPorSector.length > 0 ? `<div class="seccion-titulo">${seccionLabel}</div>` : ""}
     ${localidadesHtml}
   `;
+
+  // Obtener todas las localidades sin filtro de sector para los pins
+  const datosParaPins = getProvinciasDataActivo();
+  const todasLasLocalidadesParaPins = [];
+  const vistasParaPins = new Set();
+  const grupoParaPins = getGrupoProvincias(provinciaId);
+  grupoParaPins.forEach(id => {
+    const prov = datosParaPins[id];
+    if (prov && Array.isArray(prov.localidades)) {
+      prov.localidades.forEach(loc => {
+        if (!vistasParaPins.has(loc.nombre)) {
+          vistasParaPins.add(loc.nombre);
+          todasLasLocalidadesParaPins.push(loc);
+        }
+      });
+    }
+  });
+
+  // Agregar marcadores al mapa
+  agregarMarcadores(filtrarPorCategoria(todasLasLocalidadesParaPins));
 
   abrirPanelMobile();
 }
@@ -2511,6 +2641,7 @@ function volverAlListado() {
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
   provinciaSeleccionadaId = null;
+  provinciaAnteriorId = null;
   sectorSeleccionadoId = null;
   _provinciaCentroLatLng = null;
   resetFiltroSector();
@@ -2696,11 +2827,20 @@ function crearIconoPin(logoUrl, borderColor, callback) {
 // AGREGAR MARCADORES AL MAPA
 // ============================================
 function agregarMarcadores(localidades) {
-  if (localidades.length === 0) return;
+  // Filtrar por sector si hay un filtro activo
+  let localidadesFiltradas = localidades;
+  if (filtroSectorActivo) {
+    localidadesFiltradas = localidades.filter(loc => {
+      const sector = loc.sector || "privado";
+      return sector === filtroSectorActivo;
+    });
+  }
+
+  if (localidadesFiltradas.length === 0) return;
 
   const vistas = new Set();
   const pares = [];
-  localidades.forEach(loc => {
+  localidadesFiltradas.forEach(loc => {
     const logoUrl = loc.logo || "logo_vighi.png";
     const color = getColorPorPrioridad(loc.prioridad);
     const key = logoUrl + "\0" + color;
@@ -2712,7 +2852,7 @@ function agregarMarcadores(localidades) {
 
   const paresNuevos = pares.filter(({ key }) => !iconCache[key]);
   if (paresNuevos.length === 0) {
-    _colocarMarcadores(localidades, iconCache);
+    _colocarMarcadores(localidadesFiltradas, iconCache);
     return;
   }
 
@@ -2727,7 +2867,7 @@ function agregarMarcadores(localidades) {
       };
       pendientes--;
       if (pendientes === 0) {
-        _colocarMarcadores(localidades, iconCache);
+        _colocarMarcadores(localidadesFiltradas, iconCache);
       }
     });
   });
@@ -2876,12 +3016,29 @@ function abrirInfoClienteSheet(id) {
       <strong class="popup-nombre">${data.nombre}</strong>
       ${data.tipo ? `<p class="popup-direccion">${data.tipo}</p>` : ""}
       ${pobStr ? `<p class="popup-direccion" style="color:#6a0dad;font-weight:600;margin-top:2px;">${pobStr}</p>` : ""}
-      ${data.eficiencia || data.caps || data.facturacion ? `
+      ${data.eficiencia || data.caps || data.facturacion || data.sanatoriosTotal ? `
         <button class="popup-btn-desglose" onclick="toggleDesglose(this)">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
         <div id="nomDesglose" class="popup-desglose">
           ${data.eficiencia ? `<div class="cliente-sheet-label" style="margin-top:8px;color:#1a1a1a;">Eficiencia</div><div class="cliente-sheet-caps">${data.eficiencia}</div>` : ""}
           ${data.caps ? `<div class="cliente-sheet-label" style="margin-top:8px;color:#1a1a1a;">Capacidad instalada</div><div class="cliente-sheet-caps">${data.caps}</div>` : ""}
           ${data.facturacion ? `<div class="cliente-sheet-facturacion" style="margin-top:8px;">💰 ${data.facturacion}</div>` : ""}
+          ${data.sanatoriosTotal ? `
+            <div class="cliente-sheet-label" style="margin-top:8px;color:#1a1a1a;">Sanatorios en esta provincia</div>
+            <div class="cliente-sheet-sanatorios">
+              <div style="display:flex;gap:8px;font-size:12px;margin-top:6px;">
+                <div style="flex:1;text-align:center;padding:6px;background:#f0f4fc;border-radius:4px;">
+                  <div style="color:#6b5b7f;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.2px;">Privados</div>
+                  <div style="color:#a020a8;font-weight:700;font-size:16px;margin-top:2px;">${data.sanatoriosPrivados}</div>
+                  <div style="color:#9070a8;font-size:10px;margin-top:2px;">${data.sanatoriosTotal > 0 ? ((data.sanatoriosPrivados / data.sanatoriosTotal) * 100).toFixed(1) : 0}%</div>
+                </div>
+                <div style="flex:1;text-align:center;padding:6px;background:#f0f4fc;border-radius:4px;">
+                  <div style="color:#6b5b7f;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.2px;">Públicos</div>
+                  <div style="color:#a020a8;font-weight:700;font-size:16px;margin-top:2px;">${data.sanatoriosPublicos}</div>
+                  <div style="color:#9070a8;font-size:10px;margin-top:2px;">${data.sanatoriosTotal > 0 ? ((data.sanatoriosPublicos / data.sanatoriosTotal) * 100).toFixed(1) : 0}%</div>
+                </div>
+              </div>
+            </div>
+          ` : ""}
         </div>
       ` : ""}
     </div>
