@@ -1,0 +1,520 @@
+{
+  "faltanAgregar": [
+    {
+      "nombre": "Hospital Italiano de Buenos Aires",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital Alemán",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital Británico de Buenos Aires",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Sanatorio Mater Dei",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Sanatorio Güemes",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Fundación Favaloro",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Instituto Argentino de Diagnóstico y Tratamiento (IADT)",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "CEMIC Sede Saavedra",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Sanatorio de los Arcos",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Clínica Bazterrica",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Sanatorio Colegiales",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Sanatorio Sagrado Corazón",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Sanatorio Dr. Julio Méndez (ObSBA)",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Sanatorio Dupuytren",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital Español de Buenos Aires",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Clínica Santa Isabel",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Clínica Adventista Belgrano",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Clínica San Camilo",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Clínica de los Virreyes",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "FLENI Belgrano",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Instituto Alexander Fleming",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital de Clínicas José de San Martín",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Cosme Argerich",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Carlos Durand",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Juan A. Fernández",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Parmenio Piñero",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Ignacio Pirovano",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos José María Ramos Mejía",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Bernardino Rivadavia",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Donación F. Santojanni",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. José María Penna",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Teodoro Álvarez",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Enrique Tornú",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dalmacio Vélez Sarsfield",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Abel Zubizarreta",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Agudos Dra. Cecilia Grierson",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital Materno Infantil Ramón Sardá",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital de Pediatría Dr. Juan P. Garrahan",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital General de Niños Pedro de Elizalde",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital de Niños Ricardo Gutiérrez",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital Militar Central",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital Naval Buenos Aires",
+      "provincia": "CABA",
+      "tipo": "Sanatorio",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Instituto de Oncología Ángel H. Roffo",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital de Gastroenterología Dr. Carlos B. Udaondo",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Hospital Municipal de Oncología Marie Curie",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "publico",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "CEGYR Medicina y Reproducción",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Pregna Medicina Reproductiva",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Procrearte CABA",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "IVI Buenos Aires",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Centro Rossi",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    },
+    {
+      "nombre": "Diagnóstico Médico S.A.",
+      "provincia": "CABA",
+      "tipo": "Centro Médico",
+      "sector": "privado",
+      "lat": null,
+      "lng": null,
+      "direccion": "",
+      "imagen": ""
+    }
+  ],
+  "notas": "Este archivo contiene 32 direcciones que necesitan ser completadas con:\n- Dirección completa\n- Coordenadas de latitud y longitud\n- Ruta de imagen/logo",
+  "resumen": {
+    "total": 32,
+    "privados": 22,
+    "publicos": 10
+  }
+}

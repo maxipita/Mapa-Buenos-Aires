@@ -57,6 +57,501 @@
         "imagen": "LogoPin/CABA/InstiutoAltaComplejidad.jpg",
         "logo": "LogoPin/CABA/InstiutoAltaComplejidad.jpg",
         "sector": "privado"
+      },
+      {
+        "nombre": "SANATORIO FINOCHIETTO",
+        "direccion": "Av. Córdoba 2678, C1046 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5979,
+        "lng": -58.4055,
+        "tipo": "Centro Médico",
+        "imagen": "Imagenes/SANATORIO_FINOCHIETTO.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Clínica Zabala Swiss Medical",
+        "direccion": "Av. Cabildo 1295, C1426AAM Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5671,
+        "lng": -58.4497,
+        "tipo": "Sanatorio",
+        "imagen": "Imagenes/zabala.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Sanatorio Anchorena Recoleta",
+        "direccion": "Dr. Tomás Manuel de Anchorena 1872, C1425 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5889,
+        "lng": -58.4001,
+        "tipo": "Centro Médico",
+        "imagen": "Imagenes/anchorena.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Sanatorio de La Trinidad Mitre",
+        "direccion": "Bartolomé Mitre 2553, C1039 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6078,
+        "lng": -58.4025,
+        "tipo": "Sanatorio",
+        "imagen": "Imagenes/trinidad_mitre.jpeg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Hospital Italiano de Buenos Aires",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Hospital Alemán",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Hospital Británico de Buenos Aires",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Sanatorio Mater Dei",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Sanatorio Güemes",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Fundación Favaloro",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Instituto Argentino de Diagnóstico y Tratamiento (IADT)",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "CEMIC Sede Saavedra",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Sanatorio de los Arcos",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Clínica Bazterrica",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Sanatorio Colegiales",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Sanatorio Sagrado Corazón",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Sanatorio Dr. Julio Méndez (ObSBA)",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Sanatorio Dupuytren",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Hospital Español de Buenos Aires",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Clínica Santa Isabel",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Clínica Adventista Belgrano",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Clínica San Camilo",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Clínica de los Virreyes",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "FLENI Belgrano",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Instituto Alexander Fleming",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Hospital de Clínicas José de San Martín",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dr. Cosme Argerich",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dr. Carlos Durand",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dr. Juan A. Fernández",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dr. Parmenio Piñero",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dr. Ignacio Pirovano",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos José María Ramos Mejía",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Bernardino Rivadavia",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Donación F. Santojanni",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dr. José María Penna",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dr. Teodoro Álvarez",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dr. Enrique Tornú",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dalmacio Vélez Sarsfield",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dr. Abel Zubizarreta",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Agudos Dra. Cecilia Grierson",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital Materno Infantil Ramón Sardá",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital de Pediatría Dr. Juan P. Garrahan",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital General de Niños Pedro de Elizalde",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital de Niños Ricardo Gutiérrez",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital Militar Central",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital Naval Buenos Aires",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Sanatorio",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Instituto de Oncología Ángel H. Roffo",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital de Gastroenterología Dr. Carlos B. Udaondo",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "Hospital Municipal de Oncología Marie Curie",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "publico"
+      },
+      {
+        "nombre": "CEGYR Medicina y Reproducción",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Pregna Medicina Reproductiva",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Procrearte CABA",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "IVI Buenos Aires",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Centro Rossi",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
+      },
+      {
+        "nombre": "Diagnóstico Médico S.A.",
+        "direccion": "",
+        "lat": -34.6037,
+        "lng": -58.3816,
+        "tipo": "Centro Médico",
+        "imagen": "LogoPin/CABA/Default.jpg",
+        "sector": "privado"
       }
     ]
   },
