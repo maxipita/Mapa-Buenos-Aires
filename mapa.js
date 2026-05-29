@@ -157,11 +157,15 @@ function cargarDesdeSheetsArgentina() {
           { tipo: "total facturado",codigo: "Facturación estimada",cantidad: row[COL.facturacion] || "-" },
         ];
 
-        // Buscar la localidad en el JSON por nombre y actualizar sus nomencladores
+        // Buscar la localidad en el JSON por nombre y actualizar sus nomencladores y sector
         const key = normalizarNombre(nombre);
         const loc = indicePorNombre[key];
+        const sectorValue = (row[COL.sector] || "").toLowerCase().trim();
         if (loc) {
           loc.nomencladores = nomencladores;
+          if (sectorValue) {
+            loc.sector = sectorValue === "público" ? "publico" : "privado";
+          }
         } else {
           // Si no está en el JSON todavía, lo ignoramos (el usuario lo cargará a mano)
           console.info("Sheet: sin match en JSON para →", nombre);
@@ -478,6 +482,7 @@ let _provinciaCentroLatLng = null;   // centro geométrico de la provincia selec
 let infoWindowGlobal = null;
 let categoriaActiva = null;
 let regionActiva = null;
+let filtroSectorActivo = null;
 let geojsonCargados = 0;
 const provinciasData = {};
 const provinciasDataExpansion = {};
@@ -521,6 +526,11 @@ const CATEGORIAS = {
     label: "Consultorios Externos",
     tipos: ["Consultorio"]
   }
+};
+
+const SECTORES = {
+  privado: { label: "Privado", color: "#3498db" },
+  publico: { label: "Público", color: "#e74c3c" }
 };
 
 let ESTILO_BASE;
@@ -837,6 +847,13 @@ function filtrarPorCategoria(localidades) {
   return localidades.filter(loc => tipos.includes(loc.tipo));
 }
 
+function filtrarPorSector(localidades) {
+  if (!filtroSectorActivo) return localidades;
+  return localidades.filter(loc =>
+    (loc.sector || "privado") === filtroSectorActivo
+  );
+}
+
 function seleccionarCategoria(cat, region) {
   categoriaActiva = cat;
   regionActiva = region || null;
@@ -952,6 +969,22 @@ function abrirPanelMobile() {
 function togglePanelMobile() {
   if (esMobile()) {
     document.getElementById("sidePanel").classList.toggle("panel-abierto");
+  }
+}
+
+function aplicarFiltroSector(valor) {
+  filtroSectorActivo = valor || null;
+  const provinciaId = provinciaSeleccionadaId;
+  if (provinciaId) {
+    mostrarInfoPanelProvincia(provinciaId);
+  }
+}
+
+function resetFiltroSector() {
+  filtroSectorActivo = null;
+  const selectElement = document.getElementById("filtroSector");
+  if (selectElement) {
+    selectElement.value = "";
   }
 }
 
@@ -2006,6 +2039,8 @@ function getLocalidadesDeProvincia(provinciaId) {
 }
 
 function mostrarInfoPanelProvincia(provinciaId) {
+  resetFiltroSector();
+
   const provincia = getProvinciasDataActivo()[provinciaId];
   const localidades = getLocalidadesDeProvincia(provinciaId);
 
@@ -2045,6 +2080,18 @@ function mostrarInfoPanelProvincia(provinciaId) {
     : "";
 
   const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+
+  // Calcular totales por sector ANTES de filtrar
+  const conteoSector = { privado: 0, publico: 0 };
+  locOrdenadas.forEach(loc => {
+    const sector = loc.sector || "privado";
+    if (conteoSector.hasOwnProperty(sector)) {
+      conteoSector[sector]++;
+    }
+  });
+
+  // Aplicar filtro de sector
+  const locFiltradasPorSector = filtrarPorSector(locOrdenadas);
 
   // Para Buenos Aires: clasificar por zona AMBA (Norte/Oeste/Sur) o Interior
   function getZonaLocalidad(loc) {
@@ -2163,13 +2210,31 @@ function mostrarInfoPanelProvincia(provinciaId) {
       </div>`;
   }
 
+  // Construir HTML del selector de filtro con porcentajes
+  const totalLocales = locOrdenadas.length;
+  const pctPrivado = totalLocales > 0 ? Math.round((conteoSector.privado / totalLocales) * 100) : 0;
+  const pctPublico = totalLocales > 0 ? Math.round((conteoSector.publico / totalLocales) * 100) : 0;
+
+  const filtroHtml = totalLocales > 0 ? `
+    <div class="sector-filter-container">
+      <label>Filtrar por sector:</label>
+      <select id="filtroSector" onchange="aplicarFiltroSector(event.target.value)">
+        <option value="">Mostrar todos (${totalLocales})</option>
+        <option value="privado">Solo privados (${conteoSector.privado}) ${pctPrivado}%</option>
+        <option value="publico">Solo públicos (${conteoSector.publico}) ${pctPublico}%</option>
+      </select>
+    </div>
+  ` : "";
+
   let localidadesHtml = "";
-  if (locOrdenadas.length === 0) {
-    localidadesHtml = `<p class="sin-datos">Sin localidades registradas para esta provincia.</p>`;
+  if (locFiltradasPorSector.length === 0) {
+    localidadesHtml = filtroSectorActivo
+      ? `<p class="sin-datos">Sin localidades en el sector seleccionado.</p>`
+      : `<p class="sin-datos">Sin localidades registradas para esta provincia.</p>`;
   } else if (provinciaId === "BUENOS AIRES") {
-    // Agrupar por zona AMBA
+    // Agrupar por zona AMBA (usando localidades ya filtradas por sector)
     const grupos = { norte: [], oeste: [], sur: [], interior: [] };
-    locOrdenadas.forEach(loc => { grupos[getZonaLocalidad(loc)].push(loc); });
+    locFiltradasPorSector.forEach(loc => { grupos[getZonaLocalidad(loc)].push(loc); });
     const ZONA_CFG = [
       { key: "norte",    label: "ZONA NORTE",    cls: "amba-zona-norte" },
       { key: "oeste",    label: "ZONA OESTE",    cls: "amba-zona-oeste" },
@@ -2188,7 +2253,7 @@ function mostrarInfoPanelProvincia(provinciaId) {
       localidadesHtml += `</div>`;
     });
   } else {
-    localidadesHtml = locOrdenadas.map(renderLoc).join("");
+    localidadesHtml = locFiltradasPorSector.map(renderLoc).join("");
   }
 
   const seccionLabel = categoriaActiva === "consultorios" ? "Consultorios" : "Sanatorios";
@@ -2202,8 +2267,9 @@ function mostrarInfoPanelProvincia(provinciaId) {
       ${pobHtml}
       ${facHtml}
     </div>
+    ${filtroHtml}
     ${clientesSheet.length > 0 ? `<div class="seccion-titulo">Clientes en esta provincia</div>${clientesHtml}` : ""}
-    ${locOrdenadas.length > 0 ? `<div class="seccion-titulo">${seccionLabel}</div>` : ""}
+    ${locFiltradasPorSector.length > 0 ? `<div class="seccion-titulo">${seccionLabel}</div>` : ""}
     ${localidadesHtml}
   `;
 
@@ -2447,6 +2513,7 @@ function volverAlListado() {
   provinciaSeleccionadaId = null;
   sectorSeleccionadoId = null;
   _provinciaCentroLatLng = null;
+  resetFiltroSector();
 
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];

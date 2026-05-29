@@ -1039,3 +1039,76 @@ body {
 .pob-prest-total {
   background: #6a0dad;
 }
+
+/* ============================================
+   SECTOR FILTER - PÚBLICO/PRIVADO
+   ============================================ */
+.sector-filter-container {
+  margin: 0 0 16px 0;
+  padding: 12px 14px;
+  background: linear-gradient(135deg, #f8f4fc 0%, #faf7fd 100%);
+  border-radius: 8px;
+  border: 1.5px solid #e8dff5;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: visible;
+}
+
+.sector-filter-container::before {
+  content: '🔍';
+  font-size: 13px;
+  opacity: 0.7;
+  position: absolute;
+  left: 14px;
+  top: 12px;
+}
+
+.sector-filter-container label {
+  font-weight: 700;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b5b7f;
+  padding-left: 20px;
+  margin-bottom: 2px;
+}
+
+.sector-filter-container select {
+  padding: 9px 12px 9px 40px;
+  border: 2px solid #d8cce8;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  background-color: white;
+  color: #2c3e50;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a020a8' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 13px;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(160, 32, 168, 0.08);
+}
+
+.sector-filter-container select:hover {
+  border-color: #a020a8;
+  box-shadow: 0 4px 8px rgba(160, 32, 168, 0.12);
+  background-color: #fafbff;
+}
+
+.sector-filter-container select:focus {
+  outline: none;
+  border-color: #a020a8;
+  box-shadow: 0 0 0 3px rgba(160, 32, 168, 0.15);
+  background-color: #fafbff;
+}
+
+.sector-filter-container select option {
+  padding: 8px;
+  color: #2c3e50;
+  background-color: white;
+}

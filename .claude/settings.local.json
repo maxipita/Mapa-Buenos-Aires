@@ -57,7 +57,12 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(curl -s \"https://api.github.com/repos/maxipita/Mapa-Buenos-Aires/contents/\")",
       "WebFetch(domain:maxipita.github.io)",
-      "Bash(awk '$1 > 1')"
+      "Bash(awk '$1 > 1')",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Mapa Caba\" -Recurse -Include \"*.js\",\"*.html\",\"*.json\" -File)",
+      "Bash(Select-Object FullName)",
+      "Bash(node -c mapa.js)",
+      "Bash(timeout 5 python -m http.server 8080)",
+      "mcp__Claude_Preview__preview_start"
     ]
   }
 }
