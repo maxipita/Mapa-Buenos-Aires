@@ -3024,6 +3024,14 @@ function _colocarMarcadores(localidades, iconCache) {
 function centrarEnMarcador(lat, lng) {
   map.setCenter({ lat, lng });
   map.setZoom(16);
+  // Abrir el InfoWindow del marker en esas coordenadas
+  setTimeout(() => {
+    const marcador = marcadoresActivos.find(m => {
+      const pos = m.getPosition();
+      return Math.abs(pos.lat() - lat) < 0.0001 && Math.abs(pos.lng() - lng) < 0.0001;
+    });
+    if (marcador) google.maps.event.trigger(marcador, "click");
+  }, 300);
 }
 
 // Panea el mapa para que el InfoWindow quede completamente visible en pantalla
