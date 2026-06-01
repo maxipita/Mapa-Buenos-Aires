@@ -2996,18 +2996,13 @@ function _colocarMarcadores(localidades, iconCache) {
                 else grupos.otros.push(n);
               });
               let html = "";
-              if (grupos.eficiencia.length) {
-                html += `<div class="popup-seccion-titulo">Eficiencia</div><table class="popup-tabla"><tbody>`;
-                grupos.eficiencia.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
-                html += `</tbody></table>`;
-              }
               if (grupos.capacidad.length) {
                 html += `<div class="popup-seccion-titulo">Capacidad instalada</div><table class="popup-tabla"><tbody>`;
                 grupos.capacidad.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
                 html += `</tbody></table>`;
               }
               if (grupos.volumen.length) {
-                html += `<div class="popup-seccion-titulo">Volúmenes M-P</div><table class="popup-tabla"><tbody>`;
+                html += `<div class="popup-seccion-titulo">Volumen</div><table class="popup-tabla"><tbody>`;
                 grupos.volumen.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
                 html += `</tbody></table>`;
               }
