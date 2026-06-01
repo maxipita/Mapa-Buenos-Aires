@@ -86,23 +86,9 @@ function recalcularFacturacionTotalArgentina() {
   });
   window._facturacionTotalArgentinaActual = facturacionTotalArgentina;
 
-  // Buscar el elemento donde va la facturación y agregar el HTML
-  const pobLista = document.querySelector('.pob-lista');
-  if (pobLista && pobLista.parentElement) {
-    const facargStr = facturacionTotalArgentina > 0
-      ? `<div style="font-size:11px;margin-top:5px;width:100%;display:flex;justify-content:space-between;align-items:center;"><span style="display:flex;align-items:center;gap:4px;">💰 <strong>Facturación total:</strong></span><span style="color:#27ae60;font-weight:600;">USD ${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>`
-      : "";
-
-    // Buscar si ya existe y actualizar, o insertar nuevo
-    const existente = pobLista.parentElement.querySelector('[data-facturacion="argentina"]');
-    if (existente) {
-      existente.innerHTML = facargStr;
-    } else {
-      const div = document.createElement('div');
-      div.setAttribute('data-facturacion', 'argentina');
-      div.innerHTML = facargStr;
-      pobLista.after(div);
-    }
+  // Si estamos viendo Argentina, reconstruir el menú
+  if (regionActiva === "argentina") {
+    seleccionarMenu();
   }
 
   return facturacionTotalArgentina;
