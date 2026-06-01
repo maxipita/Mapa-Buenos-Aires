@@ -1320,7 +1320,8 @@ function initMap() {
   argentinaDataLayer = new google.maps.Data();
 
   cargarDatosExternos().then(function () {
-    cargarDesdeSheetsArgentina();
+    return cargarDesdeSheetsArgentina();
+  }).then(function () {
     cargarGeoJSON();
     cargarGeoJSONAmba();
     // Argentina se cargará bajo demanda (lazy loading) cuando el usuario lo seleccione
