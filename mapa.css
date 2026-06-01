@@ -1055,6 +1055,56 @@ body {
   background: #6a0dad;
 }
 
+/* ── Card Argentina ── */
+.pob-argentina-card {
+  background: #ffffff;
+  border: 1.5px solid #d4a8f0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(160, 32, 168, 0.08);
+}
+
+.pob-argentina-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pob-argentina-titulo {
+  font-size: 15px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.pob-argentina-pob {
+  font-size: 13px;
+  color: #7f8c8d;
+  font-variant-numeric: tabular-nums;
+}
+
+.pob-argentina-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ede0f9;
+}
+
+.pob-argentina-fac-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #8e44ad;
+}
+
+.pob-argentina-fac-valor {
+  font-size: 14px;
+  font-weight: 700;
+  color: #27ae60;
+  font-variant-numeric: tabular-nums;
+}
 
 /* ============================================
    SECTOR FILTER - PÚBLICO/PRIVADO
