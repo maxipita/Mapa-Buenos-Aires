@@ -1187,15 +1187,19 @@ function mostrarTodasLasLocalidades() {
 
     const filaArgentina = `
       <div class="pob-row pob-row-total">
-        <span class="pob-nombre"><strong>🗺️Argentina</strong></span>
-        <span class="pob-numero"><strong>${formatPoblacion(pobTotalArg)}</strong></span>
-        ${totalArg > 0 ? `<span class="pob-prest pob-prest-total">${totalArg} prest.</span>` : ""}
-      </div>
-      ${facturacionTotalArgentina > 0 ? `
-      <div class="pob-row pob-row-facturacion">
-        <span class="pob-facturacion-label">💰 Total facturado:</span>
-        <span class="pob-facturacion-valor">USD ${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-      </div>` : ""}`;
+        <div style="width: 100%;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+            <span class="pob-nombre"><strong>🗺️Argentina</strong></span>
+            <span class="pob-numero"><strong>${formatPoblacion(pobTotalArg)}</strong></span>
+            ${totalArg > 0 ? `<span class="pob-prest pob-prest-total">${totalArg} prest.</span>` : ""}
+          </div>
+          ${facturacionTotalArgentina > 0 ? `
+          <div style="display: flex; align-items: center; gap: 8px; font-size: 12px;">
+            <span style="font-weight: 600; color: #333;">💰 Total facturado:</span>
+            <span style="font-weight: 700; color: #2e7d32; font-variant-numeric: tabular-nums;">USD ${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+          </div>` : ""}
+        </div>
+      </div>`;
 
     // Ranking de población — CABA y Buenos Aires por separado
     const pobRanking = Object.keys(POBLACION_ARGENTINA)
