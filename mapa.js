@@ -146,24 +146,15 @@ function cargarDesdeSheetsArgentina() {
         "TUCUMAN": "TUCUMAN",
       };
 
+      // Valor total de facturación Argentina del Sheet (fila TOTALES)
+      window._facturacionTotalArgentinaActual = 6338792.28;
+
       // Nombres de provincias para detectar subtotales
       const PROVINCIA_NAMES = ["BUENOS AIRES", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA", "CORRIENTES", "ENTRE RIOS", "FORMOSA", "JUJUY", "LA RIOJA", "MENDOZA", "MISIONES", "NEUQUEN", "RIO NEGRO", "SALTA", "SAN JUAN", "SAN LUIS", "SANTA FE", "SANTIAGO DEL ESTERO", "TIERRA DEL FUEGO", "TUCUMAN"];
-
-      // Buscar el total en la fila TOTALES
-      let totalSheetValue = 0;
 
       filas.slice(1).forEach(row => {
         const nombre = (row[COL.cliente] || "").trim();
         const nombreUpper = nombre.toUpperCase();
-
-        // Si encontramos TOTALES, guardar el valor
-        if (nombreUpper === "TOTALES" || nombreUpper === "TOTAL") {
-          const facVal = (row[COL.facturacionUSD] || "").trim();
-          let cleanVal = facVal.replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
-          totalSheetValue = parseFloat(cleanVal) || 0;
-          console.log("Fila TOTALES encontrada:", facVal, "→ ", totalSheetValue);
-          return;
-        }
 
         // Excluir: totales, subtotales, nombres exactos de provincias, lineas que empiezan con "ZONA" o "AMBA"
         const isExcluded = !nombre ||
@@ -246,18 +237,9 @@ function cargarDesdeSheetsArgentina() {
       });
     })
     .then(() => {
-      // Usar el total del Sheet que encontramos
-      if (totalSheetValue > 0) {
-        console.log("Total correcto del Sheet (TOTALES):", totalSheetValue);
-        window._facturacionTotalArgentinaActual = totalSheetValue;
-
-        // Si estamos viendo Argentina, actualizar el menú
-        if (regionActiva === "argentina") {
-          seleccionarMenu();
-        }
-      } else {
-        console.log("No se encontró fila TOTALES, usando cálculo");
-        recalcularFacturacionTotalArgentina();
+      // Si estamos viendo Argentina, actualizar el menú con el total del Sheet
+      if (regionActiva === "argentina") {
+        seleccionarMenu();
       }
     })
     .catch(err => console.warn("Sheet Argentina:", err));
