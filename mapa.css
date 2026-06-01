@@ -1055,14 +1055,44 @@ body {
   background: #6a0dad;
 }
 
-.pob-facturacion-info {
-  width: 100%;
-  font-size: 11px;
-  color: #27ae60;
+.pob-argentina-container.pob-row-total {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 8px;
+}
+
+.pob-argentina-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pob-argentina-facturacion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(160, 32, 168, 0.15);
+}
+
+.pob-fac-icon {
+  font-size: 16px;
+}
+
+.pob-fac-label {
+  font-size: 12px;
   font-weight: 600;
-  margin-top: 4px;
-  padding-top: 4px;
-  border-top: 1px solid rgba(160, 32, 168, 0.2);
+  color: #555;
+}
+
+.pob-fac-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #27ae60;
+  font-variant-numeric: tabular-nums;
+  margin-left: auto;
 }
 
 /* ============================================
