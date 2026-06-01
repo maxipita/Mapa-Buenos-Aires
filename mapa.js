@@ -148,7 +148,8 @@ function cargarDesdeSheetsArgentina() {
 
       filas.slice(1).forEach(row => {
         const nombre = (row[COL.cliente] || "").trim();
-        if (!nombre || nombre.toUpperCase() === "TOTAL") return;
+        // Excluir filas de totales y subtotales
+        if (!nombre || /TOTAL|SUBTOTAL|^ZONA|^AMBA/i.test(nombre.toUpperCase())) return;
 
         const zona = (row[COL.zona] || "").toUpperCase().trim();
 
