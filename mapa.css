@@ -1027,6 +1027,115 @@ body {
     top: 12px;
     right: 10px;
   }
+
+  /* Panel body scroll */
+  .panel-body {
+    padding: 12px 14px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Sector filter */
+  .sector-filter-container {
+    padding: 10px 12px;
+  }
+
+  .sector-filter-buttons {
+    gap: 6px;
+  }
+
+  .sector-btn {
+    padding: 6px 10px;
+    font-size: 12px;
+  }
+
+  /* Cards de Argentina */
+  .pob-argentina-card {
+    padding: 10px 12px;
+  }
+
+  .pob-argentina-titulo {
+    font-size: 14px;
+  }
+
+  .pob-argentina-fac-valor {
+    font-size: 12px;
+  }
+
+  /* Localidades */
+  .localidad-item {
+    padding: 10px 12px;
+  }
+
+  .localidad-item strong {
+    font-size: 13px;
+  }
+
+  /* Popup marcador */
+  .popup-container {
+    max-width: 260px;
+  }
+
+  .popup-nombre {
+    font-size: 14px;
+  }
+
+  /* Sector stats */
+  .sector-stats {
+    gap: 8px;
+  }
+
+  /* Pob row */
+  .pob-row {
+    padding: 5px 6px;
+    gap: 6px;
+  }
+
+  .pob-nombre {
+    font-size: 12px;
+  }
+
+  .pob-numero {
+    font-size: 11px;
+  }
+
+  .pob-prest {
+    font-size: 10px;
+    padding: 1px 5px;
+  }
+
+  /* Menu inicio */
+  .menu-inicio-card {
+    margin: 0 12px;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  /* Categoria bar */
+  .categoria-bar {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  /* Buscar */
+  .search-input {
+    font-size: 13px;
+  }
+
+  /* Tabla desglose */
+  .popup-tabla {
+    font-size: 11px;
+  }
+
+  .popup-seccion-titulo {
+    font-size: 9px;
+  }
+
+  .popup-seccion-total-vol,
+  .popup-seccion-fac {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
 }
 
 /* ============================================
