@@ -149,7 +149,11 @@ function cargarDesdeSheetsArgentina() {
       filas.slice(1).forEach(row => {
         const nombre = (row[COL.cliente] || "").trim();
         // Excluir filas de totales y subtotales
-        if (!nombre || /TOTAL|SUBTOTAL|^ZONA|^AMBA/i.test(nombre.toUpperCase())) return;
+        const isExcluded = !nombre || /TOTAL|SUBTOTAL|^ZONA|^AMBA/i.test(nombre.toUpperCase());
+        if (isExcluded) {
+          if (nombre) console.log("EXCLUIDO:", nombre);
+          return;
+        }
 
         const zona = (row[COL.zona] || "").toUpperCase().trim();
 
