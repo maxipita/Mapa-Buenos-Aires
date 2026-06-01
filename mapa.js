@@ -210,17 +210,17 @@ function cargarDesdeSheetsArgentina() {
         }
 
         // Agregar también a clientesProvinciasSheets para cálculo de facturación
-        const provinciaDestino = zona === "PROVINCIAS"
+        const provDestino = zona === "PROVINCIAS"
           ? (CLIENTE_A_PROVINCIA[nombre.toUpperCase()] || nombre.toUpperCase())
           : ZONA_A_GEOJSON[zona] || null;
 
-        if (provinciaDestino) {
-          if (!clientesProvinciasSheets[provinciaDestino]) clientesProvinciasSheets[provinciaDestino] = [];
-          const yaExiste = clientesProvinciasSheets[provinciaDestino].some(
+        if (provDestino) {
+          if (!clientesProvinciasSheets[provDestino]) clientesProvinciasSheets[provDestino] = [];
+          const yaExiste = clientesProvinciasSheets[provDestino].some(
             x => normalizarNombre(x.nombre) === normalizarNombre(nombre)
           );
           if (!yaExiste) {
-            clientesProvinciasSheets[provinciaDestino].push({
+            clientesProvinciasSheets[provDestino].push({
               nombre,
               tipo: (row[COL.tipo] || "").trim(),
               qx: row[COL.qx] || "", amb: row[COL.amb] || "",
