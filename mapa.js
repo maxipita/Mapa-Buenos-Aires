@@ -146,10 +146,19 @@ function cargarDesdeSheetsArgentina() {
         "TUCUMAN": "TUCUMAN",
       };
 
+      // Nombres de provincias para detectar subtotales
+      const PROVINCIA_NAMES = ["BUENOS AIRES", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA", "CORRIENTES", "ENTRE RIOS", "FORMOSA", "JUJUY", "LA RIOJA", "MENDOZA", "MISIONES", "NEUQUEN", "RIO NEGRO", "SALTA", "SAN JUAN", "SAN LUIS", "SANTA FE", "SANTIAGO DEL ESTERO", "TIERRA DEL FUEGO", "TUCUMAN"];
+
       filas.slice(1).forEach(row => {
         const nombre = (row[COL.cliente] || "").trim();
-        // Excluir filas de totales y subtotales
-        const isExcluded = !nombre || /TOTAL|SUBTOTAL|^ZONA|^AMBA/i.test(nombre.toUpperCase());
+        const nombreUpper = nombre.toUpperCase();
+
+        // Excluir: totales, subtotales, nombres exactos de provincias, lineas que empiezan con "ZONA" o "AMBA"
+        const isExcluded = !nombre ||
+          /TOTAL|SUBTOTAL/i.test(nombreUpper) ||
+          PROVINCIA_NAMES.includes(nombreUpper) ||
+          /^ZONA|^AMBA/i.test(nombreUpper);
+
         if (isExcluded) {
           if (nombre) console.log("EXCLUIDO:", nombre);
           return;
