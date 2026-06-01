@@ -1356,6 +1356,115 @@ body {
 }
 
 /* ============================================
+   MULTI-SELECCIÓN DE PROVINCIAS
+   ============================================ */
+.multi-seleccion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  gap: 8px;
+}
+
+.multi-seleccion-hint {
+  font-size: 11px;
+  color: #999;
+}
+
+.btn-multi-seleccion {
+  background: white;
+  border: 1.5px solid #a020a8;
+  color: #a020a8;
+  border-radius: 20px;
+  padding: 5px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.btn-multi-seleccion:hover {
+  background: #f0e4f7;
+}
+
+.btn-multi-activo {
+  background: #a020a8 !important;
+  color: white !important;
+}
+
+.barra-multi-container {
+  background: #faf4fd;
+  border: 1.5px solid #d4a8f0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-bottom: 14px;
+}
+
+.multi-barra-provincias {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.multi-hint {
+  font-size: 12px;
+  color: #aaa;
+  font-style: italic;
+}
+
+.multi-chip {
+  background: #a020a8;
+  color: white;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.multi-barra-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-top: 1px solid #e8d5f5;
+  margin-bottom: 8px;
+}
+
+.multi-total-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #555;
+}
+
+.multi-total-valor {
+  font-size: 15px;
+  font-weight: 700;
+  color: #27ae60;
+  font-variant-numeric: tabular-nums;
+}
+
+.multi-btn-limpiar {
+  background: none;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: #888;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.multi-btn-limpiar:hover {
+  border-color: #a020a8;
+  color: #a020a8;
+  background: #faf0fb;
+}
+
+/* ============================================
    SECTOR FILTER - PÚBLICO/PRIVADO
    ============================================ */
 .sector-filter-container {

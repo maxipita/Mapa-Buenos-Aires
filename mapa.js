@@ -593,6 +593,10 @@ let partidoSeleccionadoId = null;
 let provinciaSeleccionadaId = null;
 let provinciaAnteriorId = null;
 let _provinciaCentroLatLng = null;   // centro geométrico de la provincia seleccionada
+
+// ── Multi-selección de provincias ──
+let modoMultiSeleccion = false;
+let provinciasSeleccionadas = new Set(); // IDs de provincias seleccionadas
 let infoWindowGlobal = null;
 let categoriaActiva = null;
 let regionActiva = null;
@@ -1219,6 +1223,13 @@ function mostrarTodasLasLocalidades() {
 
     let htmlArg = `
       ${filaArgentina}
+      <div class="multi-seleccion-header">
+        <span class="multi-seleccion-hint">Seleccioná provincias para ver sus totales</span>
+        <button id="btn-multi-seleccion" class="btn-multi-seleccion ${modoMultiSeleccion ? 'btn-multi-activo' : ''}" onclick="toggleModoMultiSeleccion()">
+          ${modoMultiSeleccion ? '✕ Salir' : '⊕ Comparar'}
+        </button>
+      </div>
+      ${modoMultiSeleccion ? `<div id="barra-multi" class="barra-multi-container"></div>` : ''}
       <div class="region-subtitulo">📊 Población por provincia</div>
       <div class="pob-subtitulo">Censo 2022 · Hacé click en una provincia con prestadores</div>
       <div class="pob-lista">${pobRanking}</div>
@@ -1232,6 +1243,7 @@ function mostrarTodasLasLocalidades() {
     }
 
     panelBody.innerHTML = htmlArg;
+    if (modoMultiSeleccion) mostrarBarraMultiSeleccion();
     return;
   }
 
@@ -2042,9 +2054,129 @@ function getGrupoProvincias(provinciaId) {
 }
 
 // ============================================
+// MULTI-SELECCIÓN DE PROVINCIAS
+// ============================================
+function toggleModoMultiSeleccion() {
+  modoMultiSeleccion = !modoMultiSeleccion;
+  provinciasSeleccionadas.clear();
+  actualizarBotonMultiSeleccion();
+  ocultarBarraMultiSeleccion();
+
+  // Resetear estilos
+  if (argentinaDataLayer) {
+    argentinaDataLayer.setStyle(feature => estiloArgentina(feature, false));
+  }
+
+  // Si desactivamos, volver al panel normal
+  if (!modoMultiSeleccion) {
+    seleccionarMenu();
+  }
+}
+
+function actualizarBotonMultiSeleccion() {
+  const btn = document.getElementById('btn-multi-seleccion');
+  if (!btn) return;
+  if (modoMultiSeleccion) {
+    btn.classList.add('btn-multi-activo');
+    btn.textContent = '✕ Salir';
+  } else {
+    btn.classList.remove('btn-multi-activo');
+    btn.textContent = '⊕ Comparar';
+  }
+}
+
+function actualizarEstilosMultiSeleccion() {
+  if (!argentinaDataLayer) return;
+  argentinaDataLayer.setStyle(feature => {
+    const id = getProvinciaId(feature);
+    return estiloArgentina(feature, provinciasSeleccionadas.has(id));
+  });
+}
+
+function calcularTotalMultiSeleccion() {
+  let total = 0;
+  provinciasSeleccionadas.forEach(id => {
+    (clientesProvinciasSheets[id] || []).forEach(c => {
+      const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
+      const val = parseFloat(raw);
+      if (!isNaN(val) && val > 0) total += val;
+    });
+    // Fallback a nomencladores JSON si no hay Sheet
+    if (!(clientesProvinciasSheets[id] || []).length) {
+      const datos = getProvinciasDataActivo();
+      ((datos[id] || {}).localidades || []).forEach(loc => {
+        (loc.nomencladores || []).forEach(n => {
+          if (n.tipo === "total facturado") {
+            const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
+            if (!isNaN(val)) total += val;
+          }
+        });
+      });
+    }
+  });
+  return total;
+}
+
+function mostrarBarraMultiSeleccion() {
+  let barra = document.getElementById('barra-multi');
+  if (!barra) {
+    barra = document.createElement('div');
+    barra.id = 'barra-multi';
+    document.getElementById('panelBody').prepend(barra);
+  }
+
+  const nombres = Array.from(provinciasSeleccionadas).map(id => {
+    return PROVINCIAS_DISPLAY[id] || toTitleCase(id);
+  });
+
+  const total = calcularTotalMultiSeleccion();
+  const totalStr = total > 0
+    ? `USD ${total.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    : "Sin datos";
+
+  barra.innerHTML = `
+    <div class="multi-barra-provincias">
+      ${nombres.length === 0
+        ? `<span class="multi-hint">Hacé click en las provincias para seleccionarlas</span>`
+        : nombres.map(n => `<span class="multi-chip">${n}</span>`).join("")}
+    </div>
+    ${nombres.length > 0 ? `
+    <div class="multi-barra-total">
+      <span class="multi-total-label">💰 Total seleccionado:</span>
+      <span class="multi-total-valor">${totalStr}</span>
+    </div>
+    <button class="multi-btn-limpiar" onclick="limpiarMultiSeleccion()">Limpiar selección</button>
+    ` : ""}
+  `;
+}
+
+function ocultarBarraMultiSeleccion() {
+  const barra = document.getElementById('barra-multi');
+  if (barra) barra.remove();
+}
+
+function limpiarMultiSeleccion() {
+  provinciasSeleccionadas.clear();
+  actualizarEstilosMultiSeleccion();
+  mostrarBarraMultiSeleccion();
+}
+
+// ============================================
 // SELECCIONAR PROVINCIA (ARGENTINA)
 // ============================================
 function seleccionarProvincia(provinciaId) {
+  // Si estamos en modo multi-selección, toggle la provincia
+  if (modoMultiSeleccion) {
+    if (provinciasSeleccionadas.has(provinciaId)) {
+      provinciasSeleccionadas.delete(provinciaId);
+    } else {
+      provinciasSeleccionadas.add(provinciaId);
+    }
+    actualizarEstilosMultiSeleccion();
+    mostrarBarraMultiSeleccion();
+    return;
+  }
+
   const yaSeleccionada = provinciaSeleccionadaId === provinciaId;
   provinciaSeleccionadaId = provinciaId;
   comunaSeleccionadaId = null;
