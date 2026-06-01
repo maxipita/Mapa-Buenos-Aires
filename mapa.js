@@ -80,7 +80,12 @@ function recalcularFacturacionTotalArgentina() {
   let facturacionTotalArgentina = 0;
   Object.values(clientesProvinciasSheets).forEach(clientes => {
     clientes.forEach(c => {
-      const val = parseFloat((c.facturacion || "").replace(/[^0-9.]/g, ""));
+      // Limpiar: eliminar "U$S", espacios, y comas (separadores de miles)
+      let cleanVal = (c.facturacion || "")
+        .replace(/U\$S/g, "")      // Elimina U$S
+        .replace(/\s/g, "")         // Elimina espacios
+        .replace(/,/g, "");         // Elimina comas (separadores de miles)
+      const val = parseFloat(cleanVal);
       if (!isNaN(val)) facturacionTotalArgentina += val;
     });
   });
