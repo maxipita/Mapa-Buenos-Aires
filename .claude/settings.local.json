@@ -68,7 +68,14 @@
       "Bash(curl -s http://localhost:8080/)",
       "Bash(pkill -f \"python -m http.server 8080\")",
       "mcp__Claude_in_Chrome__list_connected_browsers",
-      "Bash(curl -s http://localhost:3000/)"
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(git push *)",
+      "Bash(git pull *)",
+      "Bash(git revert *)",
+      "Bash(node -e \"const d = require\\('./DatosJson/sanatoriosArgentina.json'\\); const ba = d['BUENOS AIRES']; console.log\\('BA localidades:', ba ? ba.localidades.length : 0\\); if\\(ba\\) console.log\\('Primeros 3:', JSON.stringify\\(ba.localidades.slice\\(0,3\\), null, 2\\)\\);\")",
+      "Bash(node -e \"const d = require\\('./DatosJson/sanatoriosArgentina.json'\\); console.log\\('Claves:', Object.keys\\(d\\).slice\\(0,10\\)\\);\")",
+      "Bash(node -e \"require\\('./mapa.js'\\)\")",
+      "Bash(node --check mapa.js)"
     ]
   }
 }
