@@ -106,7 +106,7 @@ function cargarDesdeSheetsArgentina() {
       const filas = parsearCSVSheets(texto);
       if (filas.length < 2) return;
 
-      const COL = { cliente:0, zona:1, tipo:2, sector:3, qx:4, amb:5, salaEndo:6, ce:7, qx2:8, amb2:9, salaEndo2:10, ce2:11, facturacionUSD:18 };
+      const COL = { cliente:0, zona:1, tipo:2, sector:3, qx:4, amb:5, salaEndo:6, ce:7, qx2:8, amb2:9, salaEndo2:10, ce2:11, volQx:12, volAmb:13, volSalaEndo:14, volCe:15, volTotal:16, facturacionUSD:18 };
 
       // Construir índice de localidades de provinciasData por nombre normalizado
       const indicePorNombre = {};
@@ -185,15 +185,20 @@ function cargarDesdeSheetsArgentina() {
           : ZONA_A_GEOJSON[zona] || null;
 
         const nomencladores = [
-          { tipo: "eficiencia",     codigo: "QX",                  cantidad: row[COL.qx]       || "-" },
-          { tipo: "eficiencia",     codigo: "AMB",                 cantidad: row[COL.amb]      || "-" },
-          { tipo: "eficiencia",     codigo: "SALA/ENDO",           cantidad: row[COL.salaEndo] || "-" },
-          { tipo: "eficiencia",     codigo: "CE",                  cantidad: row[COL.ce]       || "-" },
-          { tipo: "capacidad",      codigo: "QX",                  cantidad: row[COL.qx2]      || "0" },
-          { tipo: "capacidad",      codigo: "AMB",                 cantidad: row[COL.amb2]     || "0" },
-          { tipo: "capacidad",      codigo: "SALA/ENDO",           cantidad: row[COL.salaEndo2]|| "0" },
-          { tipo: "capacidad",      codigo: "CE",                  cantidad: row[COL.ce2]      || "0" },
-          { tipo: "total facturado",codigo: "Facturación estimada USD",cantidad: row[COL.facturacionUSD] || "-" },
+          { tipo: "eficiencia",     codigo: "QX",                       cantidad: row[COL.qx]          || "-" },
+          { tipo: "eficiencia",     codigo: "AMB",                      cantidad: row[COL.amb]         || "-" },
+          { tipo: "eficiencia",     codigo: "SALA/ENDO",                cantidad: row[COL.salaEndo]    || "-" },
+          { tipo: "eficiencia",     codigo: "CE",                       cantidad: row[COL.ce]          || "-" },
+          { tipo: "capacidad",      codigo: "QX",                       cantidad: row[COL.qx2]         || "0" },
+          { tipo: "capacidad",      codigo: "AMB",                      cantidad: row[COL.amb2]        || "0" },
+          { tipo: "capacidad",      codigo: "SALA/ENDO",                cantidad: row[COL.salaEndo2]   || "0" },
+          { tipo: "capacidad",      codigo: "CE",                       cantidad: row[COL.ce2]         || "0" },
+          { tipo: "volumen",        codigo: "QX",                       cantidad: row[COL.volQx]       || "0" },
+          { tipo: "volumen",        codigo: "AMB",                      cantidad: row[COL.volAmb]      || "0" },
+          { tipo: "volumen",        codigo: "SALA/ENDO",                cantidad: row[COL.volSalaEndo] || "0" },
+          { tipo: "volumen",        codigo: "CE",                       cantidad: row[COL.volCe]       || "0" },
+          { tipo: "volumen total",  codigo: "Total por dirección",      cantidad: row[COL.volTotal]    || "0" },
+          { tipo: "total facturado",codigo: "Facturación estimada USD", cantidad: row[COL.facturacionUSD] || "-" },
         ];
 
         // Buscar la localidad en el JSON por nombre y actualizar sus nomencladores y sector
@@ -2983,25 +2988,53 @@ function _colocarMarcadores(localidades, iconCache) {
           ${loc.nomencladores && loc.nomencladores.length ? `
           <button class="popup-btn-desglose" onclick="toggleDesglose(this)">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
           <div id="nomDesglose" class="popup-desglose">
-            <table class="popup-tabla">
-              <thead>
-                <tr>
-                  <th>Nomenclador</th>
-                  <th>Cantidad</th>
-                  ${regionActiva !== 'argentina' ? '<th>Facturado</th>' : ''}
-                </tr>
-              </thead>
-              <tbody>
-                ${loc.nomencladores.map(n => {
-                  const esTotal = n.tipo && (n.tipo.toLowerCase() === "total" || n.tipo.toLowerCase() === "total facturado");
-                  const esTotalFacturado = n.tipo && n.tipo.toLowerCase() === "total facturado";
-                  const etiqueta = n.tipo && n.tipo.toLowerCase() === "presencia" ? "Presencia Patólogo" : n.tipo && n.tipo.toLowerCase() === "total" ? "Total" : n.codigo;
-                  const facturado = n.facturado || (esTotalFacturado ? n.cantidad : "");
-                  const cantidadCell = esTotalFacturado ? (regionActiva === 'argentina' ? facturado : "") : n.cantidad;
-                  return `<tr${esTotal ? ' class="popup-fila-total"' : ""}><td>${etiqueta}</td><td>${cantidadCell}</td>${regionActiva !== 'argentina' ? `<td>${facturado}</td>` : ''}</tr>`;
-                }).join("")}
-              </tbody>
-            </table>
+            ${(() => {
+              const grupos = { eficiencia: [], capacidad: [], volumen: [], "volumen total": [], "total facturado": [], otros: [] };
+              (loc.nomencladores || []).forEach(n => {
+                const t = (n.tipo || "").toLowerCase();
+                if (grupos[t]) grupos[t].push(n);
+                else grupos.otros.push(n);
+              });
+              let html = "";
+              if (grupos.eficiencia.length) {
+                html += `<div class="popup-seccion-titulo">Eficiencia</div><table class="popup-tabla"><tbody>`;
+                grupos.eficiencia.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
+                html += `</tbody></table>`;
+              }
+              if (grupos.capacidad.length) {
+                html += `<div class="popup-seccion-titulo">Capacidad instalada</div><table class="popup-tabla"><tbody>`;
+                grupos.capacidad.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
+                html += `</tbody></table>`;
+              }
+              if (grupos.volumen.length) {
+                html += `<div class="popup-seccion-titulo">Volúmenes M-P</div><table class="popup-tabla"><tbody>`;
+                grupos.volumen.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
+                html += `</tbody></table>`;
+              }
+              if (grupos["volumen total"].length) {
+                grupos["volumen total"].forEach(n => {
+                  if (n.cantidad && n.cantidad !== "0") {
+                    html += `<div class="popup-seccion-total-vol">📊 Volúmenes totales por dirección: <strong>${n.cantidad}</strong></div>`;
+                  }
+                });
+              }
+              if (grupos["total facturado"].length) {
+                grupos["total facturado"].forEach(n => {
+                  if (n.cantidad && n.cantidad !== "-") {
+                    html += `<div class="popup-seccion-fac">💰 Facturación estimada: <strong>${n.cantidad}</strong></div>`;
+                  }
+                });
+              }
+              grupos.otros.forEach(n => {
+                const esTotal = n.tipo && (n.tipo.toLowerCase() === "total" || n.tipo.toLowerCase() === "total facturado");
+                const esTotalFacturado = n.tipo && n.tipo.toLowerCase() === "total facturado";
+                const etiqueta = n.tipo && n.tipo.toLowerCase() === "presencia" ? "Presencia Patólogo" : n.tipo && n.tipo.toLowerCase() === "total" ? "Total" : n.codigo;
+                const facturado = n.facturado || (esTotalFacturado ? n.cantidad : "");
+                const cantidadCell = esTotalFacturado ? (regionActiva === 'argentina' ? facturado : "") : n.cantidad;
+                html += `<table class="popup-tabla"><tbody><tr${esTotal ? ' class="popup-fila-total"' : ""}><td>${etiqueta}</td><td>${cantidadCell}</td>${regionActiva !== 'argentina' ? `<td>${facturado}</td>` : ''}</tr></tbody></table>`;
+              });
+              return html;
+            })()}
           </div>
           ` : ""}
         </div>
