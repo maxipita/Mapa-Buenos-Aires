@@ -115,7 +115,11 @@ function cargarDesdeSheetsArgentina() {
       const CLIENTE_A_PROVINCIA = {
         "AMBA TOTAL": "BUENOS AIRES",
       };
-      const ZONA_A_GEOJSON = {};
+      const ZONA_A_GEOJSON = {
+        "AMBA NORTE": "BUENOS AIRES",
+        "AMBA OESTE": "BUENOS AIRES",
+        "AMBA SUR": "BUENOS AIRES",
+      };
 
       filas.slice(1).forEach(row => {
         const nombre = (row[COL.cliente] || "").trim();
