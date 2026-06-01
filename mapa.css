@@ -1055,6 +1055,16 @@ body {
   background: #6a0dad;
 }
 
+.pob-facturacion {
+  font-size: 11px;
+  background: #e8f5e9;
+  color: #2e7d32;
+  border-radius: 10px;
+  padding: 1px 7px;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
 /* ============================================
    SECTOR FILTER - PÚBLICO/PRIVADO
    ============================================ */

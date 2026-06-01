@@ -1138,10 +1138,10 @@ function mostrarTodasLasLocalidades() {
     let facturacionTotalArgentina = window._facturacionTotalArgentinaActual || 0;
 
     const facArgStr = facturacionTotalArgentina > 0
-      ? `<div style="font-size:11px;margin-top:5px;width:100%;display:flex;justify-content:space-between;align-items:center;"><span style="display:flex;align-items:center;gap:4px;">💰 <strong>Facturación total:</strong></span><span style="color:#27ae60;font-weight:600;">USD ${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>`
+      ? `<span class="pob-facturacion">💰 USD ${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`
       : "";
     const filaArgentina = `
-      <div class="pob-row pob-row-total" style="flex-wrap:wrap;">
+      <div class="pob-row pob-row-total">
         <span class="pob-nombre"><strong>🗺️Argentina</strong></span>
         <span class="pob-numero"><strong>${formatPoblacion(pobTotalArg)}</strong></span>
         ${totalArg > 0 ? `<span class="pob-prest pob-prest-total">${totalArg} prest.</span>` : ""}
