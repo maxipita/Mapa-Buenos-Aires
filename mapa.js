@@ -1186,9 +1186,9 @@ function mostrarTodasLasLocalidades() {
       <div class="pob-argentina-card">
         <div class="pob-argentina-top">
           <span class="pob-argentina-titulo">🗺️ Argentina</span>
-          <span class="pob-argentina-pob">${formatPoblacion(pobTotalArg)} hab.</span>
-          ${totalArg > 0 ? `<span class="pob-prest pob-prest-total">${totalArg} prest.</span>` : ""}
+          ${totalArg > 0 ? `<span class="pob-prest pob-prest-total pob-argentina-prest">${totalArg} prest.</span>` : ""}
         </div>
+        <div class="pob-argentina-pob">${formatPoblacion(pobTotalArg)} hab.</div>
         ${facturacionTotalArgentina > 0 ? `
         <div class="pob-argentina-bottom">
           <span class="pob-argentina-fac-label">💰 Total facturado</span>

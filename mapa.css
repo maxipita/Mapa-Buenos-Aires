@@ -1068,8 +1068,7 @@ body {
 .pob-argentina-top {
   display: flex;
   align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .pob-argentina-titulo {
@@ -1078,10 +1077,15 @@ body {
   color: #2c3e50;
 }
 
+.pob-argentina-prest {
+  margin-left: auto;
+}
+
 .pob-argentina-pob {
   font-size: 13px;
   color: #7f8c8d;
   font-variant-numeric: tabular-nums;
+  margin-top: 4px;
 }
 
 .pob-argentina-bottom {
