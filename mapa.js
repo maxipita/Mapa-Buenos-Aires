@@ -184,28 +184,6 @@ function cargarDesdeSheetsArgentina() {
           ? (CLIENTE_A_PROVINCIA[nombre.toUpperCase()] || nombre.toUpperCase())
           : ZONA_A_GEOJSON[zona] || null;
 
-        if (provinciaDestino) {
-          if (!clientesProvinciasSheets[provinciaDestino]) clientesProvinciasSheets[provinciaDestino] = [];
-          const yaExiste = clientesProvinciasSheets[provinciaDestino].some(
-            x => normalizarNombre(x.nombre) === normalizarNombre(nombre)
-          );
-          if (yaExiste) return;
-          clientesProvinciasSheets[provinciaDestino].push({
-            nombre,
-            tipo: (row[COL.tipo] || "").trim(),
-            qx:        row[COL.qx]        || "",
-            amb:       row[COL.amb]       || "",
-            salaEndo:  row[COL.salaEndo]  || "",
-            ce:        row[COL.ce]        || "",
-            qx2:       row[COL.qx2]       || "",
-            amb2:      row[COL.amb2]      || "",
-            salaEndo2: row[COL.salaEndo2] || "",
-            ce2:       row[COL.ce2]       || "",
-            facturacion: row[COL.facturacionUSD] || "",
-          });
-          return;
-        }
-
         const nomencladores = [
           { tipo: "eficiencia",     codigo: "QX",                  cantidad: row[COL.qx]       || "-" },
           { tipo: "eficiencia",     codigo: "AMB",                 cantidad: row[COL.amb]      || "-" },
@@ -228,8 +206,30 @@ function cargarDesdeSheetsArgentina() {
             loc.sector = sectorValue === "público" ? "publico" : "privado";
           }
         } else {
-          // Si no está en el JSON todavía, lo ignoramos (el usuario lo cargará a mano)
           console.info("Sheet: sin match en JSON para →", nombre);
+        }
+
+        // Agregar también a clientesProvinciasSheets para cálculo de facturación
+        const provinciaDestino = zona === "PROVINCIAS"
+          ? (CLIENTE_A_PROVINCIA[nombre.toUpperCase()] || nombre.toUpperCase())
+          : ZONA_A_GEOJSON[zona] || null;
+
+        if (provinciaDestino) {
+          if (!clientesProvinciasSheets[provinciaDestino]) clientesProvinciasSheets[provinciaDestino] = [];
+          const yaExiste = clientesProvinciasSheets[provinciaDestino].some(
+            x => normalizarNombre(x.nombre) === normalizarNombre(nombre)
+          );
+          if (!yaExiste) {
+            clientesProvinciasSheets[provinciaDestino].push({
+              nombre,
+              tipo: (row[COL.tipo] || "").trim(),
+              qx: row[COL.qx] || "", amb: row[COL.amb] || "",
+              salaEndo: row[COL.salaEndo] || "", ce: row[COL.ce] || "",
+              qx2: row[COL.qx2] || "", amb2: row[COL.amb2] || "",
+              salaEndo2: row[COL.salaEndo2] || "", ce2: row[COL.ce2] || "",
+              facturacion: row[COL.facturacionUSD] || "",
+            });
+          }
         }
       });
     })
