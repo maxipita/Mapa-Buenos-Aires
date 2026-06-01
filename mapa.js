@@ -195,6 +195,18 @@ function cargarDesdeSheetsArgentina() {
       });
     })
     .then(() => {
+      // Debug: ver qué se cargó
+      console.log("clientesProvinciasSheets:", clientesProvinciasSheets);
+      let totalDebug = 0;
+      Object.values(clientesProvinciasSheets).forEach(clientes => {
+        clientes.forEach(c => {
+          console.log("Cliente:", c.nombre, "Facturación:", c.facturacion);
+          const val = parseFloat((c.facturacion || "").replace(/[^0-9.]/g, ""));
+          totalDebug += isNaN(val) ? 0 : val;
+        });
+      });
+      console.log("Total facturación calculado:", totalDebug);
+
       // Recalcular facturación después de cargar el Sheet
       recalcularFacturacionTotalArgentina();
     })
