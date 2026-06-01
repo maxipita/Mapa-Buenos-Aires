@@ -2147,32 +2147,58 @@ function mostrarInfoPanelProvincia(provinciaId) {
   let pobTotal = 0;
   grupo.forEach(id => { pobTotal += POBLACION_ARGENTINA[id] || 0; });
 
-  // Sumar facturación desde clientesProvinciasSheets (fuente correcta con valores USD)
+  // Sumar facturación: primero desde clientesProvinciasSheets (USD), sino desde nomencladores JSON
   let facturacionTotal = 0;
   let facturacionPrivado = 0;
   let facturacionPublico = 0;
 
+  const datos = getProvinciasDataActivo();
+
   // Construir lookup de sector por nombre normalizado desde los JSON
   const sectorPorNombre = {};
-  const datos = getProvinciasDataActivo();
   grupo.forEach(id => {
     ((datos[id] || {}).localidades || []).forEach(loc => {
       sectorPorNombre[normalizarNombre(loc.nombre)] = loc.sector || "privado";
     });
   });
 
-  grupo.forEach(id => {
-    (clientesProvinciasSheets[id] || []).forEach(c => {
-      const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
-      const val = parseFloat(raw);
-      if (!isNaN(val) && val > 0) {
-        facturacionTotal += val;
-        const sector = sectorPorNombre[normalizarNombre(c.nombre)] || "privado";
-        if (sector === "privado") facturacionPrivado += val;
-        else if (sector === "publico") facturacionPublico += val;
-      }
+  // Fuente 1: Sheet (tiene todos los valores correctos en USD)
+  const tieneSheet = grupo.some(id => (clientesProvinciasSheets[id] || []).length > 0);
+  if (tieneSheet) {
+    grupo.forEach(id => {
+      (clientesProvinciasSheets[id] || []).forEach(c => {
+        const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
+        const val = parseFloat(raw);
+        if (!isNaN(val) && val > 0) {
+          facturacionTotal += val;
+          const sector = sectorPorNombre[normalizarNombre(c.nombre)] || "privado";
+          if (sector === "privado") facturacionPrivado += val;
+          else if (sector === "publico") facturacionPublico += val;
+        }
+      });
     });
-  });
+  } else {
+    // Fuente 2: nomencladores del JSON (fallback para provincias sin Sheet)
+    const vistasFac = new Set();
+    grupo.forEach(id => {
+      ((datos[id] || {}).localidades || []).forEach(loc => {
+        const key = normalizarNombre(loc.nombre);
+        if (vistasFac.has(key)) return;
+        vistasFac.add(key);
+        (loc.nomencladores || []).forEach(n => {
+          if (n.tipo === "total facturado") {
+            const val = parseFloat((n.cantidad || "").replace(/[^0-9.,]/g, "").replace(/,/g, ""));
+            if (!isNaN(val) && val > 0) {
+              facturacionTotal += val;
+              const sector = loc.sector || "privado";
+              if (sector === "privado") facturacionPrivado += val;
+              else if (sector === "publico") facturacionPublico += val;
+            }
+          }
+        });
+      });
+    });
+  }
 
   const nombre = provinciaId === "CIUDAD AUTONOMA DE BUENOS AIRES"
     ? "Capital Federal"
