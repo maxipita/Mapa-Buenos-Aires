@@ -234,20 +234,32 @@ function cargarDesdeSheetsArgentina() {
       });
     })
     .then(() => {
-      // Debug: ver qué se cargó
-      console.log("clientesProvinciasSheets:", clientesProvinciasSheets);
-      let totalDebug = 0;
-      Object.values(clientesProvinciasSheets).forEach(clientes => {
-        clientes.forEach(c => {
-          console.log("Cliente:", c.nombre, "Facturación:", c.facturacion);
-          const val = parseFloat((c.facturacion || "").replace(/[^0-9.]/g, ""));
-          totalDebug += isNaN(val) ? 0 : val;
-        });
+      // Buscar la fila "TOTALES" del Sheet para obtener el valor correcto
+      let totalCorrect = 0;
+      filas.forEach((row, idx) => {
+        const nombre = (row[COL.cliente] || "").trim();
+        if (nombre.toUpperCase() === "TOTALES" || nombre.toUpperCase() === "TOTAL") {
+          const facVal = (row[COL.facturacionUSD] || "").trim();
+          console.log("Fila TOTALES encontrada:", nombre, "Valor:", facVal);
+          // Limpiar: eliminar "U$S", espacios, y comas
+          let cleanVal = facVal.replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
+          totalCorrect = parseFloat(cleanVal) || 0;
+        }
       });
-      console.log("Total facturación calculado:", totalDebug);
 
-      // Recalcular facturación después de cargar el Sheet
-      recalcularFacturacionTotalArgentina();
+      if (totalCorrect > 0) {
+        console.log("Total correcto del Sheet:", totalCorrect);
+        window._facturacionTotalArgentinaActual = totalCorrect;
+      } else {
+        console.log("No se encontró fila TOTALES, usando cálculo");
+        recalcularFacturacionTotalArgentina();
+        return;
+      }
+
+      // Si encontramos el total, actualizar el menú
+      if (regionActiva === "argentina") {
+        seleccionarMenu();
+      }
     })
     .catch(err => console.warn("Sheet Argentina:", err));
 }
