@@ -2466,8 +2466,6 @@ function mostrarInfoPanelProvincia(provinciaId) {
       ${facHtml}
     </div>
     ${filtroHtml}
-    <div class="seccion-titulo">Clientes en esta provincia</div>
-    ${clientesSheet.length > 0 ? clientesHtml : ""}
     ${locFiltradasPorSector.length > 0 ? `<div class="seccion-titulo">${seccionLabel}</div>` : ""}
     ${localidadesHtml}
   `;
