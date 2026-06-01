@@ -599,7 +599,7 @@
                                          "sector":  "privado"
                                      },
                                      {
-                                         "nombre":  "IVI Buenos Aires",
+                                         "nombre":  "IVI Buenos Aires Norte",
                                          "direccion":  "Soler 5552, C1425BYF Cdad. Autónoma de Buenos Aires",
                                          "lat":  -34.581248434899905,
                                          "lng":  -58.432358482486315,
@@ -628,6 +628,17 @@
                                          "sector":  "privado",
                                          "prioridad":  "blanco",
                                          "logo":  "LogoPin/CABA/DiagnósticoMédico.jpg"
+                                     },
+                                     {
+                                         "nombre":  "Sanatorio San Lucas",
+                                         "direccion":  "Gral. Manuel Belgrano 363, B1642 San Isidro, Provincia de Buenos Aires",
+                                         "lat":  -34.46971068108309,
+                                         "lng":  -58.51041218523641,
+                                         "tipo":  "Centro Médico",
+                                         "imagen":  "Logo/CABA/SanLucas.png",
+                                         "sector":  "privado",
+                                         "prioridad":  "blanco",
+                                         "logo":  "LogoPin/CABA/SanLucas.jpg"
                                      }
                                  ]
              },
@@ -1394,7 +1405,7 @@
                                                  "sector":  "privado"
                                              },
                                              {
-                                                 "nombre":  "Consultorios Externos Clínica Constituyentes",
+                                                 "nombre":  "Clínica Constituyentes",
                                                  "direccion":  "Av. Gral. Miguel de Azcuénaga 705, B1708 Morón, Provincia de Buenos Aires",
                                                  "lat":  -34.6436,
                                                  "lng":  -58.6204,
