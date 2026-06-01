@@ -1185,16 +1185,17 @@ function mostrarTodasLasLocalidades() {
     // Usar facturación recalculada después de cargar el Sheet
     let facturacionTotalArgentina = window._facturacionTotalArgentinaActual || 0;
 
-    const facArgStr = facturacionTotalArgentina > 0
-      ? `<span class="pob-facturacion">💰 USD ${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>`
-      : "";
     const filaArgentina = `
       <div class="pob-row pob-row-total">
         <span class="pob-nombre"><strong>🗺️Argentina</strong></span>
         <span class="pob-numero"><strong>${formatPoblacion(pobTotalArg)}</strong></span>
         ${totalArg > 0 ? `<span class="pob-prest pob-prest-total">${totalArg} prest.</span>` : ""}
-        ${facArgStr}
-      </div>`;
+      </div>
+      ${facturacionTotalArgentina > 0 ? `
+      <div class="pob-row pob-row-facturacion">
+        <span class="pob-facturacion-label">💰 Total facturado:</span>
+        <span class="pob-facturacion-valor">USD ${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+      </div>` : ""}`;
 
     // Ranking de población — CABA y Buenos Aires por separado
     const pobRanking = Object.keys(POBLACION_ARGENTINA)
