@@ -2317,12 +2317,9 @@ function mostrarInfoPanelProvincia(provinciaId) {
           sanatoriosTotal: conteoSector.privado + conteoSector.publico
         };
         return `
-          <div class="cliente-sheet-item" onclick="abrirInfoClienteSheet('${id}')" style="cursor:pointer;">
-            <div class="cliente-sheet-header">
-              <strong>${displayNombre}</strong>
-              <span class="cliente-sheet-arrow">▶</span>
-            </div>
-            ${displayTipo ? `<div class="cliente-sheet-tipo">${displayTipo}</div>` : ""}
+          <div class="localidad-item" onclick="abrirInfoClienteSheet('${id}')" style="cursor:pointer;">
+            <strong>${displayNombre}</strong>
+            <small>${displayTipo ? `<span class="badge">${displayTipo}</span>` : ""}</small>
           </div>`;
       }).join("")
     : "";
