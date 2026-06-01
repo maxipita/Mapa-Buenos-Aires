@@ -83,7 +83,7 @@ function cargarDesdeSheetsArgentina() {
       const filas = parsearCSVSheets(texto);
       if (filas.length < 2) return;
 
-      const COL = { cliente:0, zona:1, tipo:2, sector:3, qx:4, amb:5, salaEndo:6, ce:7, qx2:8, amb2:9, salaEndo2:10, ce2:11, facturacion:12 };
+      const COL = { cliente:0, zona:1, tipo:2, sector:3, qx:4, amb:5, salaEndo:6, ce:7, qx2:8, amb2:9, salaEndo2:10, ce2:11, facturacion:12, facturacionUSD:13 };
 
       // Construir índice de localidades de provinciasData por nombre normalizado
       const indicePorNombre = {};
@@ -114,7 +114,7 @@ function cargarDesdeSheetsArgentina() {
             salaEndo: row[COL.salaEndo] || "", ce: row[COL.ce] || "",
             qx2: row[COL.qx2] || "", amb2: row[COL.amb2] || "",
             salaEndo2: row[COL.salaEndo2] || "", ce2: row[COL.ce2] || "",
-            facturacion: row[COL.facturacion] || "",
+            facturacion: row[COL.facturacionUSD] || "",
           };
           return;
         }
@@ -140,7 +140,7 @@ function cargarDesdeSheetsArgentina() {
             amb2:      row[COL.amb2]      || "",
             salaEndo2: row[COL.salaEndo2] || "",
             ce2:       row[COL.ce2]       || "",
-            facturacion: row[COL.facturacion] || "",
+            facturacion: row[COL.facturacionUSD] || "",
           });
           return;
         }
@@ -154,7 +154,7 @@ function cargarDesdeSheetsArgentina() {
           { tipo: "capacidad",      codigo: "AMB",                 cantidad: row[COL.amb2]     || "0" },
           { tipo: "capacidad",      codigo: "SALA/ENDO",           cantidad: row[COL.salaEndo2]|| "0" },
           { tipo: "capacidad",      codigo: "CE",                  cantidad: row[COL.ce2]      || "0" },
-          { tipo: "total facturado",codigo: "Facturación estimada",cantidad: row[COL.facturacion] || "-" },
+          { tipo: "total facturado",codigo: "Facturación estimada USD",cantidad: row[COL.facturacionUSD] || "-" },
         ];
 
         // Buscar la localidad en el JSON por nombre y actualizar sus nomencladores y sector
@@ -1141,7 +1141,7 @@ function mostrarTodasLasLocalidades() {
     });
 
     const facArgStr = facturacionTotalArgentina > 0
-      ? `<div style="font-size:11px;margin-top:5px;width:100%;display:flex;justify-content:space-between;align-items:center;"><span style="display:flex;align-items:center;gap:4px;">💰 <strong>Facturación total:</strong></span><span style="color:#27ae60;font-weight:600;">$${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>`
+      ? `<div style="font-size:11px;margin-top:5px;width:100%;display:flex;justify-content:space-between;align-items:center;"><span style="display:flex;align-items:center;gap:4px;">💰 <strong>Facturación total:</strong></span><span style="color:#27ae60;font-weight:600;">USD ${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span></div>`
       : "";
     const filaArgentina = `
       <div class="pob-row pob-row-total" style="flex-wrap:wrap;">
@@ -2101,6 +2101,8 @@ function mostrarInfoPanelProvincia(provinciaId) {
   // localidades que aparecen en ambos JSONs (sanatorios + consultorios)
   const datos = getProvinciasDataActivo();
   let facturacionTotal = 0;
+  let facturacionPrivado = 0;
+  let facturacionPublico = 0;
   const vistasFac = new Set();
   grupo.forEach(id => {
     ((datos[id] || {}).localidades || []).forEach(loc => {
@@ -2110,7 +2112,16 @@ function mostrarInfoPanelProvincia(provinciaId) {
       (loc.nomencladores || []).forEach(n => {
         if (n.tipo === "total facturado") {
           const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
-          if (!isNaN(val)) facturacionTotal += val;
+          if (!isNaN(val)) {
+            facturacionTotal += val;
+            // Sumar por sector
+            const sector = loc.sector || "privado";
+            if (sector === "privado") {
+              facturacionPrivado += val;
+            } else if (sector === "publico") {
+              facturacionPublico += val;
+            }
+          }
         }
       });
     });
@@ -2124,8 +2135,20 @@ function mostrarInfoPanelProvincia(provinciaId) {
   const pobHtml = pobTotal
     ? `<div class="provincia-poblacion">👥 ${formatPoblacion(pobTotal)} habitantes</div>`
     : "";
-  const facHtml = facturacionTotal > 0
-    ? `<div class="provincia-facturacion">💰 Facturación estimada: $${facturacionTotal.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>`
+  // Determinar facturación a mostrar según filtro de sector
+  let facturacionMostrar = facturacionTotal;
+  let labelFacturacion = "Facturación estimada";
+
+  if (filtroSectorActivo === "privado") {
+    facturacionMostrar = facturacionPrivado;
+    labelFacturacion = "Facturación Privados";
+  } else if (filtroSectorActivo === "publico") {
+    facturacionMostrar = facturacionPublico;
+    labelFacturacion = "Facturación Públicos";
+  }
+
+  const facHtml = facturacionMostrar > 0
+    ? `<div class="provincia-facturacion">💰 ${labelFacturacion}: USD ${facturacionMostrar.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>`
     : "";
 
   const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
@@ -2206,7 +2229,7 @@ function mostrarInfoPanelProvincia(provinciaId) {
           const va = parseFloat((a || "").replace(/[^0-9.]/g, ""));
           const vb = parseFloat((b || "").replace(/[^0-9.]/g, ""));
           const total = (!isNaN(va) ? va : 0) + (!isNaN(vb) ? vb : 0);
-          return total > 0 ? `$ ${total.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "";
+          return total > 0 ? `USD ${total.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : "";
         }
 
         const displayNombre = esAmbaBsAs ? "BUENOS AIRES" : c.nombre;
