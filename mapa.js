@@ -162,10 +162,7 @@ function cargarDesdeSheetsArgentina() {
           PROVINCIA_NAMES.includes(nombreUpper) ||
           /^ZONA|^AMBA/i.test(nombreUpper);
 
-        if (isExcluded) {
-          if (nombre) console.log("EXCLUIDO:", nombre);
-          return;
-        }
+        if (isExcluded) return;
 
         const zona = (row[COL.zona] || "").toUpperCase().trim();
 
