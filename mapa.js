@@ -2147,33 +2147,30 @@ function mostrarInfoPanelProvincia(provinciaId) {
   let pobTotal = 0;
   grupo.forEach(id => { pobTotal += POBLACION_ARGENTINA[id] || 0; });
 
-  // Sumar facturación estimada — deduplicando por nombre para evitar contar doble
-  // localidades que aparecen en ambos JSONs (sanatorios + consultorios)
-  const datos = getProvinciasDataActivo();
+  // Sumar facturación desde clientesProvinciasSheets (fuente correcta con valores USD)
   let facturacionTotal = 0;
   let facturacionPrivado = 0;
   let facturacionPublico = 0;
-  const vistasFac = new Set();
+
+  // Construir lookup de sector por nombre normalizado desde los JSON
+  const sectorPorNombre = {};
+  const datos = getProvinciasDataActivo();
   grupo.forEach(id => {
     ((datos[id] || {}).localidades || []).forEach(loc => {
-      const key = normalizarNombre(loc.nombre);
-      if (vistasFac.has(key)) return;
-      vistasFac.add(key);
-      (loc.nomencladores || []).forEach(n => {
-        if (n.tipo === "total facturado") {
-          const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
-          if (!isNaN(val)) {
-            facturacionTotal += val;
-            // Sumar por sector
-            const sector = loc.sector || "privado";
-            if (sector === "privado") {
-              facturacionPrivado += val;
-            } else if (sector === "publico") {
-              facturacionPublico += val;
-            }
-          }
-        }
-      });
+      sectorPorNombre[normalizarNombre(loc.nombre)] = loc.sector || "privado";
+    });
+  });
+
+  grupo.forEach(id => {
+    (clientesProvinciasSheets[id] || []).forEach(c => {
+      const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
+      const val = parseFloat(raw);
+      if (!isNaN(val) && val > 0) {
+        facturacionTotal += val;
+        const sector = sectorPorNombre[normalizarNombre(c.nombre)] || "privado";
+        if (sector === "privado") facturacionPrivado += val;
+        else if (sector === "publico") facturacionPublico += val;
+      }
     });
   });
 
