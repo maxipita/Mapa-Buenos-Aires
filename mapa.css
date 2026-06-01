@@ -1055,9 +1055,11 @@ body {
   background: #6a0dad;
 }
 
-.pob-argentina-container {
-  flex-direction: column !important;
-  gap: 12px !important;
+.pob-argentina-container.pob-row-total {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 8px;
 }
 
 .pob-argentina-header {
