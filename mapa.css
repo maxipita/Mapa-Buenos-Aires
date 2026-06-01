@@ -1139,6 +1139,102 @@ body {
 }
 
 /* ============================================
+   MODAL DESGLOSE
+   ============================================ */
+#desglose-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+#desglose-overlay.desglose-visible {
+  opacity: 1;
+}
+
+#desglose-modal {
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 380px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  transform: translateY(20px);
+  transition: transform 0.25s ease;
+  overflow: hidden;
+}
+
+#desglose-overlay.desglose-visible #desglose-modal {
+  transform: translateY(0);
+}
+
+#desglose-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid #f0e4f7;
+  background: linear-gradient(135deg, #f8f4fc, #faf0fb);
+  flex-shrink: 0;
+}
+
+#desglose-modal-titulo {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2c3e50;
+  flex: 1;
+  padding-right: 12px;
+  line-height: 1.3;
+}
+
+#desglose-modal-cerrar {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #a020a8;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 50%;
+  line-height: 1;
+  flex-shrink: 0;
+  transition: background 0.15s;
+}
+
+#desglose-modal-cerrar:hover {
+  background: #f0e4f7;
+}
+
+#desglose-modal-body {
+  padding: 16px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  flex: 1;
+}
+
+#desglose-modal-body .popup-tabla {
+  font-size: 13px;
+}
+
+#desglose-modal-body .popup-seccion-titulo {
+  font-size: 11px;
+  margin-top: 14px;
+}
+
+#desglose-modal-body .popup-seccion-total-vol,
+#desglose-modal-body .popup-seccion-fac {
+  font-size: 13px;
+  padding: 8px 12px;
+  margin-top: 10px;
+}
+
+/* ============================================
    TABLA DE POBLACIÓN POR PROVINCIA
    ============================================ */
 .pob-subtitulo {

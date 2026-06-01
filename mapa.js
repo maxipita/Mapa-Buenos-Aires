@@ -3178,13 +3178,47 @@ function abrirInfoClienteSheet(id) {
 
 function toggleDesglose(btn) {
   var d = document.getElementById('nomDesglose');
-  if (d.style.display !== 'block') {
-    d.style.display = 'block';
-    btn.innerHTML = 'Ver menos <span class="popup-btn-flecha">&#9650;</span>';
-    liberarAlturaInfoWindow();
-    setTimeout(centrarInfoWindow, 150);
-  } else {
-    d.style.display = 'none';
-    btn.innerHTML = 'Ver desglose <span class="popup-btn-flecha">&#9660;</span>';
+  if (!d) return;
+
+  // Obtener el nombre del marcador del popup
+  var nombreEl = document.querySelector('.popup-nombre');
+  var nombre = nombreEl ? nombreEl.textContent : "Desglose";
+
+  // Mostrar en modal lateral
+  abrirModalDesglose(nombre, d.innerHTML);
+}
+
+function abrirModalDesglose(titulo, contenidoHtml) {
+  // Crear overlay si no existe
+  var overlay = document.getElementById('desglose-overlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'desglose-overlay';
+    overlay.innerHTML = `
+      <div id="desglose-modal">
+        <div id="desglose-modal-header">
+          <span id="desglose-modal-titulo"></span>
+          <button id="desglose-modal-cerrar" onclick="cerrarModalDesglose()">✕</button>
+        </div>
+        <div id="desglose-modal-body"></div>
+      </div>
+    `;
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) cerrarModalDesglose();
+    });
+  }
+
+  document.getElementById('desglose-modal-titulo').textContent = titulo;
+  document.getElementById('desglose-modal-body').innerHTML = contenidoHtml;
+  overlay.style.display = 'flex';
+  requestAnimationFrame(() => overlay.classList.add('desglose-visible'));
+}
+
+function cerrarModalDesglose() {
+  var overlay = document.getElementById('desglose-overlay');
+  if (overlay) {
+    overlay.classList.remove('desglose-visible');
+    setTimeout(() => { overlay.style.display = 'none'; }, 250);
   }
 }
