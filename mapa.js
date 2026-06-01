@@ -101,7 +101,7 @@ function cargarDesdeSheetsArgentina() {
       const filas = parsearCSVSheets(texto);
       if (filas.length < 2) return;
 
-      const COL = { cliente:0, zona:1, tipo:2, sector:3, qx:4, amb:5, salaEndo:6, ce:7, qx2:8, amb2:9, salaEndo2:10, ce2:11, facturacion:21, facturacionUSD:22 };
+      const COL = { cliente:0, zona:1, tipo:2, sector:3, qx:4, amb:5, salaEndo:6, ce:7, qx2:8, amb2:9, salaEndo2:10, ce2:11, facturacionUSD:18 };
 
       // Construir índice de localidades de provinciasData por nombre normalizado
       const indicePorNombre = {};
