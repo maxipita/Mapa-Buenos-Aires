@@ -1038,14 +1038,11 @@ function seleccionarCategoria(cat, region) {
 
   // Mostrar/ocultar capas según región
   if (regionActiva === "argentina" || regionActiva === "expansion") {
-    // Cargar Argentina bajo demanda si aún no fue cargado
-    if (!argentinaLoaded && regionActiva === "argentina") {
-      cargarGeoJSONArgentina();
-    }
     if (map) {
       map.data.setMap(null);
       if (ambaDataLayer) ambaDataLayer.setMap(null);
-      if (argentinaDataLayer) argentinaDataLayer.setMap(map);
+      // Solo mostrar si ya cargó; si no, el callback de cargarGeoJSONArgentina lo mostrará
+      if (argentinaLoaded && argentinaDataLayer) argentinaDataLayer.setMap(map);
       // Polígonos AMBA encima de Argentina (siempre por encima de Data layers)
       mostrarPolygonsAmbaEnArgentina();
       map.setCenter({ lat: -38.5, lng: -65 });
@@ -1301,9 +1298,10 @@ function mostrarTodasLasLocalidades() {
         const clickFn = modoMultiSeleccion
           ? `seleccionarProvincia('${prov}')`
           : `mostrarResumenProvincia('${prov}')`;
+        const estaSeleccionada = modoMultiSeleccion && provinciasSeleccionadas.has(prov);
         return `
-          <div class="pob-row ${cantPrest > 0 ? 'pob-row-activa' : ''}" ${cantPrest > 0 ? `onclick="${clickFn}"` : ''}>
-            <span class="pob-nombre">${nombre}</span>
+          <div class="pob-row ${cantPrest > 0 ? 'pob-row-activa' : ''} ${estaSeleccionada ? 'pob-row-seleccionada' : ''}" data-prov="${prov}" data-nombre="${nombre}" ${cantPrest > 0 ? `onclick="${clickFn}"` : ''}>
+            <span class="pob-nombre">${estaSeleccionada ? '✓ ' : ''}${nombre}</span>
             <span class="pob-numero">${formatPoblacion(pob)}</span>
             ${cantPrest > 0 ? `<span class="pob-prest">${cantPrest} prest.</span>` : ""}
           </div>`;
@@ -1472,12 +1470,15 @@ function initMap() {
   ambaDataLayer = new google.maps.Data();
   argentinaDataLayer = new google.maps.Data();
 
+  // Cargar todos los GeoJSONs en background inmediatamente (ocultos hasta que se seleccione la región)
+  map.data.setMap(null); // CABA oculto hasta que el usuario elija CABA/AMBA
+  cargarGeoJSON();
+  cargarGeoJSONAmba();
+  cargarGeoJSONArgentina();
+
+  // Datos de prestadores y Sheet (para el panel)
   cargarDatosExternos().then(function () {
     return cargarDesdeSheetsArgentina();
-  }).then(function () {
-    cargarGeoJSON();
-    cargarGeoJSONAmba();
-    // Argentina se cargará bajo demanda (lazy loading) cuando el usuario lo seleccione
   });
 }
 
@@ -2107,8 +2108,10 @@ function cargarGeoJSONArgentina() {
       if (regionActiva === "expansion") {
         const sectorId = getSectorDeProvinciaId(provinciaId);
         if (sectorId) seleccionarSector(sectorId);
-      } else {
+      } else if (modoMultiSeleccion) {
         seleccionarProvincia(provinciaId);
+      } else {
+        mostrarResumenProvincia(provinciaId);
       }
     });
 
@@ -2158,11 +2161,11 @@ function toggleModoMultiSeleccion() {
   }
 
   // Re-renderizar el panel para actualizar los onclick con el modo correcto
-  if (modoMultiSeleccion) {
-    mostrarTodasLasLocalidades();
-  } else {
-    seleccionarMenu();
-  }
+  mostrarTodasLasLocalidades();
+
+  // Ocultar/mostrar la card de Argentina: solo se oculta al entrar en modo Comparar
+  const argCard = document.querySelector('.pob-argentina-card');
+  if (argCard) argCard.style.display = modoMultiSeleccion ? 'none' : '';
 }
 
 function actualizarBotonMultiSeleccion() {
@@ -2319,14 +2322,12 @@ function mostrarBarraMultiSeleccion() {
   if (provinciasSeleccionadas.size === 0) {
     barra.innerHTML = `
       <div class="multi-barra-vacia">
-        <span class="multi-hint">Hacé click en las provincias del mapa para compararlas</span>
+        <div class="multi-hint-icon">🗺️</div>
+        <div class="multi-hint">Hacé click en las provincias del mapa para compararlas</div>
+        <div class="multi-hint-sub">Podés seleccionar varias a la vez</div>
       </div>`;
-    if (argCard) argCard.style.display = '';
     return;
   }
-
-  // Ocultar la card de Argentina mientras se compara
-  if (argCard) argCard.style.display = 'none';
 
   const datos = getProvinciasDataActivo();
   let totalPrestadores = 0;
@@ -2419,6 +2420,16 @@ function ocultarBarraMultiSeleccion() {
   if (argCard) argCard.style.display = '';
 }
 
+function cerrarResumenProvincia() {
+  provinciaSeleccionadaId = null;
+  if (argentinaDataLayer) aplicarEstiloBaseArgentina();
+  if (map && (regionActiva === "argentina" || regionActiva === "expansion")) {
+    map.setCenter({ lat: -38.5, lng: -65 });
+    map.setZoom(4);
+  }
+  mostrarTodasLasLocalidades();
+}
+
 function mostrarResumenProvincia(provinciaId) {
   const datos = getProvinciasDataActivo();
   const locsFiltradas = filtrarPorCategoria((datos[provinciaId] || {}).localidades || []);
@@ -2479,14 +2490,17 @@ function mostrarResumenProvincia(provinciaId) {
   const capStr = cap > 0 ? cap.toLocaleString('es-AR') : "—";
 
   const panelBody = document.getElementById('panelBody');
-  panelBody.innerHTML = `
+  // Preservar la card de Argentina total (solo se oculta al entrar en modo Comparar)
+  const argCardEl = panelBody.querySelector('.pob-argentina-card');
+  const argCardHtml = argCardEl ? argCardEl.outerHTML : '';
+  panelBody.innerHTML = argCardHtml + `
     <div class="prov-resumen-card">
       <div class="prov-resumen-header">
         <div class="prov-resumen-titulo">
           <span class="prov-resumen-nombre">${nombre}</span>
           ${prest > 0 ? `<span class="pob-prest pob-prest-total">${prest} prest.</span>` : ""}
         </div>
-        <button class="prov-resumen-volver" onclick="mostrarTodasLasLocalidades()">✕</button>
+        <button class="prov-resumen-volver" onclick="cerrarResumenProvincia()">✕</button>
       </div>
       ${pob ? `<div class="prov-resumen-pob">👥 ${formatPoblacion(pob)} hab.</div>` : ""}
       <div class="prov-resumen-stats">
@@ -2511,6 +2525,16 @@ function mostrarResumenProvincia(provinciaId) {
       </button>
     </div>
   `;
+
+  // Sombreado de la provincia seleccionada
+  provinciaSeleccionadaId = provinciaId;
+  if (argentinaDataLayer) {
+    const grupo = new Set(getGrupoProvincias(provinciaId));
+    argentinaDataLayer.setStyle(function (feature) {
+      const seleccionado = grupo.has(getProvinciaId(feature));
+      return estiloArgentina(feature, seleccionado);
+    });
+  }
 
   // Zoom a la provincia
   const centro = CENTROIDES_ARGENTINA[provinciaId] || PROVINCIA_CENTRO_OVERRIDE[provinciaId];
@@ -2541,9 +2565,26 @@ function verDetalleProvincia(provinciaId) {
   }
 }
 
+function actualizarListadoMultiSeleccion() {
+  document.querySelectorAll('.pob-row[data-prov]').forEach(row => {
+    const prov = row.dataset.prov;
+    const sel = provinciasSeleccionadas.has(prov);
+    const nombreEl = row.querySelector('.pob-nombre');
+    const nombreBase = row.dataset.nombre;
+    if (sel) {
+      row.classList.add('pob-row-seleccionada');
+      if (nombreEl) nombreEl.textContent = '✓ ' + nombreBase;
+    } else {
+      row.classList.remove('pob-row-seleccionada');
+      if (nombreEl) nombreEl.textContent = nombreBase;
+    }
+  });
+}
+
 function limpiarMultiSeleccion() {
   provinciasSeleccionadas.clear();
   actualizarEstilosMultiSeleccion();
+  actualizarListadoMultiSeleccion();
   mostrarBarraMultiSeleccion();
 }
 
@@ -2559,6 +2600,7 @@ function seleccionarProvincia(provinciaId) {
       provinciasSeleccionadas.add(provinciaId);
     }
     actualizarEstilosMultiSeleccion();
+    actualizarListadoMultiSeleccion();
     mostrarBarraMultiSeleccion();
     return;
   }
@@ -3141,6 +3183,10 @@ function cargarGeoJSON() {
   map.data.loadGeoJson(GEOJSON_URL, null, function () {
     aplicarEstiloBase();
 
+    if (regionActiva === "argentina" || regionActiva === "expansion") {
+      map.data.setMap(null);
+    }
+
     map.data.addListener("click", function (event) {
       const comunaId = getComunaId(event.feature);
       if (!comunaId) return;
@@ -3157,7 +3203,9 @@ function cargarGeoJSON() {
 function cargarGeoJSONAmba() {
   ambaDataLayer.loadGeoJson(GEOJSON_AMBA_URL, null, function () {
     aplicarEstiloBaseAmba();
-    ambaDataLayer.setMap(map);
+    if (regionActiva !== "argentina" && regionActiva !== "expansion") {
+      ambaDataLayer.setMap(map);
+    }
 
     ambaDataLayer.addListener("click", function (event) {
       if (regionActiva === "argentina" || regionActiva === "expansion") return;

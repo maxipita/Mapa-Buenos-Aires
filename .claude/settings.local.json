@@ -75,7 +75,10 @@
       "Bash(node -e \"const d = require\\('./DatosJson/sanatoriosArgentina.json'\\); const ba = d['BUENOS AIRES']; console.log\\('BA localidades:', ba ? ba.localidades.length : 0\\); if\\(ba\\) console.log\\('Primeros 3:', JSON.stringify\\(ba.localidades.slice\\(0,3\\), null, 2\\)\\);\")",
       "Bash(node -e \"const d = require\\('./DatosJson/sanatoriosArgentina.json'\\); console.log\\('Claves:', Object.keys\\(d\\).slice\\(0,10\\)\\);\")",
       "Bash(node -e \"require\\('./mapa.js'\\)\")",
-      "Bash(node --check mapa.js)"
+      "Bash(node --check mapa.js)",
+      "Bash(ls \"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Roaming\\\\Claude\\\\\" 2>/dev/null)",
+      "Bash(ls /mnt/c/Users/tiago.baca/AppData/Roaming/Claude/ 2>/dev/null || echo \"not found\")",
+      "Bash(mkdir -p \"C:/Users/tiago.baca/.claude/memories\")"
     ]
   }
 }

@@ -1298,6 +1298,18 @@ body {
   color: #a020a8;
 }
 
+.pob-row-seleccionada {
+  background: #f0e6f6;
+  border-left: 3px solid #a020a8;
+  padding-left: 9px;
+  color: #a020a8;
+  font-weight: 600;
+}
+
+.pob-row-seleccionada:hover {
+  background: #e6d0f5;
+}
+
 .pob-nombre {
   flex: 1;
 }
@@ -1668,12 +1680,32 @@ body {
 }
 
 .multi-barra-vacia {
-  padding: 10px 0 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 18px 16px;
+  background: linear-gradient(135deg, #fdf5ff 0%, #f5e6ff 100%);
+  border: 1.5px dashed #d8a0e8;
+  border-radius: 12px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+.multi-hint-icon {
+  font-size: 24px;
+  line-height: 1;
 }
 
 .multi-hint {
-  font-size: 12px;
-  color: #aaa;
+  font-size: 13px;
+  color: #7b1fa2;
+  font-weight: 600;
+}
+
+.multi-hint-sub {
+  font-size: 11px;
+  color: #ab69c6;
   font-style: italic;
 }
 
