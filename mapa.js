@@ -2823,6 +2823,23 @@ function mostrarInfoPanelProvincia(provinciaId) {
     ? `<div class="provincia-facturacion">💰 ${labelFacturacion}: USD ${facturacionMostrar.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>`
     : "";
 
+  // Calcular volúmenes y capacidad para el desglose de la card
+  let volTotal = 0;
+  let capTotal = 0;
+  const localidadesParaStats = filtrarPorCategoria((datos[provinciaId] || {}).localidades || []);
+  localidadesParaStats.forEach(loc => {
+    (loc.nomencladores || []).forEach(n => {
+      if (n.tipo === "volumen total") {
+        const v = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
+        if (!isNaN(v) && v > 0) volTotal += v;
+      }
+      if (n.tipo === "capacidad") {
+        const v = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
+        if (!isNaN(v) && v > 0) capTotal += v;
+      }
+    });
+  });
+
   const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
   // Calcular totales por sector ANTES de filtrar
@@ -3061,14 +3078,37 @@ function mostrarInfoPanelProvincia(provinciaId) {
 
   const tieneInfoDirecta = (clientesProvinciasDirectos[provinciaId] || []).length > 0;
 
+  const volStr = volTotal > 0 ? volTotal.toLocaleString('es-AR') : null;
+  const capStr = capTotal > 0 ? capTotal.toLocaleString('es-AR') : null;
+  const facCardStr = facturacionTotal > 0
+    ? `USD ${facturacionTotal.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    : null;
+  const prestTotal = locOrdenadas.length;
+
   document.getElementById("panelBody").innerHTML = `
-    <div class="comuna-header${tieneInfoDirecta ? ' comuna-header-clickable' : ''}"${tieneInfoDirecta ? ` onclick="abrirInfoWindowProvincia('${provinciaId}')" title="Ver datos del Excel"` : ''}>
-      <div class="comuna-header-top">
-        <h3>📍 ${nombre}</h3>
-        <button class="btn-volver" onclick="event.stopPropagation();volverAlListado()" title="Volver al listado">✕</button>
+    <div class="pob-argentina-card" style="cursor:default">
+      <div class="pob-argentina-top">
+        <span class="pob-argentina-titulo">📍 ${nombre}</span>
+        <div class="pob-argentina-top-right">
+          ${prestTotal > 0 ? `<span class="pob-prest pob-prest-total pob-argentina-prest">${prestTotal} prest.</span>` : ""}
+          <button class="btn-cerrar-argentina" onclick="volverAlListado()" title="Volver">✕</button>
+        </div>
       </div>
-      ${pobHtml}
-      ${facHtml}
+      ${pobTotal ? `<div class="pob-argentina-pob">${formatPoblacion(pobTotal)} hab.</div>` : ""}
+      ${facCardStr ? `
+      <div class="pob-argentina-bottom">
+        <span class="pob-argentina-fac-label">💰 Total facturado</span>
+        <span class="pob-argentina-fac-valor">${facCardStr}</span>
+      </div>` : ""}
+      ${(volStr || capStr) ? `
+      <div class="prov-card-desglose-btn" onclick="toggleDesgloseCard(this)">
+        Ver desglose <span class="prov-card-flecha">▾</span>
+      </div>
+      <div class="prov-card-desglose" style="display:none">
+        ${capStr ? `<div class="prov-card-stat"><span>⚡ Capacidad instalada</span><span>${capStr}</span></div>` : ""}
+        ${volStr ? `<div class="prov-card-stat"><span>📦 Volumen total</span><span class="prov-vol">${volStr}</span></div>` : ""}
+        ${facCardStr ? `<div class="prov-card-stat"><span>💰 Facturación USD</span><span class="prov-fac">${facCardStr}</span></div>` : ""}
+      </div>` : ""}
     </div>
     ${filtroHtml}
     ${locFiltradasPorSector.length > 0 ? `<div class="seccion-titulo">${seccionLabel}</div>` : ""}
@@ -3329,6 +3369,14 @@ function mostrarTodosLosMarcadores() {
 // ============================================
 // VOLVER AL LISTADO COMPLETO
 // ============================================
+function toggleDesgloseCard(btn) {
+  const desglose = btn.nextElementSibling;
+  const flecha = btn.querySelector('.prov-card-flecha');
+  const abierto = desglose.style.display !== 'none';
+  desglose.style.display = abierto ? 'none' : 'block';
+  flecha.textContent = abierto ? '▾' : '▴';
+}
+
 function volverAlListado() {
   if (infoWindowGlobal) infoWindowGlobal.close();
   comunaSeleccionadaId = null;

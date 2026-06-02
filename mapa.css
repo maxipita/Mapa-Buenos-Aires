@@ -1412,8 +1412,56 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-.prov-vol  { color: #2980b9; }
-.prov-fac  { color: #27ae60; }
+.prov-vol  { color: #2980b9; font-weight: 700; }
+.prov-fac  { color: #27ae60; font-weight: 700; }
+
+/* Desglose dentro de la card de provincia */
+.prov-card-desglose-btn {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid #ede0f9;
+  font-size: 12px;
+  font-weight: 600;
+  color: #a020a8;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.prov-card-flecha {
+  font-size: 14px;
+  transition: transform 0.2s;
+}
+
+.prov-card-desglose {
+  margin-top: 6px;
+}
+
+.prov-card-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #f7f0fc;
+  font-size: 12px;
+}
+
+.prov-card-stat:last-child {
+  border-bottom: none;
+}
+
+.prov-card-stat span:first-child {
+  color: #555;
+  font-weight: 500;
+}
+
+.prov-card-stat span:last-child {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #2c3e50;
+}
 
 .prov-resumen-btn-detalle {
   display: block;
