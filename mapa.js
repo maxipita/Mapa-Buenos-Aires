@@ -2150,7 +2150,6 @@ function getGrupoProvincias(provinciaId) {
 function toggleModoMultiSeleccion() {
   modoMultiSeleccion = !modoMultiSeleccion;
   provinciasSeleccionadas.clear();
-  actualizarBotonMultiSeleccion();
   ocultarBarraMultiSeleccion();
 
   // Resetear estilos
@@ -2158,8 +2157,10 @@ function toggleModoMultiSeleccion() {
     argentinaDataLayer.setStyle(feature => estiloArgentina(feature, false));
   }
 
-  // Si desactivamos, volver al panel normal
-  if (!modoMultiSeleccion) {
+  // Re-renderizar el panel para actualizar los onclick con el modo correcto
+  if (modoMultiSeleccion) {
+    mostrarTodasLasLocalidades();
+  } else {
     seleccionarMenu();
   }
 }
