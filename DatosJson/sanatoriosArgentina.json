@@ -1,4 +1,4 @@
-﻿{
+{
     "CABA":  {
                  "nombre":  "Capital Federal",
                  "localidades":  [
@@ -63,7 +63,7 @@
                                          "logo":  "LogoPin/CABA/SanatorioFinochietto.jpg"
                                      },
                                      {
-                                         "nombre":  "Clínica Zabala Swiss Medical",
+                                         "nombre":  "Clínica Zabala",
                                          "direccion":  "Av. Cabildo 1295, C1426AAM Cdad. Autónoma de Buenos Aires",
                                          "lat":  -34.5671,
                                          "lng":  -58.4497,
@@ -158,7 +158,7 @@
                                          "logo":  "LogoPin/CABA/FundaciónFavaloro.jpg"
                                      },
                                      {
-                                         "nombre":  "Instituto Argentino de Diagnóstico y Tratamiento (IADT)",
+                                         "nombre":  "Instituto Argentino de Diagnóstico y Tratamiento - IADT",
                                          "direccion":  "Marcelo Torcuato de Alvear 2346, C1122 Cdad. Autónoma de Buenos Aires",
                                          "lat":  -34.595855484774262,
                                          "lng":  -58.400771940941361,
@@ -220,7 +220,7 @@
                                          "logo":  "LogoPin/CABA/SanatorioSagradoCorazón.jpg"
                                      },
                                      {
-                                         "nombre":  "Sanatorio Dr. Julio Méndez (ObSBA)",
+                                         "nombre":  "Sanatorio Dr. Julio Méndez - ObSBA",
                                          "direccion":  "Av. Avellaneda 551, C1405CNF Cdad. Autónoma de Buenos Aires",
                                          "lat":  -34.613587997083791,
                                          "lng":  -58.439067636433904,
@@ -599,7 +599,7 @@
                                          "sector":  "privado"
                                      },
                                      {
-                                         "nombre":  "IVI Buenos Aires Norte",
+                                         "nombre":  "IVI Buenos Aires",
                                          "direccion":  "Soler 5552, C1425BYF Cdad. Autónoma de Buenos Aires",
                                          "lat":  -34.581248434899905,
                                          "lng":  -58.432358482486315,
@@ -639,6 +639,15 @@
                                          "sector":  "privado",
                                          "prioridad":  "blanco",
                                          "logo":  "LogoPin/CABA/SanLucas.jpg"
+                                     },
+                                     {
+                                         "nombre":  "Fecunditas",
+                                         "direccion":  "Larrea 790, C1120 Cdad. Autónoma de Buenos Aires",
+                                         "lat":  -34.599350823699517,
+                                         "lng":  -58.402575484654562,
+                                         "tipo":  "Centro Médico",
+                                         "imagen":  "Logo/CABA/Fecunditas.jpg",
+                                         "sector":  "privado"
                                      }
                                  ]
              },
@@ -1020,7 +1029,7 @@
                                                  "sector":  "privado"
                                              },
                                              {
-                                                 "nombre":  "Hospital de Diagnóstico Inmediato Dr. Valentín Nores: DIC",
+                                                 "nombre":  "Hospital de Diagnóstico Inmediato Dr. Valentín Nores",
                                                  "direccion":  "Maipú 257, B1648 Tigre, Provincia de Buenos Aires",
                                                  "lat":  -34.4141306548482,
                                                  "lng":  -58.58776790282562,
@@ -2629,7 +2638,7 @@
                                           "sector":  "privado"
                                       },
                                       {
-                                          "nombre":  "Instituto de Medicina Regional",
+                                          "nombre":  "Instituto Medico Regional - Chaco",
                                           "direccion":  "Las Heras 727, H3500 Resistencia, Chaco",
                                           "lat":  -27.4642,
                                           "lng":  -58.9826,
@@ -3254,7 +3263,7 @@
                                              "sector":  "publico"
                                          },
                                          {
-                                             "nombre":  "Hospital Dra. Marta T. Schwarz",
+                                             "nombre":  "Hospital SAMIC Puerto Iguazú Dra. Marta Schwarz",
                                              "direccion":  "Av. Victoria Aguirre 131, N3370 Puerto Iguazu, Misiones",
                                              "lat":  -25.600644113220266,
                                              "lng":  -54.57347354934589,
@@ -3265,7 +3274,7 @@
                                              "sector":  "privado"
                                          },
                                          {
-                                             "nombre":  "Hospital Samic Alem",
+                                             "nombre":  "Hospital SAMIC Alem de autogestión nivel II",
                                              "direccion":  "N3315 Leandro N. Alem, Misiones",
                                              "lat":  -27.60748605817225,
                                              "lng":  -55.33037576317136,
@@ -3276,7 +3285,7 @@
                                              "sector":  "privado"
                                          },
                                          {
-                                             "nombre":  "Hospital Apóstoles Dr. Bernardo Allassia",
+                                             "nombre":  "Hospital de Apóstoles",
                                              "direccion":  "Tucumán 569, N3350 Apóstoles, Misiones",
                                              "lat":  -27.906653928653487,
                                              "lng":  -55.74958679079402,
@@ -3298,7 +3307,7 @@
                                              "sector":  "privado"
                                          },
                                          {
-                                             "nombre":  "Sanatorio Camino",
+                                             "nombre":  "Sanatorio Caminos",
                                              "direccion":  "Junín 2459, N3301 Posadas, Misiones",
                                              "lat":  -27.3721077864677,
                                              "lng":  -55.8986555019151,
@@ -3852,7 +3861,7 @@
                                              "sector":  "privado"
                                          },
                                          {
-                                             "nombre":  "Sanatorio Diagnóstico",
+                                             "nombre":  "Sanatorio Diagnostico Santa Fe",
                                              "direccion":  "25 de Mayo 3240, S3000 Santa Fe",
                                              "lat":  -31.638143204488117,
                                              "lng":  -60.70354293028879,
@@ -3907,7 +3916,7 @@
                                              "sector":  "privado"
                                          },
                                          {
-                                             "nombre":  "Hospital del Centenario",
+                                             "nombre":  "Hospital Provincial del Centenario",
                                              "direccion":  "Urquiza 3101, S2002 Rosario, Santa Fe",
                                              "lat":  -32.93805047236526,
                                              "lng":  -60.66503610677196,
@@ -4059,6 +4068,17 @@
                                              "imagen":  "Logo/Santa_Fe/CentroMedicoRafaela.jpg",
                                              "logo":  "LogoPin/Santa_Fe/CentroMedicoRafaela.jpg",
                                              "sector":  "privado"
+                                         },
+                                         {
+                                             "nombre":  "Hospital de Niños Orlando Alassia",
+                                             "direccion":  "Mendoza 4151, S3000 Santa Fe de la Vera Cruz, Santa Fe",
+                                             "lat":  -31.644322363644413,
+                                             "lng":  -60.727506711233325,
+                                             "tipo":  "Sanatorio",
+                                             "imagen":  "Logo/Santa_Fe/HospitaldeNiñosOrlandoAlassia.jpg",
+                                             "logo":  "LogoPin/Santa_Fe/HospitaldeNiñosOrlandoAlassia.jpg",
+                                             "prioridad":  "blanco",
+                                             "sector":  "publico"
                                          }
                                      ]
                  },
@@ -5080,7 +5100,7 @@
                                                "sector":  "publico"
                                            },
                                            {
-                                               "nombre":  "Hospital Puerto Deseado",
+                                               "nombre":  "Hospital Distrital Puerto Deseado",
                                                "direccion":  "Colón 1100, Z9050ARD Puerto Deseado, Santa Cruz",
                                                "lat":  -47.756546421746336,
                                                "lng":  -65.89595445761381,
@@ -5247,6 +5267,50 @@
                                           "prioridad":  "blanco",
                                           "imagen":  "Logo/Jujuy/ClinicaMayo.jpg",
                                           "logo":  "LogoPin/Jujuy/ClinicaMayo.jpg",
+                                          "sector":  "privado"
+                                      },
+                                      {
+                                          "nombre":  "Hospital Arturo Zabala",
+                                          "direccion":  "Leandro Niceforo Alem, Y4608 Perico, Jujuy",
+                                          "lat":  -24.373722748007744,
+                                          "lng":  -65.118617698145485,
+                                          "tipo":  "Sanatorio",
+                                          "imagen":  "Logo/Jujuy/HospitalArturoZabala.jpg",
+                                          "logo":  "LogoPin/Jujuy/HospitalArturoZabala.jpg",
+                                          "prioridad":  "blanco",
+                                          "sector":  "publico"
+                                      },
+                                      {
+                                          "nombre":  "Hospital Dr. Oscar Orias",
+                                          "direccion":  "Registro Civil, Libertador Gral San Martín, Jujuy",
+                                          "lat":  -23.833934339212203,
+                                          "lng":  -64.790781196290979,
+                                          "tipo":  "Sanatorio",
+                                          "imagen":  "Logo/Jujuy/HospitalRegionalOO.jpg",
+                                          "logo":  "LogoPin/Jujuy/HospitalRegionalOO.jpg",
+                                          "prioridad":  "blanco",
+                                          "sector":  "publico"
+                                      },
+                                      {
+                                          "nombre":  "Sanatorio Nuestra Señora del Rosario",
+                                          "direccion":  "Gral. Belgrano 340, Y4600 San Salvador de Jujuy, Jujuy",
+                                          "lat":  -24.184638616907321,
+                                          "lng":  -65.297900723272832,
+                                          "tipo":  "Sanatorio",
+                                          "imagen":  "Logo/Jujuy/SanatorioNuestraSeñoradelRosario.jpg",
+                                          "logo":  "LogoPin/Jujuy/SanatorioNuestraSeñoradelRosario.jpg",
+                                          "prioridad":  "blanco",
+                                          "sector":  "privado"
+                                      },
+                                      {
+                                          "nombre":  "Instituto Medico del Norte",
+                                          "direccion":  "Cnel. Otero 461, Y4600 San Salvador de Jujuy, Jujuy",
+                                          "lat":  -24.183134803597813,
+                                          "lng":  -65.301594659527225,
+                                          "tipo":  "Centro Médico",
+                                          "imagen":  "Logo/Jujuy/InstitutoMedicodelNorte.jpg",
+                                          "logo":  "LogoPin/Jujuy/InstitutoMedicodelNorte.jpg",
+                                          "prioridad":  "blanco",
                                           "sector":  "privado"
                                       }
                                   ]

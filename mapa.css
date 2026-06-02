@@ -228,6 +228,36 @@ body {
 .comuna-header {
   margin-bottom: 16px;
 }
+.comuna-header-clickable {
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid #d8a0e8;
+  background: linear-gradient(135deg, #fdf5ff 0%, #f5e6ff 100%);
+  box-shadow: 0 2px 8px rgba(160, 32, 168, 0.12);
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.1s;
+  position: relative;
+}
+.comuna-header-clickable::after {
+  content: "📊 Ver datos provinciales";
+  display: block;
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #a020a8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-top: 1px solid #e0b0f0;
+  padding-top: 6px;
+}
+.comuna-header-clickable:hover {
+  border-color: #a020a8;
+  box-shadow: 0 4px 14px rgba(160, 32, 168, 0.25);
+  transform: translateY(-1px);
+}
+.comuna-header-clickable:active {
+  transform: translateY(0);
+}
 
 .comuna-header-top {
   display: flex;
@@ -1308,6 +1338,13 @@ body {
   padding: 12px 14px;
   margin-bottom: 12px;
   box-shadow: 0 2px 8px rgba(160, 32, 168, 0.08);
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.pob-argentina-card:hover {
+  border-color: #a020a8;
+  box-shadow: 0 4px 14px rgba(160, 32, 168, 0.18);
 }
 
 .pob-argentina-top {
@@ -1348,6 +1385,38 @@ body {
   color: #8e44ad;
 }
 
+/* Toggle privado/público dentro del card Argentina */
+.sector-toggle-arg {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #ede0f9;
+}
+
+.sector-btn-arg {
+  flex: 1;
+  padding: 4px 0;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1.5px solid #d4a8f0;
+  border-radius: 20px;
+  background: white;
+  color: #8e44ad;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.sector-btn-arg:hover {
+  background: #f5e9fd;
+}
+
+.sector-btn-activo {
+  background: #a020a8 !important;
+  border-color: #a020a8 !important;
+  color: white !important;
+}
+
 .pob-argentina-fac-valor {
   font-size: 14px;
   font-weight: 700;
@@ -1383,6 +1452,17 @@ body {
   white-space: nowrap;
   transition: all 0.2s;
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-multi-seleccion .btn-icon {
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
 }
 
 .btn-multi-seleccion:hover {

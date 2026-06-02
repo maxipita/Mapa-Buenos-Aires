@@ -77,26 +77,36 @@ function normalizarNombre(n) {
 }
 
 function recalcularFacturacionTotalArgentina() {
-  let facturacionTotalArgentina = 0;
+  let facturacionTotal    = 0;
+  let facturacionPrivado  = 0;
+  let facturacionPublico  = 0;
+
   Object.values(clientesProvinciasSheets).forEach(clientes => {
     clientes.forEach(c => {
-      // Limpiar: eliminar "U$S", espacios, y comas (separadores de miles)
       let cleanVal = (c.facturacion || "")
-        .replace(/U\$S/g, "")      // Elimina U$S
-        .replace(/\s/g, "")         // Elimina espacios
-        .replace(/,/g, "");         // Elimina comas (separadores de miles)
+        .replace(/U\$S/g, "")
+        .replace(/\s/g, "")
+        .replace(/,/g, "");
       const val = parseFloat(cleanVal);
-      if (!isNaN(val)) facturacionTotalArgentina += val;
+      if (!isNaN(val) && val > 0) {
+        facturacionTotal += val;
+        const sector = (c.sector || "privado").toLowerCase();
+        if (sector === "publico" || sector === "público") facturacionPublico += val;
+        else facturacionPrivado += val;
+      }
     });
   });
-  window._facturacionTotalArgentinaActual = facturacionTotalArgentina;
+
+  window._facturacionTotalArgentinaActual   = facturacionTotal;
+  window._facturacionPrivadaArgentina       = facturacionPrivado;
+  window._facturacionPublicaArgentina       = facturacionPublico;
 
   // Si estamos viendo Argentina, reconstruir el menú
   if (regionActiva === "argentina") {
     seleccionarMenu();
   }
 
-  return facturacionTotalArgentina;
+  return facturacionTotal;
 }
 
 function cargarDesdeSheetsArgentina() {
@@ -121,40 +131,63 @@ function cargarDesdeSheetsArgentina() {
         "AMBA TOTAL": "BUENOS AIRES",
       };
       const ZONA_A_GEOJSON = {
-        "AMBA NORTE": "BUENOS AIRES",
-        "AMBA OESTE": "BUENOS AIRES",
-        "AMBA SUR": "BUENOS AIRES",
-        "CATAMARCA": "CATAMARCA",
-        "CHACO": "CHACO",
-        "CHUBUT": "CHUBUT",
-        "CORDOBA": "CORDOBA",
-        "CORRIENTES": "CORRIENTES",
-        "ENTRE RIOS": "ENTRE RIOS",
-        "FORMOSA": "FORMOSA",
-        "JUJUY": "JUJUY",
-        "LA RIOJA": "LA RIOJA",
-        "MENDOZA": "MENDOZA",
-        "MISIONES": "MISIONES",
-        "NEUQUEN": "NEUQUEN",
-        "RIO NEGRO": "RIO NEGRO",
-        "SALTA": "SALTA",
-        "SAN JUAN": "SAN JUAN",
-        "SAN LUIS": "SAN LUIS",
-        "SANTA FE": "SANTA FE",
+        "AMBA NORTE":          "BUENOS AIRES",
+        "AMBA OESTE":          "BUENOS AIRES",
+        "AMBA SUR":            "BUENOS AIRES",
+        "BS-AS - INTERIOR":    "BUENOS AIRES",
+        "CABA":                "CABA",
+        "CATAMARCA":           "CATAMARCA",
+        "CHACO":               "CHACO",
+        "CHUBUT":              "CHUBUT",
+        "CORDOBA":             "CORDOBA",
+        "CORRIENTES":          "CORRIENTES",
+        "ENTRE RIOS":          "ENTRE RIOS",
+        "FORMOSA":             "FORMOSA",
+        "JUJUY":               "JUJUY",
+        "LA PAMPA":            "LA PAMPA",
+        "LA RIOJA":            "LA RIOJA",
+        "MENDOZA":             "MENDOZA",
+        "MISIONES":            "MISIONES",
+        "NEUQUEN":             "NEUQUEN",
+        "RIO NEGRO":           "RIO NEGRO",
+        "SALTA":               "SALTA",
+        "SAN JUAN":            "SAN JUAN",
+        "SAN LUIS":            "SAN LUIS",
+        "SANTA CRUZ":          "SANTA CRUZ",
+        "SANTA FE":            "SANTA FE",
         "SANTIAGO DEL ESTERO": "SANTIAGO DEL ESTERO",
-        "TIERRA DEL FUEGO": "TIERRA DEL FUEGO",
-        "TUCUMAN": "TUCUMAN",
+        "STGO. DEL ESTERO":    "SANTIAGO DEL ESTERO",
+        "TIERRA DEL FUEGO":    "TIERRA DEL FUEGO",
+        "TUCUMAN":             "TUCUMAN",
       };
 
       // Valor total de facturación Argentina del Sheet (fila TOTALES)
       window._facturacionTotalArgentinaActual = 6338792.28;
 
       // Nombres de provincias para detectar subtotales
-      const PROVINCIA_NAMES = ["BUENOS AIRES", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA", "CORRIENTES", "ENTRE RIOS", "FORMOSA", "JUJUY", "LA RIOJA", "MENDOZA", "MISIONES", "NEUQUEN", "RIO NEGRO", "SALTA", "SAN JUAN", "SAN LUIS", "SANTA FE", "SANTIAGO DEL ESTERO", "TIERRA DEL FUEGO", "TUCUMAN"];
+      const PROVINCIA_NAMES = ["BUENOS AIRES", "CABA", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA", "CORRIENTES", "ENTRE RIOS", "FORMOSA", "JUJUY", "LA PAMPA", "LA RIOJA", "MENDOZA", "MISIONES", "NEUQUEN", "RIO NEGRO", "SALTA", "SAN JUAN", "SAN LUIS", "SANTA CRUZ", "SANTA FE", "SANTIAGO DEL ESTERO", "STGO. DEL ESTERO", "TIERRA DEL FUEGO", "TUCUMAN"];
 
       filas.slice(1).forEach(row => {
         const nombre = (row[COL.cliente] || "").trim();
         const nombreUpper = nombre.toUpperCase();
+
+        const zona = (row[COL.zona] || "").toUpperCase().trim();
+
+        // Capturar filas zona="PROVINCIAS" → InfoWindow del recuadro de provincia
+        if (zona === "PROVINCIAS") {
+          const provKey = CLIENTE_A_PROVINCIA[nombreUpper] || nombreUpper;
+          if (!clientesProvinciasDirectos[provKey]) clientesProvinciasDirectos[provKey] = [];
+          const sV = (row[COL.sector] || "").toLowerCase().trim();
+          clientesProvinciasDirectos[provKey].push({
+            nombre, tipo: (row[COL.tipo] || "").trim(), sector: sV || "privado",
+            qx: row[COL.qx] || "", amb: row[COL.amb] || "",
+            salaEndo: row[COL.salaEndo] || "", ce: row[COL.ce] || "",
+            qx2: row[COL.qx2] || "", amb2: row[COL.amb2] || "",
+            salaEndo2: row[COL.salaEndo2] || "", ce2: row[COL.ce2] || "",
+            facturacion: row[COL.facturacionUSD] || "",
+          });
+          return;
+        }
 
         // Excluir: totales, subtotales, nombres exactos de provincias, lineas que empiezan con "ZONA" o "AMBA"
         const isExcluded = !nombre ||
@@ -163,8 +196,6 @@ function cargarDesdeSheetsArgentina() {
           /^ZONA|^AMBA/i.test(nombreUpper);
 
         if (isExcluded) return;
-
-        const zona = (row[COL.zona] || "").toUpperCase().trim();
 
         // Datos de zona BA desde el Sheet (identificados por nombre en col A)
         const ZONA_BA_KEY = { "ZONA NORTE": "norte", "ZONA OESTE": "oeste", "ZONA SUR": "sur", "INTERIOR": "interior" };
@@ -228,6 +259,7 @@ function cargarDesdeSheetsArgentina() {
             clientesProvinciasSheets[provDestino].push({
               nombre,
               tipo: (row[COL.tipo] || "").trim(),
+              sector: sectorValue || "privado",
               qx: row[COL.qx] || "", amb: row[COL.amb] || "",
               salaEndo: row[COL.salaEndo] || "", ce: row[COL.ce] || "",
               qx2: row[COL.qx2] || "", amb2: row[COL.amb2] || "",
@@ -239,6 +271,8 @@ function cargarDesdeSheetsArgentina() {
       });
     })
     .then(() => {
+      // Calcular totales por sector (para el toggle del card)
+      recalcularFacturacionTotalArgentina();
       // Si estamos viendo Argentina, actualizar el menú con el total del Sheet
       if (regionActiva === "argentina") {
         seleccionarMenu();
@@ -601,10 +635,12 @@ let infoWindowGlobal = null;
 let categoriaActiva = null;
 let regionActiva = null;
 let filtroSectorActivo = null;
+let todasProvinciasMostradas = false;
 let geojsonCargados = 0;
 const provinciasData = {};
 const provinciasDataExpansion = {};
 const clientesProvinciasSheets = {};
+const clientesProvinciasDirectos = {}; // filas zona="PROVINCIAS" del Sheet, una por provincia
 const clientesZonasBA = { norte: null, oeste: null, sur: null, interior: null }; // datos del Sheet por zona BA
 
 // ============================================
@@ -1090,6 +1126,41 @@ function togglePanelMobile() {
   }
 }
 
+function filtrarSectorArgentina(sector) {
+  filtroSectorActivo = sector;
+  if (todasProvinciasMostradas) {
+    seleccionarTodaArgentina();
+  } else if (provinciaSeleccionadaId) {
+    marcadoresActivos.forEach(m => m.setMap(null));
+    marcadoresActivos = [];
+    mostrarInfoPanelProvincia(provinciaSeleccionadaId);
+  }
+  actualizarPanelArgentina();
+}
+
+function actualizarFacturacionCard() {
+  const el = document.querySelector(".pob-argentina-fac-valor");
+  if (!el) return;
+  const val = filtroSectorActivo === 'privado'
+    ? (window._facturacionPrivadaArgentina  || 0)
+    : filtroSectorActivo === 'publico'
+    ? (window._facturacionPublicaArgentina  || 0)
+    : (window._facturacionTotalArgentinaActual || 0);
+  if (val > 0) {
+    el.textContent = "USD " + val.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+}
+
+function actualizarPanelArgentina() {
+  const panel = document.querySelector(".pob-argentina-card .sector-toggle-arg");
+  if (!panel) return;
+  panel.querySelectorAll(".sector-btn-arg").forEach(btn => {
+    const val = btn.dataset.sector || null;
+    btn.classList.toggle("sector-btn-activo", val === filtroSectorActivo);
+  });
+  actualizarFacturacionCard();
+}
+
 function aplicarFiltroSector(valor) {
   filtroSectorActivo = valor || null;
   const provinciaId = provinciaSeleccionadaId;
@@ -1189,10 +1260,14 @@ function mostrarTodasLasLocalidades() {
     // Fila total Argentina
     const pobTotalArg = Object.values(POBLACION_ARGENTINA).reduce((s, v) => s + v, 0);
     // Usar facturación recalculada después de cargar el Sheet
-    let facturacionTotalArgentina = window._facturacionTotalArgentinaActual || 0;
+    let facturacionTotalArgentina = filtroSectorActivo === 'privado'
+      ? (window._facturacionPrivadaArgentina  || 0)
+      : filtroSectorActivo === 'publico'
+      ? (window._facturacionPublicaArgentina  || 0)
+      : (window._facturacionTotalArgentinaActual || 0);
 
     const filaArgentina = `
-      <div class="pob-argentina-card">
+      <div class="pob-argentina-card" onclick="seleccionarTodaArgentina()" title="Ver todos los prestadores de Argentina">
         <div class="pob-argentina-top">
           <span class="pob-argentina-titulo">🗺️ Argentina</span>
           ${totalArg > 0 ? `<span class="pob-prest pob-prest-total pob-argentina-prest">${totalArg} prest.</span>` : ""}
@@ -1203,6 +1278,11 @@ function mostrarTodasLasLocalidades() {
           <span class="pob-argentina-fac-label">💰 Total facturado</span>
           <span class="pob-argentina-fac-valor">USD ${facturacionTotalArgentina.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
         </div>` : ""}
+        <div class="sector-toggle-arg" onclick="event.stopPropagation()">
+          <button class="sector-btn-arg ${!filtroSectorActivo ? 'sector-btn-activo' : ''}" data-sector="" onclick="filtrarSectorArgentina(null)">Todos</button>
+          <button class="sector-btn-arg ${filtroSectorActivo === 'privado' ? 'sector-btn-activo' : ''}" data-sector="privado" onclick="filtrarSectorArgentina('privado')">Privado</button>
+          <button class="sector-btn-arg ${filtroSectorActivo === 'publico' ? 'sector-btn-activo' : ''}" data-sector="publico" onclick="filtrarSectorArgentina('publico')">Público</button>
+        </div>
       </div>`;
 
     // Ranking de población — CABA y Buenos Aires por separado
@@ -1226,7 +1306,7 @@ function mostrarTodasLasLocalidades() {
       <div class="multi-seleccion-header">
         <span class="multi-seleccion-hint">Seleccioná provincias para ver sus totales</span>
         <button id="btn-multi-seleccion" class="btn-multi-seleccion ${modoMultiSeleccion ? 'btn-multi-activo' : ''}" onclick="toggleModoMultiSeleccion()">
-          ${modoMultiSeleccion ? '✕ Salir' : '⊕ Comparar'}
+          ${modoMultiSeleccion ? '<span class="btn-icon">✕</span> Salir' : '<span class="btn-icon">⊕</span> Comparar'}
         </button>
       </div>
       ${modoMultiSeleccion ? `<div id="barra-multi" class="barra-multi-container"></div>` : ''}
@@ -2078,10 +2158,10 @@ function actualizarBotonMultiSeleccion() {
   if (!btn) return;
   if (modoMultiSeleccion) {
     btn.classList.add('btn-multi-activo');
-    btn.textContent = '✕ Salir';
+    btn.innerHTML = '<span class="btn-icon">✕</span> Salir';
   } else {
     btn.classList.remove('btn-multi-activo');
-    btn.textContent = '⊕ Comparar';
+    btn.innerHTML = '<span class="btn-icon">⊕</span> Comparar';
   }
 }
 
@@ -2189,6 +2269,7 @@ function seleccionarProvincia(provinciaId) {
   // Resetear sombreado de zonas BA si venía de Buenos Aires
   resetEstiloPolygonsAmba();
 
+  todasProvinciasMostradas = false;
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
 
@@ -2249,6 +2330,54 @@ function seleccionarProvincia(provinciaId) {
   });
 
   mostrarInfoPanelProvincia(provinciaId);
+}
+
+// ============================================
+// SELECCIONAR TODA ARGENTINA (card resumen)
+// ============================================
+function seleccionarTodaArgentina() {
+  // Limpiar selección de provincia individual
+  provinciaSeleccionadaId = null;
+  provinciaAnteriorId     = null;
+  if (infoWindowGlobal) infoWindowGlobal.close();
+
+  // Limpiar marcadores activos
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+
+  // Pintar TODAS las provincias con el estilo seleccionado
+  if (argentinaDataLayer) {
+    argentinaDataLayer.setStyle(function() {
+      return ESTILO_SELECCIONADO_ARGENTINA;
+    });
+  }
+
+  // Recopilar todas las localidades de todas las provincias
+  const datos = getProvinciasDataActivo();
+  const todasLasLocalidades = [];
+  const vistas = new Set();
+
+  Object.values(datos).forEach(prov => {
+    if (!prov || !Array.isArray(prov.localidades)) return;
+    prov.localidades.forEach(loc => {
+      const key = normalizarNombre(loc.nombre);
+      if (!vistas.has(key) && loc.lat && loc.lng) {
+        vistas.add(key);
+        todasLasLocalidades.push(loc);
+      }
+    });
+  });
+
+  todasProvinciasMostradas = true;
+
+  // Mostrar todos los marcadores (respeta filtroSectorActivo si está activo)
+  agregarMarcadores(todasLasLocalidades);
+
+  // Zoom a Argentina continental (excluye Antártida y Malvinas)
+  setTimeout(() => {
+    map.setCenter({ lat: -40.0, lng: -65.0 });
+    map.setZoom(5);
+  }, 50);
 }
 
 function getLocalidadesDeProvincia(provinciaId) {
@@ -2593,11 +2722,13 @@ function mostrarInfoPanelProvincia(provinciaId) {
 
   const seccionLabel = categoriaActiva === "consultorios" ? "Consultorios" : "Sanatorios";
 
+  const tieneInfoDirecta = (clientesProvinciasDirectos[provinciaId] || []).length > 0;
+
   document.getElementById("panelBody").innerHTML = `
-    <div class="comuna-header">
+    <div class="comuna-header${tieneInfoDirecta ? ' comuna-header-clickable' : ''}"${tieneInfoDirecta ? ` onclick="abrirInfoWindowProvincia('${provinciaId}')" title="Ver datos del Excel"` : ''}>
       <div class="comuna-header-top">
         <h3>📍 ${nombre}</h3>
-        <button class="btn-volver" onclick="volverAlListado()" title="Volver al listado">✕</button>
+        <button class="btn-volver" onclick="event.stopPropagation();volverAlListado()" title="Volver al listado">✕</button>
       </div>
       ${pobHtml}
       ${facHtml}
@@ -2862,6 +2993,7 @@ function mostrarTodosLosMarcadores() {
 // VOLVER AL LISTADO COMPLETO
 // ============================================
 function volverAlListado() {
+  if (infoWindowGlobal) infoWindowGlobal.close();
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
   provinciaSeleccionadaId = null;
@@ -3260,6 +3392,55 @@ function liberarAlturaInfoWindow() {
       (closeBtn.getAttribute('style') || '') + '; padding: 0px !important;'
     );
   }
+}
+
+function abrirInfoWindowProvincia(provinciaId) {
+  const entries = clientesProvinciasDirectos[provinciaId] || [];
+  if (entries.length === 0) return;
+  const c = entries[0];
+
+  const eficiencia = [
+    c.qx       && c.qx       !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">QX: ${c.qx}</span>` : "",
+    c.amb      && c.amb      !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">AMB: ${c.amb}</span>` : "",
+    c.salaEndo && c.salaEndo !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">SALA ENDO: ${c.salaEndo}</span>` : "",
+    c.ce       && c.ce       !== "0" ? `<span class="cliente-sheet-badge cliente-sheet-badge--ef">CE: ${c.ce}</span>` : "",
+  ].filter(Boolean).join("");
+
+  const caps = [
+    c.qx2      && c.qx2      !== "0" ? `<span class="cliente-sheet-badge">QX: ${c.qx2}</span>` : "",
+    c.amb2     && c.amb2     !== "0" ? `<span class="cliente-sheet-badge">AMB: ${c.amb2}</span>` : "",
+    c.salaEndo2 && c.salaEndo2 !== "0" ? `<span class="cliente-sheet-badge">SALA ENDO: ${c.salaEndo2}</span>` : "",
+    c.ce2      && c.ce2      !== "0" ? `<span class="cliente-sheet-badge">CE: ${c.ce2}</span>` : "",
+  ].filter(Boolean).join("");
+
+  const rawFac = (c.facturacion || "").replace(/U\$S/g,"").replace(/\s/g,"").replace(/,/g,"");
+  const valFac = parseFloat(rawFac);
+  const facStr = !isNaN(valFac) && valFac > 0
+    ? `USD ${valFac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    : c.facturacion || "";
+
+  const contenido = `
+    <div class="popup-container">
+      <strong class="popup-nombre">${c.nombre}</strong>
+      ${c.tipo ? `<p class="popup-direccion">${c.tipo}</p>` : ""}
+      ${eficiencia || caps || facStr ? `
+        <button class="popup-btn-desglose" onclick="toggleDesglose(this)">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
+        <div id="nomDesglose" class="popup-desglose">
+          ${eficiencia ? `<div class="cliente-sheet-label" style="margin-top:8px;color:#1a1a1a;">Eficiencia</div><div class="cliente-sheet-caps">${eficiencia}</div>` : ""}
+          ${caps ? `<div class="cliente-sheet-label" style="margin-top:8px;color:#1a1a1a;">Capacidad instalada</div><div class="cliente-sheet-caps">${caps}</div>` : ""}
+          ${facStr ? `<div class="cliente-sheet-facturacion" style="margin-top:8px;">💰 ${facStr}</div>` : ""}
+        </div>
+      ` : ""}
+    </div>
+  `;
+  const pos = _provinciaCentroLatLng || map.getCenter();
+  infoWindowGlobal.setContent(contenido);
+  infoWindowGlobal.setPosition(pos);
+  infoWindowGlobal.open(map);
+  google.maps.event.addListenerOnce(infoWindowGlobal, 'domready', function() {
+    liberarAlturaInfoWindow();
+    setTimeout(centrarInfoWindow, 150);
+  });
 }
 
 function abrirInfoClienteSheet(id) {
