@@ -3080,8 +3080,8 @@ function mostrarInfoPanelProvincia(provinciaId) {
 
   const volStr = volTotal > 0 ? volTotal.toLocaleString('es-AR') : null;
   const capStr = capTotal > 0 ? capTotal.toLocaleString('es-AR') : null;
-  const facCardStr = facturacionTotal > 0
-    ? `USD ${facturacionTotal.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+  const facCardStr = facturacionMostrar > 0
+    ? `USD ${facturacionMostrar.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
     : null;
   const prestTotal = locOrdenadas.length;
 
@@ -3097,7 +3097,7 @@ function mostrarInfoPanelProvincia(provinciaId) {
       ${pobTotal ? `<div class="pob-argentina-pob">${formatPoblacion(pobTotal)} hab.</div>` : ""}
       ${facCardStr ? `
       <div class="pob-argentina-bottom">
-        <span class="pob-argentina-fac-label">💰 Total facturado</span>
+        <span class="pob-argentina-fac-label">💰 ${labelFacturacion}</span>
         <span class="pob-argentina-fac-valor">${facCardStr}</span>
       </div>` : ""}
       ${(volStr || capStr) ? `
@@ -3107,7 +3107,7 @@ function mostrarInfoPanelProvincia(provinciaId) {
       <div class="prov-card-desglose" style="display:none">
         ${capStr ? `<div class="prov-card-stat"><span>⚡ Capacidad instalada</span><span>${capStr}</span></div>` : ""}
         ${volStr ? `<div class="prov-card-stat"><span>📦 Volumen total</span><span class="prov-vol">${volStr}</span></div>` : ""}
-        ${facCardStr ? `<div class="prov-card-stat"><span>💰 Facturación USD</span><span class="prov-fac">${facCardStr}</span></div>` : ""}
+        ${facCardStr ? `<div class="prov-card-stat"><span>💰 ${labelFacturacion}</span><span class="prov-fac">${facCardStr}</span></div>` : ""}
       </div>` : ""}
     </div>
     ${filtroHtml}
