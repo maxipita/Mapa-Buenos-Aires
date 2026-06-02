@@ -101,9 +101,9 @@ function recalcularFacturacionTotalArgentina() {
   window._facturacionPrivadaArgentina       = facturacionPrivado;
   window._facturacionPublicaArgentina       = facturacionPublico;
 
-  // Si estamos viendo Argentina, reconstruir el menú
-  if (regionActiva === "argentina") {
-    seleccionarMenu();
+  // Si estamos viendo Argentina, actualizar el panel con los nuevos totales
+  if (regionActiva === "argentina" && typeof mostrarTodasLasLocalidades === "function") {
+    mostrarTodasLasLocalidades();
   }
 
   return facturacionTotal;
@@ -273,10 +273,6 @@ function cargarDesdeSheetsArgentina() {
     .then(() => {
       // Calcular totales por sector (para el toggle del card)
       recalcularFacturacionTotalArgentina();
-      // Si estamos viendo Argentina, actualizar el menú con el total del Sheet
-      if (regionActiva === "argentina") {
-        seleccionarMenu();
-      }
     })
     .catch(err => console.warn("Sheet Argentina:", err));
 }
@@ -362,6 +358,12 @@ function cargarDatosExternos() {
     fetchJSON(DATA_URLS.sanatoriosExpansion),
     fetchJSON(DATA_URLS.consultoriosExpansion)
   ]).then(function ([sanat, consult, sanatAmba, consultAmba, sanatArg, consultArg, sanatExp, consultExp]) {
+    // Helper: concat sin duplicar por nombre
+    function concatSinDuplicados(existentes, nuevas) {
+      const nombresExistentes = new Set(existentes.map(l => normalizarNombre(l.nombre)));
+      return existentes.concat(nuevas.filter(l => !nombresExistentes.has(normalizarNombre(l.nombre))));
+    }
+
     // CABA
     [sanat, consult].forEach(function (fuente) {
       Object.keys(fuente).forEach(function (id) {
@@ -369,7 +371,7 @@ function cargarDatosExternos() {
         const locs = (fuente[id].localidades || []).filter(l => l.nombre);
         if (locs.length === 0) return;
         if (comunasData[numId]) {
-          comunasData[numId].localidades = comunasData[numId].localidades.concat(locs);
+          comunasData[numId].localidades = concatSinDuplicados(comunasData[numId].localidades, locs);
         } else {
           comunasData[numId] = { nombre: "Comuna " + numId, barrios: [], localidades: locs };
         }
@@ -383,7 +385,7 @@ function cargarDatosExternos() {
         if (locs.length === 0) return;
         if (partidosData[id]) {
           if (!Array.isArray(partidosData[id].localidades)) partidosData[id].localidades = [];
-          partidosData[id].localidades = partidosData[id].localidades.concat(locs);
+          partidosData[id].localidades = concatSinDuplicados(partidosData[id].localidades, locs);
         } else {
           partidosData[id] = { nombre: fuente[id].nombre || id, barrios: [], localidades: locs };
         }
@@ -398,7 +400,7 @@ function cargarDatosExternos() {
         const provId = id === "CABA" ? "CIUDAD AUTONOMA DE BUENOS AIRES" : id;
         if (provinciasData[provId]) {
           if (!Array.isArray(provinciasData[provId].localidades)) provinciasData[provId].localidades = [];
-          provinciasData[provId].localidades = provinciasData[provId].localidades.concat(locs);
+          provinciasData[provId].localidades = concatSinDuplicados(provinciasData[provId].localidades, locs);
         } else {
           provinciasData[provId] = { nombre: fuente[id].nombre || id, localidades: locs };
         }
@@ -412,7 +414,7 @@ function cargarDatosExternos() {
         if (locs.length === 0) return;
         if (provinciasDataExpansion[id]) {
           if (!Array.isArray(provinciasDataExpansion[id].localidades)) provinciasDataExpansion[id].localidades = [];
-          provinciasDataExpansion[id].localidades = provinciasDataExpansion[id].localidades.concat(locs);
+          provinciasDataExpansion[id].localidades = concatSinDuplicados(provinciasDataExpansion[id].localidades, locs);
         } else {
           provinciasDataExpansion[id] = { nombre: fuente[id].nombre || id, localidades: locs };
         }
