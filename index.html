@@ -106,6 +106,8 @@
       "AIzaSyASQBz2j2svQxE2qpAIt-H1-eHQqFIfRaM"
     ];
     let _mapsKeyIndex = 0;
+    let _mapsKeyAttempts = 0;
+    const _MAPS_KEY_MAX_ATTEMPTS = _MAPS_KEYS.length * 2; // Intentar cada key máx 2 veces antes de parar
 
     function _cargarMapasScript(index) {
       const s = document.createElement("script");
@@ -116,11 +118,14 @@
     }
 
     window.gm_authFailure = function () {
-      _mapsKeyIndex++;
-      if (_mapsKeyIndex < _MAPS_KEYS.length) {
+      _mapsKeyAttempts++;
+      _mapsKeyIndex = (_mapsKeyIndex + 1) % _MAPS_KEYS.length; // Reciclar: volver a la primera cuando llega al final
+
+      if (_mapsKeyAttempts < _MAPS_KEY_MAX_ATTEMPTS) {
+        console.warn(`API key falló. Intentando con la siguiente (intento ${_mapsKeyAttempts}/${_MAPS_KEY_MAX_ATTEMPTS})...`);
         _cargarMapasScript(_mapsKeyIndex);
       } else {
-        console.error("Todas las API keys de Google Maps agotadas.");
+        console.error("Todas las API keys de Google Maps agotadas después de múltiples intentos.");
       }
     };
 
