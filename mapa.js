@@ -2307,13 +2307,19 @@ function mostrarBarraMultiSeleccion() {
     document.getElementById('panelBody').prepend(barra);
   }
 
+  const argCard = document.querySelector('.pob-argentina-card');
+
   if (provinciasSeleccionadas.size === 0) {
     barra.innerHTML = `
       <div class="multi-barra-vacia">
         <span class="multi-hint">Hacé click en las provincias del mapa para compararlas</span>
       </div>`;
+    if (argCard) argCard.style.display = '';
     return;
   }
+
+  // Ocultar la card de Argentina mientras se compara
+  if (argCard) argCard.style.display = 'none';
 
   const datos = getProvinciasDataActivo();
   let totalPrestadores = 0;
@@ -2388,6 +2394,8 @@ function mostrarBarraMultiSeleccion() {
 function ocultarBarraMultiSeleccion() {
   const barra = document.getElementById('barra-multi');
   if (barra) barra.remove();
+  const argCard = document.querySelector('.pob-argentina-card');
+  if (argCard) argCard.style.display = '';
 }
 
 function limpiarMultiSeleccion() {
