@@ -2146,6 +2146,7 @@ function toggleModoMultiSeleccion() {
   provinciasSeleccionadas.clear();
   actualizarBotonMultiSeleccion();
   ocultarBarraMultiSeleccion();
+  if (infoWindowGlobal) infoWindowGlobal.close();
 
   // Resetear estilos
   if (argentinaDataLayer) {
@@ -2202,6 +2203,103 @@ function calcularTotalMultiSeleccion() {
   return total;
 }
 
+function mostrarInfoWindowMultiSeleccion() {
+  if (!infoWindowGlobal) return;
+
+  if (provinciasSeleccionadas.size === 0) {
+    infoWindowGlobal.close();
+    return;
+  }
+
+  const datos = getProvinciasDataActivo();
+
+  // Calcular centro geográfico promediando los centroides
+  let latSum = 0, lngSum = 0, count = 0;
+  provinciasSeleccionadas.forEach(id => {
+    const c = CENTROIDES_ARGENTINA[id] || PROVINCIA_CENTRO_OVERRIDE[id];
+    if (c) { latSum += c.lat; lngSum += c.lng; count++; }
+  });
+  const centro = count > 0
+    ? { lat: latSum / count, lng: lngSum / count }
+    : { lat: -38.5, lng: -65 };
+
+  // Armar datos por provincia
+  let totalPrestadores = 0;
+  let totalFac = 0;
+
+  const filas = Array.from(provinciasSeleccionadas).map(id => {
+    const nombre = PROVINCIAS_DISPLAY[id] || toTitleCase(id);
+
+    // Prestadores
+    const locsFiltradas = filtrarPorCategoria((datos[id] || {}).localidades || []);
+    const prest = locsFiltradas.length;
+    totalPrestadores += prest;
+
+    // Facturación
+    let fac = 0;
+    const sheetData = clientesProvinciasSheets[id] || [];
+    if (sheetData.length) {
+      sheetData.forEach(c => {
+        const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
+        const val = parseFloat(raw);
+        if (!isNaN(val) && val > 0) fac += val;
+      });
+    } else {
+      locsFiltradas.forEach(loc => {
+        (loc.nomencladores || []).forEach(n => {
+          if (n.tipo === "total facturado") {
+            const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
+            if (!isNaN(val)) fac += val;
+          }
+        });
+      });
+    }
+    totalFac += fac;
+
+    const facStr = fac > 0
+      ? `USD ${fac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+      : "—";
+    return `
+      <tr>
+        <td style="padding:3px 8px 3px 0;font-weight:600;white-space:nowrap">${nombre}</td>
+        <td style="padding:3px 6px;text-align:right;white-space:nowrap">${prest} prest.</td>
+        <td style="padding:3px 0 3px 6px;text-align:right;white-space:nowrap;color:#27ae60;font-weight:600">${facStr}</td>
+      </tr>`;
+  }).join("");
+
+  const totalFacStr = totalFac > 0
+    ? `USD ${totalFac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    : "—";
+
+  const contenido = `
+    <div style="font-family:sans-serif;font-size:13px;min-width:220px;max-width:320px">
+      <div style="font-weight:700;font-size:14px;color:#6a0dad;margin-bottom:8px;border-bottom:1px solid #ede0f9;padding-bottom:6px">
+        📊 Comparación de provincias
+      </div>
+      <table style="width:100%;border-collapse:collapse">
+        <thead>
+          <tr style="font-size:11px;color:#888;border-bottom:1px solid #f0e4f7">
+            <th style="text-align:left;padding-bottom:4px;font-weight:600">Provincia</th>
+            <th style="text-align:right;padding-bottom:4px;font-weight:600">Prest.</th>
+            <th style="text-align:right;padding-bottom:4px;font-weight:600">Facturación</th>
+          </tr>
+        </thead>
+        <tbody>${filas}</tbody>
+        <tfoot>
+          <tr style="border-top:2px solid #d4a8f0;font-size:13px">
+            <td style="padding:5px 8px 3px 0;font-weight:700;color:#2c3e50">TOTAL</td>
+            <td style="padding:5px 6px 3px;text-align:right;font-weight:700;color:#2c3e50">${totalPrestadores} prest.</td>
+            <td style="padding:5px 0 3px 6px;text-align:right;font-weight:700;color:#27ae60">${totalFacStr}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>`;
+
+  infoWindowGlobal.setContent(contenido);
+  infoWindowGlobal.setPosition(new google.maps.LatLng(centro.lat, centro.lng));
+  infoWindowGlobal.open(map);
+}
+
 function mostrarBarraMultiSeleccion() {
   let barra = document.getElementById('barra-multi');
   if (!barra) {
@@ -2244,6 +2342,7 @@ function limpiarMultiSeleccion() {
   provinciasSeleccionadas.clear();
   actualizarEstilosMultiSeleccion();
   mostrarBarraMultiSeleccion();
+  if (infoWindowGlobal) infoWindowGlobal.close();
 }
 
 // ============================================
@@ -2259,6 +2358,7 @@ function seleccionarProvincia(provinciaId) {
     }
     actualizarEstilosMultiSeleccion();
     mostrarBarraMultiSeleccion();
+    mostrarInfoWindowMultiSeleccion();
     return;
   }
 
