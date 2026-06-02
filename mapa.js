@@ -2373,7 +2373,10 @@ function mostrarBarraMultiSeleccion() {
 
     return `
       <tr class="multi-tabla-fila">
-        <td class="multi-tabla-nombre">${nombre}</td>
+        <td class="multi-tabla-nombre">
+          ${nombre}
+          <button class="multi-btn-ver-prov" onclick="verDetalleProvincia('${id}')" title="Ver prestadores">↗</button>
+        </td>
         <td class="multi-tabla-prest">${prest}</td>
         <td class="multi-tabla-vol">${volStr}</td>
         <td class="multi-tabla-fac">${facStr}</td>
@@ -2415,6 +2418,26 @@ function ocultarBarraMultiSeleccion() {
   if (barra) barra.remove();
   const argCard = document.querySelector('.pob-argentina-card');
   if (argCard) argCard.style.display = '';
+}
+
+function verDetalleProvincia(provinciaId) {
+  // Muestra el panel de detalle de la provincia, con botón para volver a la comparación
+  mostrarInfoPanelProvincia(provinciaId);
+
+  // Inyectar botón "Volver a comparación" al inicio del panel
+  const panelBody = document.getElementById('panelBody');
+  const btnVolver = document.createElement('button');
+  btnVolver.className = 'btn-volver-comparacion';
+  btnVolver.innerHTML = '← Volver a comparación';
+  btnVolver.onclick = () => mostrarBarraMultiSeleccion();
+  panelBody.insertBefore(btnVolver, panelBody.firstChild);
+
+  // Hacer zoom a la provincia en el mapa
+  const centro = CENTROIDES_ARGENTINA[provinciaId] || PROVINCIA_CENTRO_OVERRIDE[provinciaId];
+  if (centro) {
+    map.setCenter({ lat: centro.lat, lng: centro.lng });
+    map.setZoom(6);
+  }
 }
 
 function limpiarMultiSeleccion() {

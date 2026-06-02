@@ -1614,6 +1614,44 @@ body {
 .multi-tabla-total td:nth-child(3)  { text-align: right; color: #2980b9; font-variant-numeric: tabular-nums; }
 .multi-tabla-total td:nth-child(4)  { text-align: right; color: #27ae60; font-variant-numeric: tabular-nums; }
 
+.multi-btn-ver-prov {
+  background: none;
+  border: none;
+  color: #a020a8;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 0 2px;
+  margin-left: 4px;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+  vertical-align: middle;
+}
+
+.multi-btn-ver-prov:hover {
+  opacity: 1;
+}
+
+.btn-volver-comparacion {
+  display: block;
+  width: 100%;
+  background: none;
+  border: 1.5px solid #d4a8f0;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #a020a8;
+  cursor: pointer;
+  margin-bottom: 12px;
+  transition: all 0.2s;
+  text-align: left;
+}
+
+.btn-volver-comparacion:hover {
+  background: #faf0fb;
+  border-color: #a020a8;
+}
+
 .multi-btn-limpiar {
   background: none;
   border: 1px solid #ccc;
