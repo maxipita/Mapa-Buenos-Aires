@@ -1686,83 +1686,101 @@ body {
   font-weight: 600;
 }
 
-/* Tabla de comparación en el panel */
+/* Comparación de provincias — layout de tarjetas */
 .multi-tabla-header {
   font-size: 13px;
   font-weight: 700;
   color: #6a0dad;
   padding: 10px 0 8px;
   border-bottom: 1.5px solid #e8d5f5;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
-.multi-tabla {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 12px;
-  margin-bottom: 10px;
+.multi-prov-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 8px;
 }
 
-.multi-tabla-thead th {
-  text-align: left;
-  font-size: 11px;
-  font-weight: 600;
-  color: #888;
-  padding: 4px 6px 6px 0;
-  border-bottom: 1px solid #f0e4f7;
+.multi-prov-card {
+  background: white;
+  border: 1px solid #f0e4f7;
+  border-radius: 8px;
+  padding: 7px 10px;
 }
 
-.multi-tabla-thead th:nth-child(2),
-.multi-tabla-thead th:nth-child(3),
-.multi-tabla-thead th:nth-child(4) {
-  text-align: right;
+.multi-prov-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3px;
 }
 
-.multi-tabla-fila td {
-  padding: 5px 6px 5px 0;
-  border-bottom: 1px solid #faf0fb;
-  vertical-align: middle;
-}
-
-.multi-tabla-nombre {
-  font-weight: 600;
-  color: #2c3e50;
-  white-space: nowrap;
-}
-
-.multi-tabla-prest {
-  text-align: right !important;
-  color: #555;
-  white-space: nowrap;
-}
-
-.multi-tabla-vol {
-  text-align: right !important;
-  color: #2980b9;
-  font-weight: 600;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-
-.multi-tabla-fac {
-  text-align: right !important;
-  font-weight: 600;
-  color: #27ae60;
-  white-space: nowrap;
-  font-variant-numeric: tabular-nums;
-}
-
-.multi-tabla-total td {
-  padding: 7px 6px 5px 0;
+.multi-prov-nombre {
   font-weight: 700;
   font-size: 13px;
+  color: #2c3e50;
+}
+
+.multi-prov-stats {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+
+.multi-stat-val {
+  font-weight: 700;
+}
+
+.multi-stat-prest {
+  color: #555;
+}
+
+.multi-stat-sep {
+  color: #ccc;
+  font-size: 11px;
+}
+
+.multi-stat-vol {
+  color: #2980b9;
+  font-variant-numeric: tabular-nums;
+}
+
+.multi-stat-fac {
+  color: #27ae60;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.multi-total-row {
+  background: #f3e8ff;
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
   border-top: 2px solid #d4a8f0;
 }
 
-.multi-tabla-total td:first-child  { color: #2c3e50; }
-.multi-tabla-total td:nth-child(2)  { text-align: right; color: #2c3e50; }
-.multi-tabla-total td:nth-child(3)  { text-align: right; color: #2980b9; font-variant-numeric: tabular-nums; }
-.multi-tabla-total td:nth-child(4)  { text-align: right; color: #27ae60; font-variant-numeric: tabular-nums; }
+.multi-total-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #a020a8;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.multi-total-stats {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
 
 .multi-btn-ver-prov {
   background: none;

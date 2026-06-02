@@ -2379,15 +2379,17 @@ function mostrarBarraMultiSeleccion() {
     const volStr = vol > 0 ? vol.toLocaleString('es-AR') : "—";
 
     return `
-      <tr class="multi-tabla-fila">
-        <td class="multi-tabla-nombre">
-          ${nombre}
+      <div class="multi-prov-card">
+        <div class="multi-prov-top">
+          <span class="multi-prov-nombre">${nombre}</span>
           <button class="multi-btn-ver-prov" onclick="verDetalleProvincia('${id}')" title="Ver prestadores">↗</button>
-        </td>
-        <td class="multi-tabla-prest">${prest}</td>
-        <td class="multi-tabla-vol">${volStr}</td>
-        <td class="multi-tabla-fac">${facStr}</td>
-      </tr>`;
+        </div>
+        <div class="multi-prov-stats">
+          <span class="multi-stat-prest"><span class="multi-stat-val">${prest}</span> prest.</span>
+          ${vol > 0 ? `<span class="multi-stat-sep">·</span><span class="multi-stat-vol"><span class="multi-stat-val">${volStr}</span> vol.</span>` : ''}
+          ${fac > 0 ? `<span class="multi-stat-sep">·</span><span class="multi-stat-fac">${facStr}</span>` : ''}
+        </div>
+      </div>`;
   }).join("");
 
   const totalFacStr = totalFac > 0
@@ -2397,25 +2399,15 @@ function mostrarBarraMultiSeleccion() {
 
   barra.innerHTML = `
     <div class="multi-tabla-header">📊 Comparación de provincias</div>
-    <table class="multi-tabla">
-      <thead>
-        <tr class="multi-tabla-thead">
-          <th>Provincia</th>
-          <th>Prest.</th>
-          <th>Volumen</th>
-          <th>Facturación USD</th>
-        </tr>
-      </thead>
-      <tbody>${filas}</tbody>
-      <tfoot>
-        <tr class="multi-tabla-total">
-          <td>TOTAL</td>
-          <td>${totalPrestadores}</td>
-          <td>${totalVolStr}</td>
-          <td>${totalFacStr}</td>
-        </tr>
-      </tfoot>
-    </table>
+    <div class="multi-prov-lista">${filas}</div>
+    <div class="multi-total-row">
+      <span class="multi-total-label">TOTAL</span>
+      <span class="multi-total-stats">
+        <span class="multi-stat-prest"><strong>${totalPrestadores}</strong> prest.</span>
+        ${totalVol > 0 ? `<span class="multi-stat-sep">·</span><span class="multi-stat-vol"><strong>${totalVolStr}</strong> vol.</span>` : ''}
+        ${totalFac > 0 ? `<span class="multi-stat-sep">·</span><span class="multi-stat-fac"><strong>${totalFacStr}</strong></span>` : ''}
+      </span>
+    </div>
     <button class="multi-btn-limpiar" onclick="limpiarMultiSeleccion()">Limpiar selección</button>
   `;
 }
