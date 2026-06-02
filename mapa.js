@@ -1488,6 +1488,9 @@ function verificarYAjustarBounds() {
   geojsonCargados++;
   if (geojsonCargados < 2) return;
 
+  // Solo ajustar si no estamos en Argentina o Expansión
+  if (regionActiva === "argentina" || regionActiva === "expansion") return;
+
   map.setCenter({ lat: -34.62, lng: -58.52 });
   map.setZoom(11);
 }
