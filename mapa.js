@@ -1298,8 +1298,11 @@ function mostrarTodasLasLocalidades() {
         const conLocs = provinciasConLocs.find(p => p.id === prov);
         const cantPrest = conLocs ? conLocs.locs.length : 0;
         const nombre = PROVINCIAS_DISPLAY[prov] || toTitleCase(prov);
+        const clickFn = modoMultiSeleccion
+          ? `seleccionarProvincia('${prov}')`
+          : `mostrarResumenProvincia('${prov}')`;
         return `
-          <div class="pob-row pob-row-activa" onclick="seleccionarProvincia('${prov}')">
+          <div class="pob-row ${cantPrest > 0 ? 'pob-row-activa' : ''}" ${cantPrest > 0 ? `onclick="${clickFn}"` : ''}>
             <span class="pob-nombre">${nombre}</span>
             <span class="pob-numero">${formatPoblacion(pob)}</span>
             ${cantPrest > 0 ? `<span class="pob-prest">${cantPrest} prest.</span>` : ""}
@@ -2418,6 +2421,108 @@ function ocultarBarraMultiSeleccion() {
   if (barra) barra.remove();
   const argCard = document.querySelector('.pob-argentina-card');
   if (argCard) argCard.style.display = '';
+}
+
+function mostrarResumenProvincia(provinciaId) {
+  const datos = getProvinciasDataActivo();
+  const locsFiltradas = filtrarPorCategoria((datos[provinciaId] || {}).localidades || []);
+  const prest = locsFiltradas.length;
+  const pob = POBLACION_ARGENTINA[provinciaId] || 0;
+  const nombre = provinciaId === "CIUDAD AUTONOMA DE BUENOS AIRES"
+    ? "Capital Federal"
+    : provinciaId === "BUENOS AIRES"
+    ? "Buenos Aires"
+    : PROVINCIAS_DISPLAY[provinciaId] || toTitleCase(provinciaId);
+
+  // Facturación USD
+  let fac = 0;
+  const sheetData = clientesProvinciasSheets[provinciaId] || [];
+  if (sheetData.length) {
+    sheetData.forEach(c => {
+      const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
+      const val = parseFloat(raw);
+      if (!isNaN(val) && val > 0) fac += val;
+    });
+  } else {
+    locsFiltradas.forEach(loc => {
+      (loc.nomencladores || []).forEach(n => {
+        if (n.tipo === "total facturado") {
+          const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
+          if (!isNaN(val)) fac += val;
+        }
+      });
+    });
+  }
+
+  // Volúmenes totales
+  let vol = 0;
+  locsFiltradas.forEach(loc => {
+    (loc.nomencladores || []).forEach(n => {
+      if (n.tipo === "volumen total") {
+        const val = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
+        if (!isNaN(val) && val > 0) vol += val;
+      }
+    });
+  });
+
+  // Capacidad instalada (suma de valores numéricos de tipo "capacidad")
+  let cap = 0;
+  locsFiltradas.forEach(loc => {
+    (loc.nomencladores || []).forEach(n => {
+      if (n.tipo === "capacidad") {
+        const val = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
+        if (!isNaN(val) && val > 0) cap += val;
+      }
+    });
+  });
+
+  const facStr = fac > 0
+    ? `USD ${fac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    : "—";
+  const volStr = vol > 0 ? vol.toLocaleString('es-AR') : "—";
+  const capStr = cap > 0 ? cap.toLocaleString('es-AR') : "—";
+
+  const panelBody = document.getElementById('panelBody');
+  panelBody.innerHTML = `
+    <div class="prov-resumen-card">
+      <div class="prov-resumen-header">
+        <div class="prov-resumen-titulo">
+          <span class="prov-resumen-nombre">${nombre}</span>
+          ${prest > 0 ? `<span class="pob-prest pob-prest-total">${prest} prest.</span>` : ""}
+        </div>
+        <button class="prov-resumen-volver" onclick="mostrarTodasLasLocalidades()">✕</button>
+      </div>
+      ${pob ? `<div class="prov-resumen-pob">👥 ${formatPoblacion(pob)} hab.</div>` : ""}
+      <div class="prov-resumen-stats">
+        ${cap > 0 ? `
+        <div class="prov-resumen-stat">
+          <span class="prov-resumen-stat-label">⚡ Cap. instalada</span>
+          <span class="prov-resumen-stat-valor">${capStr}</span>
+        </div>` : ""}
+        ${vol > 0 ? `
+        <div class="prov-resumen-stat">
+          <span class="prov-resumen-stat-label">📦 Volumen total</span>
+          <span class="prov-resumen-stat-valor prov-vol">${volStr}</span>
+        </div>` : ""}
+        ${fac > 0 ? `
+        <div class="prov-resumen-stat prov-resumen-stat-fac">
+          <span class="prov-resumen-stat-label">💰 Total facturado</span>
+          <span class="prov-resumen-stat-valor prov-fac">${facStr}</span>
+        </div>` : ""}
+      </div>
+      <button class="prov-resumen-btn-detalle" onclick="seleccionarProvincia('${provinciaId}')">
+        Ver prestadores →
+      </button>
+    </div>
+  `;
+
+  // Zoom a la provincia
+  const centro = CENTROIDES_ARGENTINA[provinciaId] || PROVINCIA_CENTRO_OVERRIDE[provinciaId];
+  if (centro && map) {
+    map.setCenter({ lat: centro.lat, lng: centro.lng });
+    map.setZoom(6);
+  }
+  abrirPanelMobile();
 }
 
 function verDetalleProvincia(provinciaId) {

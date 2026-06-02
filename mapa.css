@@ -1330,6 +1330,108 @@ body {
   background: #6a0dad;
 }
 
+/* ── Card Resumen Provincia ── */
+.prov-resumen-card {
+  background: #fff;
+  border: 1.5px solid #d4a8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(160,32,168,0.08);
+}
+
+.prov-resumen-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.prov-resumen-titulo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.prov-resumen-nombre {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2c3e50;
+}
+
+.prov-resumen-volver {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.prov-resumen-volver:hover { color: #a020a8; }
+
+.prov-resumen-pob {
+  font-size: 12px;
+  color: #7f8c8d;
+  margin-bottom: 12px;
+}
+
+.prov-resumen-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid #ede0f9;
+  margin-top: 8px;
+}
+
+.prov-resumen-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 0;
+  border-bottom: 1px solid #f7f0fc;
+}
+
+.prov-resumen-stat-fac {
+  border-bottom: none;
+}
+
+.prov-resumen-stat-label {
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+}
+
+.prov-resumen-stat-valor {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2c3e50;
+  font-variant-numeric: tabular-nums;
+}
+
+.prov-vol  { color: #2980b9; }
+.prov-fac  { color: #27ae60; }
+
+.prov-resumen-btn-detalle {
+  display: block;
+  width: 100%;
+  margin-top: 12px;
+  padding: 8px 0;
+  background: linear-gradient(135deg, #a020a8, #6a0dad);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.prov-resumen-btn-detalle:hover { opacity: 0.88; }
+
 /* ── Card Argentina ── */
 .pob-argentina-card {
   background: #ffffff;
