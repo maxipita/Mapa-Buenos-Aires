@@ -1269,10 +1269,13 @@ function mostrarTodasLasLocalidades() {
       : (window._facturacionTotalArgentinaActual || 0);
 
     const filaArgentina = `
-      <div class="pob-argentina-card" onclick="seleccionarTodaArgentina()" title="Ver todos los prestadores de Argentina">
+      <div class="pob-argentina-card ${todasProvinciasMostradas ? 'pob-argentina-activa' : ''}" onclick="${todasProvinciasMostradas ? '' : 'seleccionarTodaArgentina()'}" title="${todasProvinciasMostradas ? '' : 'Ver todos los prestadores de Argentina'}">
         <div class="pob-argentina-top">
           <span class="pob-argentina-titulo">🗺️ Argentina</span>
-          ${totalArg > 0 ? `<span class="pob-prest pob-prest-total pob-argentina-prest">${totalArg} prest.</span>` : ""}
+          <div class="pob-argentina-top-right">
+            ${totalArg > 0 ? `<span class="pob-prest pob-prest-total pob-argentina-prest">${totalArg} prest.</span>` : ""}
+            ${todasProvinciasMostradas ? `<button class="btn-cerrar-argentina" onclick="event.stopPropagation(); deseleccionarTodaArgentina()" title="Cerrar vista general">✕</button>` : ""}
+          </div>
         </div>
         <div class="pob-argentina-pob">${formatPoblacion(pobTotalArg)} hab.</div>
         ${facturacionTotalArgentina > 0 ? `
@@ -2380,6 +2383,33 @@ function seleccionarTodaArgentina() {
     map.setCenter({ lat: -40.0, lng: -65.0 });
     map.setZoom(5);
   }, 50);
+
+  // Refrescar panel para mostrar el botón ✕
+  mostrarTodasLasLocalidades();
+}
+
+function deseleccionarTodaArgentina() {
+  todasProvinciasMostradas = false;
+  provinciaSeleccionadaId = null;
+  provinciaAnteriorId = null;
+
+  // Limpiar marcadores
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+  if (infoWindowGlobal) infoWindowGlobal.close();
+
+  // Resetear estilos del mapa
+  if (argentinaDataLayer) {
+    argentinaDataLayer.setStyle(feature => estiloArgentina(feature, false));
+  }
+  resetEstiloPolygonsAmba();
+
+  // Volver al zoom general de Argentina
+  map.setCenter({ lat: -38.5, lng: -65 });
+  map.setZoom(4);
+
+  // Refrescar panel (quita el botón ✕)
+  mostrarTodasLasLocalidades();
 }
 
 function getLocalidadesDeProvincia(provinciaId) {

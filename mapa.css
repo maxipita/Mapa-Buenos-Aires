@@ -1347,10 +1347,22 @@ body {
   box-shadow: 0 4px 14px rgba(160, 32, 168, 0.18);
 }
 
+.pob-argentina-card.pob-argentina-activa {
+  border-color: #a020a8;
+  box-shadow: 0 4px 14px rgba(160, 32, 168, 0.22);
+  cursor: default;
+}
+
 .pob-argentina-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.pob-argentina-top-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .pob-argentina-titulo {
@@ -1361,6 +1373,29 @@ body {
 
 .pob-argentina-prest {
   margin-left: auto;
+}
+
+.btn-cerrar-argentina {
+  background: none;
+  border: none;
+  color: #a020a8;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btn-cerrar-argentina:hover {
+  background: #f0e4f7;
+  color: #6a0dad;
 }
 
 .pob-argentina-pob {
