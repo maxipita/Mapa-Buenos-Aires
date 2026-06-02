@@ -2490,10 +2490,7 @@ function mostrarResumenProvincia(provinciaId) {
   const capStr = cap > 0 ? cap.toLocaleString('es-AR') : "—";
 
   const panelBody = document.getElementById('panelBody');
-  // Preservar la card de Argentina total (solo se oculta al entrar en modo Comparar)
-  const argCardEl = panelBody.querySelector('.pob-argentina-card');
-  const argCardHtml = argCardEl ? argCardEl.outerHTML : '';
-  panelBody.innerHTML = argCardHtml + `
+  panelBody.innerHTML = `
     <div class="prov-resumen-card">
       <div class="prov-resumen-header">
         <div class="prov-resumen-titulo">
