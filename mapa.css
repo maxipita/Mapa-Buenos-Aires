@@ -1517,11 +1517,8 @@ body {
   margin-bottom: 14px;
 }
 
-.multi-barra-provincias {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 10px;
+.multi-barra-vacia {
+  padding: 10px 0 4px;
 }
 
 .multi-hint {
@@ -1539,27 +1536,73 @@ body {
   font-weight: 600;
 }
 
-.multi-barra-total {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-top: 1px solid #e8d5f5;
-  margin-bottom: 8px;
-}
-
-.multi-total-label {
-  font-size: 12px;
-  font-weight: 600;
-  color: #555;
-}
-
-.multi-total-valor {
-  font-size: 15px;
+/* Tabla de comparación en el panel */
+.multi-tabla-header {
+  font-size: 13px;
   font-weight: 700;
+  color: #6a0dad;
+  padding: 10px 0 8px;
+  border-bottom: 1.5px solid #e8d5f5;
+  margin-bottom: 6px;
+}
+
+.multi-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.multi-tabla-thead th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  color: #888;
+  padding: 4px 6px 6px 0;
+  border-bottom: 1px solid #f0e4f7;
+}
+
+.multi-tabla-thead th:nth-child(2),
+.multi-tabla-thead th:nth-child(3) {
+  text-align: right;
+}
+
+.multi-tabla-fila td {
+  padding: 5px 6px 5px 0;
+  border-bottom: 1px solid #faf0fb;
+  vertical-align: middle;
+}
+
+.multi-tabla-nombre {
+  font-weight: 600;
+  color: #2c3e50;
+  white-space: nowrap;
+}
+
+.multi-tabla-prest {
+  text-align: right !important;
+  color: #555;
+  white-space: nowrap;
+}
+
+.multi-tabla-fac {
+  text-align: right !important;
+  font-weight: 600;
   color: #27ae60;
+  white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
+
+.multi-tabla-total td {
+  padding: 7px 6px 5px 0;
+  font-weight: 700;
+  font-size: 13px;
+  border-top: 2px solid #d4a8f0;
+}
+
+.multi-tabla-total td:first-child { color: #2c3e50; }
+.multi-tabla-total td:nth-child(2) { text-align: right; color: #2c3e50; }
+.multi-tabla-total td:nth-child(3) { text-align: right; color: #27ae60; font-variant-numeric: tabular-nums; }
 
 .multi-btn-limpiar {
   background: none;
@@ -1571,6 +1614,7 @@ body {
   cursor: pointer;
   width: 100%;
   transition: all 0.2s;
+  margin-top: 2px;
 }
 
 .multi-btn-limpiar:hover {

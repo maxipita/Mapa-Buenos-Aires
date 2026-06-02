@@ -2146,7 +2146,6 @@ function toggleModoMultiSeleccion() {
   provinciasSeleccionadas.clear();
   actualizarBotonMultiSeleccion();
   ocultarBarraMultiSeleccion();
-  if (infoWindowGlobal) infoWindowGlobal.close();
 
   // Resetear estilos
   if (argentinaDataLayer) {
@@ -2308,28 +2307,81 @@ function mostrarBarraMultiSeleccion() {
     document.getElementById('panelBody').prepend(barra);
   }
 
-  const nombres = Array.from(provinciasSeleccionadas).map(id => {
-    return PROVINCIAS_DISPLAY[id] || toTitleCase(id);
-  });
+  if (provinciasSeleccionadas.size === 0) {
+    barra.innerHTML = `
+      <div class="multi-barra-vacia">
+        <span class="multi-hint">Hacé click en las provincias del mapa para compararlas</span>
+      </div>`;
+    return;
+  }
 
-  const total = calcularTotalMultiSeleccion();
-  const totalStr = total > 0
-    ? `USD ${total.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
-    : "Sin datos";
+  const datos = getProvinciasDataActivo();
+  let totalPrestadores = 0;
+  let totalFac = 0;
+
+  const filas = Array.from(provinciasSeleccionadas).map(id => {
+    const nombre = PROVINCIAS_DISPLAY[id] || toTitleCase(id);
+
+    const locsFiltradas = filtrarPorCategoria((datos[id] || {}).localidades || []);
+    const prest = locsFiltradas.length;
+    totalPrestadores += prest;
+
+    let fac = 0;
+    const sheetData = clientesProvinciasSheets[id] || [];
+    if (sheetData.length) {
+      sheetData.forEach(c => {
+        const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
+        const val = parseFloat(raw);
+        if (!isNaN(val) && val > 0) fac += val;
+      });
+    } else {
+      locsFiltradas.forEach(loc => {
+        (loc.nomencladores || []).forEach(n => {
+          if (n.tipo === "total facturado") {
+            const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
+            if (!isNaN(val)) fac += val;
+          }
+        });
+      });
+    }
+    totalFac += fac;
+
+    const facStr = fac > 0
+      ? `USD ${fac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+      : "—";
+
+    return `
+      <tr class="multi-tabla-fila">
+        <td class="multi-tabla-nombre">${nombre}</td>
+        <td class="multi-tabla-prest">${prest}</td>
+        <td class="multi-tabla-fac">${facStr}</td>
+      </tr>`;
+  }).join("");
+
+  const totalFacStr = totalFac > 0
+    ? `USD ${totalFac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+    : "—";
 
   barra.innerHTML = `
-    <div class="multi-barra-provincias">
-      ${nombres.length === 0
-        ? `<span class="multi-hint">Hacé click en las provincias para seleccionarlas</span>`
-        : nombres.map(n => `<span class="multi-chip">${n}</span>`).join("")}
-    </div>
-    ${nombres.length > 0 ? `
-    <div class="multi-barra-total">
-      <span class="multi-total-label">💰 Total seleccionado:</span>
-      <span class="multi-total-valor">${totalStr}</span>
-    </div>
+    <div class="multi-tabla-header">📊 Comparación de provincias</div>
+    <table class="multi-tabla">
+      <thead>
+        <tr class="multi-tabla-thead">
+          <th>Provincia</th>
+          <th>Prest.</th>
+          <th>Facturación USD</th>
+        </tr>
+      </thead>
+      <tbody>${filas}</tbody>
+      <tfoot>
+        <tr class="multi-tabla-total">
+          <td>TOTAL</td>
+          <td>${totalPrestadores}</td>
+          <td>${totalFacStr}</td>
+        </tr>
+      </tfoot>
+    </table>
     <button class="multi-btn-limpiar" onclick="limpiarMultiSeleccion()">Limpiar selección</button>
-    ` : ""}
   `;
 }
 
@@ -2342,7 +2394,6 @@ function limpiarMultiSeleccion() {
   provinciasSeleccionadas.clear();
   actualizarEstilosMultiSeleccion();
   mostrarBarraMultiSeleccion();
-  if (infoWindowGlobal) infoWindowGlobal.close();
 }
 
 // ============================================
@@ -2358,7 +2409,6 @@ function seleccionarProvincia(provinciaId) {
     }
     actualizarEstilosMultiSeleccion();
     mostrarBarraMultiSeleccion();
-    mostrarInfoWindowMultiSeleccion();
     return;
   }
 
