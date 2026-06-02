@@ -2324,6 +2324,7 @@ function mostrarBarraMultiSeleccion() {
   const datos = getProvinciasDataActivo();
   let totalPrestadores = 0;
   let totalFac = 0;
+  let totalVol = 0;
 
   const filas = Array.from(provinciasSeleccionadas).map(id => {
     const nombre = PROVINCIAS_DISPLAY[id] || toTitleCase(id);
@@ -2332,6 +2333,7 @@ function mostrarBarraMultiSeleccion() {
     const prest = locsFiltradas.length;
     totalPrestadores += prest;
 
+    // Facturación desde Sheet, fallback a nomencladores
     let fac = 0;
     const sheetData = clientesProvinciasSheets[id] || [];
     if (sheetData.length) {
@@ -2352,14 +2354,28 @@ function mostrarBarraMultiSeleccion() {
     }
     totalFac += fac;
 
+    // Volúmenes totales desde nomencladores de cada localidad
+    let vol = 0;
+    locsFiltradas.forEach(loc => {
+      (loc.nomencladores || []).forEach(n => {
+        if (n.tipo === "volumen total") {
+          const val = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
+          if (!isNaN(val) && val > 0) vol += val;
+        }
+      });
+    });
+    totalVol += vol;
+
     const facStr = fac > 0
       ? `USD ${fac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
       : "—";
+    const volStr = vol > 0 ? vol.toLocaleString('es-AR') : "—";
 
     return `
       <tr class="multi-tabla-fila">
         <td class="multi-tabla-nombre">${nombre}</td>
         <td class="multi-tabla-prest">${prest}</td>
+        <td class="multi-tabla-vol">${volStr}</td>
         <td class="multi-tabla-fac">${facStr}</td>
       </tr>`;
   }).join("");
@@ -2367,6 +2383,7 @@ function mostrarBarraMultiSeleccion() {
   const totalFacStr = totalFac > 0
     ? `USD ${totalFac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
     : "—";
+  const totalVolStr = totalVol > 0 ? totalVol.toLocaleString('es-AR') : "—";
 
   barra.innerHTML = `
     <div class="multi-tabla-header">📊 Comparación de provincias</div>
@@ -2375,6 +2392,7 @@ function mostrarBarraMultiSeleccion() {
         <tr class="multi-tabla-thead">
           <th>Provincia</th>
           <th>Prest.</th>
+          <th>Volumen</th>
           <th>Facturación USD</th>
         </tr>
       </thead>
@@ -2383,6 +2401,7 @@ function mostrarBarraMultiSeleccion() {
         <tr class="multi-tabla-total">
           <td>TOTAL</td>
           <td>${totalPrestadores}</td>
+          <td>${totalVolStr}</td>
           <td>${totalFacStr}</td>
         </tr>
       </tfoot>
