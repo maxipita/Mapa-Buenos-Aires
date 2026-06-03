@@ -2677,7 +2677,12 @@ function seleccionarSectorArgentina(sectorId) {
     });
   }
 
-  // Si hay un sector activo, hacer zoom a sus provincias
+  // Re-renderizar el panel manteniendo el box abierto
+  regionalizacionAbierto = true;
+  sectorBoxAbierto = true;
+  mostrarTodasLasLocalidades();
+
+  // Hacer zoom DESPUÉS del re-render para que no sea sobreescrito
   if (sectorFiltroArgentina && argentinaDataLayer) {
     const provinciasSector = new Set(sectoresExpansion[sectorFiltroArgentina].provincias);
     const bounds = new google.maps.LatLngBounds();
@@ -2692,17 +2697,11 @@ function seleccionarSectorArgentina(sectorId) {
       const padding = esMobile()
         ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.5), left: 20 }
         : { top: 60, right: 60, bottom: 60, left: 60 };
-      map.fitBounds(bounds, padding);
+      setTimeout(() => map.fitBounds(bounds, padding), 50);
     }
   } else if (!sectorFiltroArgentina) {
-    map.setCenter({ lat: -38.5, lng: -65 });
-    map.setZoom(4);
+    setTimeout(() => { map.setCenter({ lat: -38.5, lng: -65 }); map.setZoom(4); }, 50);
   }
-
-  // Re-renderizar el panel manteniendo el box abierto
-  regionalizacionAbierto = true;
-  sectorBoxAbierto = true;
-  mostrarTodasLasLocalidades();
 }
 
 // ============================================
