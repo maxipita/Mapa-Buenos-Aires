@@ -2714,70 +2714,50 @@ function _buildSectorInfoWindowContent(sectorId, expandido) {
   const sector = sectoresExpansion[sectorId];
   const { cap, vol, facTotal, prestTotal } = calcularTotalesSector(sectorId);
 
-  const fmt    = n => n > 0 ? n.toLocaleString('es-AR') : '—';
-  const fmtUSD = n => n > 0 ? `USD ${n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '—';
+  const fmt    = n => n > 0 ? n.toLocaleString('es-AR') : '0';
+  const fmtUSD = n => n > 0 ? `U$S ${n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '—';
 
   const capTotal = Object.values(cap).reduce((s, v) => s + v, 0);
   const volTotal = Object.values(vol).reduce((s, v) => s + v, 0);
 
-  const filasCap = Object.entries(cap)
-    .filter(([, v]) => v > 0)
-    .map(([cod, v]) => `<div class="fs-desglose-fila"><span class="fs-desglose-cod">${cod}</span><span class="fs-desglose-val">${fmt(v)}</span></div>`)
-    .join('');
-
-  const filasVol = Object.entries(vol)
-    .filter(([, v]) => v > 0)
-    .map(([cod, v]) => `<div class="fs-desglose-fila"><span class="fs-desglose-cod">${cod}</span><span class="fs-desglose-val">${fmt(v)}</span></div>`)
-    .join('');
-
   if (!expandido) {
-    // Vista compacta: solo nombre + USD + botón expandir
+    // Vista compacta — igual que popup antes de "Ver desglose"
     return `
-      <div class="fs-compact" onclick="expandirSectorCard('${sectorId}')">
-        <div class="fs-compact-top">
-          <span class="fs-compact-nombre">${sector.nombre}</span>
-          <span class="fs-compact-prest">${prestTotal} prest.</span>
-        </div>
-        ${facTotal > 0 ? `<div class="fs-compact-usd">${fmtUSD(facTotal)}</div>` : ''}
-        <div class="fs-compact-hint">Tocá para ver desglose ▾</div>
+      <div class="popup-container" onclick="expandirSectorCard('${sectorId}')" style="cursor:pointer;min-width:180px;">
+        <strong class="popup-nombre">${sector.nombre}</strong>
+        <p class="popup-direccion">${prestTotal} prestadores</p>
+        ${facTotal > 0 ? `<div class="popup-seccion-fac" style="margin-top:6px;">💰 ${fmtUSD(facTotal)}</div>` : ''}
+        <button class="popup-btn-desglose" style="pointer-events:none;">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
       </div>`;
   }
 
-  // Vista expandida: desglose completo
+  // Vista expandida — misma estructura que nomDesglose de prestadores
+  const filasCap = Object.entries(cap)
+    .map(([cod, v]) => `<tr><td>${cod}</td><td>${fmt(v)}</td></tr>`)
+    .join('');
+
+  const filasVol = Object.entries(vol)
+    .map(([cod, v]) => `<tr><td>${cod}</td><td>${fmt(v)}</td></tr>`)
+    .join('');
+
   return `
-    <div class="fs-expanded">
-      <div class="fs-header">
-        <span class="fs-titulo">${sector.nombre}</span>
-        <div class="fs-header-right">
-          <span class="fs-prest">${prestTotal} prest.</span>
-          <button class="fs-cerrar" onclick="ocultarFloatingSector()">✕</button>
-        </div>
-      </div>
-      <div class="fs-body">
-        ${facTotal > 0 ? `
-        <div class="fs-fac-row">
-          <span class="fs-fac-label">💰 Total facturado</span>
-          <span class="fs-fac-val">${fmtUSD(facTotal)}</span>
-        </div>` : ''}
+    <div class="popup-container" style="min-width:220px;">
+      <strong class="popup-nombre">${sector.nombre}</strong>
+      <p class="popup-direccion">${prestTotal} prestadores</p>
+      <div class="popup-desglose" style="display:block;">
         ${capTotal > 0 ? `
-        <div class="fs-seccion">
-          <div class="fs-seccion-header" onclick="toggleFsSeccion(this)">
-            <span>⚡ Capacidad instalada</span>
-            <span class="fs-seccion-total">${fmt(capTotal)}</span>
-            <span class="fs-flecha">▾</span>
-          </div>
-          <div class="fs-seccion-detalle">${filasCap}</div>
-        </div>` : ''}
+          <div class="popup-seccion-titulo">Capacidad instalada</div>
+          <table class="popup-tabla"><tbody>${filasCap}</tbody></table>
+        ` : ''}
         ${volTotal > 0 ? `
-        <div class="fs-seccion">
-          <div class="fs-seccion-header" onclick="toggleFsSeccion(this)">
-            <span>📦 Volumen total</span>
-            <span class="fs-seccion-total">${fmt(volTotal)}</span>
-            <span class="fs-flecha">▾</span>
-          </div>
-          <div class="fs-seccion-detalle">${filasVol}</div>
-        </div>` : ''}
-        ${!facTotal && !capTotal && !volTotal ? `<div class="fs-sin-datos">Sin datos disponibles.</div>` : ''}
+          <div class="popup-seccion-titulo">Volumen</div>
+          <table class="popup-tabla"><tbody>${filasVol}</tbody></table>
+          <div class="popup-seccion-total-vol">📊 Volúmenes totales: <strong>${fmt(volTotal)}</strong></div>
+        ` : ''}
+        ${facTotal > 0 ? `
+          <div class="popup-seccion-fac">💰 Facturación estimada: <strong>${fmtUSD(facTotal)}</strong></div>
+        ` : ''}
+        ${!capTotal && !volTotal && !facTotal ? `<p style="color:#aaa;font-size:12px;">Sin datos disponibles.</p>` : ''}
       </div>
     </div>`;
 }
