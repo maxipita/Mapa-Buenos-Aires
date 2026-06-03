@@ -2739,9 +2739,9 @@ function mostrarFloatingSector(sectorId) {
     </div>
     <div class="fs-body">
       ${facTotal > 0 ? `
-      <div class="fs-stat-row fs-fac">
-        <span class="fs-stat-label">💰 Total facturado</span>
-        <span class="fs-stat-val">${fmtUSD(facTotal)}</span>
+      <div class="fs-fac-row">
+        <span class="fs-fac-label">💰 Total facturado</span>
+        <span class="fs-fac-val">${fmtUSD(facTotal)}</span>
       </div>` : ''}
 
       ${capTotal > 0 ? `

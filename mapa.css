@@ -2026,32 +2026,40 @@ body {
 .floating-sector-card {
   position: absolute;
   bottom: 28px;
-  right: 12px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 10;
   background: #fff;
-  border: 1.5px solid #e0c8f8;
+  border: 1.5px solid #d4a8f0;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(160,32,168,0.18);
-  min-width: 220px;
-  max-width: 270px;
+  width: 300px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 13px;
   overflow: hidden;
+}
+
+/* En mobile: ancho casi completo */
+@media (max-width: 768px) {
+  .floating-sector-card {
+    width: calc(100vw - 32px);
+    bottom: 16px;
+  }
 }
 
 .fs-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #a020a8;
+  background: linear-gradient(135deg, #a020a8, #6a0dad);
   color: #fff;
-  padding: 9px 12px;
+  padding: 10px 14px;
   gap: 8px;
 }
 
 .fs-titulo {
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
   flex: 1;
 }
 
@@ -2063,114 +2071,107 @@ body {
 
 .fs-prest {
   font-size: 11px;
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.25);
   border-radius: 10px;
-  padding: 1px 7px;
+  padding: 2px 8px;
+  font-weight: 600;
 }
 
 .fs-cerrar {
   background: none;
   border: none;
-  color: rgba(255,255,255,0.8);
+  color: rgba(255,255,255,0.75);
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   padding: 0;
   line-height: 1;
   transition: color 0.15s;
 }
-
 .fs-cerrar:hover { color: #fff; }
 
 .fs-body {
-  padding: 10px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  padding: 12px 14px;
 }
 
-.fs-stat-row {
+/* Fila de facturación — igual que prov-card-stat con color verde */
+.fs-fac-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  padding: 6px 0 8px;
+  border-bottom: 1px solid #f7f0fc;
+  margin-bottom: 4px;
 }
 
-.fs-fac {
-  background: #f0faf5;
-  border-radius: 7px;
-  padding: 6px 10px;
-}
-
-.fs-stat-label {
+.fs-fac-label {
   font-size: 12px;
   color: #555;
+  font-weight: 500;
 }
 
-.fs-fac .fs-stat-val {
-  font-size: 13px;
+.fs-fac-val {
+  font-size: 14px;
   font-weight: 700;
   color: #27ae60;
 }
 
-/* Secciones colapsables (cap / vol) */
+/* Secciones colapsables — estilo prov-card-desglose-btn */
 .fs-seccion {
-  border: 1px solid #f0e0ff;
-  border-radius: 8px;
-  overflow: hidden;
+  margin-top: 2px;
 }
 
 .fs-seccion-header {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 7px 10px;
+  padding: 7px 0;
   cursor: pointer;
-  background: #faf5ff;
+  border-top: 1px solid #ede0f9;
   font-size: 12px;
   font-weight: 600;
   color: #5a1a6b;
   user-select: none;
-  transition: background 0.15s;
+  transition: color 0.15s;
 }
-
-.fs-seccion-header:hover { background: #f3e8ff; }
+.fs-seccion-header:hover { color: #a020a8; }
 
 .fs-seccion-total {
   margin-left: auto;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
-  color: #a020a8;
+  color: #2c3e50;
 }
 
 .fs-flecha {
-  font-size: 11px;
+  font-size: 12px;
   color: #a020a8;
+  transition: transform 0.2s;
 }
 
+/* Detalle — igual que prov-card-stat */
 .fs-seccion-detalle {
-  padding: 6px 10px 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
+  padding-bottom: 4px;
 }
 
 .fs-desglose-fila {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 5px 0;
+  border-bottom: 1px solid #f7f0fc;
   font-size: 12px;
-  color: #444;
 }
+.fs-desglose-fila:last-child { border-bottom: none; }
 
 .fs-desglose-cod {
-  color: #888;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
+  color: #555;
+  font-weight: 500;
 }
 
 .fs-desglose-val {
-  font-weight: 600;
-  color: #333;
+  font-weight: 700;
+  color: #2c3e50;
+  font-variant-numeric: tabular-nums;
 }
 
 .fs-sin-datos {
