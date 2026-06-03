@@ -640,6 +640,7 @@ let sectorBoxAbierto = false;
 let regionalizacionAbierto = false; // si el box "Regionalizar" está expandido
 let infoWindowGlobal = null;
 let infoWindowSector = null;
+let _markerAnclaSector = null; // marker invisible que ancla el InfoWindow de sector
 let categoriaActiva = null;
 let regionActiva = null;
 let filtroSectorActivo = null;
@@ -1517,7 +1518,7 @@ function initMap() {
   });
 
   infoWindowGlobal = new google.maps.InfoWindow({ disableAutoPan: true });
-  infoWindowSector = new google.maps.InfoWindow({ disableAutoPan: true });
+  // infoWindowSector se crea lazy en mostrarFloatingSector()
   ambaDataLayer = new google.maps.Data();
   argentinaDataLayer = new google.maps.Data();
 
@@ -2757,21 +2758,36 @@ function _buildSectorInfoWindowContent(sectorId) {
 }
 
 function mostrarFloatingSector(sectorId) {
-  if (!infoWindowSector) return;
   ocultarFloatingSector();
   if (!sectorId) return;
 
   const ancla = sectoresExpansion[sectorId].ancla;
   if (!ancla) return;
 
+  // Crear (o reusar) un marker invisible en la posición del ancla
+  // El marker ancla el InfoWindow de forma confiable (open(map, marker))
+  if (!_markerAnclaSector) {
+    _markerAnclaSector = new google.maps.Marker({
+      map: map,
+      icon: { url: 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7', scaledSize: new google.maps.Size(1, 1) },
+      clickable: false
+    });
+  }
+  _markerAnclaSector.setPosition(new google.maps.LatLng(ancla.lat, ancla.lng));
+  _markerAnclaSector.setMap(map);
+
+  if (!infoWindowSector) {
+    infoWindowSector = new google.maps.InfoWindow({ maxWidth: 320 });
+  }
+
   infoWindowSector.setContent(_buildSectorInfoWindowContent(sectorId));
-  infoWindowSector.setPosition(new google.maps.LatLng(ancla.lat, ancla.lng));
-  infoWindowSector.open(map);
+  infoWindowSector.open(map, _markerAnclaSector);
   google.maps.event.addListenerOnce(infoWindowSector, 'domready', liberarAlturaInfoWindow);
 }
 
 function ocultarFloatingSector() {
   if (infoWindowSector) infoWindowSector.close();
+  if (_markerAnclaSector) _markerAnclaSector.setMap(null);
 }
 
 function toggleFsSeccion(header) {
