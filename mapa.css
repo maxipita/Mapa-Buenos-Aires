@@ -1852,6 +1852,93 @@ body {
   border-color: #a020a8;
 }
 
+/* ── Sector box Argentina ─────────────────── */
+.sector-box-arg {
+  margin: 8px 0 6px 0;
+  border: 1px solid #e0c8f8;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.sector-box-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 12px;
+  cursor: pointer;
+  background: #f8f0ff;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7b2d8b;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.sector-box-header:hover {
+  background: #f0e0ff;
+}
+
+.sector-box-flecha {
+  margin-left: auto;
+  font-size: 10px;
+  color: #a020a8;
+}
+
+.sector-box-activo-label {
+  font-size: 11px;
+  background: #a020a8;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-weight: 500;
+}
+
+.sector-box-contenido {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sector-box-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e8d4f8;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  color: #444;
+  text-align: left;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.sector-box-btn:hover {
+  background: #f8f0ff;
+  border-color: #c88be0;
+  color: #7b2d8b;
+}
+
+.sector-box-btn-activo {
+  background: #a020a8 !important;
+  border-color: #a020a8 !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+.sector-box-btn-activo .sector-box-count {
+  color: rgba(255,255,255,0.8);
+}
+
+.sector-box-count {
+  font-size: 11px;
+  color: #999;
+}
+
 .multi-btn-limpiar {
   background: none;
   border: 1px solid #ccc;

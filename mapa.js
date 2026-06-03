@@ -633,6 +633,10 @@ let _provinciaCentroLatLng = null;   // centro geométrico de la provincia selec
 // ── Multi-selección de provincias ──
 let modoMultiSeleccion = false;
 let provinciasSeleccionadas = new Set(); // IDs de provincias seleccionadas
+
+// ── Filtro de sector en Argentina ──
+let sectorFiltroArgentina = null; // null = todos, o clave de sectoresExpansion
+let sectorBoxAbierto = false;
 let infoWindowGlobal = null;
 let categoriaActiva = null;
 let regionActiva = null;
@@ -1074,6 +1078,8 @@ function volverAlMenu() {
   partidoSeleccionadoId = null;
   provinciaSeleccionadaId = null;
   sectorSeleccionadoId = null;
+  sectorFiltroArgentina = null;
+  sectorBoxAbierto = false;
   _provinciaCentroLatLng = null;
   regionActiva = null;
   marcadoresActivos.forEach(m => m.setMap(null));
@@ -1287,8 +1293,39 @@ function mostrarTodasLasLocalidades() {
         </div>
       </div>`;
 
-    // Ranking de población — CABA y Buenos Aires por separado
+    // Sector box colapsable
+    const sectorBoxHtml = `
+      <div class="sector-box-arg">
+        <div class="sector-box-header" onclick="toggleSectorBox()">
+          <span>🗂️ Ver por sector</span>
+          ${sectorFiltroArgentina ? `<span class="sector-box-activo-label">${sectoresExpansion[sectorFiltroArgentina].nombre}</span>` : ''}
+          <span class="sector-box-flecha">${sectorBoxAbierto ? '▼' : '▶'}</span>
+        </div>
+        <div class="sector-box-contenido" id="sector-box-contenido" style="display:${sectorBoxAbierto ? 'block' : 'none'}">
+          <button class="sector-box-btn ${!sectorFiltroArgentina ? 'sector-box-btn-activo' : ''}" onclick="seleccionarSectorArgentina(null)">
+            🗺️ Todas las provincias
+          </button>
+          ${Object.keys(sectoresExpansion).map(sectorId => {
+            const sector = sectoresExpansion[sectorId];
+            const activo = sectorFiltroArgentina === sectorId;
+            const cantProv = sector.provincias.length;
+            return `<button class="sector-box-btn ${activo ? 'sector-box-btn-activo' : ''}" onclick="seleccionarSectorArgentina('${sectorId}')">
+              ${sector.nombre}
+              <span class="sector-box-count">${cantProv} prov.</span>
+            </button>`;
+          }).join('')}
+        </div>
+      </div>
+    `;
+
+    // Provincias filtradas por sector activo
+    const provinciasSectorActivo = sectorFiltroArgentina
+      ? new Set(sectoresExpansion[sectorFiltroArgentina].provincias)
+      : null;
+
+    // Ranking de población — filtrado por sector si hay uno activo
     const pobRanking = Object.keys(POBLACION_ARGENTINA)
+      .filter(prov => !provinciasSectorActivo || provinciasSectorActivo.has(prov))
       .sort((a, b) => (POBLACION_ARGENTINA[b] || 0) - (POBLACION_ARGENTINA[a] || 0))
       .map(prov => {
         const pob = POBLACION_ARGENTINA[prov];
@@ -1307,12 +1344,18 @@ function mostrarTodasLasLocalidades() {
           </div>`;
       }).join("");
 
+    // Provincias con prestadores filtradas por sector
+    const provinciasConLocsFiltradas = provinciasSectorActivo
+      ? provinciasConLocs.filter(p => provinciasSectorActivo.has(p.id))
+      : provinciasConLocs;
+
     let htmlArg = `
       ${filaArgentina}
+      ${sectorBoxHtml}
       <div class="multi-seleccion-header">
         <span class="multi-seleccion-hint">Seleccioná provincias para ver sus totales</span>
         <button id="btn-multi-seleccion" class="btn-multi-seleccion ${modoMultiSeleccion ? 'btn-multi-activo' : ''}" onclick="toggleModoMultiSeleccion()">
-          ${modoMultiSeleccion ? '<span class="btn-icon">✕</span> Salir' : '<span class="btn-icon">⊕</span> Comparar'}
+          ${modoMultiSeleccion ? '<span class="btn-icon">✕</span> Salir' : '<span class="btn-icon">⊕</span> Regionalizar'}
         </button>
       </div>
       ${modoMultiSeleccion ? `<div id="barra-multi" class="barra-multi-container"></div>` : ''}
@@ -1321,11 +1364,11 @@ function mostrarTodasLasLocalidades() {
       <div class="pob-lista">${pobRanking}</div>
     `;
 
-    if (totalArg > 0) {
+    if (provinciasConLocsFiltradas.length > 0) {
       htmlArg += `
         <div class="region-subtitulo" style="margin-top:12px">🏥 Provincias con prestadores</div>
       `;
-      htmlArg += renderItems(provinciasConLocs, "seleccionarProvincia", "argentina");
+      htmlArg += renderItems(provinciasConLocsFiltradas, "seleccionarProvincia", "argentina");
     }
 
     panelBody.innerHTML = htmlArg;
@@ -2583,6 +2626,73 @@ function limpiarMultiSeleccion() {
   actualizarEstilosMultiSeleccion();
   actualizarListadoMultiSeleccion();
   mostrarBarraMultiSeleccion();
+}
+
+// ============================================
+// FILTRO DE SECTOR EN MAPA ARGENTINA
+// ============================================
+function toggleSectorBox() {
+  sectorBoxAbierto = !sectorBoxAbierto;
+  const contenido = document.getElementById("sector-box-contenido");
+  const flecha = document.querySelector(".sector-box-flecha");
+  if (contenido) contenido.style.display = sectorBoxAbierto ? "block" : "none";
+  if (flecha) flecha.textContent = sectorBoxAbierto ? "▼" : "▶";
+}
+
+function seleccionarSectorArgentina(sectorId) {
+  // Toggle: si ya está seleccionado, deseleccionar
+  sectorFiltroArgentina = sectorFiltroArgentina === sectorId ? null : sectorId;
+
+  // Actualizar estilos en el mapa
+  if (argentinaDataLayer) {
+    argentinaDataLayer.setStyle(feature => {
+      const provId = getProvinciaId(feature);
+      if (!sectorFiltroArgentina) return estiloArgentina(feature, false);
+      const sector = sectoresExpansion[sectorFiltroArgentina];
+      const enSector = sector && sector.provincias.includes(provId);
+      return enSector ? estiloArgentina(feature, true) : {
+        fillColor: "#cccccc",
+        fillOpacity: 0.2,
+        strokeColor: "#aaaaaa",
+        strokeWeight: 0.8,
+        strokeOpacity: 0.5
+      };
+    });
+  }
+
+  // Si hay un sector activo, hacer zoom a sus provincias
+  if (sectorFiltroArgentina && argentinaDataLayer) {
+    const provinciasSector = new Set(sectoresExpansion[sectorFiltroArgentina].provincias);
+    const bounds = new google.maps.LatLngBounds();
+    argentinaDataLayer.forEach(feature => {
+      if (provinciasSector.has(getProvinciaId(feature))) {
+        feature.getGeometry().forEachLatLng(latLng => {
+          if (latLng.lat() > -58) bounds.extend(latLng);
+        });
+      }
+    });
+    if (!bounds.isEmpty()) {
+      const padding = esMobile()
+        ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.5), left: 20 }
+        : { top: 60, right: 60, bottom: 60, left: 60 };
+      map.fitBounds(bounds, padding);
+    }
+  } else if (!sectorFiltroArgentina) {
+    map.setCenter({ lat: -38.5, lng: -65 });
+    map.setZoom(4);
+  }
+
+  // Re-renderizar el panel para reflejar el filtro
+  mostrarTodasLasLocalidades();
+
+  // Mantener el box abierto y restaurar estado
+  setTimeout(() => {
+    sectorBoxAbierto = true;
+    const contenido = document.getElementById("sector-box-contenido");
+    const flecha = document.querySelector(".sector-box-flecha");
+    if (contenido) contenido.style.display = "block";
+    if (flecha) flecha.textContent = "▼";
+  }, 0);
 }
 
 // ============================================
