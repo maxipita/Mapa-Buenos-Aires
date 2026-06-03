@@ -658,7 +658,7 @@ const sectoresExpansion = {
   "sur": {
     nombre: "Sector Sur",
     provincias: ["NEUQUEN", "RIO NEGRO", "CHUBUT", "SANTA CRUZ", "TIERRA DEL FUEGO"],
-    ancla: { lat: -43.3, lng: -65.5 }  // Chubut centro
+    ancla: { lat: -43.5, lng: -68.5 }  // Chubut centro (interior)
   },
   "cordillera": {
     nombre: "Sector Cordillera",
