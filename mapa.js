@@ -657,23 +657,28 @@ const clientesZonasBA = { norte: null, oeste: null, sur: null, interior: null };
 const sectoresExpansion = {
   "sur": {
     nombre: "Sector Sur",
-    provincias: ["NEUQUEN", "RIO NEGRO", "CHUBUT", "SANTA CRUZ", "TIERRA DEL FUEGO"]
+    provincias: ["NEUQUEN", "RIO NEGRO", "CHUBUT", "SANTA CRUZ", "TIERRA DEL FUEGO"],
+    ancla: { lat: -43.3, lng: -65.5 }  // Chubut centro
   },
   "cordillera": {
     nombre: "Sector Cordillera",
-    provincias: ["MENDOZA", "SAN JUAN", "LA RIOJA", "CATAMARCA"]
+    provincias: ["MENDOZA", "SAN JUAN", "LA RIOJA", "CATAMARCA"],
+    ancla: { lat: -31.5, lng: -67.5 }  // San Juan / La Rioja
   },
   "norte": {
     nombre: "Sector Norte",
-    provincias: ["SALTA", "JUJUY", "CHACO", "FORMOSA", "CORRIENTES", "MISIONES"]
+    provincias: ["SALTA", "JUJUY", "CHACO", "FORMOSA", "CORRIENTES", "MISIONES"],
+    ancla: { lat: -24.5, lng: -62.0 }  // Chaco / Formosa
   },
   "centro": {
     nombre: "Sector Centro",
-    provincias: ["TUCUMAN", "SANTIAGO DEL ESTERO", "ENTRE RIOS", "SANTA FE", "CORDOBA", "SAN LUIS", "LA PAMPA"]
+    provincias: ["TUCUMAN", "SANTIAGO DEL ESTERO", "ENTRE RIOS", "SANTA FE", "CORDOBA", "SAN LUIS", "LA PAMPA"],
+    ancla: { lat: -32.5, lng: -63.5 }  // Córdoba
   },
   "sede": {
     nombre: "Sede Central Vighi",
-    provincias: ["BUENOS AIRES", "CIUDAD AUTONOMA DE BUENOS AIRES"]
+    provincias: ["BUENOS AIRES", "CIUDAD AUTONOMA DE BUENOS AIRES"],
+    ancla: { lat: -35.5, lng: -59.5 }  // Centro provincia BA
   }
 };
 
@@ -2782,19 +2787,9 @@ function mostrarFloatingSector(sectorId) {
   ocultarFloatingSector();
   if (!sectorId || !argentinaDataLayer) return;
 
-  // Calcular centroide del sector desde los bounds de sus provincias
-  const provinciasSector = new Set(sectoresExpansion[sectorId].provincias);
-  const bounds = new google.maps.LatLngBounds();
-  argentinaDataLayer.forEach(feature => {
-    if (provinciasSector.has(getProvinciaId(feature))) {
-      feature.getGeometry().forEachLatLng(latLng => {
-        if (latLng.lat() > -58) bounds.extend(latLng);
-      });
-    }
-  });
-  if (bounds.isEmpty()) return;
-
-  const centro = bounds.getCenter();
+  const ancla = sectoresExpansion[sectorId].ancla;
+  if (!ancla) return;
+  const centro = new google.maps.LatLng(ancla.lat, ancla.lng);
   infoWindowSector.setContent(_buildSectorInfoWindowContent(sectorId, false));
   infoWindowSector.setPosition(centro);
   infoWindowSector.open(map);
