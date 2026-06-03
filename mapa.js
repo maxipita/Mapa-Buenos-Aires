@@ -1371,13 +1371,6 @@ function mostrarTodasLasLocalidades() {
       <div class="pob-lista">${pobRanking}</div>
     `;
 
-    if (provinciasConLocs.length > 0) {
-      htmlArg += `
-        <div class="region-subtitulo" style="margin-top:12px">🏥 Provincias con prestadores</div>
-      `;
-      htmlArg += renderItems(provinciasConLocs, "seleccionarProvincia", "argentina");
-    }
-
     panelBody.innerHTML = htmlArg;
     if (modoMultiSeleccion) mostrarBarraMultiSeleccion();
     return;
