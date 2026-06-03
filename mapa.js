@@ -1082,6 +1082,7 @@ function volverAlMenu() {
   sectorFiltroArgentina = null;
   sectorBoxAbierto = false;
   regionalizacionAbierto = false;
+  ocultarFloatingSector();
   _provinciaCentroLatLng = null;
   regionActiva = null;
   marcadoresActivos.forEach(m => m.setMap(null));
@@ -2656,6 +2657,137 @@ function toggleSectorBox() {
   if (flecha) flecha.textContent = sectorBoxAbierto ? "▼" : "▶";
 }
 
+function calcularTotalesSector(sectorId) {
+  const sector = sectoresExpansion[sectorId];
+  const datos = provinciasData;
+
+  // Acumuladores por código
+  const cap  = { QX: 0, AMB: 0, "SALA/ENDO": 0, CE: 0 };
+  const vol  = { QX: 0, AMB: 0, "SALA/ENDO": 0, CE: 0 };
+  let facTotal = 0;
+  let prestTotal = 0;
+  const vistos = new Set();
+
+  sector.provincias.forEach(provId => {
+    // Facturación desde Sheet (fuente principal)
+    (clientesProvinciasSheets[provId] || []).forEach(c => {
+      const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
+      const val = parseFloat(raw);
+      if (!isNaN(val) && val > 0) facTotal += val;
+    });
+
+    ((datos[provId] || {}).localidades || []).forEach(loc => {
+      const key = normalizarNombre(loc.nombre);
+      if (vistos.has(key)) return;
+      vistos.add(key);
+      prestTotal++;
+
+      (loc.nomencladores || []).forEach(n => {
+        const v = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
+        if (isNaN(v) || v <= 0) return;
+
+        if (n.tipo === "capacidad" && cap.hasOwnProperty(n.codigo)) {
+          cap[n.codigo] += v;
+        }
+        if (n.tipo === "volumen" && vol.hasOwnProperty(n.codigo)) {
+          vol[n.codigo] += v;
+        }
+        // Facturación desde JSON como fallback (si no hay Sheet)
+        if (n.tipo === "total facturado" && !(clientesProvinciasSheets[provId] || []).length) {
+          facTotal += v;
+        }
+      });
+    });
+  });
+
+  return { cap, vol, facTotal, prestTotal };
+}
+
+function mostrarFloatingSector(sectorId) {
+  ocultarFloatingSector();
+  if (!sectorId) return;
+
+  const sector = sectoresExpansion[sectorId];
+  const { cap, vol, facTotal, prestTotal } = calcularTotalesSector(sectorId);
+
+  const fmt = n => n > 0 ? n.toLocaleString('es-AR') : '—';
+  const fmtUSD = n => n > 0 ? `USD ${n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '—';
+
+  const capTotal = Object.values(cap).reduce((s, v) => s + v, 0);
+  const volTotal = Object.values(vol).reduce((s, v) => s + v, 0);
+
+  const filasCap = Object.entries(cap)
+    .filter(([, v]) => v > 0)
+    .map(([cod, v]) => `<div class="fs-desglose-fila"><span class="fs-desglose-cod">${cod}</span><span class="fs-desglose-val">${fmt(v)}</span></div>`)
+    .join('');
+
+  const filasVol = Object.entries(vol)
+    .filter(([, v]) => v > 0)
+    .map(([cod, v]) => `<div class="fs-desglose-fila"><span class="fs-desglose-cod">${cod}</span><span class="fs-desglose-val">${fmt(v)}</span></div>`)
+    .join('');
+
+  const div = document.createElement('div');
+  div.id = 'floating-sector-card';
+  div.className = 'floating-sector-card';
+  div.innerHTML = `
+    <div class="fs-header">
+      <span class="fs-titulo">${sector.nombre}</span>
+      <div class="fs-header-right">
+        <span class="fs-prest">${prestTotal} prest.</span>
+        <button class="fs-cerrar" onclick="ocultarFloatingSector()">✕</button>
+      </div>
+    </div>
+    <div class="fs-body">
+      ${facTotal > 0 ? `
+      <div class="fs-stat-row fs-fac">
+        <span class="fs-stat-label">💰 Total facturado</span>
+        <span class="fs-stat-val">${fmtUSD(facTotal)}</span>
+      </div>` : ''}
+
+      ${capTotal > 0 ? `
+      <div class="fs-seccion">
+        <div class="fs-seccion-header" onclick="toggleFsSeccion(this)">
+          <span>⚡ Capacidad instalada</span>
+          <span class="fs-seccion-total">${fmt(capTotal)}</span>
+          <span class="fs-flecha">▾</span>
+        </div>
+        <div class="fs-seccion-detalle">
+          ${filasCap}
+        </div>
+      </div>` : ''}
+
+      ${volTotal > 0 ? `
+      <div class="fs-seccion">
+        <div class="fs-seccion-header" onclick="toggleFsSeccion(this)">
+          <span>📦 Volumen total</span>
+          <span class="fs-seccion-total">${fmt(volTotal)}</span>
+          <span class="fs-flecha">▾</span>
+        </div>
+        <div class="fs-seccion-detalle">
+          ${filasVol}
+        </div>
+      </div>` : ''}
+
+      ${!facTotal && !capTotal && !volTotal ? `<div class="fs-sin-datos">Sin datos disponibles para este sector.</div>` : ''}
+    </div>
+  `;
+
+  document.getElementById('map').appendChild(div);
+}
+
+function ocultarFloatingSector() {
+  const el = document.getElementById('floating-sector-card');
+  if (el) el.remove();
+}
+
+function toggleFsSeccion(header) {
+  const detalle = header.nextElementSibling;
+  const flecha = header.querySelector('.fs-flecha');
+  const abierto = detalle.style.display !== 'none';
+  detalle.style.display = abierto ? 'none' : 'block';
+  if (flecha) flecha.textContent = abierto ? '▸' : '▾';
+}
+
 function seleccionarSectorArgentina(sectorId) {
   // Toggle: si ya está seleccionado, deseleccionar
   sectorFiltroArgentina = sectorFiltroArgentina === sectorId ? null : sectorId;
@@ -2676,6 +2808,9 @@ function seleccionarSectorArgentina(sectorId) {
       };
     });
   }
+
+  // Mostrar/ocultar floating card con totales
+  mostrarFloatingSector(sectorFiltroArgentina);
 
   // Re-renderizar el panel manteniendo el box abierto
   regionalizacionAbierto = true;

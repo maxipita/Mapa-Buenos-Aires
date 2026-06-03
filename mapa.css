@@ -2022,6 +2022,164 @@ body {
   border-left: 3px solid #a020a8;
 }
 
+/* ── Floating card de totales del sector ──────── */
+.floating-sector-card {
+  position: absolute;
+  bottom: 28px;
+  right: 12px;
+  z-index: 10;
+  background: #fff;
+  border: 1.5px solid #e0c8f8;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(160,32,168,0.18);
+  min-width: 220px;
+  max-width: 270px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 13px;
+  overflow: hidden;
+}
+
+.fs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #a020a8;
+  color: #fff;
+  padding: 9px 12px;
+  gap: 8px;
+}
+
+.fs-titulo {
+  font-weight: 700;
+  font-size: 13px;
+  flex: 1;
+}
+
+.fs-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.fs-prest {
+  font-size: 11px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  padding: 1px 7px;
+}
+
+.fs-cerrar {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.8);
+  cursor: pointer;
+  font-size: 13px;
+  padding: 0;
+  line-height: 1;
+  transition: color 0.15s;
+}
+
+.fs-cerrar:hover { color: #fff; }
+
+.fs-body {
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fs-stat-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.fs-fac {
+  background: #f0faf5;
+  border-radius: 7px;
+  padding: 6px 10px;
+}
+
+.fs-stat-label {
+  font-size: 12px;
+  color: #555;
+}
+
+.fs-fac .fs-stat-val {
+  font-size: 13px;
+  font-weight: 700;
+  color: #27ae60;
+}
+
+/* Secciones colapsables (cap / vol) */
+.fs-seccion {
+  border: 1px solid #f0e0ff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.fs-seccion-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  cursor: pointer;
+  background: #faf5ff;
+  font-size: 12px;
+  font-weight: 600;
+  color: #5a1a6b;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.fs-seccion-header:hover { background: #f3e8ff; }
+
+.fs-seccion-total {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 700;
+  color: #a020a8;
+}
+
+.fs-flecha {
+  font-size: 11px;
+  color: #a020a8;
+}
+
+.fs-seccion-detalle {
+  padding: 6px 10px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.fs-desglose-fila {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #444;
+}
+
+.fs-desglose-cod {
+  color: #888;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.fs-desglose-val {
+  font-weight: 600;
+  color: #333;
+}
+
+.fs-sin-datos {
+  font-size: 12px;
+  color: #aaa;
+  text-align: center;
+  padding: 8px 0;
+}
+
 .multi-btn-limpiar {
   background: none;
   border: 1px solid #ccc;
