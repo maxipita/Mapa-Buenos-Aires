@@ -2803,15 +2803,17 @@ function seleccionarSectorArgentina(sectorId) {
     });
   }
 
-  // Mostrar/ocultar floating card con totales
-  mostrarFloatingSector(sectorFiltroArgentina);
-
   // Re-renderizar el panel manteniendo el box abierto
   regionalizacionAbierto = true;
   sectorBoxAbierto = true;
   mostrarTodasLasLocalidades();
 
-  // Hacer zoom DESPUÉS del re-render para que no sea sobreescrito
+  // Ocultar InfoWindow si se deseleccionó
+  if (!sectorFiltroArgentina) {
+    ocultarFloatingSector();
+  }
+
+  // Hacer zoom DESPUÉS del re-render y mostrar InfoWindow al terminar el pan
   if (sectorFiltroArgentina && argentinaDataLayer) {
     const provinciasSector = new Set(sectoresExpansion[sectorFiltroArgentina].provincias);
     const bounds = new google.maps.LatLngBounds();
@@ -2826,7 +2828,14 @@ function seleccionarSectorArgentina(sectorId) {
       const padding = esMobile()
         ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.5), left: 20 }
         : { top: 60, right: 60, bottom: 60, left: 60 };
-      setTimeout(() => map.fitBounds(bounds, padding), 50);
+      // Primero hacer el zoom, después abrir el InfoWindow una vez que el mapa esté posicionado
+      setTimeout(() => {
+        map.fitBounds(bounds, padding);
+        // Esperar a que termine la animación de fitBounds antes de abrir el InfoWindow
+        google.maps.event.addListenerOnce(map, 'idle', function() {
+          mostrarFloatingSector(sectorFiltroArgentina);
+        });
+      }, 50);
     }
   } else if (!sectorFiltroArgentina) {
     setTimeout(() => { map.setCenter({ lat: -38.5, lng: -65 }); map.setZoom(4); }, 50);
