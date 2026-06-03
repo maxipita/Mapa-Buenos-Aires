@@ -2710,7 +2710,7 @@ function calcularTotalesSector(sectorId) {
   return { cap, vol, facTotal, prestTotal };
 }
 
-function _buildSectorInfoWindowContent(sectorId, expandido) {
+function _buildSectorInfoWindowContent(sectorId) {
   const sector = sectoresExpansion[sectorId];
   const { cap, vol, facTotal, prestTotal } = calcularTotalesSector(sectorId);
 
@@ -2720,18 +2720,7 @@ function _buildSectorInfoWindowContent(sectorId, expandido) {
   const capTotal = Object.values(cap).reduce((s, v) => s + v, 0);
   const volTotal = Object.values(vol).reduce((s, v) => s + v, 0);
 
-  if (!expandido) {
-    // Vista compacta — igual que popup antes de "Ver desglose"
-    return `
-      <div class="popup-container" onclick="expandirSectorCard('${sectorId}')" style="cursor:pointer;min-width:180px;">
-        <strong class="popup-nombre">${sector.nombre}</strong>
-        <p class="popup-direccion">${prestTotal} prestadores</p>
-        ${facTotal > 0 ? `<div class="popup-seccion-fac" style="margin-top:6px;">💰 ${fmtUSD(facTotal)}</div>` : ''}
-        <button class="popup-btn-desglose" style="pointer-events:none;">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
-      </div>`;
-  }
-
-  // Vista expandida — misma estructura que nomDesglose de prestadores
+  // Filas de tabla — mismo formato que popup de ubicaciones
   const filasCap = Object.entries(cap)
     .map(([cod, v]) => `<tr><td>${cod}</td><td>${fmt(v)}</td></tr>`)
     .join('');
@@ -2740,54 +2729,49 @@ function _buildSectorInfoWindowContent(sectorId, expandido) {
     .map(([cod, v]) => `<tr><td>${cod}</td><td>${fmt(v)}</td></tr>`)
     .join('');
 
+  // Armar el interior del desglose igual que nomDesglose en popup de marcadores
+  let desgloseHtml = '';
+  if (capTotal > 0) {
+    desgloseHtml += `<div class="popup-seccion-titulo">Capacidad instalada</div>
+      <table class="popup-tabla"><tbody>${filasCap}</tbody></table>`;
+  }
+  if (volTotal > 0) {
+    desgloseHtml += `<div class="popup-seccion-titulo">Volumen</div>
+      <table class="popup-tabla"><tbody>${filasVol}</tbody></table>
+      <div class="popup-seccion-total-vol">📊 Volúmenes totales: <strong>${fmt(volTotal)}</strong></div>`;
+  }
+  if (facTotal > 0) {
+    desgloseHtml += `<div class="popup-seccion-fac">💰 Facturación estimada: <strong>${fmtUSD(facTotal)}</strong></div>`;
+  }
+
+  // HTML final — idéntica estructura al popup de ubicaciones
   return `
-    <div class="popup-container" style="min-width:220px;">
+    <div class="popup-container">
       <strong class="popup-nombre">${sector.nombre}</strong>
       <p class="popup-direccion">${prestTotal} prestadores</p>
-      <div class="popup-desglose" style="display:block;">
-        ${capTotal > 0 ? `
-          <div class="popup-seccion-titulo">Capacidad instalada</div>
-          <table class="popup-tabla"><tbody>${filasCap}</tbody></table>
-        ` : ''}
-        ${volTotal > 0 ? `
-          <div class="popup-seccion-titulo">Volumen</div>
-          <table class="popup-tabla"><tbody>${filasVol}</tbody></table>
-          <div class="popup-seccion-total-vol">📊 Volúmenes totales: <strong>${fmt(volTotal)}</strong></div>
-        ` : ''}
-        ${facTotal > 0 ? `
-          <div class="popup-seccion-fac">💰 Facturación estimada: <strong>${fmtUSD(facTotal)}</strong></div>
-        ` : ''}
-        ${!capTotal && !volTotal && !facTotal ? `<p style="color:#aaa;font-size:12px;">Sin datos disponibles.</p>` : ''}
-      </div>
+      ${desgloseHtml ? `
+        <button class="popup-btn-desglose" onclick="toggleDesglose(this)">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
+        <div id="nomDesglose" class="popup-desglose">${desgloseHtml}</div>
+      ` : ''}
     </div>`;
 }
 
 function mostrarFloatingSector(sectorId) {
   if (!infoWindowSector) return;
   ocultarFloatingSector();
-  if (!sectorId || !argentinaDataLayer) return;
+  if (!sectorId) return;
 
   const ancla = sectoresExpansion[sectorId].ancla;
   if (!ancla) return;
-  const centro = new google.maps.LatLng(ancla.lat, ancla.lng);
-  infoWindowSector.setContent(_buildSectorInfoWindowContent(sectorId, false));
-  infoWindowSector.setPosition(centro);
+
+  infoWindowSector.setContent(_buildSectorInfoWindowContent(sectorId));
+  infoWindowSector.setPosition(new google.maps.LatLng(ancla.lat, ancla.lng));
   infoWindowSector.open(map);
-
-  google.maps.event.addListenerOnce(infoWindowSector, 'domready', liberarAlturaInfoWindow);
-}
-
-function expandirSectorCard(sectorId) {
-  if (!infoWindowSector) return;
-  infoWindowSector.setContent(_buildSectorInfoWindowContent(sectorId, true));
   google.maps.event.addListenerOnce(infoWindowSector, 'domready', liberarAlturaInfoWindow);
 }
 
 function ocultarFloatingSector() {
   if (infoWindowSector) infoWindowSector.close();
-  // También limpiar el div absoluto legacy por si queda
-  const el = document.getElementById('floating-sector-card');
-  if (el) el.remove();
 }
 
 function toggleFsSeccion(header) {
