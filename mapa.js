@@ -2492,6 +2492,7 @@ function cerrarResumenProvincia() {
 }
 
 function mostrarResumenProvincia(provinciaId) {
+  ocultarFloatingSector(); // cerrar InfoWindow de sector al entrar a una provincia
   const datos = getProvinciasDataActivo();
   const locsFiltradas = filtrarPorCategoria((datos[provinciaId] || {}).localidades || []);
   const prest = locsFiltradas.length;
