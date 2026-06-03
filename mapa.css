@@ -1852,8 +1852,8 @@ body {
   border-color: #a020a8;
 }
 
-/* ── Sector box Argentina ─────────────────── */
-.sector-box-arg {
+/* ── Box Regionalizar (unificado: Comparar + Por Sector) ─── */
+.regionalizacion-box {
   margin: 8px 0 6px 0;
   border: 1px solid #e0c8f8;
   border-radius: 10px;
@@ -1861,22 +1861,99 @@ body {
   background: #fff;
 }
 
-.sector-box-header {
+.regionalizacion-header {
   display: flex;
   align-items: center;
-  gap: 6px;
+  justify-content: space-between;
   padding: 9px 12px;
   cursor: pointer;
   background: #f8f0ff;
-  font-size: 13px;
-  font-weight: 600;
-  color: #7b2d8b;
   user-select: none;
   transition: background 0.15s;
 }
 
-.sector-box-header:hover {
+.regionalizacion-header:hover {
   background: #f0e0ff;
+}
+
+.regionalizacion-titulo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #7b2d8b;
+}
+
+.regionalizacion-flecha {
+  font-size: 10px;
+  color: #a020a8;
+}
+
+.reg-modo-badge {
+  font-size: 11px;
+  background: #a020a8;
+  color: #fff;
+  border-radius: 10px;
+  padding: 1px 8px;
+  font-weight: 500;
+}
+
+/* Opciones dentro del box */
+.reg-opciones {
+  padding: 8px 8px 4px 8px;
+}
+
+.reg-opcion-btn {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #e8d4f8;
+  border-radius: 8px;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+  color: #444;
+  text-align: left;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.reg-opcion-btn:hover {
+  background: #f8f0ff;
+  border-color: #c88be0;
+  color: #7b2d8b;
+}
+
+.reg-opcion-activo {
+  background: #a020a8 !important;
+  border-color: #a020a8 !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+/* Sub-sección "Por sector" */
+.reg-sector-sub {
+  border-top: 1px solid #f0e0ff;
+  margin-top: 4px;
+}
+
+.reg-sector-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  color: #555;
+  user-select: none;
+  transition: background 0.15s;
+}
+
+.reg-sector-header:hover {
+  background: #faf5ff;
+  color: #7b2d8b;
 }
 
 .sector-box-flecha {
@@ -1895,7 +1972,7 @@ body {
 }
 
 .sector-box-contenido {
-  padding: 8px;
+  padding: 6px 8px 8px 8px;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -1906,7 +1983,7 @@ body {
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 8px 12px;
+  padding: 7px 12px;
   border: 1px solid #e8d4f8;
   border-radius: 8px;
   background: #fff;
@@ -1937,6 +2014,12 @@ body {
 .sector-box-count {
   font-size: 11px;
   color: #999;
+}
+
+/* Provincia resaltada por sector activo */
+.pob-row-en-sector {
+  background: #faf0ff;
+  border-left: 3px solid #a020a8;
 }
 
 .multi-btn-limpiar {
