@@ -1333,7 +1333,7 @@ function mostrarTodasLasLocalidades() {
         <div id="regionalizacion-contenido" style="display:${regionalizacionAbierto ? 'block' : 'none'}">
           <div class="reg-opciones">
             <button class="reg-opcion-btn ${modoMultiSeleccion ? 'reg-opcion-activo' : ''}" onclick="event.stopPropagation(); toggleModoMultiSeleccion()">
-              📊 Comparar provincias
+              ${modoMultiSeleccion ? '✕ Salir de comparación' : '📊 Comparar provincias'}
             </button>
           </div>
           ${modoMultiSeleccion ? `<div id="barra-multi" class="barra-multi-container"></div>` : sectorSubHtml}
