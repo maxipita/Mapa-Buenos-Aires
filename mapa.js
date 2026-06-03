@@ -342,125 +342,87 @@ const DATA_URLS = {
   consultoriosExpansion:   "DatosJson/consultoriosExpansion.json"
 };
 
-// ── Flags de carga diferida por región ──
-const _datosCargados = {
-  caba_amba:  false,
-  argentina:  false,
-  expansion:  false,
-  sheets:     false
-};
+function cargarDatosExternos() {
+  const fetchJSON = url =>
+    fetch(url)
+      .then(r => r.ok ? r.json() : Promise.reject(new Error(url + " HTTP " + r.status)))
+      .catch(err => { console.warn("No se pudo cargar", url, err); return {}; });
 
-function _fetchJSON(url) {
-  return fetch(url)
-    .then(r => r.ok ? r.json() : Promise.reject(new Error(url + " HTTP " + r.status)))
-    .catch(err => { console.warn("No se pudo cargar", url, err); return {}; });
-}
-
-function _concatSinDuplicados(existentes, nuevas) {
-  const nombresExistentes = new Set(existentes.map(l => normalizarNombre(l.nombre)));
-  return existentes.concat(nuevas.filter(l => !nombresExistentes.has(normalizarNombre(l.nombre))));
-}
-
-function _mergeCabaAmba(sanat, consult, sanatAmba, consultAmba) {
-  [sanat, consult].forEach(function (fuente) {
-    Object.keys(fuente).forEach(function (id) {
-      const numId = parseInt(id);
-      const locs = (fuente[id].localidades || []).filter(l => l.nombre);
-      if (locs.length === 0) return;
-      if (comunasData[numId]) {
-        comunasData[numId].localidades = _concatSinDuplicados(comunasData[numId].localidades, locs);
-      } else {
-        comunasData[numId] = { nombre: "Comuna " + numId, barrios: [], localidades: locs };
-      }
-    });
-  });
-  [sanatAmba, consultAmba].forEach(function (fuente) {
-    Object.keys(fuente).forEach(function (id) {
-      const locs = (fuente[id].localidades || []).filter(l => l.nombre);
-      if (locs.length === 0) return;
-      if (partidosData[id]) {
-        if (!Array.isArray(partidosData[id].localidades)) partidosData[id].localidades = [];
-        partidosData[id].localidades = _concatSinDuplicados(partidosData[id].localidades, locs);
-      } else {
-        partidosData[id] = { nombre: fuente[id].nombre || id, barrios: [], localidades: locs };
-      }
-    });
-  });
-}
-
-function _mergeArgentina(sanatArg, consultArg) {
-  [sanatArg, consultArg].forEach(function (fuente) {
-    Object.keys(fuente).forEach(function (id) {
-      const locs = (fuente[id].localidades || []).filter(l => l.nombre);
-      if (locs.length === 0) return;
-      const provId = id === "CABA" ? "CIUDAD AUTONOMA DE BUENOS AIRES" : id;
-      if (provinciasData[provId]) {
-        if (!Array.isArray(provinciasData[provId].localidades)) provinciasData[provId].localidades = [];
-        provinciasData[provId].localidades = _concatSinDuplicados(provinciasData[provId].localidades, locs);
-      } else {
-        provinciasData[provId] = { nombre: fuente[id].nombre || id, localidades: locs };
-      }
-    });
-  });
-}
-
-function _mergeExpansion(sanatExp, consultExp) {
-  [sanatExp, consultExp].forEach(function (fuente) {
-    Object.keys(fuente).forEach(function (id) {
-      const locs = (fuente[id].localidades || []).filter(l => l.nombre);
-      if (locs.length === 0) return;
-      if (provinciasDataExpansion[id]) {
-        if (!Array.isArray(provinciasDataExpansion[id].localidades)) provinciasDataExpansion[id].localidades = [];
-        provinciasDataExpansion[id].localidades = _concatSinDuplicados(provinciasDataExpansion[id].localidades, locs);
-      } else {
-        provinciasDataExpansion[id] = { nombre: fuente[id].nombre || id, localidades: locs };
-      }
-    });
-  });
-}
-
-// Carga diferida: solo trae los archivos de la región elegida
-function cargarDatosRegion(region) {
-  const grupo = region === 'expansion' ? 'expansion'
-              : (region === 'argentina') ? 'argentina'
-              : 'caba_amba';
-
-  if (_datosCargados[grupo]) {
-    // Si es argentina/expansion y el Sheet todavía no cargó, cargarlo ahora
-    if ((grupo === 'argentina' || grupo === 'expansion') && !_datosCargados.sheets) {
-      return cargarDesdeSheetsArgentina().then(() => { _datosCargados.sheets = true; });
+  return Promise.all([
+    fetchJSON(DATA_URLS.sanatorios),
+    fetchJSON(DATA_URLS.consultorios),
+    fetchJSON(DATA_URLS.sanatoriosAmba),
+    fetchJSON(DATA_URLS.consultoriosAmba),
+    fetchJSON(DATA_URLS.sanatoriosArgentina),
+    fetchJSON(DATA_URLS.consultoriosArgentina),
+    fetchJSON(DATA_URLS.sanatoriosExpansion),
+    fetchJSON(DATA_URLS.consultoriosExpansion)
+  ]).then(function ([sanat, consult, sanatAmba, consultAmba, sanatArg, consultArg, sanatExp, consultExp]) {
+    // Helper: concat sin duplicar por nombre
+    function concatSinDuplicados(existentes, nuevas) {
+      const nombresExistentes = new Set(existentes.map(l => normalizarNombre(l.nombre)));
+      return existentes.concat(nuevas.filter(l => !nombresExistentes.has(normalizarNombre(l.nombre))));
     }
-    return Promise.resolve();
-  }
 
-  let fetchPromise;
-  if (grupo === 'caba_amba') {
-    fetchPromise = Promise.all([
-      _fetchJSON(DATA_URLS.sanatorios),
-      _fetchJSON(DATA_URLS.consultorios),
-      _fetchJSON(DATA_URLS.sanatoriosAmba),
-      _fetchJSON(DATA_URLS.consultoriosAmba)
-    ]).then(([s, c, sa, ca]) => { _mergeCabaAmba(s, c, sa, ca); });
+    // CABA
+    [sanat, consult].forEach(function (fuente) {
+      Object.keys(fuente).forEach(function (id) {
+        const numId = parseInt(id);
+        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+        if (locs.length === 0) return;
+        if (comunasData[numId]) {
+          comunasData[numId].localidades = concatSinDuplicados(comunasData[numId].localidades, locs);
+        } else {
+          comunasData[numId] = { nombre: "Comuna " + numId, barrios: [], localidades: locs };
+        }
+      });
+    });
 
-  } else if (grupo === 'argentina') {
-    fetchPromise = Promise.all([
-      _fetchJSON(DATA_URLS.sanatoriosArgentina),
-      _fetchJSON(DATA_URLS.consultoriosArgentina)
-    ]).then(([s, c]) => { _mergeArgentina(s, c); });
+    // AMBA
+    [sanatAmba, consultAmba].forEach(function (fuente) {
+      Object.keys(fuente).forEach(function (id) {
+        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+        if (locs.length === 0) return;
+        if (partidosData[id]) {
+          if (!Array.isArray(partidosData[id].localidades)) partidosData[id].localidades = [];
+          partidosData[id].localidades = concatSinDuplicados(partidosData[id].localidades, locs);
+        } else {
+          partidosData[id] = { nombre: fuente[id].nombre || id, barrios: [], localidades: locs };
+        }
+      });
+    });
 
-  } else {
-    fetchPromise = Promise.all([
-      _fetchJSON(DATA_URLS.sanatoriosExpansion),
-      _fetchJSON(DATA_URLS.consultoriosExpansion)
-    ]).then(([s, c]) => { _mergeExpansion(s, c); });
-  }
+    // ARGENTINA
+    [sanatArg, consultArg].forEach(function (fuente) {
+      Object.keys(fuente).forEach(function (id) {
+        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+        if (locs.length === 0) return;
+        const provId = id === "CABA" ? "CIUDAD AUTONOMA DE BUENOS AIRES" : id;
+        if (provinciasData[provId]) {
+          if (!Array.isArray(provinciasData[provId].localidades)) provinciasData[provId].localidades = [];
+          provinciasData[provId].localidades = concatSinDuplicados(provinciasData[provId].localidades, locs);
+        } else {
+          provinciasData[provId] = { nombre: fuente[id].nombre || id, localidades: locs };
+        }
+      });
+    });
 
-  return fetchPromise.then(() => {
-    _datosCargados[grupo] = true;
+    // EXPANSIÓN
+    [sanatExp, consultExp].forEach(function (fuente) {
+      Object.keys(fuente).forEach(function (id) {
+        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
+        if (locs.length === 0) return;
+        if (provinciasDataExpansion[id]) {
+          if (!Array.isArray(provinciasDataExpansion[id].localidades)) provinciasDataExpansion[id].localidades = [];
+          provinciasDataExpansion[id].localidades = concatSinDuplicados(provinciasDataExpansion[id].localidades, locs);
+        } else {
+          provinciasDataExpansion[id] = { nombre: fuente[id].nombre || id, localidades: locs };
+        }
+      });
+    });
+
+    // Asignar sector por defecto a todas las localidades que no lo tengan
     asignarSectorPorDefecto();
-    if ((grupo === 'argentina' || grupo === 'expansion') && !_datosCargados.sheets) {
-      return cargarDesdeSheetsArgentina().then(() => { _datosCargados.sheets = true; });
-    }
   });
 }
 
@@ -1109,19 +1071,7 @@ function seleccionarCategoria(cat, region) {
     }
   }
 
-  // Mostrar spinner mientras carga
-  const panelBody = document.getElementById("panelBody");
-  if (!_datosCargados[regionActiva === 'expansion' ? 'expansion' : regionActiva === 'argentina' ? 'argentina' : 'caba_amba']) {
-    panelBody.innerHTML = `
-      <div class="cargando-datos">
-        <div class="cargando-spinner"></div>
-        <span>Cargando prestadores...</span>
-      </div>`;
-  }
-
-  cargarDatosRegion(regionActiva || 'caba_amba').then(function () {
-    mostrarTodasLasLocalidades();
-  });
+  mostrarTodasLasLocalidades();
 }
 
 function volverAlMenu() {
@@ -1576,7 +1526,10 @@ function initMap() {
   cargarGeoJSONAmba();
   cargarGeoJSONArgentina();
 
-  // Los datos de prestadores se cargan de forma diferida al elegir región
+  // Datos de prestadores y Sheet (para el panel)
+  cargarDatosExternos().then(function () {
+    return cargarDesdeSheetsArgentina();
+  });
 }
 
 // ============================================
