@@ -639,6 +639,7 @@ let sectorFiltroArgentina = null; // null = todos, o clave de sectoresExpansion
 let sectorBoxAbierto = false;
 let regionalizacionAbierto = false; // si el box "Regionalizar" está expandido
 let infoWindowGlobal = null;
+let infoWindowSector = null;
 let categoriaActiva = null;
 let regionActiva = null;
 let filtroSectorActivo = null;
@@ -1511,6 +1512,7 @@ function initMap() {
   });
 
   infoWindowGlobal = new google.maps.InfoWindow({ disableAutoPan: true });
+  infoWindowSector = new google.maps.InfoWindow({ disableAutoPan: true });
   ambaDataLayer = new google.maps.Data();
   argentinaDataLayer = new google.maps.Data();
 
@@ -2703,14 +2705,11 @@ function calcularTotalesSector(sectorId) {
   return { cap, vol, facTotal, prestTotal };
 }
 
-function mostrarFloatingSector(sectorId) {
-  ocultarFloatingSector();
-  if (!sectorId) return;
-
+function _buildSectorInfoWindowContent(sectorId, expandido) {
   const sector = sectoresExpansion[sectorId];
   const { cap, vol, facTotal, prestTotal } = calcularTotalesSector(sectorId);
 
-  const fmt = n => n > 0 ? n.toLocaleString('es-AR') : '—';
+  const fmt    = n => n > 0 ? n.toLocaleString('es-AR') : '—';
   const fmtUSD = n => n > 0 ? `USD ${n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '—';
 
   const capTotal = Object.values(cap).reduce((s, v) => s + v, 0);
@@ -2726,56 +2725,92 @@ function mostrarFloatingSector(sectorId) {
     .map(([cod, v]) => `<div class="fs-desglose-fila"><span class="fs-desglose-cod">${cod}</span><span class="fs-desglose-val">${fmt(v)}</span></div>`)
     .join('');
 
-  const div = document.createElement('div');
-  div.id = 'floating-sector-card';
-  div.className = 'floating-sector-card';
-  div.innerHTML = `
-    <div class="fs-header">
-      <span class="fs-titulo">${sector.nombre}</span>
-      <div class="fs-header-right">
-        <span class="fs-prest">${prestTotal} prest.</span>
-        <button class="fs-cerrar" onclick="ocultarFloatingSector()">✕</button>
+  if (!expandido) {
+    // Vista compacta: solo nombre + USD + botón expandir
+    return `
+      <div class="fs-compact" onclick="expandirSectorCard('${sectorId}')">
+        <div class="fs-compact-top">
+          <span class="fs-compact-nombre">${sector.nombre}</span>
+          <span class="fs-compact-prest">${prestTotal} prest.</span>
+        </div>
+        ${facTotal > 0 ? `<div class="fs-compact-usd">${fmtUSD(facTotal)}</div>` : ''}
+        <div class="fs-compact-hint">Tocá para ver desglose ▾</div>
+      </div>`;
+  }
+
+  // Vista expandida: desglose completo
+  return `
+    <div class="fs-expanded">
+      <div class="fs-header">
+        <span class="fs-titulo">${sector.nombre}</span>
+        <div class="fs-header-right">
+          <span class="fs-prest">${prestTotal} prest.</span>
+          <button class="fs-cerrar" onclick="ocultarFloatingSector()">✕</button>
+        </div>
       </div>
-    </div>
-    <div class="fs-body">
-      ${facTotal > 0 ? `
-      <div class="fs-fac-row">
-        <span class="fs-fac-label">💰 Total facturado</span>
-        <span class="fs-fac-val">${fmtUSD(facTotal)}</span>
-      </div>` : ''}
+      <div class="fs-body">
+        ${facTotal > 0 ? `
+        <div class="fs-fac-row">
+          <span class="fs-fac-label">💰 Total facturado</span>
+          <span class="fs-fac-val">${fmtUSD(facTotal)}</span>
+        </div>` : ''}
+        ${capTotal > 0 ? `
+        <div class="fs-seccion">
+          <div class="fs-seccion-header" onclick="toggleFsSeccion(this)">
+            <span>⚡ Capacidad instalada</span>
+            <span class="fs-seccion-total">${fmt(capTotal)}</span>
+            <span class="fs-flecha">▾</span>
+          </div>
+          <div class="fs-seccion-detalle">${filasCap}</div>
+        </div>` : ''}
+        ${volTotal > 0 ? `
+        <div class="fs-seccion">
+          <div class="fs-seccion-header" onclick="toggleFsSeccion(this)">
+            <span>📦 Volumen total</span>
+            <span class="fs-seccion-total">${fmt(volTotal)}</span>
+            <span class="fs-flecha">▾</span>
+          </div>
+          <div class="fs-seccion-detalle">${filasVol}</div>
+        </div>` : ''}
+        ${!facTotal && !capTotal && !volTotal ? `<div class="fs-sin-datos">Sin datos disponibles.</div>` : ''}
+      </div>
+    </div>`;
+}
 
-      ${capTotal > 0 ? `
-      <div class="fs-seccion">
-        <div class="fs-seccion-header" onclick="toggleFsSeccion(this)">
-          <span>⚡ Capacidad instalada</span>
-          <span class="fs-seccion-total">${fmt(capTotal)}</span>
-          <span class="fs-flecha">▾</span>
-        </div>
-        <div class="fs-seccion-detalle">
-          ${filasCap}
-        </div>
-      </div>` : ''}
+function mostrarFloatingSector(sectorId) {
+  if (!infoWindowSector) return;
+  ocultarFloatingSector();
+  if (!sectorId || !argentinaDataLayer) return;
 
-      ${volTotal > 0 ? `
-      <div class="fs-seccion">
-        <div class="fs-seccion-header" onclick="toggleFsSeccion(this)">
-          <span>📦 Volumen total</span>
-          <span class="fs-seccion-total">${fmt(volTotal)}</span>
-          <span class="fs-flecha">▾</span>
-        </div>
-        <div class="fs-seccion-detalle">
-          ${filasVol}
-        </div>
-      </div>` : ''}
+  // Calcular centroide del sector desde los bounds de sus provincias
+  const provinciasSector = new Set(sectoresExpansion[sectorId].provincias);
+  const bounds = new google.maps.LatLngBounds();
+  argentinaDataLayer.forEach(feature => {
+    if (provinciasSector.has(getProvinciaId(feature))) {
+      feature.getGeometry().forEachLatLng(latLng => {
+        if (latLng.lat() > -58) bounds.extend(latLng);
+      });
+    }
+  });
+  if (bounds.isEmpty()) return;
 
-      ${!facTotal && !capTotal && !volTotal ? `<div class="fs-sin-datos">Sin datos disponibles para este sector.</div>` : ''}
-    </div>
-  `;
+  const centro = bounds.getCenter();
+  infoWindowSector.setContent(_buildSectorInfoWindowContent(sectorId, false));
+  infoWindowSector.setPosition(centro);
+  infoWindowSector.open(map);
 
-  document.getElementById('map').appendChild(div);
+  google.maps.event.addListenerOnce(infoWindowSector, 'domready', liberarAlturaInfoWindow);
+}
+
+function expandirSectorCard(sectorId) {
+  if (!infoWindowSector) return;
+  infoWindowSector.setContent(_buildSectorInfoWindowContent(sectorId, true));
+  google.maps.event.addListenerOnce(infoWindowSector, 'domready', liberarAlturaInfoWindow);
 }
 
 function ocultarFloatingSector() {
+  if (infoWindowSector) infoWindowSector.close();
+  // También limpiar el div absoluto legacy por si queda
   const el = document.getElementById('floating-sector-card');
   if (el) el.remove();
 }
