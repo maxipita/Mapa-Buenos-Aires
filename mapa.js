@@ -1519,6 +1519,12 @@ function initMap() {
 
   infoWindowGlobal = new google.maps.InfoWindow({ disableAutoPan: true });
   // infoWindowSector se crea lazy en mostrarFloatingSector()
+
+  // Cerrar sector InfoWindow al hacer click en fondo del mapa (océano / espacio vacío)
+  map.addListener("click", function () {
+    if (sectorFiltroArgentina) seleccionarSectorArgentina(null);
+  });
+
   ambaDataLayer = new google.maps.Data();
   argentinaDataLayer = new google.maps.Data();
 
