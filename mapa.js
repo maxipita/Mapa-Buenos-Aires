@@ -2595,27 +2595,11 @@ function mostrarResumenProvincia(provinciaId) {
     });
   }
 
-  // Zoom a la provincia usando fitBounds sobre su geometría real
-  if (argentinaDataLayer && map) {
-    const grupo = new Set(getGrupoProvincias(provinciaId));
-    const bounds = new google.maps.LatLngBounds();
-    argentinaDataLayer.forEach(feature => {
-      if (grupo.has(getProvinciaId(feature))) {
-        feature.getGeometry().forEachLatLng(latLng => {
-          if (latLng.lat() > -58) bounds.extend(latLng); // excluir Antártida
-        });
-      }
-    });
-    if (!bounds.isEmpty()) {
-      const padding = esMobile()
-        ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.5), left: 20 }
-        : { top: 60, right: 60, bottom: 60, left: 60 };
-      setTimeout(() => map.fitBounds(bounds, padding), 50);
-    } else {
-      // fallback al centroide si no hay geometría
-      const centro = CENTROIDES_ARGENTINA[provinciaId] || PROVINCIA_CENTRO_OVERRIDE[provinciaId];
-      if (centro) { map.setCenter(centro); map.setZoom(6); }
-    }
+  // Zoom al centroide de la provincia
+  const centro = CENTROIDES_ARGENTINA[provinciaId] || PROVINCIA_CENTRO_OVERRIDE[provinciaId];
+  if (centro && map) {
+    map.setCenter({ lat: centro.lat, lng: centro.lng });
+    map.setZoom(6);
   }
   abrirPanelMobile();
 }
@@ -2846,31 +2830,44 @@ function seleccionarSectorArgentina(sectorId) {
     ocultarFloatingSector();
   }
 
-  // Hacer zoom DESPUÉS del re-render y mostrar InfoWindow al terminar el pan
-  if (sectorFiltroArgentina && argentinaDataLayer) {
-    const provinciasSector = new Set(sectoresExpansion[sectorFiltroArgentina].provincias);
+  // Hacer zoom al sector y mostrar InfoWindow
+  if (sectorFiltroArgentina) {
+    const sectorActual = sectorFiltroArgentina; // capturar para closures async
+    const provinciasSector = sectoresExpansion[sectorActual].provincias;
+
+    // Calcular bounds: primero intentar desde geometría del data layer
     const bounds = new google.maps.LatLngBounds();
-    argentinaDataLayer.forEach(feature => {
-      if (provinciasSector.has(getProvinciaId(feature))) {
-        feature.getGeometry().forEachLatLng(latLng => {
-          if (latLng.lat() > -58) bounds.extend(latLng);
-        });
-      }
-    });
+    if (argentinaDataLayer) {
+      const setIds = new Set(provinciasSector);
+      argentinaDataLayer.forEach(feature => {
+        if (setIds.has(getProvinciaId(feature))) {
+          feature.getGeometry().forEachLatLng(latLng => {
+            if (latLng.lat() > -58) bounds.extend(latLng);
+          });
+        }
+      });
+    }
+
+    // Fallback: usar centroides si el data layer no aportó nada
+    if (bounds.isEmpty()) {
+      provinciasSector.forEach(provId => {
+        const c = CENTROIDES_ARGENTINA[provId];
+        if (c) bounds.extend(new google.maps.LatLng(c.lat, c.lng));
+      });
+    }
+
     if (!bounds.isEmpty()) {
       const padding = esMobile()
         ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.5), left: 20 }
         : { top: 60, right: 60, bottom: 60, left: 60 };
-      // Primero hacer el zoom, después abrir el InfoWindow una vez que el mapa esté posicionado
       setTimeout(() => {
         map.fitBounds(bounds, padding);
-        // Esperar a que termine la animación de fitBounds antes de abrir el InfoWindow
-        google.maps.event.addListenerOnce(map, 'idle', function() {
-          mostrarFloatingSector(sectorFiltroArgentina);
+        google.maps.event.addListenerOnce(map, 'idle', function () {
+          if (sectorFiltroArgentina === sectorActual) mostrarFloatingSector(sectorActual);
         });
       }, 50);
     }
-  } else if (!sectorFiltroArgentina) {
+  } else {
     setTimeout(() => { map.setCenter({ lat: -38.5, lng: -65 }); map.setZoom(4); }, 50);
   }
 }
