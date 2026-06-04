@@ -2595,11 +2595,27 @@ function mostrarResumenProvincia(provinciaId) {
     });
   }
 
-  // Zoom a la provincia
-  const centro = CENTROIDES_ARGENTINA[provinciaId] || PROVINCIA_CENTRO_OVERRIDE[provinciaId];
-  if (centro && map) {
-    map.setCenter({ lat: centro.lat, lng: centro.lng });
-    map.setZoom(6);
+  // Zoom a la provincia usando fitBounds sobre su geometría real
+  if (argentinaDataLayer && map) {
+    const grupo = new Set(getGrupoProvincias(provinciaId));
+    const bounds = new google.maps.LatLngBounds();
+    argentinaDataLayer.forEach(feature => {
+      if (grupo.has(getProvinciaId(feature))) {
+        feature.getGeometry().forEachLatLng(latLng => {
+          if (latLng.lat() > -58) bounds.extend(latLng); // excluir Antártida
+        });
+      }
+    });
+    if (!bounds.isEmpty()) {
+      const padding = esMobile()
+        ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.5), left: 20 }
+        : { top: 60, right: 60, bottom: 60, left: 60 };
+      setTimeout(() => map.fitBounds(bounds, padding), 50);
+    } else {
+      // fallback al centroide si no hay geometría
+      const centro = CENTROIDES_ARGENTINA[provinciaId] || PROVINCIA_CENTRO_OVERRIDE[provinciaId];
+      if (centro) { map.setCenter(centro); map.setZoom(6); }
+    }
   }
   abrirPanelMobile();
 }
