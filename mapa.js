@@ -2830,45 +2830,26 @@ function seleccionarSectorArgentina(sectorId) {
     ocultarFloatingSector();
   }
 
-  // Hacer zoom al sector y mostrar InfoWindow
+  // Zoom al sector usando centroides (siempre disponibles, sin dependencias async)
   if (sectorFiltroArgentina) {
-    const sectorActual = sectorFiltroArgentina; // capturar para closures async
-    const provinciasSector = sectoresExpansion[sectorActual].provincias;
-
-    // Calcular bounds: primero intentar desde geometría del data layer
+    const sectorActual = sectorFiltroArgentina;
     const bounds = new google.maps.LatLngBounds();
-    if (argentinaDataLayer) {
-      const setIds = new Set(provinciasSector);
-      argentinaDataLayer.forEach(feature => {
-        if (setIds.has(getProvinciaId(feature))) {
-          feature.getGeometry().forEachLatLng(latLng => {
-            if (latLng.lat() > -58) bounds.extend(latLng);
-          });
-        }
-      });
-    }
-
-    // Fallback: usar centroides si el data layer no aportó nada
-    if (bounds.isEmpty()) {
-      provinciasSector.forEach(provId => {
-        const c = CENTROIDES_ARGENTINA[provId];
-        if (c) bounds.extend(new google.maps.LatLng(c.lat, c.lng));
-      });
-    }
-
+    sectoresExpansion[sectorActual].provincias.forEach(provId => {
+      const c = CENTROIDES_ARGENTINA[provId];
+      if (c) bounds.extend({ lat: c.lat, lng: c.lng });
+    });
     if (!bounds.isEmpty()) {
       const padding = esMobile()
         ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.5), left: 20 }
         : { top: 60, right: 60, bottom: 60, left: 60 };
-      setTimeout(() => {
-        map.fitBounds(bounds, padding);
-        google.maps.event.addListenerOnce(map, 'idle', function () {
-          if (sectorFiltroArgentina === sectorActual) mostrarFloatingSector(sectorActual);
-        });
-      }, 50);
+      map.fitBounds(bounds, padding);
+      google.maps.event.addListenerOnce(map, 'idle', function () {
+        if (sectorFiltroArgentina === sectorActual) mostrarFloatingSector(sectorActual);
+      });
     }
   } else {
-    setTimeout(() => { map.setCenter({ lat: -38.5, lng: -65 }); map.setZoom(4); }, 50);
+    map.setCenter({ lat: -38.5, lng: -65 });
+    map.setZoom(4);
   }
 }
 
