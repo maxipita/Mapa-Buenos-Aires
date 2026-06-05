@@ -78,7 +78,11 @@
       "Bash(node --check mapa.js)",
       "Bash(ls \"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Roaming\\\\Claude\\\\\" 2>/dev/null)",
       "Bash(ls /mnt/c/Users/tiago.baca/AppData/Roaming/Claude/ 2>/dev/null || echo \"not found\")",
-      "Bash(mkdir -p \"C:/Users/tiago.baca/.claude/memories\")"
+      "Bash(mkdir -p \"C:/Users/tiago.baca/.claude/memories\")",
+      "Bash(python scripts/recalc.py \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Docs\\\\Excel\\\\IHQ-Mary.xlsx\" 30)",
+      "PowerShell($excel = New-Object -ComObject Excel.Application; $wb = $excel.Workbooks.Open\\(\"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Docs\\\\Excel\\\\IHQ-Mary.xlsx\", $null, $false, 1\\); $wb.Save\\(\\); $excel.Quit\\(\\); Write-Host \"Archivo recalculado\")",
+      "Bash(taskkill /IM EXCEL.EXE /F)",
+      "Bash(del \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Docs\\\\Excel\\\\IHQ-Mary.xlsx\")"
     ]
   }
 }
