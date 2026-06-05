@@ -1174,13 +1174,22 @@ body {
 #desglose-overlay {
   display: none;
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.45);
+  top: 0;
+  left: 340px;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.35);
   z-index: 9999;
   align-items: center;
   justify-content: center;
   opacity: 0;
   transition: opacity 0.25s ease;
+}
+
+@media (max-width: 768px) {
+  #desglose-overlay {
+    left: 0;
+  }
 }
 
 #desglose-overlay.desglose-visible {
@@ -1270,7 +1279,8 @@ body {
 .pob-subtitulo {
   font-size: 11px;
   color: #888;
-  padding: 0 16px 8px;
+  padding: 0 4px 8px;
+  white-space: nowrap;
 }
 
 .pob-lista {
@@ -1491,6 +1501,67 @@ body {
 }
 
 .prov-resumen-btn-detalle:hover { opacity: 0.88; }
+
+#sector-mapa-label {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #a020a8 0%, #7b1fa2 100%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 10px 24px 10px 18px;
+  border-radius: 32px;
+  box-shadow: 0 4px 18px rgba(120, 0, 140, 0.45), 0 1px 4px rgba(0,0,0,0.18);
+  pointer-events: none;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  border: 2px solid rgba(255,255,255,0.25);
+  z-index: 5;
+}
+
+.sector-desglose-panel {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid #f0e0f8;
+}
+
+#sector-desglose-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  padding: 16px 20px 20px;
+  min-width: 280px;
+  max-width: 360px;
+  z-index: 10;
+}
+
+.sd-close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #888;
+  line-height: 1;
+}
+
+.sector-desglose-titulo {
+  font-size: 11px;
+  font-weight: 700;
+  color: #7b2d8b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
 
 /* ── Card Argentina ── */
 .pob-argentina-card {
@@ -1885,7 +1956,8 @@ body {
   color: #7b2d8b;
 }
 
-.regionalizacion-flecha {
+.regionalizacion-flecha,
+.comparacion-flecha {
   font-size: 10px;
   color: #a020a8;
 }
