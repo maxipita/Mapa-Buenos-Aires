@@ -645,6 +645,7 @@ let _markerAnclaSector = null; // marker invisible que ancla el InfoWindow de se
 let categoriaActiva = null;
 let regionActiva = null;
 let filtroSectorActivo = null;
+let filtroVighiActivo = false;
 let todasProvinciasMostradas = false;
 let geojsonCargados = 0;
 const provinciasData = {};
@@ -891,7 +892,7 @@ const PROVINCIAS_DISPLAY = {
 };
 
 const CENTROIDES_ARGENTINA = {
-  "BUENOS AIRES":                    { lat: -37.1639, lng: -60.1358 },
+  "BUENOS AIRES":                    { lat: -37.4, lng: -60.5 },
   "CIUDAD AUTONOMA DE BUENOS AIRES": { lat: -34.616,  lng: -58.4357 },
   "CORDOBA":                         { lat: -32.2348, lng: -63.6512 },
   "SANTA FE":                        { lat: -31.1792, lng: -60.9832 },
@@ -1017,10 +1018,14 @@ function filtrarPorCategoria(localidades) {
 }
 
 function filtrarPorSector(localidades) {
-  if (!filtroSectorActivo) return localidades;
-  return localidades.filter(loc =>
-    (loc.sector || "privado") === filtroSectorActivo
-  );
+  let result = localidades;
+  if (filtroSectorActivo) {
+    result = result.filter(loc => (loc.sector || "privado") === filtroSectorActivo);
+  }
+  if (filtroVighiActivo) {
+    result = result.filter(loc => (loc.prioridad || "").toLowerCase() === 'vighi');
+  }
+  return result;
 }
 
 function seleccionarCategoria(cat, region) {
@@ -1177,20 +1182,31 @@ function actualizarPanelArgentina() {
   actualizarFacturacionCard();
 }
 
+function _refrescarPanelConFiltro() {
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+  if (provinciaSeleccionadaId) {
+    mostrarInfoPanelProvincia(provinciaSeleccionadaId);
+  } else if (comunaSeleccionadaId) {
+    mostrarInfoPanel(comunaSeleccionadaId);
+  } else if (partidoSeleccionadoId) {
+    mostrarInfoPanelPartido(partidoSeleccionadoId);
+  }
+}
+
+function toggleFiltroVighi() {
+  filtroVighiActivo = !filtroVighiActivo;
+  _refrescarPanelConFiltro();
+}
+
 function aplicarFiltroSector(valor) {
   filtroSectorActivo = valor || null;
-  const provinciaId = provinciaSeleccionadaId;
-  if (provinciaId) {
-    // Limpiar marcadores antes de recrear con nuevo filtro
-    marcadoresActivos.forEach(m => m.setMap(null));
-    marcadoresActivos = [];
-
-    mostrarInfoPanelProvincia(provinciaId);
-  }
+  _refrescarPanelConFiltro();
 }
 
 function resetFiltroSector() {
   filtroSectorActivo = null;
+  filtroVighiActivo = false;
   const selectElement = document.getElementById("filtroSector");
   if (selectElement) {
     selectElement.value = "";
@@ -2551,6 +2567,9 @@ function mostrarResumenSector(sectorId) {
 
 function cerrarResumenProvincia() {
   provinciaSeleccionadaId = null;
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+  if (infoWindowGlobal) infoWindowGlobal.close();
   if (argentinaDataLayer) aplicarEstiloBaseArgentina();
   if (map && (regionActiva === "argentina" || regionActiva === "expansion")) {
     map.setCenter({ lat: -38.5, lng: -65 });
@@ -2561,8 +2580,13 @@ function cerrarResumenProvincia() {
 
 function mostrarResumenProvincia(provinciaId) {
   ocultarFloatingSector();
-  // Si "toda Argentina" estaba activa, cerrarla y limpiar pines
-  if (todasProvinciasMostradas) deseleccionarTodaArgentina();
+  // Limpiar pines previos (toda Argentina o provincia anterior)
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+  if (infoWindowGlobal) infoWindowGlobal.close();
+  if (todasProvinciasMostradas) {
+    todasProvinciasMostradas = false;
+  }
   // Cerrar Regionalizar y limpiar sector al seleccionar una provincia
   if (regionalizacionAbierto) {
     regionalizacionAbierto = false;
@@ -2678,6 +2702,7 @@ function mostrarResumenProvincia(provinciaId) {
     map.setCenter({ lat: centro.lat, lng: centro.lng });
     const zoom = provinciaId === "CIUDAD AUTONOMA DE BUENOS AIRES" ? 12
                 : provinciaId === "TUCUMAN" ? 8
+                : provinciaId === "BUENOS AIRES" ? 7
                 : 6;
     map.setZoom(zoom);
   }
@@ -3448,6 +3473,9 @@ function mostrarInfoPanelProvincia(provinciaId) {
         <button class="sector-btn ${filtroSectorActivo === 'publico' ? 'sector-btn-active' : ''}" onclick="aplicarFiltroSector('publico')">
           Público
         </button>
+        <button class="sector-btn sector-btn-vighi ${filtroVighiActivo ? 'sector-btn-active' : ''}" onclick="toggleFiltroVighi()">
+          Vighi
+        </button>
       </div>
     </div>
   ` : "";
@@ -3566,8 +3594,8 @@ function mostrarInfoPanelProvincia(provinciaId) {
     }
   });
 
-  // Agregar marcadores al mapa
-  agregarMarcadores(filtrarPorCategoria(todasLasLocalidadesParaPins));
+  // Agregar marcadores al mapa (respetando filtro de sector activo)
+  agregarMarcadores(filtrarPorSector(filtrarPorCategoria(todasLasLocalidadesParaPins)));
 
   abrirPanelMobile();
 }
@@ -3860,15 +3888,27 @@ function mostrarInfoPanel(comunaId) {
     : "";
 
   const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+  const locFiltradas = filtrarPorSector(locOrdenadas);
 
-  const localidadesHtml = locOrdenadas.length > 0
-    ? locOrdenadas.map(loc => `
+  const localidadesHtml = locFiltradas.length > 0
+    ? locFiltradas.map(loc => `
         <div class="localidad-item" onclick="centrarEnMarcador(${loc.lat}, ${loc.lng})">
           <strong>${loc.nombre}</strong>
           <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
         </div>
       `).join("")
-    : `<p class="sin-datos">Sin localidades registradas para esta comuna.</p>`;
+    : `<p class="sin-datos">Sin localidades para el filtro seleccionado.</p>`;
+
+  const filtroHtmlComuna = locOrdenadas.length > 0 ? `
+    <div class="sector-filter-container">
+      <label>Filtrar por sector:</label>
+      <div class="sector-filter-buttons">
+        <button class="sector-btn ${!filtroSectorActivo ? 'sector-btn-active' : ''}" onclick="aplicarFiltroSector('')">Todo</button>
+        <button class="sector-btn ${filtroSectorActivo === 'privado' ? 'sector-btn-active' : ''}" onclick="aplicarFiltroSector('privado')">Privado</button>
+        <button class="sector-btn ${filtroSectorActivo === 'publico' ? 'sector-btn-active' : ''}" onclick="aplicarFiltroSector('publico')">Público</button>
+        <button class="sector-btn sector-btn-vighi ${filtroVighiActivo ? 'sector-btn-active' : ''}" onclick="toggleFiltroVighi()">Vighi</button>
+      </div>
+    </div>` : "";
 
   document.getElementById("panelBody").innerHTML = `
     <div class="comuna-header">
@@ -3878,6 +3918,7 @@ function mostrarInfoPanel(comunaId) {
       </div>
       ${barriosHtml}
     </div>
+    ${filtroHtmlComuna}
     <div class="seccion-titulo">Localidades de interés</div>
     ${localidadesHtml}
   `;
