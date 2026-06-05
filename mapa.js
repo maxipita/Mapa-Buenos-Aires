@@ -2561,6 +2561,8 @@ function cerrarResumenProvincia() {
 
 function mostrarResumenProvincia(provinciaId) {
   ocultarFloatingSector();
+  // Si "toda Argentina" estaba activa, cerrarla y limpiar pines
+  if (todasProvinciasMostradas) deseleccionarTodaArgentina();
   // Cerrar Regionalizar y limpiar sector al seleccionar una provincia
   if (regionalizacionAbierto) {
     regionalizacionAbierto = false;
@@ -2674,7 +2676,10 @@ function mostrarResumenProvincia(provinciaId) {
   const centro = CENTROIDES_ARGENTINA[provinciaId] || PROVINCIA_CENTRO_OVERRIDE[provinciaId];
   if (centro && map) {
     map.setCenter({ lat: centro.lat, lng: centro.lng });
-    map.setZoom(6);
+    const zoom = provinciaId === "CIUDAD AUTONOMA DE BUENOS AIRES" ? 12
+                : provinciaId === "TUCUMAN" ? 8
+                : 6;
+    map.setZoom(zoom);
   }
   abrirPanelMobile();
 }
