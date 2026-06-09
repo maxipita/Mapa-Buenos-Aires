@@ -81,13 +81,27 @@ function recalcularFacturacionTotalArgentina() {
   let facturacionPrivado  = 0;
   let facturacionPublico  = 0;
 
+  // Para cada provincia: usa filas individuales si existen, sino la fila PROVINCIAS
+  const provinciasConSheets = new Set(Object.keys(clientesProvinciasSheets));
+
+  // Sumar filas individuales
   Object.values(clientesProvinciasSheets).forEach(clientes => {
     clientes.forEach(c => {
-      let cleanVal = (c.facturacion || "")
-        .replace(/U\$S/g, "")
-        .replace(/\s/g, "")
-        .replace(/,/g, "");
-      const val = parseFloat(cleanVal);
+      const val = parseFloat((c.facturacion || "").replace(/U\$S/g,"").replace(/\s/g,"").replace(/,/g,""));
+      if (!isNaN(val) && val > 0) {
+        facturacionTotal += val;
+        const sector = (c.sector || "privado").toLowerCase();
+        if (sector === "publico" || sector === "público") facturacionPublico += val;
+        else facturacionPrivado += val;
+      }
+    });
+  });
+
+  // Sumar filas PROVINCIAS para provincias SIN filas individuales
+  Object.entries(clientesProvinciasDirectos).forEach(([prov, entries]) => {
+    if (provinciasConSheets.has(prov)) return; // ya contada arriba
+    entries.forEach(c => {
+      const val = parseFloat((c.facturacion || "").replace(/U\$S/g,"").replace(/\s/g,"").replace(/,/g,""));
       if (!isNaN(val) && val > 0) {
         facturacionTotal += val;
         const sector = (c.sector || "privado").toLowerCase();
@@ -135,7 +149,7 @@ function cargarDesdeSheetsArgentina() {
         "AMBA OESTE":          "BUENOS AIRES",
         "AMBA SUR":            "BUENOS AIRES",
         "BS-AS - INTERIOR":    "BUENOS AIRES",
-        "CABA":                "CABA",
+        "CABA":                "CIUDAD AUTONOMA DE BUENOS AIRES",
         "CATAMARCA":           "CATAMARCA",
         "CHACO":               "CHACO",
         "CHUBUT":              "CHUBUT",
@@ -171,19 +185,22 @@ function cargarDesdeSheetsArgentina() {
         const nombre = (row[COL.cliente] || "").trim();
         const nombreUpper = nombre.toUpperCase();
 
-        const zona = (row[COL.zona] || "").toUpperCase().trim();
+        const zona = (row[COL.zona] || "").toUpperCase().trim()
+          .normalize("NFD").replace(/[̀-ͯ]/g, "");
 
         // Capturar filas zona="PROVINCIAS" → InfoWindow del recuadro de provincia
         if (zona === "PROVINCIAS") {
           const provKey = CLIENTE_A_PROVINCIA[nombreUpper] || nombreUpper;
           if (!clientesProvinciasDirectos[provKey]) clientesProvinciasDirectos[provKey] = [];
-          const sV = (row[COL.sector] || "").toLowerCase().trim();
+          const sV = (row[COL.sector] || "").toLowerCase().trim()
+            .normalize("NFD").replace(/[̀-ͯ]/g, "");
           clientesProvinciasDirectos[provKey].push({
             nombre, tipo: (row[COL.tipo] || "").trim(), sector: sV || "privado",
             qx: row[COL.qx] || "", amb: row[COL.amb] || "",
             salaEndo: row[COL.salaEndo] || "", ce: row[COL.ce] || "",
             qx2: row[COL.qx2] || "", amb2: row[COL.amb2] || "",
             salaEndo2: row[COL.salaEndo2] || "", ce2: row[COL.ce2] || "",
+            volTotal: row[COL.volTotal] || "0",
             facturacion: row[COL.facturacionUSD] || "",
           });
           return;
@@ -235,11 +252,12 @@ function cargarDesdeSheetsArgentina() {
         // Buscar la localidad en el JSON por nombre y actualizar sus nomencladores y sector
         const key = normalizarNombre(nombre);
         const loc = indicePorNombre[key];
-        const sectorValue = (row[COL.sector] || "").toLowerCase().trim();
+        const sectorValue = (row[COL.sector] || "").toLowerCase().trim()
+          .normalize("NFD").replace(/[̀-ͯ]/g, "");
         if (loc) {
           loc.nomencladores = nomencladores;
           if (sectorValue) {
-            loc.sector = sectorValue === "público" ? "publico" : "privado";
+            loc.sector = sectorValue === "publico" ? "publico" : "privado";
           }
         } else {
           console.info("Sheet: sin match en JSON para →", nombre);
@@ -264,6 +282,7 @@ function cargarDesdeSheetsArgentina() {
               salaEndo: row[COL.salaEndo] || "", ce: row[COL.ce] || "",
               qx2: row[COL.qx2] || "", amb2: row[COL.amb2] || "",
               salaEndo2: row[COL.salaEndo2] || "", ce2: row[COL.ce2] || "",
+              volTotal: row[COL.volTotal] || "0",
               facturacion: row[COL.facturacionUSD] || "",
             });
           }
@@ -1155,6 +1174,8 @@ function filtrarSectorArgentina(sector) {
     marcadoresActivos.forEach(m => m.setMap(null));
     marcadoresActivos = [];
     mostrarInfoPanelProvincia(provinciaSeleccionadaId);
+  } else if (regionActiva === "argentina") {
+    mostrarTodasLasLocalidades();
   }
   actualizarPanelArgentina();
 }
@@ -1183,10 +1204,15 @@ function actualizarPanelArgentina() {
 }
 
 function _refrescarPanelConFiltro() {
+  const desgloseAbierto = !!document.querySelector('.prov-card-desglose[style*="block"]');
   marcadoresActivos.forEach(m => m.setMap(null));
   marcadoresActivos = [];
   if (provinciaSeleccionadaId) {
     mostrarInfoPanelProvincia(provinciaSeleccionadaId);
+    if (desgloseAbierto) {
+      const btn = document.querySelector('.prov-card-desglose-btn');
+      if (btn) toggleDesgloseCard(btn);
+    }
   } else if (comunaSeleccionadaId) {
     mostrarInfoPanel(comunaSeleccionadaId);
   } else if (partidoSeleccionadoId) {
@@ -1278,7 +1304,7 @@ function mostrarTodasLasLocalidades() {
     // CABA y Buenos Aires como entidades separadas
     const provinciasConLocs = Object.keys(provinciasData)
       .map(id => {
-        const locs = filtrarPorCategoria(provinciasData[id].localidades || []);
+        const locs = filtrarPorSector(filtrarPorCategoria(provinciasData[id].localidades || []));
         return { id, ...provinciasData[id], locs };
       })
       .filter(p => p.locs.length > 0)
@@ -2604,47 +2630,44 @@ function mostrarResumenProvincia(provinciaId) {
     ? "Buenos Aires"
     : PROVINCIAS_DISPLAY[provinciaId] || toTitleCase(provinciaId);
 
-  // Facturación USD
-  let fac = 0;
+  // Facturación, volumen y capacidad
+  // Prioridad: 1) filas individuales del Sheet, 2) fila PROVINCIAS, 3) nomencladores JSON
+  let fac = 0, vol = 0, cap = 0;
   const sheetData = clientesProvinciasSheets[provinciaId] || [];
   if (sheetData.length) {
     sheetData.forEach(c => {
-      const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
-      const val = parseFloat(raw);
-      if (!isNaN(val) && val > 0) fac += val;
+      const valFac = parseFloat((c.facturacion || "").replace(/U\$S/g,"").replace(/\s/g,"").replace(/,/g,""));
+      if (!isNaN(valFac) && valFac > 0) fac += valFac;
+      const valVol = parseFloat((c.volTotal || "0").toString().replace(/[^0-9.]/g, ""));
+      if (!isNaN(valVol) && valVol > 0) vol += valVol;
+      cap += (parseFloat(c.qx2) || 0) + (parseFloat(c.amb2) || 0)
+           + (parseFloat(c.salaEndo2) || 0) + (parseFloat(c.ce2) || 0);
     });
   } else {
-    locsFiltradas.forEach(loc => {
-      (loc.nomencladores || []).forEach(n => {
-        if (n.tipo === "total facturado") {
-          const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
-          if (!isNaN(val)) fac += val;
-        }
+    // Fallback 2: fila PROVINCIAS
+    const directos = clientesProvinciasDirectos[provinciaId] || [];
+    if (directos.length) {
+      directos.forEach(c => {
+        const valFac = parseFloat((c.facturacion || "").replace(/U\$S/g,"").replace(/\s/g,"").replace(/,/g,""));
+        if (!isNaN(valFac) && valFac > 0) fac += valFac;
+        const valVol = parseFloat((c.volTotal || "0").toString().replace(/[^0-9.]/g, ""));
+        if (!isNaN(valVol) && valVol > 0) vol += valVol;
+        cap += (parseFloat(c.qx2) || 0) + (parseFloat(c.amb2) || 0)
+             + (parseFloat(c.salaEndo2) || 0) + (parseFloat(c.ce2) || 0);
       });
-    });
+    } else {
+      // Fallback 3: nomencladores del JSON
+      locsFiltradas.forEach(loc => {
+        (loc.nomencladores || []).forEach(n => {
+          const v = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
+          if (isNaN(v) || v <= 0) return;
+          if (n.tipo === "total facturado") fac += v;
+          if (n.tipo === "volumen total")   vol += v;
+          if (n.tipo === "capacidad")       cap += v;
+        });
+      });
+    }
   }
-
-  // Volúmenes totales
-  let vol = 0;
-  locsFiltradas.forEach(loc => {
-    (loc.nomencladores || []).forEach(n => {
-      if (n.tipo === "volumen total") {
-        const val = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
-        if (!isNaN(val) && val > 0) vol += val;
-      }
-    });
-  });
-
-  // Capacidad instalada (suma de valores numéricos de tipo "capacidad")
-  let cap = 0;
-  locsFiltradas.forEach(loc => {
-    (loc.nomencladores || []).forEach(n => {
-      if (n.tipo === "capacidad") {
-        const val = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
-        if (!isNaN(val) && val > 0) cap += val;
-      }
-    });
-  });
 
   const facStr = fac > 0
     ? `USD ${fac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
@@ -3229,33 +3252,49 @@ function mostrarInfoPanelProvincia(provinciaId) {
         const val = parseFloat(raw);
         if (!isNaN(val) && val > 0) {
           facturacionTotal += val;
-          const sector = sectorPorNombre[normalizarNombre(c.nombre)] || "privado";
+          const sector = (c.sector || "privado").toLowerCase();
           if (sector === "privado") facturacionPrivado += val;
           else if (sector === "publico") facturacionPublico += val;
         }
       });
     });
   } else {
-    // Fuente 2: nomencladores del JSON (fallback para provincias sin Sheet)
-    const vistasFac = new Set();
-    grupo.forEach(id => {
-      ((datos[id] || {}).localidades || []).forEach(loc => {
-        const key = normalizarNombre(loc.nombre);
-        if (vistasFac.has(key)) return;
-        vistasFac.add(key);
-        (loc.nomencladores || []).forEach(n => {
-          if (n.tipo === "total facturado") {
-            const val = parseFloat((n.cantidad || "").replace(/[^0-9.,]/g, "").replace(/,/g, ""));
-            if (!isNaN(val) && val > 0) {
-              facturacionTotal += val;
-              const sector = loc.sector || "privado";
-              if (sector === "privado") facturacionPrivado += val;
-              else if (sector === "publico") facturacionPublico += val;
-            }
+    // Fuente 2: fila PROVINCIAS del Sheet
+    const tieneDirecto = grupo.some(id => (clientesProvinciasDirectos[id] || []).length > 0);
+    if (tieneDirecto) {
+      grupo.forEach(id => {
+        (clientesProvinciasDirectos[id] || []).forEach(c => {
+          const val = parseFloat((c.facturacion || "").replace(/U\$S/g,"").replace(/\s/g,"").replace(/,/g,""));
+          if (!isNaN(val) && val > 0) {
+            facturacionTotal += val;
+            const sector = (c.sector || "privado").toLowerCase();
+            if (sector === "privado") facturacionPrivado += val;
+            else if (sector === "publico") facturacionPublico += val;
           }
         });
       });
-    });
+    } else {
+      // Fuente 3: nomencladores del JSON
+      const vistasFac = new Set();
+      grupo.forEach(id => {
+        ((datos[id] || {}).localidades || []).forEach(loc => {
+          const key = normalizarNombre(loc.nombre);
+          if (vistasFac.has(key)) return;
+          vistasFac.add(key);
+          (loc.nomencladores || []).forEach(n => {
+            if (n.tipo === "total facturado") {
+              const val = parseFloat((n.cantidad || "").replace(/[^0-9.,]/g, "").replace(/,/g, ""));
+              if (!isNaN(val) && val > 0) {
+                facturacionTotal += val;
+                const sector = loc.sector || "privado";
+                if (sector === "privado") facturacionPrivado += val;
+                else if (sector === "publico") facturacionPublico += val;
+              }
+            }
+          });
+        });
+      });
+    }
   }
 
   const nombre = provinciaId === "CIUDAD AUTONOMA DE BUENOS AIRES"
@@ -3282,22 +3321,40 @@ function mostrarInfoPanelProvincia(provinciaId) {
     ? `<div class="provincia-facturacion">💰 ${labelFacturacion}: USD ${facturacionMostrar.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>`
     : "";
 
-  // Calcular volúmenes y capacidad para el desglose de la card
-  let volTotal = 0;
-  let capTotal = 0;
-  const localidadesParaStats = filtrarPorCategoria((datos[provinciaId] || {}).localidades || []);
-  localidadesParaStats.forEach(loc => {
-    (loc.nomencladores || []).forEach(n => {
-      if (n.tipo === "volumen total") {
-        const v = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
-        if (!isNaN(v) && v > 0) volTotal += v;
-      }
-      if (n.tipo === "capacidad") {
-        const v = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
-        if (!isNaN(v) && v > 0) capTotal += v;
-      }
+  // Calcular volúmenes y capacidad directo desde Sheet, con desglose por sector
+  let volTotal = 0, volPrivado = 0, volPublico = 0;
+  let capTotal = 0, capPrivado = 0, capPublico = 0;
+  const sheetParaStats = grupo.flatMap(id => clientesProvinciasSheets[id] || []);
+  if (sheetParaStats.length) {
+    sheetParaStats.forEach(c => {
+      const sector = (c.sector || "privado").toLowerCase();
+      const v = parseFloat((c.volTotal || "0").toString().replace(/[^0-9.]/g, "")) || 0;
+      const cap = (parseFloat(c.qx2) || 0) + (parseFloat(c.amb2) || 0)
+                + (parseFloat(c.salaEndo2) || 0) + (parseFloat(c.ce2) || 0);
+      volTotal += v; capTotal += cap;
+      if (sector === "privado") { volPrivado += v; capPrivado += cap; }
+      else if (sector === "publico") { volPublico += v; capPublico += cap; }
     });
-  });
+  } else {
+    // Fallback: nomencladores del JSON
+    const localidadesParaStats = filtrarPorCategoria((datos[provinciaId] || {}).localidades || []);
+    localidadesParaStats.forEach(loc => {
+      (loc.nomencladores || []).forEach(n => {
+        const v = parseFloat((n.cantidad || "").toString().replace(/[^0-9.]/g, ""));
+        if (isNaN(v) || v <= 0) return;
+        if (n.tipo === "volumen total") volTotal += v;
+        if (n.tipo === "capacidad")     capTotal += v;
+      });
+    });
+  }
+
+  // Aplicar filtro de sector a vol y cap
+  const volMostrar = filtroSectorActivo === "privado" ? volPrivado
+                   : filtroSectorActivo === "publico" ? volPublico
+                   : volTotal;
+  const capMostrar = filtroSectorActivo === "privado" ? capPrivado
+                   : filtroSectorActivo === "publico" ? capPublico
+                   : capTotal;
 
   const locOrdenadas = [...localidades].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
 
@@ -3540,10 +3597,10 @@ function mostrarInfoPanelProvincia(provinciaId) {
 
   const tieneInfoDirecta = (clientesProvinciasDirectos[provinciaId] || []).length > 0;
 
-  const volStr = volTotal > 0 ? volTotal.toLocaleString('es-AR') : null;
-  const capStr = capTotal > 0 ? capTotal.toLocaleString('es-AR') : null;
-  const facCardStr = facturacionTotal > 0
-    ? `USD ${facturacionTotal.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+  const volStr = volMostrar > 0 ? volMostrar.toLocaleString('es-AR') : null;
+  const capStr = capMostrar > 0 ? capMostrar.toLocaleString('es-AR') : null;
+  const facCardStr = facturacionMostrar > 0
+    ? `USD ${facturacionMostrar.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
     : null;
   const prestTotal = locOrdenadas.length;
 
@@ -3559,7 +3616,7 @@ function mostrarInfoPanelProvincia(provinciaId) {
       ${pobTotal ? `<div class="pob-argentina-pob">${formatPoblacion(pobTotal)} hab.</div>` : ""}
       ${facCardStr ? `
       <div class="pob-argentina-bottom">
-        <span class="pob-argentina-fac-label">💰 Total facturado</span>
+        <span class="pob-argentina-fac-label">💰 ${labelFacturacion}</span>
         <span class="pob-argentina-fac-valor">${facCardStr}</span>
       </div>` : ""}
       ${(volStr || capStr) ? `
