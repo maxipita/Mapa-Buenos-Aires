@@ -76,7 +76,7 @@ body {
    PANEL LATERAL
    ============================================ */
 .side-panel {
-  width: 340px;
+  width: 400px;
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -974,7 +974,7 @@ body {
    ============================================ */
 @media (max-width: 1024px) {
   .side-panel {
-    width: 280px;
+    width: 320px;
   }
 }
 
@@ -1283,12 +1283,72 @@ body {
   white-space: nowrap;
 }
 
+.pob-tabla-header {
+  display: grid;
+  grid-template-columns: 1fr 88px 72px 68px;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px 5px;
+  background: #f5eafa;
+  border-radius: 8px 8px 0 0;
+  border-bottom: 1.5px solid #d4a8f0;
+  margin-bottom: 2px;
+}
+
+.pob-th {
+  font-size: 11px;
+  font-weight: 600;
+  color: #7a0d9a;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.pob-th-clickable {
+  cursor: pointer;
+  user-select: none;
+  padding: 2px 5px;
+  border-radius: 6px;
+  transition: background 0.12s;
+}
+
+.pob-th-clickable:hover {
+  background: #e8d0f5;
+}
+
+.pob-th-activo {
+  color: #a020a8;
+  background: #e8d0f5;
+}
+
+.pob-th-nombre {
+  text-align: left;
+}
+
+.pob-th-pob,
+.pob-th-prest,
+.pob-th-ratio {
+  text-align: right;
+}
+
+.pob-ratio {
+  font-size: 10px;
+  background: #e8f4fd;
+  color: #1a6fa8;
+  border-radius: 10px;
+  padding: 1px 6px;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+  justify-self: end;
+}
+
 .pob-lista {
-  padding: 0 8px;
+  padding: 0;
 }
 
 .pob-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 88px 72px 68px;
   align-items: center;
   padding: 5px 8px;
   border-radius: 6px;
@@ -1321,7 +1381,9 @@ body {
 }
 
 .pob-nombre {
-  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .pob-numero {
@@ -1329,6 +1391,7 @@ body {
   font-size: 12px;
   color: #666;
   white-space: nowrap;
+  text-align: right;
 }
 
 .pob-prest {
@@ -1338,6 +1401,7 @@ body {
   border-radius: 10px;
   padding: 1px 7px;
   white-space: nowrap;
+  justify-self: end;
 }
 
 .pob-row-total {

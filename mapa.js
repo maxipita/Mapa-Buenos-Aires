@@ -666,6 +666,8 @@ let regionActiva = null;
 let filtroSectorActivo = null;
 let filtroVighiActivo = false;
 let todasProvinciasMostradas = false;
+let ordenProvinciasPor = "poblacion";
+let ordenProvinciasDireccion = "desc";
 let geojsonCargados = 0;
 const provinciasData = {};
 const provinciasDataExpansion = {};
@@ -1230,6 +1232,16 @@ function aplicarFiltroSector(valor) {
   _refrescarPanelConFiltro();
 }
 
+function toggleOrdenProvincias(orden) {
+  if (ordenProvinciasPor === orden) {
+    ordenProvinciasDireccion = ordenProvinciasDireccion === "desc" ? "asc" : "desc";
+  } else {
+    ordenProvinciasPor = orden;
+    ordenProvinciasDireccion = orden === "nombre" ? "asc" : "desc";
+  }
+  mostrarTodasLasLocalidades();
+}
+
 function resetFiltroSector() {
   filtroSectorActivo = null;
   filtroVighiActivo = false;
@@ -1391,24 +1403,39 @@ function mostrarTodasLasLocalidades() {
     `;
 
     // Ranking completo de población (sin filtro de sector en la lista)
-    const pobRanking = Object.keys(POBLACION_ARGENTINA)
-      .sort((a, b) => (POBLACION_ARGENTINA[b] || 0) - (POBLACION_ARGENTINA[a] || 0))
-      .map(prov => {
-        const pob = POBLACION_ARGENTINA[prov];
-        const conLocs = provinciasConLocs.find(p => p.id === prov);
-        const cantPrest = conLocs ? conLocs.locs.length : 0;
+    const provRows = Object.keys(POBLACION_ARGENTINA).map(prov => {
+      const pob = POBLACION_ARGENTINA[prov];
+      const conLocs = provinciasConLocs.find(p => p.id === prov);
+      const cantPrest = conLocs ? conLocs.locs.length : 0;
+      const ratio = pob > 0 ? (cantPrest / pob) * 100000 : 0;
+      return { prov, pob, cantPrest, ratio };
+    });
+
+    const dir = ordenProvinciasDireccion === "asc" ? 1 : -1;
+    if (ordenProvinciasPor === "ratio") {
+      provRows.sort((a, b) => dir * (a.ratio - b.ratio));
+    } else if (ordenProvinciasPor === "prest") {
+      provRows.sort((a, b) => dir * (a.cantPrest - b.cantPrest));
+    } else if (ordenProvinciasPor === "nombre") {
+      provRows.sort((a, b) => dir * (PROVINCIAS_DISPLAY[a.prov] || a.prov).localeCompare(PROVINCIAS_DISPLAY[b.prov] || b.prov, 'es'));
+    } else {
+      provRows.sort((a, b) => dir * (a.pob - b.pob));
+    }
+
+    const pobRanking = provRows.map(({ prov, pob, cantPrest, ratio }) => {
         const nombre = PROVINCIAS_DISPLAY[prov] || toTitleCase(prov);
         const clickFn = modoMultiSeleccion
           ? `seleccionarProvincia('${prov}')`
           : `mostrarResumenProvincia('${prov}')`;
         const estaSeleccionada = modoMultiSeleccion && provinciasSeleccionadas.has(prov);
-        // Resaltar visualmente si está en el sector activo
         const enSector = sectorFiltroArgentina && sectoresExpansion[sectorFiltroArgentina].provincias.includes(prov);
+        const ratioStr = cantPrest > 0 ? ratio.toFixed(2).replace('.', ',') : null;
         return `
           <div class="pob-row ${cantPrest > 0 ? 'pob-row-activa' : ''} ${estaSeleccionada ? 'pob-row-seleccionada' : ''} ${enSector ? 'pob-row-en-sector' : ''}" data-prov="${prov}" data-nombre="${nombre}" ${cantPrest > 0 ? `onclick="${clickFn}"` : ''}>
             <span class="pob-nombre">${estaSeleccionada ? '✓ ' : ''}${nombre}</span>
             <span class="pob-numero">${formatPoblacion(pob)}</span>
             ${cantPrest > 0 ? `<span class="pob-prest">${cantPrest} prest.</span>` : ""}
+            ${ratioStr ? `<span class="pob-ratio">${ratioStr}/100k</span>` : ""}
           </div>`;
       }).join("");
 
@@ -1417,6 +1444,12 @@ function mostrarTodasLasLocalidades() {
       ${regionalizacionHtml}
       <div class="region-subtitulo">📊 Población por provincia</div>
       <div class="pob-subtitulo">Censo 2022 · Hacé click en una provincia con prestadores</div>
+      <div class="pob-tabla-header">
+        <span class="pob-th pob-th-nombre pob-th-clickable ${ordenProvinciasPor === 'nombre' ? 'pob-th-activo' : ''}" onclick="toggleOrdenProvincias('nombre')">Provincia ${ordenProvinciasPor === 'nombre' ? (ordenProvinciasDireccion === 'desc' ? '▼' : '▲') : '↕'}</span>
+        <span class="pob-th pob-th-pob pob-th-clickable ${ordenProvinciasPor === 'poblacion' ? 'pob-th-activo' : ''}" onclick="toggleOrdenProvincias('poblacion')">Población ${ordenProvinciasPor === 'poblacion' ? (ordenProvinciasDireccion === 'desc' ? '▼' : '▲') : '↕'}</span>
+        <span class="pob-th pob-th-prest pob-th-clickable ${ordenProvinciasPor === 'prest' ? 'pob-th-activo' : ''}" onclick="toggleOrdenProvincias('prest')">Prest. ${ordenProvinciasPor === 'prest' ? (ordenProvinciasDireccion === 'desc' ? '▼' : '▲') : '↕'}</span>
+        <span class="pob-th pob-th-ratio pob-th-clickable ${ordenProvinciasPor === 'ratio' ? 'pob-th-activo' : ''}" onclick="toggleOrdenProvincias('ratio')">Ratio ${ordenProvinciasPor === 'ratio' ? (ordenProvinciasDireccion === 'desc' ? '▼' : '▲') : '↕'}</span>
+      </div>
       <div class="pob-lista">${pobRanking}</div>
     `;
 

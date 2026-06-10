@@ -82,7 +82,11 @@
       "Bash(python scripts/recalc.py \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Docs\\\\Excel\\\\IHQ-Mary.xlsx\" 30)",
       "PowerShell($excel = New-Object -ComObject Excel.Application; $wb = $excel.Workbooks.Open\\(\"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Docs\\\\Excel\\\\IHQ-Mary.xlsx\", $null, $false, 1\\); $wb.Save\\(\\); $excel.Quit\\(\\); Write-Host \"Archivo recalculado\")",
       "Bash(taskkill /IM EXCEL.EXE /F)",
-      "Bash(del \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Docs\\\\Excel\\\\IHQ-Mary.xlsx\")"
+      "Bash(del \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Docs\\\\Excel\\\\IHQ-Mary.xlsx\")",
+      "Bash(python scripts/thumbnail.py \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Copia de Dinámica de Trabajo - Microscopía.pptx\")",
+      "Bash(python 'C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\3277971f-532d-415b-9899-7282662c3936\\\\dac4a8c2-bdfa-4272-8620-c6f546bd3ffa\\\\skills\\\\pptx/scripts/office/unpack.py' 'C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Copia de Dinámica de Trabajo - Microscopía.pptx' 'C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Local\\\\Temp\\\\micro_unpacked')",
+      "PowerShell(pip install Pillow -q)",
+      "PowerShell(python -c \"from PIL import Image; print\\('OK'\\)\")"
     ]
   }
 }
