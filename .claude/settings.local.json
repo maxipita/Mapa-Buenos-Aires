@@ -86,7 +86,9 @@
       "Bash(python scripts/thumbnail.py \"C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Copia de Dinámica de Trabajo - Microscopía.pptx\")",
       "Bash(python 'C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\3277971f-532d-415b-9899-7282662c3936\\\\dac4a8c2-bdfa-4272-8620-c6f546bd3ffa\\\\skills\\\\pptx/scripts/office/unpack.py' 'C:\\\\Users\\\\tiago.baca\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Copia de Dinámica de Trabajo - Microscopía.pptx' 'C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Local\\\\Temp\\\\micro_unpacked')",
       "PowerShell(pip install Pillow -q)",
-      "PowerShell(python -c \"from PIL import Image; print\\('OK'\\)\")"
+      "PowerShell(python -c \"from PIL import Image; print\\('OK'\\)\")",
+      "PowerShell($env:NODE_PATH = \"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\"; node \"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Local\\\\Temp\\\\create_flujo_bx.js\")",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Local\\\\Temp\\\\flujo_qa\" -Recurse | Select-Object Name, Length, FullName | Where-Object { $_.Length -gt 10000 })"
     ]
   }
 }

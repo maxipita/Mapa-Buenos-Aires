@@ -878,6 +878,34 @@ const POBLACION_ARGENTINA = {
   "TIERRA DEL FUEGO":                  190641
 };
 
+// Porcentaje de cobertura privada por provincia (fuente: datos de cobertura de salud)
+const COBERTURA_PRIVADA = {
+  "BUENOS AIRES":                    0.649,
+  "CIUDAD AUTONOMA DE BUENOS AIRES": 0.837,
+  "CATAMARCA":                       0.593,
+  "CHACO":                           0.478,
+  "CHUBUT":                          0.722,
+  "CORDOBA":                         0.658,
+  "CORRIENTES":                      0.562,
+  "ENTRE RIOS":                      0.644,
+  "FORMOSA":                         0.441,
+  "JUJUY":                           0.538,
+  "LA PAMPA":                        0.679,
+  "LA RIOJA":                        0.585,
+  "MENDOZA":                         0.621,
+  "MISIONES":                        0.534,
+  "NEUQUEN":                         0.685,
+  "RIO NEGRO":                       0.654,
+  "SALTA":                           0.521,
+  "SAN JUAN":                        0.554,
+  "SAN LUIS":                        0.630,
+  "SANTA CRUZ":                      0.830,
+  "SANTA FE":                        0.693,
+  "SANTIAGO DEL ESTERO":             0.434,
+  "TIERRA DEL FUEGO":                0.847,
+  "TUCUMAN":                         0.655,
+};
+
 // Overrides de centro para provincias cuyo bounding-box GeoJSON es engañoso
 // (ej: Tierra del Fuego incluye Malvinas → el centroide queda en el océano)
 const PROVINCIA_CENTRO_OVERRIDE = {
@@ -1170,6 +1198,12 @@ function togglePanelMobile() {
 
 function filtrarSectorArgentina(sector) {
   filtroSectorActivo = sector;
+  if (sectorFiltroArgentina) {
+    const card = document.getElementById('sector-resumen-card');
+    if (card) { card.remove(); mostrarResumenSector(sectorFiltroArgentina); }
+    actualizarPanelArgentina();
+    return;
+  }
   if (todasProvinciasMostradas) {
     seleccionarTodaArgentina();
   } else if (provinciaSeleccionadaId) {
@@ -1367,9 +1401,22 @@ function mostrarTodasLasLocalidades() {
           const sector = sectoresExpansion[sectorId];
           const activo = sectorFiltroArgentina === sectorId;
           const cantProv = sector.provincias.length;
+          const sectorPrest = sector.provincias.reduce((sum, provId) => {
+            const conLocs = provinciasConLocs.find(p => p.id === provId);
+            return sum + (conLocs ? conLocs.locs.length : 0);
+          }, 0);
+          const sectorPobEf = sector.provincias.reduce((sum, provId) => {
+            const pob = POBLACION_ARGENTINA[provId] || 0;
+            const cobPrivada = COBERTURA_PRIVADA[provId] || 0.65;
+            return sum + (filtroSectorActivo === "privado" ? pob * cobPrivada
+                        : filtroSectorActivo === "publico" ? pob * (1 - cobPrivada)
+                        : pob);
+          }, 0);
           return `<button class="sector-box-btn ${activo ? 'sector-box-btn-activo' : ''}" onclick="seleccionarSectorArgentina('${sectorId}')">
-            ${sector.nombre}
-            <span class="sector-box-count">${cantProv} prov.</span>
+            <span class="sector-box-nombre">${sector.nombre}</span>
+            <span class="sector-box-meta">
+              <span class="sector-box-count">${cantProv} prov. · ${sectorPrest} prest.</span>
+            </span>
           </button>`;
         }).join('')}
       </div>
@@ -1407,8 +1454,12 @@ function mostrarTodasLasLocalidades() {
       const pob = POBLACION_ARGENTINA[prov];
       const conLocs = provinciasConLocs.find(p => p.id === prov);
       const cantPrest = conLocs ? conLocs.locs.length : 0;
-      const ratio = pob > 0 ? (cantPrest / pob) * 100000 : 0;
-      return { prov, pob, cantPrest, ratio };
+      const cobPrivada = COBERTURA_PRIVADA[prov] || 0.65;
+      const pobEfectiva = filtroSectorActivo === "privado" ? pob * cobPrivada
+                        : filtroSectorActivo === "publico" ? pob * (1 - cobPrivada)
+                        : pob;
+      const ratio = pobEfectiva > 0 ? (cantPrest / pobEfectiva) * 100000 : 0;
+      return { prov, pob, pobEfectiva, cantPrest, ratio };
     });
 
     const dir = ordenProvinciasDireccion === "asc" ? 1 : -1;
@@ -1419,10 +1470,10 @@ function mostrarTodasLasLocalidades() {
     } else if (ordenProvinciasPor === "nombre") {
       provRows.sort((a, b) => dir * (PROVINCIAS_DISPLAY[a.prov] || a.prov).localeCompare(PROVINCIAS_DISPLAY[b.prov] || b.prov, 'es'));
     } else {
-      provRows.sort((a, b) => dir * (a.pob - b.pob));
+      provRows.sort((a, b) => dir * (a.pobEfectiva - b.pobEfectiva));
     }
 
-    const pobRanking = provRows.map(({ prov, pob, cantPrest, ratio }) => {
+    const pobRanking = provRows.map(({ prov, pob, pobEfectiva, cantPrest, ratio }) => {
         const nombre = PROVINCIAS_DISPLAY[prov] || toTitleCase(prov);
         const clickFn = modoMultiSeleccion
           ? `seleccionarProvincia('${prov}')`
@@ -1433,7 +1484,7 @@ function mostrarTodasLasLocalidades() {
         return `
           <div class="pob-row ${cantPrest > 0 ? 'pob-row-activa' : ''} ${estaSeleccionada ? 'pob-row-seleccionada' : ''} ${enSector ? 'pob-row-en-sector' : ''}" data-prov="${prov}" data-nombre="${nombre}" ${cantPrest > 0 ? `onclick="${clickFn}"` : ''}>
             <span class="pob-nombre">${estaSeleccionada ? '✓ ' : ''}${nombre}</span>
-            <span class="pob-numero">${formatPoblacion(pob)}</span>
+            <span class="pob-numero">${formatPoblacion(Math.round(pobEfectiva))}</span>
             ${cantPrest > 0 ? `<span class="pob-prest">${cantPrest} prest.</span>` : ""}
             ${ratioStr ? `<span class="pob-ratio">${ratioStr}/100k</span>` : ""}
           </div>`;
@@ -2464,6 +2515,7 @@ function mostrarBarraMultiSeleccion() {
   let totalPrestadores = 0;
   let totalFac = 0;
   let totalVol = 0;
+  let totalPobEf = 0;
 
   const filas = Array.from(provinciasSeleccionadas).map(id => {
     const nombre = PROVINCIAS_DISPLAY[id] || toTitleCase(id);
@@ -2471,6 +2523,15 @@ function mostrarBarraMultiSeleccion() {
     const locsFiltradas = filtrarPorCategoria((datos[id] || {}).localidades || []);
     const prest = locsFiltradas.length;
     totalPrestadores += prest;
+
+    const pob = POBLACION_ARGENTINA[id] || 0;
+    const cobPrivada = COBERTURA_PRIVADA[id] || 0.65;
+    const pobEf = filtroSectorActivo === "privado" ? pob * cobPrivada
+                : filtroSectorActivo === "publico" ? pob * (1 - cobPrivada)
+                : pob;
+    totalPobEf += pobEf;
+    const ratio = pobEf > 0 ? (prest / pobEf) * 100000 : 0;
+    const ratioStr = ratio > 0 ? ratio.toFixed(2).replace('.', ',') : null;
 
     // Facturación desde Sheet, fallback a nomencladores
     let fac = 0;
@@ -2518,6 +2579,7 @@ function mostrarBarraMultiSeleccion() {
         </div>
         <div class="multi-prov-stats">
           <span class="multi-stat-prest"><span class="multi-stat-val">${prest}</span> prest.</span>
+          ${ratioStr ? `<span class="multi-stat-sep">·</span><span class="multi-stat-ratio">${ratioStr}/100k</span>` : ''}
           ${vol > 0 ? `<span class="multi-stat-sep">·</span><span class="multi-stat-vol"><span class="multi-stat-val">${volStr}</span> vol.</span>` : ''}
           ${fac > 0 ? `<span class="multi-stat-sep">·</span><span class="multi-stat-fac">${facStr}</span>` : ''}
         </div>
@@ -2528,6 +2590,8 @@ function mostrarBarraMultiSeleccion() {
     ? `USD ${totalFac.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
     : "—";
   const totalVolStr = totalVol > 0 ? totalVol.toLocaleString('es-AR') : "—";
+  const totalRatio = totalPobEf > 0 ? (totalPrestadores / totalPobEf) * 100000 : 0;
+  const totalRatioStr = totalRatio > 0 ? totalRatio.toFixed(2).replace('.', ',') : null;
 
   barra.innerHTML = `
     <div class="multi-tabla-header">📊 Comparación de provincias</div>
@@ -2536,6 +2600,7 @@ function mostrarBarraMultiSeleccion() {
       <span class="multi-total-label">TOTAL</span>
       <span class="multi-total-stats">
         <span class="multi-stat-prest"><strong>${totalPrestadores}</strong> prest.</span>
+        ${totalRatioStr ? `<span class="multi-stat-sep">·</span><span class="multi-stat-ratio"><strong>${totalRatioStr}</strong>/100k</span>` : ''}
         ${totalVol > 0 ? `<span class="multi-stat-sep">·</span><span class="multi-stat-vol"><strong>${totalVolStr}</strong> vol.</span>` : ''}
         ${totalFac > 0 ? `<span class="multi-stat-sep">·</span><span class="multi-stat-fac"><strong>${totalFacStr}</strong></span>` : ''}
       </span>
@@ -2575,6 +2640,15 @@ function mostrarResumenSector(sectorId) {
   const fmt    = n => n > 0 ? n.toLocaleString('es-AR') : '—';
   const fmtUSD = n => n > 0 ? `USD ${n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '—';
 
+  const pobSectorEf = sector.provincias.reduce((sum, provId) => {
+    const pob = POBLACION_ARGENTINA[provId] || 0;
+    const cobPrivada = COBERTURA_PRIVADA[provId] || 0.65;
+    return sum + (filtroSectorActivo === "privado" ? pob * cobPrivada
+                : filtroSectorActivo === "publico" ? pob * (1 - cobPrivada)
+                : pob);
+  }, 0);
+  const sectorRatio = pobSectorEf > 0 ? ((prestTotal / pobSectorEf) * 100000).toFixed(2).replace('.', ',') : null;
+
   const filasCap = Object.entries(cap).map(([cod, v]) =>
     `<tr><td>${cod}</td><td>${fmt(v)}</td></tr>`
   ).join('');
@@ -2591,7 +2665,13 @@ function mostrarResumenSector(sectorId) {
         <span class="prov-resumen-nombre">${sector.nombre}</span>
         ${prestTotal > 0 ? `<span class="pob-prest pob-prest-total">${prestTotal} prest.</span>` : ''}
       </div>
+      <div class="sector-filtro-mini">
+        <button class="sector-filtro-mini-btn ${!filtroSectorActivo ? 'sector-filtro-mini-activo' : ''}" onclick="filtrarSectorArgentina(null)">Todo</button>
+        <button class="sector-filtro-mini-btn ${filtroSectorActivo === 'privado' ? 'sector-filtro-mini-activo' : ''}" onclick="filtrarSectorArgentina('privado')">Priv.</button>
+        <button class="sector-filtro-mini-btn ${filtroSectorActivo === 'publico' ? 'sector-filtro-mini-activo' : ''}" onclick="filtrarSectorArgentina('publico')">Púb.</button>
+      </div>
     </div>
+    ${pobSectorEf > 0 ? `<div class="prov-resumen-pob">👥 ${formatPoblacion(Math.round(pobSectorEf))} hab.</div>` : ''}
     <div class="prov-resumen-stats">
       ${capTotal > 0 ? `
       <div class="prov-resumen-stat">
@@ -2607,6 +2687,11 @@ function mostrarResumenSector(sectorId) {
       <div class="prov-resumen-stat prov-resumen-stat-fac">
         <span class="prov-resumen-stat-label">💰 Total facturado</span>
         <span class="prov-resumen-stat-valor prov-fac">${fmtUSD(facTotal)}</span>
+      </div>` : ''}
+      ${sectorRatio ? `
+      <div class="prov-resumen-stat">
+        <span class="prov-resumen-stat-label">📈 Ratio prest./pob.</span>
+        <span class="prov-resumen-stat-valor" style="color:#1a6fa8">${sectorRatio}/100k</span>
       </div>` : ''}
     </div>
     <button class="prov-resumen-btn-detalle" onclick="toggleDesgloseSectorPanel()">
@@ -2774,7 +2859,12 @@ function verDetalleProvincia(provinciaId) {
   const btnVolver = document.createElement('button');
   btnVolver.className = 'btn-volver-comparacion';
   btnVolver.innerHTML = '← Volver a comparación';
-  btnVolver.onclick = () => mostrarBarraMultiSeleccion();
+  btnVolver.onclick = () => {
+    provinciaSeleccionadaId = null;
+    marcadoresActivos.forEach(m => m.setMap(null));
+    marcadoresActivos = [];
+    mostrarTodasLasLocalidades();
+  };
   panelBody.insertBefore(btnVolver, panelBody.firstChild);
 
   // Hacer zoom a la provincia en el mapa
@@ -2947,6 +3037,19 @@ function _buildSectorInfoWindowContent(sectorId) {
   }
   if (facTotal > 0) {
     desgloseHtml += `<div class="popup-seccion-fac">💰 Facturación estimada: <strong>${fmtUSD(facTotal)}</strong></div>`;
+  }
+  const pobSectorEfDg = sector.provincias.reduce((sum, provId) => {
+    const pob = POBLACION_ARGENTINA[provId] || 0;
+    const cobPrivada = COBERTURA_PRIVADA[provId] || 0.65;
+    return sum + (filtroSectorActivo === "privado" ? pob * cobPrivada
+                : filtroSectorActivo === "publico" ? pob * (1 - cobPrivada)
+                : pob);
+  }, 0);
+  const ratioDesglose = pobSectorEfDg > 0
+    ? ((prestTotal / pobSectorEfDg) * 100000).toFixed(2).replace('.', ',')
+    : null;
+  if (ratioDesglose) {
+    desgloseHtml += `<div class="popup-seccion-fac" style="color:#1a6fa8">📈 Ratio prest./pob.: <strong>${ratioDesglose}/100k hab.</strong></div>`;
   }
 
   // HTML final — idéntica estructura al popup de ubicaciones

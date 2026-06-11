@@ -1433,11 +1433,48 @@ body {
   margin-bottom: 4px;
 }
 
+.sector-filtro-mini {
+  display: flex;
+  gap: 3px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+.sector-filtro-mini-btn {
+  font-size: 10px;
+  padding: 2px 7px;
+  border-radius: 10px;
+  border: 1px solid #d4a8f0;
+  background: white;
+  color: #a020a8;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.12s;
+}
+
+.sector-filtro-mini-btn:hover {
+  background: #f5e6f7;
+}
+
+.sector-filtro-mini-activo {
+  background: #a020a8;
+  color: white;
+  border-color: #a020a8;
+}
+
 .prov-resumen-titulo {
   display: flex;
   align-items: center;
   gap: 8px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+
+.prov-resumen-nombre {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
 }
 
 .prov-resumen-nombre {
@@ -1922,10 +1959,15 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.multi-stat-ratio {
+  color: #1a6fa8;
+  font-variant-numeric: tabular-nums;
+}
+
 .multi-total-row {
   background: #f3e8ff;
   border-radius: 8px;
-  padding: 8px 10px;
+  padding: 7px 10px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
@@ -1945,8 +1987,8 @@ body {
   display: flex;
   align-items: center;
   gap: 4px;
-  font-size: 12px;
-  flex-wrap: wrap;
+  font-size: 11px;
+  flex-wrap: nowrap;
 }
 
 .multi-btn-ver-prov {
@@ -2128,6 +2170,7 @@ body {
   color: #444;
   text-align: left;
   transition: background 0.15s, border-color 0.15s;
+  gap: 8px;
 }
 
 .sector-box-btn:hover {
@@ -2143,13 +2186,35 @@ body {
   font-weight: 600;
 }
 
-.sector-box-btn-activo .sector-box-count {
+.sector-box-btn-activo .sector-box-count,
+.sector-box-btn-activo .sector-box-ratio {
   color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.15);
+}
+
+.sector-box-nombre {
+  font-weight: 500;
+}
+
+.sector-box-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
 }
 
 .sector-box-count {
   font-size: 11px;
   color: #999;
+}
+
+.sector-box-ratio {
+  font-size: 10px;
+  background: #e8f4fd;
+  color: #1a6fa8;
+  border-radius: 8px;
+  padding: 1px 6px;
+  white-space: nowrap;
 }
 
 /* Provincia resaltada por sector activo */
