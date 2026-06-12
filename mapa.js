@@ -1198,6 +1198,10 @@ function togglePanelMobile() {
 
 function filtrarSectorArgentina(sector) {
   filtroSectorActivo = sector;
+  if (modoMultiSeleccion) {
+    mostrarBarraMultiSeleccion();
+    return;
+  }
   if (sectorFiltroArgentina) {
     const card = document.getElementById('sector-resumen-card');
     if (card) { card.remove(); mostrarResumenSector(sectorFiltroArgentina); }
@@ -2522,7 +2526,7 @@ function mostrarBarraMultiSeleccion() {
   const filas = Array.from(provinciasSeleccionadas).map(id => {
     const nombre = PROVINCIAS_DISPLAY[id] || toTitleCase(id);
 
-    const locsFiltradas = filtrarPorCategoria((datos[id] || {}).localidades || []);
+    const locsFiltradas = filtrarPorSector(filtrarPorCategoria((datos[id] || {}).localidades || []));
     const prest = locsFiltradas.length;
     totalPrestadores += prest;
 
@@ -2535,9 +2539,12 @@ function mostrarBarraMultiSeleccion() {
     const ratio = pobEf > 0 ? (prest / pobEf) * 100000 : 0;
     const ratioStr = ratio > 0 ? ratio.toFixed(2).replace('.', ',') : null;
 
-    // Facturación desde Sheet, fallback a nomencladores
+    // Facturación desde Sheet filtrada por sector, fallback a nomencladores
     let fac = 0;
-    const sheetData = clientesProvinciasSheets[id] || [];
+    const sheetData = (clientesProvinciasSheets[id] || []).filter(c => {
+      if (!filtroSectorActivo) return true;
+      return (c.sector || "privado") === filtroSectorActivo;
+    });
     if (sheetData.length) {
       sheetData.forEach(c => {
         const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
@@ -2596,7 +2603,14 @@ function mostrarBarraMultiSeleccion() {
   const totalRatioStr = totalRatio > 0 ? totalRatio.toFixed(2).replace('.', ',') : null;
 
   barra.innerHTML = `
-    <div class="multi-tabla-header">📊 Comparación de provincias</div>
+    <div class="multi-tabla-header">
+      <span>📊 Comparación de provincias</span>
+      <div class="sector-filtro-mini">
+        <button class="sector-filtro-mini-btn ${!filtroSectorActivo ? 'sector-filtro-mini-activo' : ''}" onclick="filtrarSectorArgentina(null)">Todo</button>
+        <button class="sector-filtro-mini-btn ${filtroSectorActivo === 'privado' ? 'sector-filtro-mini-activo' : ''}" onclick="filtrarSectorArgentina('privado')">Priv.</button>
+        <button class="sector-filtro-mini-btn ${filtroSectorActivo === 'publico' ? 'sector-filtro-mini-activo' : ''}" onclick="filtrarSectorArgentina('publico')">Púb.</button>
+      </div>
+    </div>
     <div class="multi-prov-lista">${filas}</div>
     <div class="multi-total-row">
       <span class="multi-total-label">TOTAL</span>
@@ -2973,14 +2987,20 @@ function calcularTotalesSector(sectorId) {
   const vistos = new Set();
 
   sector.provincias.forEach(provId => {
-    // Facturación desde Sheet (fuente principal)
-    (clientesProvinciasSheets[provId] || []).forEach(c => {
+    // Facturación desde Sheet (fuente principal), filtrada por sector
+    const sheetRows = (clientesProvinciasSheets[provId] || []).filter(c => {
+      if (!filtroSectorActivo) return true;
+      return (c.sector || "privado") === filtroSectorActivo;
+    });
+    sheetRows.forEach(c => {
       const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
       const val = parseFloat(raw);
       if (!isNaN(val) && val > 0) facTotal += val;
     });
 
-    ((datos[provId] || {}).localidades || []).forEach(loc => {
+    const locsRaw = ((datos[provId] || {}).localidades || []);
+    const locs = filtrarPorSector(filtrarPorCategoria(locsRaw));
+    locs.forEach(loc => {
       const key = normalizarNombre(loc.nombre);
       if (vistos.has(key)) return;
       vistos.add(key);
@@ -2997,7 +3017,7 @@ function calcularTotalesSector(sectorId) {
           vol[n.codigo] += v;
         }
         // Facturación desde JSON como fallback (si no hay Sheet)
-        if (n.tipo === "total facturado" && !(clientesProvinciasSheets[provId] || []).length) {
+        if (n.tipo === "total facturado" && !sheetRows.length) {
           facTotal += v;
         }
       });

@@ -1892,6 +1892,9 @@ body {
 
 /* Comparación de provincias — layout de tarjetas */
 .multi-tabla-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 13px;
   font-weight: 700;
   color: #6a0dad;
