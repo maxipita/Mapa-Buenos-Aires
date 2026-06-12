@@ -658,7 +658,107 @@
         "imagen": "Logo/CABA/Fecunditas.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-      }
+      },
+      {
+        "nombre": "Centro Medicus",
+        "direccion": "Azcuénaga 910, C1029 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5978353,
+        "lng": -58.4007036,
+        "tipo": "Centro Médico",
+        "imagen": "Logo/CABA/CentroMedicus.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        },
+      {
+        "nombre": "Centro Médico Monserrat",
+        "direccion": "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6098,
+        "lng": -58.3836,
+        "tipo": "Centro Médico",
+        "imagen": "Logo/CABA/CentroMonserrat.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        },
+      {
+        "nombre": "Centro Médico Vilella",
+        "direccion": "Av. de los Incas 3536, C1426 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.574,
+        "lng": -58.4629,
+        "tipo": "Sanatorio",
+        "imagen": "Logo/CABA/CentroVilella.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        },
+      {
+        "nombre": "Clínica AMEBPBA",
+        "direccion": "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6079,
+        "lng": -58.3956,
+        "tipo": "Sanatorio",
+        "imagen": "Logo/CABA/AMEBPBA.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        },
+      {
+        "nombre": "IDIM",
+        "direccion": "Libertad 836, C1012AAR Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5987,
+        "lng": -58.3841,
+        "tipo": "Centro Médico",
+        "imagen": "Logo/CABA/IDIM.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        },
+      {
+        "nombre": "Instituto Quirúrgico del Callao",
+        "direccion": "Av. Callao 499, C1022AAE Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6013,
+        "lng": -58.3921,
+        "tipo": "Sanatorio",
+        "imagen": "Logo/CABA/IQDC.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        },
+      {
+        "nombre": "Obra Social Luis Pasteur - Centro Médico Belgrano",
+        "direccion": "11 de Septiembre de 1888 2139, C1428 AIG, Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5581,
+        "lng": -58.4514,
+        "tipo": "Centro Médico",
+        "imagen": "Logo/CABA/LP.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        },
+      {
+        "nombre": "Obra Social Luis Pasteur - Centro Médico Congreso",
+        "direccion": "Tte. Gral. Juan Domingo Perón 1830, C1040AAB Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6067,
+        "lng": -58.3926,
+        "tipo": "Centro Médico",
+        "imagen": "Logo/CABA/LP.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        },
+      {
+        "nombre": "Sanatorio Agote",
+        "direccion": "Dr. Luis Agote 2477, C1425EOE Cdad. Autónoma de Buenos Aires",
+        "lat": -34.5852,
+        "lng": -58.3946,
+        "tipo": "Sanatorio",
+        "imagen": "Logo/CABA/Agote.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        },
+      {
+        "nombre": "Sanatorio de la Providencia",
+        "direccion": "Tucumán 1863, C1050 Cdad. Autónoma de Buenos Aires",
+        "lat": -34.6019496,
+        "lng": -58.3936574,
+        "tipo": "Sanatorio",
+        "imagen": "Logo/CABA/Providencia.jpg",
+        "sector": "privado",
+        "prioridad": "vighi"
+        }
     ]
   },
   "BUENOS AIRES": {

@@ -2290,6 +2290,8 @@ function cargarGeoJSONArgentina() {
       } else if (modoMultiSeleccion) {
         seleccionarProvincia(provinciaId);
       } else {
+        // Si la provincia ya está seleccionada y se está viendo el detalle de prestadores, no hacer nada
+        if (provinciaSeleccionadaId === provinciaId && !document.querySelector('.prov-resumen-card')) return;
         mostrarResumenProvincia(provinciaId);
       }
     });
@@ -2821,7 +2823,7 @@ function mostrarResumenProvincia(provinciaId) {
           <span class="prov-resumen-stat-valor prov-fac">${facStr}</span>
         </div>` : ""}
       </div>
-      <button class="prov-resumen-btn-detalle" onclick="seleccionarProvincia('${provinciaId}')">
+      <button class="prov-resumen-btn-detalle" onclick="mostrarInfoPanelProvincia('${provinciaId}')">
         Ver prestadores →
       </button>
     </div>
@@ -3185,7 +3187,8 @@ function seleccionarProvincia(provinciaId) {
     return;
   }
 
-  const yaSeleccionada = provinciaSeleccionadaId === provinciaId;
+  if (provinciaSeleccionadaId === provinciaId) return;
+
   provinciaSeleccionadaId = provinciaId;
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
@@ -3214,7 +3217,7 @@ function seleccionarProvincia(provinciaId) {
     _provinciaCentroLatLng = new google.maps.LatLng(_overrideCentro.lat, _overrideCentro.lng);
   }
 
-  if (!yaSeleccionada) {
+  if (true) {
     const bounds = new google.maps.LatLngBounds();
     argentinaDataLayer.forEach(feature => {
       if (grupo.has(getProvinciaId(feature))) {
