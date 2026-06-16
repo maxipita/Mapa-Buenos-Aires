@@ -653,6 +653,10 @@ let _provinciaCentroLatLng = null;   // centro geométrico de la provincia selec
 let modoMultiSeleccion = false;
 let provinciasSeleccionadas = new Set(); // IDs de provincias seleccionadas
 
+// ── Multi-selección de sectores ──
+let modoMultiSector = false;
+let sectoresComparados = new Set(); // IDs de sectores seleccionados
+
 // ── Filtro de sector en Argentina ──
 let sectorFiltroArgentina = null; // null = todos, o clave de sectoresExpansion
 let sectorBoxAbierto = false;
@@ -1137,6 +1141,8 @@ function seleccionarCategoria(cat, region) {
 }
 
 function volverAlMenu() {
+  const avisoEl = document.getElementById('aviso-mensual-panel');
+  if (avisoEl) avisoEl.style.display = 'none';
   comunaSeleccionadaId = null;
   partidoSeleccionadoId = null;
   provinciaSeleccionadaId = null;
@@ -1200,6 +1206,10 @@ function filtrarSectorArgentina(sector) {
   filtroSectorActivo = sector;
   if (modoMultiSeleccion) {
     mostrarBarraMultiSeleccion();
+    return;
+  }
+  if (modoMultiSector) {
+    mostrarBarraMultiSector();
     return;
   }
   if (sectorFiltroArgentina) {
@@ -1416,8 +1426,9 @@ function mostrarTodasLasLocalidades() {
                         : filtroSectorActivo === "publico" ? pob * (1 - cobPrivada)
                         : pob);
           }, 0);
-          return `<button class="sector-box-btn ${activo ? 'sector-box-btn-activo' : ''}" onclick="seleccionarSectorArgentina('${sectorId}')">
-            <span class="sector-box-nombre">${sector.nombre}</span>
+          const enComparacion = modoMultiSector && sectoresComparados.has(sectorId);
+          return `<button class="sector-box-btn ${activo ? 'sector-box-btn-activo' : ''} ${enComparacion ? 'sector-box-btn-comparado' : ''}" onclick="seleccionarSectorArgentina('${sectorId}')">
+            <span class="sector-box-nombre">${sector.nombre}${enComparacion ? ' <span class="sector-comparado-check">✓</span>' : ''}</span>
             <span class="sector-box-meta">
               <span class="sector-box-count">${cantProv} prov. · ${sectorPrest} prest.</span>
             </span>
@@ -1493,6 +1504,9 @@ function mostrarTodasLasLocalidades() {
             ${ratioStr ? `<span class="pob-ratio">${ratioStr}/100k</span>` : ""}
           </div>`;
       }).join("");
+
+    const avisoEl = document.getElementById('aviso-mensual-panel');
+    if (avisoEl) avisoEl.style.display = regionActiva === 'argentina' ? '' : 'none';
 
     let htmlArg = `
       ${filaArgentina}
@@ -2713,6 +2727,9 @@ function mostrarResumenSector(sectorId) {
     <button class="prov-resumen-btn-detalle" onclick="toggleDesgloseSectorPanel()">
       Ver desglose →
     </button>
+    <button class="btn-comparar-sector ${modoMultiSector ? 'btn-comparar-sector-activo' : ''}" onclick="toggleModoMultiSector()">
+      ${modoMultiSector ? '✕ Salir de comparación' : '⊕ Comparar sectores'}
+    </button>
   `;
 
   // Insertar antes del primer regionalizacion-box
@@ -3123,7 +3140,151 @@ function toggleFsSeccion(header) {
   if (flecha) flecha.textContent = abierto ? '▸' : '▾';
 }
 
+function toggleModoMultiSector() {
+  modoMultiSector = !modoMultiSector;
+  sectoresComparados.clear();
+
+  if (modoMultiSector && sectorFiltroArgentina) {
+    sectoresComparados.add(sectorFiltroArgentina);
+  }
+
+  actualizarEstilosMultiSector();
+
+  // Re-renderizar la card del sector activo
+  const card = document.getElementById('sector-resumen-card');
+  if (card) { card.remove(); if (sectorFiltroArgentina) mostrarResumenSector(sectorFiltroArgentina); }
+
+  if (modoMultiSector) {
+    const argCard = document.querySelector('.pob-argentina-card');
+    if (argCard) argCard.style.display = 'none';
+    mostrarBarraMultiSector();
+  } else {
+    const barra = document.getElementById('barra-multi-sector');
+    if (barra) barra.remove();
+  }
+}
+
+function actualizarEstilosMultiSector() {
+  if (!argentinaDataLayer) return;
+  argentinaDataLayer.setStyle(feature => {
+    const provId = getProvinciaId(feature);
+    if (modoMultiSector) {
+      const enSectorSeleccionado = Array.from(sectoresComparados).some(sid =>
+        sectoresExpansion[sid] && sectoresExpansion[sid].provincias.includes(provId)
+      );
+      return enSectorSeleccionado
+        ? estiloArgentina(feature, true)
+        : { fillColor: "#cccccc", fillOpacity: 0.15, strokeColor: "#aaaaaa", strokeWeight: 0.8, strokeOpacity: 0.5 };
+    }
+    if (sectorFiltroArgentina) {
+      const enSector = sectoresExpansion[sectorFiltroArgentina] &&
+                       sectoresExpansion[sectorFiltroArgentina].provincias.includes(provId);
+      return enSector ? estiloArgentina(feature, true)
+        : { fillColor: "#cccccc", fillOpacity: 0.2, strokeColor: "#aaaaaa", strokeWeight: 0.8, strokeOpacity: 0.5 };
+    }
+    return estiloArgentina(feature, false);
+  });
+}
+
+function mostrarBarraMultiSector() {
+  let barra = document.getElementById('barra-multi-sector');
+  if (!barra) {
+    barra = document.createElement('div');
+    barra.id = 'barra-multi-sector';
+    barra.className = 'barra-multi-sector-container';
+    const card = document.getElementById('sector-resumen-card');
+    if (card) card.insertAdjacentElement('afterend', barra);
+    else document.getElementById('panelBody').prepend(barra);
+  }
+
+  if (sectoresComparados.size === 0) {
+    barra.innerHTML = `
+      <div class="multi-barra-vacia">
+        <div class="multi-hint-icon">🗂️</div>
+        <div class="multi-hint">Hacé click en un sector para agregarlo a la comparación</div>
+      </div>`;
+    return;
+  }
+
+  const fmt    = n => n > 0 ? n.toLocaleString('es-AR') : '—';
+  const fmtUSD = n => n > 0 ? `USD ${n.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : '—';
+
+  let totalPrest = 0, totalFac = 0, totalPob = 0;
+
+  const filas = Array.from(sectoresComparados).map(sectorId => {
+    const sector = sectoresExpansion[sectorId];
+    const { cap, vol, facTotal, prestTotal } = calcularTotalesSector(sectorId);
+    const capTotal = Object.values(cap).reduce((s, v) => s + v, 0);
+    const volTotal = Object.values(vol).reduce((s, v) => s + v, 0);
+    const pobEf = sector.provincias.reduce((sum, provId) => {
+      const pob = POBLACION_ARGENTINA[provId] || 0;
+      const cob = COBERTURA_PRIVADA[provId] || 0.65;
+      return sum + (filtroSectorActivo === "privado" ? pob * cob
+                  : filtroSectorActivo === "publico" ? pob * (1 - cob)
+                  : pob);
+    }, 0);
+    const ratio = pobEf > 0 ? ((prestTotal / pobEf) * 100000).toFixed(2).replace('.', ',') : null;
+
+    totalPrest += prestTotal;
+    totalFac   += facTotal;
+    totalPob   += pobEf;
+
+    return `
+      <div class="multi-prov-card">
+        <div class="multi-prov-top">
+          <span class="multi-prov-nombre">${sector.nombre}</span>
+          <span class="multi-stat-prest" style="font-size:11px">${prestTotal} prest.</span>
+        </div>
+        <div class="multi-prov-stats">
+          ${ratio ? `<span class="multi-stat-ratio">${ratio}/100k</span><span class="multi-stat-sep">·</span>` : ''}
+          ${capTotal > 0 ? `<span class="multi-stat-vol"><span class="multi-stat-val">${fmt(capTotal)}</span> cap.</span><span class="multi-stat-sep">·</span>` : ''}
+          ${volTotal > 0 ? `<span class="multi-stat-vol"><span class="multi-stat-val">${fmt(volTotal)}</span> vol.</span><span class="multi-stat-sep">·</span>` : ''}
+          ${facTotal > 0 ? `<span class="multi-stat-fac">${fmtUSD(facTotal)}</span>` : ''}
+        </div>
+      </div>`;
+  }).join('');
+
+  const totalRatio = totalPob > 0 ? ((totalPrest / totalPob) * 100000).toFixed(2).replace('.', ',') : null;
+
+  barra.innerHTML = `
+    <div class="multi-tabla-header">
+      <span>📊 Comparación de sectores</span>
+      <div class="sector-filtro-mini">
+        <button class="sector-filtro-mini-btn ${!filtroSectorActivo ? 'sector-filtro-mini-activo' : ''}" onclick="filtrarSectorArgentina(null)">Todo</button>
+        <button class="sector-filtro-mini-btn ${filtroSectorActivo === 'privado' ? 'sector-filtro-mini-activo' : ''}" onclick="filtrarSectorArgentina('privado')">Priv.</button>
+        <button class="sector-filtro-mini-btn ${filtroSectorActivo === 'publico' ? 'sector-filtro-mini-activo' : ''}" onclick="filtrarSectorArgentina('publico')">Púb.</button>
+      </div>
+    </div>
+    <div class="multi-prov-lista">${filas}</div>
+    <div class="multi-total-row">
+      <span class="multi-total-label">TOTAL</span>
+      <span class="multi-total-stats">
+        <span class="multi-stat-prest"><strong>${totalPrest}</strong> prest.</span>
+        ${totalRatio ? `<span class="multi-stat-sep">·</span><span class="multi-stat-ratio"><strong>${totalRatio}</strong>/100k</span>` : ''}
+        ${totalFac > 0 ? `<span class="multi-stat-sep">·</span><span class="multi-stat-fac"><strong>${fmtUSD(totalFac)}</strong></span>` : ''}
+      </span>
+    </div>
+    <button class="multi-btn-limpiar" onclick="sectoresComparados.clear();mostrarBarraMultiSector();actualizarEstilosMultiSector()">Limpiar selección</button>
+  `;
+}
+
 function seleccionarSectorArgentina(sectorId) {
+  // Modo comparación de sectores
+  if (modoMultiSector) {
+    if (sectorId === null) return;
+    if (sectoresComparados.has(sectorId)) {
+      sectoresComparados.delete(sectorId);
+    } else {
+      sectoresComparados.add(sectorId);
+    }
+    actualizarEstilosMultiSector();
+    mostrarTodasLasLocalidades();
+    const argCard = document.querySelector('.pob-argentina-card');
+    if (argCard) argCard.style.display = 'none';
+    mostrarBarraMultiSector();
+    return;
+  }
+
   // Cerrar cualquier InfoWindow o modal previo
   if (infoWindowSector) infoWindowSector.close();
   const modalPrev = document.getElementById('sector-desglose-modal');

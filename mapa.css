@@ -1603,6 +1603,49 @@ body {
 
 .prov-resumen-btn-detalle:hover { opacity: 0.88; }
 
+.sector-box-btn-comparado {
+  border: 1.5px solid #6a0dad !important;
+  background: #f2eafc !important;
+}
+.sector-comparado-check {
+  color: #6a0dad;
+  font-weight: 700;
+  margin-left: 4px;
+}
+
+.btn-comparar-sector {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 7px 0;
+  background: transparent;
+  color: #6a0dad;
+  border: 1.5px solid #a020a8;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.btn-comparar-sector:hover {
+  background: #f2eafc;
+}
+.btn-comparar-sector-activo {
+  background: #6a0dad;
+  color: white;
+}
+.btn-comparar-sector-activo:hover {
+  background: #a020a8;
+}
+
+.barra-multi-sector-container {
+  background: #fff;
+  border-radius: 12px;
+  border: 1.5px solid #e8d5f5;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
 #sector-mapa-label {
   position: absolute;
   top: 16px;
@@ -1662,6 +1705,17 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 4px;
+}
+
+.aviso-mensual {
+  background: #f5f0fb;
+  border-left: 3px solid #7b2fbe;
+  border-radius: 0;
+  padding: 7px 14px;
+  font-size: 12px;
+  color: #4a1a7a;
+  line-height: 1.5;
+  flex-shrink: 0;
 }
 
 /* ── Card Argentina ── */
