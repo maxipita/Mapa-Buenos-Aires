@@ -668,7 +668,7 @@
         "imagen": "Logo/CABA/CentroMedicus.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        },
+      },
       {
         "nombre": "Centro Médico Monserrat",
         "direccion": "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires",
@@ -678,7 +678,7 @@
         "imagen": "Logo/CABA/CentroMonserrat.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        },
+      },
       {
         "nombre": "Centro Médico Vilella",
         "direccion": "Av. de los Incas 3536, C1426 Cdad. Autónoma de Buenos Aires",
@@ -688,7 +688,7 @@
         "imagen": "Logo/CABA/CentroVilella.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        },
+      },
       {
         "nombre": "Clínica AMEBPBA",
         "direccion": "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires",
@@ -698,7 +698,7 @@
         "imagen": "Logo/CABA/AMEBPBA.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        },
+      },
       {
         "nombre": "IDIM",
         "direccion": "Libertad 836, C1012AAR Cdad. Autónoma de Buenos Aires",
@@ -708,7 +708,7 @@
         "imagen": "Logo/CABA/IDIM.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        },
+      },
       {
         "nombre": "Instituto Quirúrgico del Callao",
         "direccion": "Av. Callao 499, C1022AAE Cdad. Autónoma de Buenos Aires",
@@ -718,7 +718,7 @@
         "imagen": "Logo/CABA/IQDC.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        },
+      },
       {
         "nombre": "Obra Social Luis Pasteur - Centro Médico Belgrano",
         "direccion": "11 de Septiembre de 1888 2139, C1428 AIG, Cdad. Autónoma de Buenos Aires",
@@ -728,7 +728,7 @@
         "imagen": "Logo/CABA/LP.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        },
+      },
       {
         "nombre": "Obra Social Luis Pasteur - Centro Médico Congreso",
         "direccion": "Tte. Gral. Juan Domingo Perón 1830, C1040AAB Cdad. Autónoma de Buenos Aires",
@@ -738,7 +738,7 @@
         "imagen": "Logo/CABA/LP.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        },
+      },
       {
         "nombre": "Sanatorio Agote",
         "direccion": "Dr. Luis Agote 2477, C1425EOE Cdad. Autónoma de Buenos Aires",
@@ -748,7 +748,7 @@
         "imagen": "Logo/CABA/Agote.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        },
+      },
       {
         "nombre": "Sanatorio de la Providencia",
         "direccion": "Tucumán 1863, C1050 Cdad. Autónoma de Buenos Aires",
@@ -758,7 +758,7 @@
         "imagen": "Logo/CABA/Providencia.jpg",
         "sector": "privado",
         "prioridad": "vighi"
-        }
+      }
     ]
   },
   "BUENOS AIRES": {
@@ -2050,7 +2050,7 @@
         "prioridad": "vighi"
       },
       {
-        "nombre": "Centro Medico Ramos Mejía",
+        "nombre": "Obra Social Luis Pasteur - Centro Médico Ramos Mejía",
         "direccion": "Alsina 360, B1704EVH Ramos Mejía, Provincia de Buenos Aires",
         "lat": -34.6434,
         "lng": -58.5691,
@@ -2060,7 +2060,7 @@
         "prioridad": "vighi"
       },
       {
-        "nombre": "Centro Médico Martínez",
+        "nombre": "Obra Social Luis Pasteur - Centro Médico Martínez",
         "direccion": "Tres Sargentos 2022, B1640BLP Martínez, Provincia de Buenos Aires",
         "lat": -34.4903,
         "lng": -58.5017,
@@ -2090,7 +2090,7 @@
         "prioridad": "vighi"
       },
       {
-        "nombre": "Centro Médico Lomas de Zamora",
+        "nombre": "Obra Social Luis Pasteur - Centro Médico Lomas de Zamora",
         "direccion": "Loria 255, B1832IXE Gran Buenos Aires, Provincia de Buenos Aires",
         "lat": -34.7621,
         "lng": -58.4009,
@@ -2599,14 +2599,14 @@
         "sector": "privado"
       },
       {
+        "nombre": "Centro de la Mujer - Policlinico Modelo",
+        "direccion": "Córdoba 55, R8324 Cipolletti, Río Negro",
         "lat": -38.934173758017835,
+        "lng": -67.99051681945257,
+        "tipo": "Centro Médico",
         "prioridad": "blanco",
-        "nombre": "CENTRO DE LA MUJER",
         "imagen": "Logo/Rio_Negro/CentroDeLaMujer.jpg",
         "logo": "LogoPin/Rio_Negro/CentroDeLaMujer.jpg",
-        "direccion": "Córdoba 55, R8324 Cipolletti, Río Negro",
-        "tipo": "Centro Médico",
-        "lng": -67.99051681945257,
         "sector": "privado"
       }
     ]
@@ -2681,7 +2681,7 @@
         "sector": "privado"
       },
       {
-        "nombre": "Sanatorio Junín",
+        "nombre": "Sanatorio Junín - Catamarca",
         "direccion": "Junín 369 K4700, K4700 San Fernando del Valle de Catamarca, Catamarca",
         "lat": -28.4653,
         "lng": -65.7833,
@@ -2692,7 +2692,7 @@
         "sector": "privado"
       },
       {
-        "nombre": "Clinica del Valle - Catamarca",
+        "nombre": "Clinica del Valle",
         "direccion": "San Martín 1050, K4700 San Fernando del Valle de Catamarca, Catamarca",
         "lat": -28.4686,
         "lng": -65.7718,
@@ -2911,7 +2911,7 @@
         "sector": "privado"
       },
       {
-        "nombre": "Clinica del Valle - Chubut",
+        "nombre": "Clinica del Valle",
         "direccion": "Av. Alsina 656, U9003AAJ Comodoro Rivadavia, Chubut",
         "lat": -45.8635,
         "lng": -67.4939,
@@ -4239,7 +4239,7 @@
         "sector": "privado"
       },
       {
-        "nombre": "Hospital de Niños Orlando Alassia",
+        "nombre": "Hospital Dr. Orlando Alassia",
         "direccion": "Mendoza 4151, S3000 Santa Fe de la Vera Cruz, Santa Fe",
         "lat": -31.644322363644413,
         "lng": -60.727506711233325,
@@ -4562,7 +4562,7 @@
         "sector": "privado"
       },
       {
-        "nombre": "Centro de Salud \"La Pilar\"",
+        "nombre": "Centro de Salud \"La Pilar\" - San Luis",
         "direccion": "Presidente Perón 911, D5700 San Luis",
         "lat": -33.297866,
         "lng": -66.328379,
@@ -4858,7 +4858,7 @@
         "sector": "privado"
       },
       {
-        "nombre": "Centro de Salud La Pilar",
+        "nombre": "Centro de Salud \"La Pilar\" - Formosa",
         "direccion": "Hipólito Irigoyen 1831, P3600 Formosa",
         "lat": -26.191321,
         "lng": -58.184045,
