@@ -2498,3 +2498,218 @@ body {
   color: #9070a8;
   font-weight: 500;
 }
+
+/* ============================================
+   MENÚ — botón ancho completo
+   ============================================ */
+.menu-opcion-full {
+  flex: 1;
+  max-width: 100%;
+}
+
+/* ============================================
+   VISTA: EL COSTO DE LA DEMORA DIAGNÓSTICA
+   ============================================ */
+.vista-costo-demora {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #f8f0fb;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.costo-demora-header {
+  background: white;
+  border-bottom: 2px solid #ead4f5;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+}
+
+.costo-demora-volver {
+  background: none;
+  border: 1.5px solid #d534db;
+  color: #d534db;
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.costo-demora-volver:hover {
+  background: #f9e6fa;
+}
+
+.costo-demora-header-titulo {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.costo-demora-logo {
+  height: 44px;
+  object-fit: contain;
+}
+.costo-demora-header-titulo h1 {
+  font-size: 20px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+.costo-demora-header-titulo p {
+  font-size: 13px;
+  color: #7f8c8d;
+  margin-top: 2px;
+}
+
+.costo-demora-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 28px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.costo-seccion-titulo {
+  font-size: 15px;
+  font-weight: 700;
+  color: #a020a8;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #ead4f5;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ── Tabla de recursos ── */
+.costo-tabla-wrapper {
+  overflow-x: auto;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(165, 32, 168, 0.08);
+}
+
+.costo-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  font-size: 13.5px;
+}
+
+.costo-tabla thead tr {
+  background: #a020a8;
+  color: white;
+}
+
+.costo-tabla thead th {
+  padding: 13px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+.costo-tabla tbody tr {
+  border-bottom: 1px solid #f0e8f7;
+  transition: background 0.15s;
+}
+.costo-tabla tbody tr:last-child { border-bottom: none; }
+.costo-tabla tbody tr:hover { filter: brightness(0.97); }
+
+.costo-tabla td {
+  padding: 11px 16px;
+  color: #2c3e50;
+  vertical-align: middle;
+}
+
+.costo-valor {
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: right;
+}
+
+/* Niveles de color por costo */
+.costo-nivel-bajo   { background: #f0fbf4; }
+.costo-nivel-bajo   .costo-valor { color: #27ae60; }
+.costo-nivel-medio  { background: #fffbf0; }
+.costo-nivel-medio  .costo-valor { color: #e67e22; }
+.costo-nivel-alto   { background: #fff5f0; }
+.costo-nivel-alto   .costo-valor { color: #e74c3c; }
+.costo-nivel-critico { background: #fdf0ff; }
+.costo-nivel-critico .costo-valor { color: #a020a8; }
+
+/* ── Cards de impacto ── */
+.costo-impacto-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.costo-impacto-card {
+  border-radius: 12px;
+  padding: 22px 20px;
+  text-align: center;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+}
+
+.nivel-moderado  { background: #fff8e6; border-top: 4px solid #f39c12; }
+.nivel-complejo  { background: #fff0ee; border-top: 4px solid #e74c3c; }
+.nivel-critico   { background: #fdf0ff; border-top: 4px solid #a020a8; }
+
+.costo-impacto-escenario {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+.costo-impacto-valor {
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.nivel-moderado  .costo-impacto-valor { color: #e67e22; }
+.nivel-complejo  .costo-impacto-valor { color: #e74c3c; }
+.nivel-critico   .costo-impacto-valor { color: #a020a8; }
+
+.costo-impacto-label {
+  font-size: 11px;
+  color: #7f8c8d;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* ── Fuentes ── */
+.costo-fuentes {
+  font-size: 11px;
+  color: #95a5a6;
+  line-height: 1.6;
+  border-top: 1px solid #e0d0ec;
+  padding-top: 16px;
+}
+.costo-fuentes-label {
+  font-weight: 700;
+  color: #7f8c8d;
+  margin-right: 4px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .costo-demora-body { padding: 20px 16px 32px; }
+  .costo-demora-header { padding: 14px 16px; }
+  .costo-demora-header-titulo h1 { font-size: 16px; }
+  .costo-impacto-grid { grid-template-columns: 1fr; }
+  .costo-tabla { font-size: 12px; }
+  .costo-tabla td, .costo-tabla th { padding: 9px 10px; }
+}
