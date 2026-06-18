@@ -2788,12 +2788,80 @@ body {
   margin-right: 4px;
 }
 
+/* ── Mobile impact cards ── */
+.costo-impacto-mobile { display: none; }
+
+.cim-grupo {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.09);
+}
+.cim-titulo {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 13px 16px;
+}
+.cim-fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 16px;
+  background: #fff;
+  border-bottom: 1px solid #f0e8f8;
+  gap: 12px;
+}
+.cim-fila:last-child { border-bottom: none; }
+.cim-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2c3e50;
+  flex: 1;
+}
+.cim-right { text-align: right; }
+.cim-valor {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 3px;
+}
+.cim-unidad {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  color: #7f8c8d;
+}
+
 /* ── Responsive ── */
 @media (max-width: 768px) {
-  .costo-demora-body { padding: 20px 16px 32px; }
-  .costo-demora-header { padding: 14px 16px; }
-  .costo-demora-header-titulo h1 { font-size: 16px; }
-  .costo-impacto-grid { grid-template-columns: 1fr; }
-  .costo-tabla { font-size: 12px; }
-  .costo-tabla td, .costo-tabla th { padding: 9px 10px; }
+  .costo-demora-body {
+    padding: 16px 14px 32px;
+    gap: 20px;
+  }
+  .costo-demora-header { padding: 12px 14px; }
+  .costo-demora-header-titulo h1 { font-size: 15px; }
+  .costo-demora-header-titulo p { font-size: 11px; }
+  .costo-demora-logo { width: 36px; height: 36px; }
+
+  /* Institutional block */
+  .costo-institucional { padding: 24px 20px; }
+  .costo-institucional p { font-size: 13.5px; }
+  .costo-institucional-cierre { font-size: 16px !important; }
+
+  /* Resources table — scroll horizontal */
+  .costo-tabla-wrapper { -webkit-overflow-scrolling: touch; }
+  .costo-tabla { font-size: 11.5px; min-width: 520px; }
+  .costo-tabla td, .costo-tabla th { padding: 8px 10px; }
+
+  /* Impact table: hide desktop, show mobile cards */
+  .costo-tabla-wrapper:has(.costo-impacto-tabla) { overflow: visible; }
+  .costo-impacto-tabla { display: none; }
+  .costo-impacto-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
