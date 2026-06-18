@@ -2648,49 +2648,74 @@ body {
 .costo-nivel-critico { background: #fdf0ff; }
 .costo-nivel-critico .costo-valor { color: #a020a8; }
 
-/* ── Cards de impacto ── */
-.costo-impacto-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.costo-impacto-card {
-  border-radius: 12px;
-  padding: 22px 20px;
-  text-align: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
-}
-
-.nivel-moderado  { background: #fff8e6; border-top: 4px solid #f39c12; }
-.nivel-complejo  { background: #fff0ee; border-top: 4px solid #e74c3c; }
-.nivel-critico   { background: #fdf0ff; border-top: 4px solid #a020a8; }
-
-.costo-impacto-escenario {
+/* ── Tabla de impacto ── */
+.costo-impacto-tabla {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
   font-size: 13px;
-  font-weight: 600;
-  color: #2c3e50;
-  margin-bottom: 10px;
-  line-height: 1.4;
 }
 
-.costo-impacto-valor {
-  font-size: 26px;
+.costo-impacto-grupo {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 16px 12px;
+  color: #fff;
+}
+.grupo-internacion  { background: #2e4a7a; border-right: 2px solid #fff; }
+.grupo-quimio       { background: #6a0a72; border-right: 2px solid #fff; }
+.grupo-prestaciones { background: #7a1a35; }
+
+.costo-impacto-subth {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 14px 10px;
+  color: #fff;
+}
+/* 2 cols × 16.67% = 33.33% | 2 cols × 16.67% = 33.33% | 3 cols × 11.11% = 33.33% */
+.sub-internacion { width: 16.67%; background: #3d62a0; border-right: 1px solid rgba(255,255,255,0.2); }
+.sub-quimio      { width: 16.67%; background: #8b1a94; border-right: 1px solid rgba(255,255,255,0.2); }
+.sub-moderado    { width: 11.11%; background: #a06a00; border-right: 1px solid rgba(255,255,255,0.2); }
+.sub-complejo    { width: 11.11%; background: #b03020; border-right: 1px solid rgba(255,255,255,0.2); }
+.sub-critico     { width: 11.11%; background: #6a1070; }
+
+.costo-impacto-valor-row td {
+  border-right: 1px solid #e8e0f0;
+}
+.costo-impacto-valor-row td:last-child { border-right: none; }
+
+.costo-impacto-td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 19px;
   font-weight: 800;
   line-height: 1;
-  margin-bottom: 6px;
+  padding: 20px 12px;
 }
-.nivel-moderado  .costo-impacto-valor { color: #e67e22; }
-.nivel-complejo  .costo-impacto-valor { color: #e74c3c; }
-.nivel-critico   .costo-impacto-valor { color: #a020a8; }
+.val-internacion { color: #2e4a7a; background: #f0f4fb; }
+.val-quimio      { color: #6a0a72; background: #fdf0ff; }
+.val-moderado    { color: #c07000; background: #fff8e6; }
+.val-complejo    { color: #c03020; background: #fff0ee; }
+.val-critico     { color: #7a0a80; background: #fdf0ff; }
 
-.costo-impacto-label {
-  font-size: 11px;
-  color: #7f8c8d;
-  font-weight: 500;
+.costo-impacto-unidad-row td {
+  text-align: center;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #4a4a6a;
+  font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.4px;
+  padding: 12px 10px;
+  border-right: 1px solid #e8e0f0;
 }
+.costo-impacto-unidad-row td:last-child { border-right: none; }
 
 /* ── Mensaje institucional ── */
 .costo-institucional {
