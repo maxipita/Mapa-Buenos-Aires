@@ -1,0 +1,139 @@
+{
+  "nombre": "FORMOSA",
+  "sector": "Sector Norte",
+  "sanatorios": [
+    {
+      "nombre": "Hospital de Alta Complejidad Pte. Juan Domingo Perón",
+      "direccion": "Av. Pantaleón Gómez & Av. Dr. Néstor Kirchner, P3600 Formosa",
+      "lat": -26.180924409513402,
+      "lng": -58.18902203319441,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/HospitaldeAltaComplejidad.jpg",
+      "logo": "LogoPin/Formosa/HospitaldeAltaComplejidad.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Central - Formosa",
+      "direccion": "Padre Patiño 1163, P3600 Formosa",
+      "lat": -26.188406594842355,
+      "lng": -58.167739064406994,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/HospitalCentral.jpg",
+      "logo": "LogoPin/Formosa/HospitalCentral.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital de la Madre y el Niño - Formosa",
+      "direccion": "Córdoba 1450, P3600GIV Formosa",
+      "lat": -26.192385304732674,
+      "lng": -58.17403784165322,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/HospitaldelaMadreyelNiño.jpg",
+      "logo": "LogoPin/Formosa/HospitaldelaMadreyelNiño.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Distrito Sanitario N°8 Eva Perón",
+      "direccion": "Av. Ana Esther Elías de Canepa 1898, P3600HLK Formosa",
+      "lat": -26.140735477191882,
+      "lng": -58.15798811786997,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/HospitalDistritoSanitario.jpg",
+      "logo": "LogoPin/Formosa/HospitalDistritoSanitario.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Doctor Cruz Felipe Arnedo",
+      "direccion": "Av. San Martín 1202, P3610 Clorinda, Formosa",
+      "lat": -25.28623448293232,
+      "lng": -57.721144179654196,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/HospitalDoctorCruz.jpg",
+      "logo": "LogoPin/Formosa/HospitalDoctorCruz.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Las Lomitas",
+      "direccion": "Av. Belgrano y Av. Entre Ríos, Las Lomitas, Formosa",
+      "lat": -24.701815419186133,
+      "lng": -60.594622149766636,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/HospitaldeLasLomitas.jpg",
+      "logo": "LogoPin/Formosa/HospitaldeLasLomitas.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital El Colorado",
+      "direccion": "Santa Fe S/N, P3603 El Colorado, Formosa",
+      "lat": -26.3082957898795,
+      "lng": -59.36791284106846,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/HospitalElColorado.jpg",
+      "logo": "LogoPin/Formosa/HospitalElColorado.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Laguna Blanca",
+      "direccion": "Laguna Blanca, Formosa",
+      "lat": -25.121484031651637,
+      "lng": -58.253756187406516,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/HospitalLagunaBlanca.jpg",
+      "logo": "LogoPin/Formosa/HospitalLagunaBlanca.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Formosa",
+      "direccion": "Pringles 131, P3600 Formosa",
+      "lat": -26.17839193549328,
+      "lng": -58.166882125787716,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/SanatorioFormosa.jpg",
+      "logo": "LogoPin/Formosa/SanatorioFormosa.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio González Lelong",
+      "direccion": "Av. González Lelong 197, P3600DDX Formosa",
+      "lat": -26.173553770472097,
+      "lng": -58.16954271044618,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/SanatorioGonzálezLelong.jpg",
+      "logo": "LogoPin/Formosa/SanatorioGonzálezLelong.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Dr. Jorge Vrsalovic",
+      "direccion": "Jujuy 975, P3600LBM Formosa",
+      "lat": -26.18904765559827,
+      "lng": -58.18068057922241,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/ClínicaJorgeVrsalovic.jpg",
+      "logo": "LogoPin/Formosa/ClínicaJorgeVrsalovic.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro de Salud \"La Pilar\" - Formosa",
+      "direccion": "Hipólito Irigoyen 1831, P3600 Formosa",
+      "lat": -26.191321,
+      "lng": -58.184045,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Formosa/CentroDeSaludLaPilar.jpg",
+      "logo": "LogoPin/Formosa/CentroDeSaludLaPilar.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

@@ -1,0 +1,106 @@
+{
+  "nombre": "CHACO",
+  "sector": "Sector Norte",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Julio C Perrando",
+      "direccion": "Av. 9 de Julio 1004, H3508AZP Resistencia, Chaco",
+      "lat": -27.459,
+      "lng": -58.9769,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chaco/HospitalJulioPerrando.jpg",
+      "logo": "LogoPin/Chaco/HospitalJulioPerrando.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Pediatrico Dr Avelino Castelán",
+      "direccion": "Hipólito Yrigoyen, H3508AWN Resistencia, Chaco",
+      "lat": -27.4573,
+      "lng": -58.9773,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chaco/HospitalPediatrico.jpg",
+      "logo": "LogoPin/Chaco/HospitalPediatrico.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital 4 de Junio",
+      "direccion": "Av. Malvinas Argentinas 1350, H3700 Sáenz Peña, Chaco",
+      "lat": -26.7765,
+      "lng": -60.4467,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chaco/Hospital4Junio.jpg",
+      "logo": "LogoPin/Chaco/Hospital4Junio.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Bicentenario General Guemes",
+      "direccion": "Avenida General Güemes, Dr. Alejandro Huespe &, Juan José Castelli, Chaco",
+      "lat": -25.9436,
+      "lng": -60.628,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chaco/HospitalBicentenarioGeneralGuemes.jpg",
+      "logo": "LogoPin/Chaco/HospitalBicentenarioGeneralGuemes.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Chaco",
+      "direccion": "Almte. Brown 315, H3500AFG Resistencia, Chaco",
+      "lat": -27.4519,
+      "lng": -58.9818,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chaco/SanatorioChaco.jpg",
+      "logo": "LogoPin/Chaco/SanatorioChaco.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Antártida",
+      "direccion": "San Lorenzo 180, H3500 Resistencia, Chaco",
+      "lat": -27.4577,
+      "lng": -58.9821,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chaco/SanatorioAntartida.jpg",
+      "logo": "LogoPin/Chaco/SanatorioAntartida.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Sarmiento",
+      "direccion": "Av. Sarmiento 391, H3500BJD Resistencia, Chaco",
+      "lat": -27.4477,
+      "lng": -58.9833,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chaco/ClinicaSarmiento.jpg",
+      "logo": "LogoPin/Chaco/ClinicaSarmiento.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Frangioli",
+      "direccion": "Córdoba 198, H3500APD Resistencia, Chaco",
+      "lat": -27.447,
+      "lng": -58.9788,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chaco/SanatorioFrangioli.jpg",
+      "logo": "LogoPin/Chaco/SanatorioFrangioli.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto Medico Regional - Chaco",
+      "direccion": "Las Heras 727, H3500 Resistencia, Chaco",
+      "lat": -27.4642,
+      "lng": -58.9826,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chaco/InstitutoMedicoRegional.jpg",
+      "logo": "LogoPin/Chaco/InstitutoMedicoRegional.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

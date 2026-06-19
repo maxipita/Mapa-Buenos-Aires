@@ -1,0 +1,150 @@
+{
+  "nombre": "SANTA CRUZ",
+  "sector": "Sector Sur",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Regional Río Gallegos",
+      "direccion": "José Ingenieros 98, Z9400 Río Gallegos, Santa Cruz",
+      "lat": -51.62758552164557,
+      "lng": -69.21965541627014,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/HospitalRegionalRíoGallegos.jpg",
+      "logo": "LogoPin/Santa_Cruz/HospitalRegionalRíoGallegos.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Zonal de Caleta Olivia \"Padre Pedro Tardivo\"",
+      "direccion": "Av. Eva Perón 430, Z9011 Caleta Olivia, Santa Cruz",
+      "lat": -46.44447028226229,
+      "lng": -67.51228058142372,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/HospitalZonaldeCaletaOlivia.jpg",
+      "logo": "LogoPin/Santa_Cruz/HospitalZonaldeCaletaOlivia.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital SAMIC El Calafate",
+      "direccion": "Av. Jorge Newbery S/N, Z9405 El Calafate, Santa Cruz",
+      "lat": -50.334065954287496,
+      "lng": -72.23886991684765,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/HospitalSAMIC.jpg",
+      "logo": "LogoPin/Santa_Cruz/HospitalSAMIC.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Distrital Pico Truncado",
+      "direccion": "Sarmiento & Velez Sarsfield, Pico Truncado, Santa Cruz",
+      "lat": -46.79668482422192,
+      "lng": -67.96005923563827,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/HospitalDistritalPicoTruncado.jpg",
+      "logo": "LogoPin/Santa_Cruz/HospitalDistritalPicoTruncado.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Distrital M. Lombardich",
+      "direccion": "Av. Hernando de Magallanes 875, Z9310 Puerto San Julián, Santa Cruz",
+      "lat": -49.30449030375599,
+      "lng": -67.72328542168141,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/HospitalDistritalMLombardich.jpg",
+      "logo": "LogoPin/Santa_Cruz/HospitalDistritalMLombardich.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Distrital Puerto Deseado",
+      "direccion": "Colón 1100, Z9050ARD Puerto Deseado, Santa Cruz",
+      "lat": -47.756546421746336,
+      "lng": -65.89595445761381,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/HospitalDistritalPuertoDeseado.jpg",
+      "logo": "LogoPin/Santa_Cruz/HospitalDistritalPuertoDeseado.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Distrital Las Heras",
+      "direccion": "28 de Noviembre & Juan Jose Paso, Las Heras, Santa Cruz",
+      "lat": -46.54896787131768,
+      "lng": -68.92247789259218,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/HospitalDistritalLasHeras.jpg",
+      "logo": "LogoPin/Santa_Cruz/HospitalDistritalLasHeras.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Clínica Cruz del Sur",
+      "direccion": "Pje. Tamarisco 735, Z9011 Caleta Olivia, Santa Cruz",
+      "lat": -46.44063845254514,
+      "lng": -67.51447829729901,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/ClínicaCruzdelSur.jpg",
+      "logo": "LogoPin/Santa_Cruz/ClínicaCruzdelSur.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Policlínico del Atlántico Sur - Medisur SA",
+      "direccion": "Maipú 555, Z9400BFK Río Gallegos, Santa Cruz",
+      "lat": -51.626996859534216,
+      "lng": -69.2092131236786,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/PoliclínicodelAtlánticoSur.jpg",
+      "logo": "LogoPin/Santa_Cruz/PoliclínicodelAtlánticoSur.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Fundación Suma",
+      "direccion": "Maipú 144, Z9400BFD Río Gallegos, Santa Cruz",
+      "lat": -51.62420522183144,
+      "lng": -69.21539927712092,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/FundacionSuma.jpg",
+      "logo": "LogoPin/Santa_Cruz/FundacionSuma.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Médico Dr. Rubén Martínez",
+      "direccion": "Campaña del Desierto 1407, Z9405 El Calafate, Santa Cruz",
+      "lat": -50.34062455786471,
+      "lng": -72.26976290149803,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/CentroMedicoDrMartinez.jpg",
+      "logo": "LogoPin/Santa_Cruz/CentroMedicoDrMartinez.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Médico Santa Cruz",
+      "direccion": "Mariano Moreno 107, Z9011 Caleta Olivia, Santa Cruz",
+      "lat": -46.44239647180276,
+      "lng": -67.51167996608123,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/CentroMédicoSantaCruz.jpg",
+      "logo": "LogoPin/Santa_Cruz/CentroMédicoSantaCruz.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Empleados de Comercio Puerto San Julián",
+      "direccion": "Urquiza 1152, Z9310 Puerto San Julián, Santa Cruz",
+      "lat": -49.30506482067623,
+      "lng": -67.72999001771264,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Cruz/CentroEmpleadosdeComercioPuertoSanJulián.jpg",
+      "logo": "LogoPin/Santa_Cruz/CentroEmpleadosdeComercioPuertoSanJulián.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

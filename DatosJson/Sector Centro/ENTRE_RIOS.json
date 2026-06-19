@@ -1,0 +1,161 @@
+{
+  "nombre": "ENTRE RIOS",
+  "sector": "Sector Centro",
+  "sanatorios": [
+    {
+      "nombre": "Sanatorio La Entrerriana",
+      "direccion": "Buenos Aires 550, E3100 Paraná, Entre Ríos",
+      "lat": -31.722835866381747,
+      "lng": -60.52847014558332,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/sanatoriolaentrerriana.jpg",
+      "logo": "LogoPin/Entre_Rios/sanatoriolaentrerriana.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Modelo Paraná",
+      "direccion": "Gral. José de San Martín 1238, E3100 Paraná, Entre Ríos",
+      "lat": -31.735140509745495,
+      "lng": -60.53245016092045,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/ClínicaModelo.jpg",
+      "logo": "LogoPin/Entre_Rios/ClínicaModelo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Adventista del Plata",
+      "direccion": "25 de Mayo 255, E3103 Libertador San Martín, Entre Ríos",
+      "lat": -32.07338270829124,
+      "lng": -60.46258032315617,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/SanatorioAdventistadelPlata.jpg",
+      "logo": "LogoPin/Entre_Rios/SanatorioAdventistadelPlata.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Garat",
+      "direccion": "Concejal Veiga 660, E3202 Concordia, Entre Ríos",
+      "lat": -31.394706828871776,
+      "lng": -58.02759036164534,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/InstitutoMédicoQuirúrgicoGarat.jpg",
+      "logo": "LogoPin/Entre_Rios/InstitutoMédicoQuirúrgicoGarat.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Concordia",
+      "direccion": "1 de Mayo 393, E3200 Concordia, Entre Ríos",
+      "lat": -31.39874351064846,
+      "lng": -58.01071506905085,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/SanatorioConcordia.jpg",
+      "logo": "LogoPin/Entre_Rios/SanatorioConcordia.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Uruguay",
+      "direccion": "Gral. Galarza 574, E3260 Concepción del Uruguay, Entre Ríos",
+      "lat": -32.473433905507434,
+      "lng": -58.23261718637631,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/ClínicaUruguay.jpg",
+      "logo": "LogoPin/Entre_Rios/ClínicaUruguay.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Cooperativa Médica Concepción del Uruguay",
+      "direccion": "14 de Julio 377, E3260 Concepción del Uruguay, Entre Ríos",
+      "lat": -32.41424562118145,
+      "lng": -58.22183749470631,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/CooperativaMedica.jpg",
+      "logo": "LogoPin/Entre_Rios/CooperativaMedica.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Pronto Gualeguaychú",
+      "direccion": "Urquiza 1081, E3269 Gualeguaychú, Entre Ríos",
+      "lat": -33.008695130574964,
+      "lng": -58.52003779138569,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/Pronto.jpg",
+      "logo": "LogoPin/Entre_Rios/Pronto.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio del Niño",
+      "direccion": "Libertad 78, E3100 Paraná, Entre Ríos",
+      "lat": -31.731012079244657,
+      "lng": -60.534502492139275,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/SanatoriodelNiño.jpg",
+      "logo": "LogoPin/Entre_Rios/SanatoriodelNiño.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Medico Crespo",
+      "direccion": "Bv. F. Ramírez 1325, E3116 Crespo, Entre Ríos",
+      "lat": -32.03100469222245,
+      "lng": -60.31330133006065,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/CentroMedicoCrespo.jpg",
+      "logo": "LogoPin/Entre_Rios/CentroMedicoCrespo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Parque",
+      "direccion": "25 de Mayo 1053, E3116 Crespo, Entre Ríos",
+      "lat": -32.00888378010357,
+      "lng": -60.28073032353448,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/ClínicaParque.jpg",
+      "logo": "LogoPin/Entre_Rios/ClínicaParque.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital San José - Entre Rios",
+      "direccion": "Dr. Chessini 106, E3206 Federación, Entre Ríos",
+      "lat": -30.98566987157636,
+      "lng": -57.92257909309497,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/SanatorioSanJoséFederación.jpg",
+      "logo": "LogoPin/Entre_Rios/SanatorioSanJoséFederación.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto del Diagnóstico",
+      "direccion": "Salta 142, E3202 Concordia, Entre Ríos",
+      "lat": -31.39345192146621,
+      "lng": -58.01508195418515,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/InstitutodeDiagnósticoyTratamientoConcordia.jpg",
+      "logo": "LogoPin/Entre_Rios/InstitutodeDiagnósticoyTratamientoConcordia.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Medico Victoria",
+      "direccion": "Victoria 255, E3100 Paraná, Entre Ríos",
+      "lat": -31.727065273008236,
+      "lng": -60.52335428420552,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Entre_Rios/CentroMedicoVictoria.jpg",
+      "logo": "LogoPin/Entre_Rios/CentroMedicoVictoria.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

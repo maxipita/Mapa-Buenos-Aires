@@ -1,0 +1,84 @@
+{
+  "nombre": "SAN JUAN",
+  "sector": "Sector Cordillera",
+  "sanatorios": [
+    {
+      "nombre": "Sanatorio Argentino - San Juan",
+      "direccion": "San Luis Oeste 432, J5400 San Juan",
+      "lat": -31.533077,
+      "lng": -68.533074,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Juan/SanatorioArgentino.jpg",
+      "logo": "LogoPin/San_Juan/SanatorioArgentino.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica El Castaño",
+      "direccion": "Av. Libertador Gral. San Martín Este 952, J5400 San Juan",
+      "lat": -31.531743807786917,
+      "lng": -68.51207023407537,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Juan/ClínicaElCastaño.jpg",
+      "logo": "LogoPin/San_Juan/ClínicaElCastaño.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Privado del Colegio Médico de San Juan",
+      "direccion": "Rivadavia Este 542, J5402 San Juan",
+      "lat": -31.535945484713846,
+      "lng": -68.51838429509935,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Juan/HospitalPrivadodelColegioMédico.jpg",
+      "logo": "LogoPin/San_Juan/HospitalPrivadodelColegioMédico.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Santa Clara - San Juan",
+      "direccion": "Mendoza Sur 602, J5402 San Juan",
+      "lat": -31.541573864592987,
+      "lng": -68.52507308486739,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Juan/Sanatorio_SC.jpg",
+      "logo": "LogoPin/San_Juan/Sanatorio_SC.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Mercedario",
+      "direccion": "Av. España Nte. 503, J5400 San Juan",
+      "lat": -31.52843414584374,
+      "lng": -68.53684719225616,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Juan/ClínicaMercedario.jpg",
+      "logo": "LogoPin/San_Juan/ClínicaMercedario.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica del Sol - San Juan",
+      "direccion": "Francisco N. Laprida Este 369, J5400 San Juan",
+      "lat": -31.534497333417743,
+      "lng": -68.52082206897255,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Juan/ClínicadelSol.jpg",
+      "logo": "LogoPin/San_Juan/ClínicadelSol.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica de la Ciudad",
+      "direccion": "Santa Fe Este 645, J5402 San Juan",
+      "lat": -31.537968136786244,
+      "lng": -68.51655449225069,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Juan/ClínicadelaCiudad.jpg",
+      "logo": "LogoPin/San_Juan/ClínicadelaCiudad.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

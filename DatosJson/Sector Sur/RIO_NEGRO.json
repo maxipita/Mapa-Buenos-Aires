@@ -1,0 +1,139 @@
+{
+  "nombre": "RIO NEGRO",
+  "sector": "Sector Sur",
+  "sanatorios": [
+    {
+      "nombre": "Sanatorio Río Negro",
+      "direccion": "Leandro N. Alem 60, R8324 Cipolletti, Río Negro",
+      "lat": -38.93433881300296,
+      "lng": -67.99984937168158,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/SanatorioRN.jpg",
+      "logo": "LogoPin/Rio_Negro/SanatorioRN.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Fundación Médica de Río Negro y Neuquén",
+      "direccion": "Av. Mengelle 273, R8324 Cipolletti, Río Negro",
+      "lat": -38.937276538077754,
+      "lng": -68.00106464729622,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/FundacionMedicaRN.jpg",
+      "logo": "LogoPin/Rio_Negro/FundacionMedicaRN.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Francisco Lopez Lima",
+      "direccion": "Edmundo Gelonch 721, R8332 Gral. Roca, Río Negro",
+      "lat": -39.02187450040882,
+      "lng": -67.57372215627717,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/HospitalFranciscoLopezLima.jpg",
+      "logo": "LogoPin/Rio_Negro/HospitalFranciscoLopezLima.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Zonal Dr. Ramón Carrillo",
+      "direccion": "Francisco Pascasio Moreno 601, R8400 San Carlos de Bariloche, Río Negro",
+      "lat": -41.13595051002809,
+      "lng": -71.30000760874621,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/HospitalZonalRC.jpg",
+      "logo": "LogoPin/Rio_Negro/HospitalZonalRC.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Artémides Zatti",
+      "direccion": "Rivadavia 391, R8500 Viedma, Río Negro",
+      "lat": -40.81414360625946,
+      "lng": -62.99004999363475,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/HospitalArtémidesZatti.jpg",
+      "logo": "LogoPin/Rio_Negro/HospitalArtémidesZatti.jpeg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Dr. Pedro Moguillansky",
+      "direccion": "Naciones Unidas 1450, R8324 Cipolletti, Río Negro",
+      "lat": -38.92415071955036,
+      "lng": -67.9781506261849,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/HospitalPedroMoguillansky.jpg",
+      "logo": "LogoPin/Rio_Negro/HospitalPedroMoguillansky.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Cipolletti",
+      "direccion": "Venezuela 1550, R8324 Cipolletti, Río Negro",
+      "lat": -38.92521819703993,
+      "lng": -67.97857978250146,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/HospitalCipolletti.jpg",
+      "logo": "LogoPin/Rio_Negro/HospitalCipolletti.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Clínica Viedma",
+      "direccion": "Sarmiento 253, R8500 Viedma, Río Negro",
+      "lat": -40.80660444539635,
+      "lng": -62.99108638465991,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/ClinicaViedma.jpg",
+      "logo": "LogoPin/Rio_Negro/ClinicaViedma.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Juan XXIII",
+      "direccion": "Buenos Aires 1429, R8332 Gral. Roca, Río Negro",
+      "lat": -39.03009914713338,
+      "lng": -67.57036077955173,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/SanatorioJuanXXIII.jpg",
+      "logo": "LogoPin/Rio_Negro/SanatorioJuanXXIII.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Privado Regional del Sur",
+      "direccion": "20 de Febrero 598, R8400 San Carlos de Bariloche, Río Negro",
+      "lat": -41.13677896021697,
+      "lng": -71.31200483202578,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/HospitalPrivadoRegionalBariloche.jpg",
+      "logo": "LogoPin/Rio_Negro/HospitalPrivadoRegionalBariloche.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Roca",
+      "direccion": "Chacabuco 1620, R8332 General Roca, Río Negro",
+      "lat": -39.027976,
+      "lng": -67.56897,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/ClinicaRoca.jpg",
+      "logo": "LogoPin/Rio_Negro/ClinicaRoca.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro de la Mujer - Policlinico Modelo",
+      "direccion": "Córdoba 55, R8324 Cipolletti, Río Negro",
+      "lat": -38.934173758017835,
+      "lng": -67.99051681945257,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Rio_Negro/CentroDeLaMujer.jpg",
+      "logo": "LogoPin/Rio_Negro/CentroDeLaMujer.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}
