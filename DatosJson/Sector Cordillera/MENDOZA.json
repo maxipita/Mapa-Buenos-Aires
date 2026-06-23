@@ -1,0 +1,249 @@
+{
+  "nombre": "MENDOZA",
+  "sector": "Sector Cordillera",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Central - Mendoza",
+      "direccion": "L. N. Alem & Salta, M5502 Mendoza",
+      "lat": -32.89192259143172,
+      "lng": -68.83313164489554,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/HospitalCentral.jpg",
+      "logo": "LogoPin/Mendoza/HospitalCentral.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Luis Lagomaggiore",
+      "direccion": "Timoteo Gordillo s/n, M5500 Mendoza",
+      "lat": -32.8713989967821,
+      "lng": -68.86375773749974,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/HospitalLagomaggiore.jpg",
+      "logo": "LogoPin/Mendoza/HospitalLagomaggiore.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Pediátrico Dr. Humberto Notti",
+      "direccion": "Av. Bandera de los Andes 2603, M5521 Mendoza",
+      "lat": -32.89674290274753,
+      "lng": -68.80418422214062,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/HospitalPediátricoNotti.jpg",
+      "logo": "LogoPin/Mendoza/HospitalPediátricoNotti.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "OSEP - Hospital del Carmen",
+      "direccion": "Joaquín V. González 245, M5501 Mendoza",
+      "lat": -32.927109405753214,
+      "lng": -68.8591943295305,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/OSEP.jpg",
+      "logo": "LogoPin/Mendoza/OSEP.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Español de Mendoza",
+      "direccion": "Av. San Martín 965, M5501 Godoy Cruz, Mendoza",
+      "lat": -32.91470171364452,
+      "lng": -68.84539930186243,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/HospitalEspañol.jpg",
+      "logo": "LogoPin/Mendoza/HospitalEspañol.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Italiano de Mendoza",
+      "direccion": "Av. de Acceso Este 1070, M5519 San José, Mendoza",
+      "lat": -32.89573215857544,
+      "lng": -68.82147982954899,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/HospitalItalianodeMendoza.jpg",
+      "logo": "LogoPin/Mendoza/HospitalItalianodeMendoza.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica de Cuyo",
+      "direccion": "Av. José Vicente Zapata 63, M5500 Mendoza",
+      "lat": -32.89498583241386,
+      "lng": -68.84013422161355,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/ClínicadeCuyo.jpg",
+      "logo": "LogoPin/Mendoza/ClínicadeCuyo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Santa María - Mendoza",
+      "direccion": "José Federico Moreno 1519, M5500 Mendoza",
+      "lat": -32.885160908605165,
+      "lng": -68.83283376024329,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/ClínicaSantaMaría.jpg",
+      "logo": "LogoPin/Mendoza/ClínicaSantaMaría.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Francesa",
+      "direccion": "Av. Ejército de los Andes, M5519 Godoy Cruz, Mendoza",
+      "lat": -32.91655214425953,
+      "lng": -68.83939490678054,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/ClinicaFrancesa.jpg",
+      "logo": "LogoPin/Mendoza/ClinicaFrancesa.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Santa Clara - Mendoza",
+      "direccion": "Av. San Martín 835, M5501 Godoy Cruz, Mendoza",
+      "lat": -32.91513755232614,
+      "lng": -68.84606066022535,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/Sanatorio_SC.jpg",
+      "logo": "LogoPin/Mendoza/Sanatorio_SC.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Arizu",
+      "direccion": "Av. San Martín 1510, M5501 Godoy Cruz, Mendoza",
+      "lat": -32.908947519898135,
+      "lng": -68.84458771419753,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/ClinicaArizu.jpg",
+      "logo": "LogoPin/Mendoza/ClinicaArizu.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Regional Luján de Cuyo",
+      "direccion": "San Martín 928, M5507 Luján de Cuyo, Mendoza",
+      "lat": -33.031595109465066,
+      "lng": -68.87752882205997,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/SanatorioRegional.jpg",
+      "logo": "LogoPin/Mendoza/SanatorioRegional.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Teodoro J. Schestakow",
+      "direccion": "Cmte. Torres 150, M5600 San Rafael, Mendoza",
+      "lat": -34.61916784623277,
+      "lng": -68.32500875971033,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/HospitalTeodoroSchestakow.jpg",
+      "logo": "LogoPin/Mendoza/HospitalTeodoroSchestakow.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Regional Dr. Alfredo I. Perrupato",
+      "direccion": "Boulogne Sur Mer, M5570 San Martín, Mendoza",
+      "lat": -33.079227376802606,
+      "lng": -68.4870116072156,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/HospitalRegionalPerrupato.jpg",
+      "logo": "LogoPin/Mendoza/HospitalRegionalPerrupato.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Regional Antonio J. Scaravelli",
+      "direccion": "Güemes 1441, M5560 Tunuyán, Mendoza",
+      "lat": -33.57557226687985,
+      "lng": -69.01007497569903,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/HospitalRegionalScaravelli.jpg",
+      "logo": "LogoPin/Mendoza/HospitalRegionalScaravelli.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Enfermeros Argentinos",
+      "direccion": "M5620 Gral. Alvear, Mendoza",
+      "lat": -34.97296303254215,
+      "lng": -67.69844318223961,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/HospitalEnfermerosArgentinos.jpg",
+      "logo": "LogoPin/Mendoza/HospitalEnfermerosArgentinos.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Ciudad San Rafael",
+      "direccion": "Av. El Libertador 254, M5600 San Rafael, Mendoza",
+      "lat": -34.6190250920594,
+      "lng": -68.33167262036747,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/ClinicaCiudadSanRafael.jpg",
+      "logo": "LogoPin/Mendoza/ClinicaCiudadSanRafael.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Médico Palmares",
+      "direccion": "Panamericana 2650, M5501 Godoy Cruz, Mendoza",
+      "lat": -32.955680088879255,
+      "lng": -68.85942616072967,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/CentroMedicoPalmares.jpg",
+      "logo": "LogoPin/Mendoza/CentroMedicoPalmares.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto Medico Para La Mujer Mendoza",
+      "direccion": "Av. Mitre 660, M5521 Mendoza",
+      "lat": -32.8912920455007,
+      "lng": -68.81652294542414,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/ElInstitutoMedicodelaMujer.jpg",
+      "logo": "LogoPin/Mendoza/ElInstitutoMedicodelaMujer.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "IMR - Medicina Reproductiva",
+      "direccion": "Avenida Pedro Molina 767, M5500 Mendoza",
+      "lat": -32.89535606251212,
+      "lng": -68.85067607610961,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/InstitutodeMedicinaReproductiva.jpg",
+      "logo": "LogoPin/Mendoza/InstitutodeMedicinaReproductiva.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "CREO Fertilidad",
+      "direccion": "Av. Colón 569, M5500 Mendoza",
+      "lat": -32.893200569773256,
+      "lng": -68.84768597489943,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/CREOFertilidad.jpg",
+      "logo": "LogoPin/Mendoza/CREOFertilidad.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Diagnóstico Mendoza",
+      "direccion": "Av. Belgrano 1484, M5500 Mendoza",
+      "lat": -32.88412646507554,
+      "lng": -68.84898434823093,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Mendoza/CENTRODIAGNOSTICOMENDOZA.jpg",
+      "logo": "LogoPin/Mendoza/CENTRODIAGNOSTICOMENDOZA.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

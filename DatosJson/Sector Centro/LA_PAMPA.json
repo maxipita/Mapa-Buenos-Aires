@@ -1,0 +1,150 @@
+{
+  "nombre": "LA PAMPA",
+  "sector": "Sector Centro",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Dr. Lucio Molas",
+      "direccion": "Raúl B. Díaz Pilcomayo, L6302BJS Santa Rosa, La Pampa",
+      "lat": -36.59851847035812,
+      "lng": -64.29044258419279,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/HospitalLucioMolas.jpg",
+      "logo": "LogoPin/La_Pampa/HospitalLucioMolas.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Establecimiento Asistencial Gobernador Centeno",
+      "direccion": "C. 17 Oeste 500, L6360 Gral. Pico, La Pampa",
+      "lat": -35.67187543991307,
+      "lng": -63.766953929597946,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/EstablecimientoAsistencialGobernadorCenteno.jpg",
+      "logo": "LogoPin/La_Pampa/EstablecimientoAsistencialGobernadorCenteno.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Padre Ángel Buodo",
+      "direccion": "Las Cautivas, L8200 Gral. Acha, La Pampa",
+      "lat": -37.36730850907048,
+      "lng": -64.59626050396405,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/HospitalPadreÁngelBuodo.jpg",
+      "logo": "LogoPin/La_Pampa/HospitalPadreÁngelBuodo.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Santa Rosa",
+      "direccion": "Bartolomé Mitre 188, L6300 Santa Rosa, La Pampa",
+      "lat": -36.62269571286464,
+      "lng": -64.29159784255324,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/SANATORIOSANTAROSA.jpg",
+      "logo": "LogoPin/La_Pampa/SANATORIOSANTAROSA.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Modelo SA",
+      "direccion": "Av. San Martín 452, L6300 Santa Rosa, La Pampa",
+      "lat": -36.62078911853246,
+      "lng": -64.28562045789842,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/ClínicaModelo.jpg",
+      "logo": "LogoPin/La_Pampa/ClínicaModelo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Polymedic SRL",
+      "direccion": "1 de Mayo 640, L6302ECM Santa Rosa, La Pampa",
+      "lat": -36.61485603845896,
+      "lng": -64.29007651239871,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/Polymedic.jpg",
+      "logo": "LogoPin/La_Pampa/Polymedic.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Regional SRL",
+      "direccion": "Av. San Martín 400, L6360 Gral. Pico, La Pampa",
+      "lat": -35.65814240370984,
+      "lng": -63.758911915154684,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/ClinicaRegional.jpg",
+      "logo": "LogoPin/La_Pampa/ClinicaRegional.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Argentina SRL",
+      "direccion": "Av. San Martín 740, L6360 Gral. Pico, La Pampa",
+      "lat": -35.660985604770396,
+      "lng": -63.75459721834762,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/ClinicaArgentina.jpg",
+      "logo": "LogoPin/La_Pampa/ClinicaArgentina.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Integral Macachin",
+      "direccion": "E. F. Parodi 460, L6307 Macachín, La Pampa",
+      "lat": -37.138238986894734,
+      "lng": -63.668307149620354,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/ClínicaIntegralMacachín.jpg",
+      "logo": "LogoPin/La_Pampa/ClínicaIntegralMacachín.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Integral Realicó SA",
+      "direccion": "Francia 1344, L6200 Realicó, La Pampa",
+      "lat": -35.03532668770403,
+      "lng": -64.24894685892033,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/ClínicaIntegralRealicó.jpg",
+      "logo": "LogoPin/La_Pampa/ClínicaIntegralRealicó.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Integral Para la Salud CIS",
+      "direccion": "C. 7 876, L6360 Gral. Pico, La Pampa",
+      "lat": -35.656785608992045,
+      "lng": -63.758195074396696,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/CIS.jpg",
+      "logo": "LogoPin/La_Pampa/CIS.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Diagnosis",
+      "direccion": "Marcelo T. de Alvear 246, L6300AIE Santa Rosa, La Pampa",
+      "lat": -36.61632163313734,
+      "lng": -64.28818953514937,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/Diagnosis.jpg",
+      "logo": "LogoPin/La_Pampa/Diagnosis.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Torre Médica",
+      "direccion": "Lisandro de la Torre 400, L6300BQG Santa Rosa, La Pampa",
+      "lat": -36.621449791193264,
+      "lng": -64.28541132720996,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Pampa/TorreMédicaSantaRosa.jpg",
+      "logo": "LogoPin/La_Pampa/TorreMédicaSantaRosa.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

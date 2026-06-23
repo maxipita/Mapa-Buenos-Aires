@@ -1,4 +1,4 @@
-{
+﻿{
   "CABA": {
     "nombre": "Capital Federal",
     "localidades": [
@@ -676,6 +676,59 @@
         "lng": -58.3836,
         "tipo": "Centro Médico",
         "imagen": "Logo/CABA/CentroMonserrat.jpg",
+        "nomencladores": [
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 13,
+            "facturado": "$175.726,76"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 45,
+            "facturado": "$1.024.305,38"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 267,
+            "facturado": "$2.532.258,72"
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150111",
+            "cantidad": 0,
+            "facturado": "$0"
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Patologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 363
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturacion total",
+            "cantidad": "$4.351.731,05"
+          }
+        ],
         "sector": "privado",
         "prioridad": "vighi"
       },
@@ -746,6 +799,53 @@
         "lng": -58.3946,
         "tipo": "Sanatorio",
         "imagen": "Logo/CABA/Agote.jpg",
+        "nomencladores": [
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150101",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150102",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150103",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150104",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "150106",
+            "cantidad": 0
+          },
+          {
+            "tipo": "Nomenclador",
+            "codigo": "1501011",
+            "cantidad": 0
+          },
+          {
+            "tipo": "presencia",
+            "codigo": "Presencia Pátologo",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total",
+            "codigo": "Total",
+            "cantidad": 0
+          },
+          {
+            "tipo": "total facturado",
+            "codigo": "Facturación total",
+            "cantidad": "Sin datos cargados"
+          }
+        ],
         "sector": "privado",
         "prioridad": "vighi"
       },

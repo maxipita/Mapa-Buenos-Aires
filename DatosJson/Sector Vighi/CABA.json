@@ -1,0 +1,864 @@
+{
+  "nombre": "CABA",
+  "sector": "Sector Vighi",
+  "sanatorios": [
+    {
+      "nombre": "Sanatorio Otamendi",
+      "direccion": "Azcuénaga 870, C1115AAB Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5984,
+      "lng": -58.401,
+      "tipo": "Sanatorio",
+      "imagen": "LogoPin/CABA/SanatorioOtamendi.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Sanatorio de la Trinidad Palermo",
+      "direccion": "Av. Cerviño 4720, CABA",
+      "lat": -34.575,
+      "lng": -58.424,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/SanatorioTP.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Clínica y Maternidad Suizo Argentina",
+      "direccion": "Av. Pueyrredón 1461, C1015 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5935,
+      "lng": -58.4021,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/ClinicaSuizo.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Halitus Instituto Médico",
+      "direccion": "Marcelo Torcuato de Alvear 2084, C1122AAF Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5973,
+      "lng": -58.3972,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/Halitus.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Instituto Médico de Alta Complejidad IMAC",
+      "direccion": "Av. Díaz Vélez 4363, C1200AAK Cdad. Autónoma de Buenos Aires",
+      "tipo": "Centro Médico",
+      "lat": -34.60856799437693,
+      "lng": -58.428555047489475,
+      "imagen": "LogoPin/CABA/InstiutoAltaComplejidad.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/InstiutoAltaComplejidad.jpg"
+    },
+    {
+      "nombre": "Sanatorio Finochietto",
+      "direccion": "Av. Córdoba 2678, C1046 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5979,
+      "lng": -58.4055,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/SanatorioFinochietto.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/SanatorioFinochietto.jpg"
+    },
+    {
+      "nombre": "Clínica Zabala",
+      "direccion": "Av. Cabildo 1295, C1426AAM Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5671,
+      "lng": -58.4497,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/ClínicaZabala.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Sanatorio Anchorena Recoleta",
+      "direccion": "Dr. Tomás Manuel de Anchorena 1872, C1425 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5889,
+      "lng": -58.4001,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/SanatorioAnchorena.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Sanatorio de La Trinidad Mitre",
+      "direccion": "Bartolomé Mitre 2553, C1039 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.6078,
+      "lng": -58.4025,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/SanatoriodelaTrinidadMitre.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Hospital Italiano de Buenos Aires",
+      "direccion": "Tte. Gral. Juan Domingo Perón 4190, C1199 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.60612020344544,
+      "lng": -58.42564993738084,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalItaliano.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalItaliano.jpg"
+    },
+    {
+      "nombre": "Hospital Alemán",
+      "direccion": "Av. Pueyrredón 1640, C1118AAT Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59166725228111,
+      "lng": -58.40107381369589,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalAlemán.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalAlemán.jpg"
+    },
+    {
+      "nombre": "Hospital Británico de Buenos Aires",
+      "direccion": "Perdriel 74, C1280AEB Cdad. Autónoma de Buenos Aires",
+      "lat": -34.63378041523506,
+      "lng": -58.38797176069667,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalBritánico.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalBritánico.jpg"
+    },
+    {
+      "nombre": "Sanatorio Mater Dei",
+      "direccion": "San Martín de Tours 2952, C1425 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.57748516588141,
+      "lng": -58.404105513704366,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/SanatorioMaterDei.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/SanatorioMaterDei.jpg"
+    },
+    {
+      "nombre": "Sanatorio Güemes",
+      "direccion": "Av. Córdoba 3933, C1188AAF Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59696312870846,
+      "lng": -58.42172485471868,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/SanatorioGüemes.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/SanatorioGüemes.jpg"
+    },
+    {
+      "nombre": "Fundación Favaloro",
+      "direccion": "Av. Belgrano 1746, C1093 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.613922502606414,
+      "lng": -58.391067870063026,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/FundaciónFavaloro.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/FundaciónFavaloro.jpg"
+    },
+    {
+      "nombre": "Instituto Argentino de Diagnóstico y Tratamiento - IADT",
+      "direccion": "Marcelo Torcuato de Alvear 2346, C1122 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59585548477426,
+      "lng": -58.40077194094136,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/IADT.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "CEMIC Sede Saavedra",
+      "direccion": "GalvÁn 4102, C1431 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.557001710999934,
+      "lng": -58.49566293990939,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/CEMICSedeSaavedra.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/CEMICSedeSaavedra.jpg"
+    },
+    {
+      "nombre": "Sanatorio de los Arcos",
+      "direccion": "Av. Juan Bautista Justo 909, C1425 FSD, Cdad. Autónoma de Buenos Aires",
+      "lat": -34.58010466436853,
+      "lng": -58.43053668936608,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/SanatoriodelosArcos.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Clínica Bazterrica",
+      "direccion": "Billinghurst 2072, C1425DTP Cdad. Autónoma de Buenos Aires",
+      "lat": -34.58730845347114,
+      "lng": -58.40771808019339,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/ClínicaBazterrica.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/ClínicaBazterrica.jpg"
+    },
+    {
+      "nombre": "Sanatorio Colegiales",
+      "direccion": "Conde 851, C1426AYQ Cdad. Autónoma de Buenos Aires",
+      "lat": -34.57648968667584,
+      "lng": -58.451065509208846,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/SanatorioColegiales.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/SanatorioColegiales.jpg"
+    },
+    {
+      "nombre": "Sanatorio Sagrado Corazón",
+      "direccion": "Bartolomé Mitre 1955, C1039AAC Cdad. Autónoma de Buenos Aires",
+      "lat": -34.60775689943601,
+      "lng": -58.394355769309136,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/SanatorioSagradoCorazón.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/SanatorioSagradoCorazón.jpg"
+    },
+    {
+      "nombre": "Sanatorio Dr. Julio Méndez - ObSBA",
+      "direccion": "Av. Avellaneda 551, C1405CNF Cdad. Autónoma de Buenos Aires",
+      "lat": -34.61358799708379,
+      "lng": -58.439067636433904,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/SanatorioJulioMéndez-ObSBA.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/SanatorioJulioMéndez-ObSBA.jpg"
+    },
+    {
+      "nombre": "Sanatorio Dupuytren",
+      "direccion": "Av. Belgrano 3402, C1210 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.615068731778074,
+      "lng": -58.41449266368109,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/SanatorioDupuytren.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/SanatorioDupuytren.jpg"
+    },
+    {
+      "nombre": "Hospital Español de Buenos Aires",
+      "direccion": "Av. Belgrano 2975, C1209 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.61418461957737,
+      "lng": -58.408011774529356,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalEspañol.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalEspañol.jpg"
+    },
+    {
+      "nombre": "Clínica Santa Isabel",
+      "direccion": "Av. Directorio 2037, C1406GZJ Cdad. Autónoma de Buenos Aires",
+      "lat": -34.63147346892566,
+      "lng": -58.455864301589955,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/ClínicaSantaIsabel.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/ClínicaSantaIsabel.jpg"
+    },
+    {
+      "nombre": "Clínica Adventista Belgrano",
+      "direccion": "Estomba 1710, C1430 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.57398989759609,
+      "lng": -58.46878937455451,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/ClínicaAdventistaBelgrano.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/ClínicaAdventistaBelgrano.jpg"
+    },
+    {
+      "nombre": "Clínica San Camilo",
+      "direccion": "Avenida Angel Gallardo 899, C1405DJI Buenos Aires",
+      "lat": -34.60595339656077,
+      "lng": -58.44313139781466,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/ClínicaSanCamilo.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/ClínicaSanCamilo.jpg"
+    },
+    {
+      "nombre": "Clínica de los Virreyes",
+      "direccion": "Cdad. de la Paz 1157, C1426 AGU, Cdad. Autónoma de Buenos Aires",
+      "lat": -34.568366486549294,
+      "lng": -58.44985228196538,
+      "tipo": "Sanatorio",
+      "imagen": "LogoPin/CABA/ClínicadelosVirreyes.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/ClínicadelosVirreyes.jpg"
+    },
+    {
+      "nombre": "FLENI Belgrano",
+      "direccion": "Montañeses 2325, C1428AQK Cdad. Autónoma de Buenos Aires",
+      "lat": -34.55489467886923,
+      "lng": -58.45070492112692,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/FLENIBelgrano.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/FLENIBelgrano.jpg"
+    },
+    {
+      "nombre": "Instituto Alexander Fleming",
+      "direccion": "CrÁmer 1180, C1426 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.57133249007606,
+      "lng": -58.45183525921187,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/InstitutoAlexanderFleming.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/InstitutoAlexanderFleming.jpg"
+    },
+    {
+      "nombre": "Hospital de Clínicas José de San Martín",
+      "direccion": "Av. Córdoba 2351, C1120 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59893771172483,
+      "lng": -58.39982065972332,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitaldeClínicasJosédeSanMartín.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitaldeClínicasJosédeSanMartín.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Cosme Argerich",
+      "direccion": "Pi y Margall 750, C1155AHD Cdad. Autónoma de Buenos Aires",
+      "lat": -34.62725239843554,
+      "lng": -58.36550083642525,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalArgerich.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalArgerich.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Carlos Durand",
+      "direccion": "Av. Díaz Vélez 5044, C1405 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.60960127797651,
+      "lng": -58.437701521092556,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalCarlosDurand.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalCarlosDurand.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Juan A. Fernández",
+      "direccion": "Av. Cerviño 3356, C1425AGP Cdad. Autónoma de Buenos Aires",
+      "lat": -34.58107046893965,
+      "lng": -58.407459435926064,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalJuanFernández.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalJuanFernández.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Parmenio Piñero",
+      "direccion": "Av. Varela 1301, C1406 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.64391969655828,
+      "lng": -58.45468183641501,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalPiñero.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalPiñero.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Ignacio Pirovano",
+      "direccion": "Monroe 3555, C1430BKC Cdad. Autónoma de Buenos Aires",
+      "lat": -34.56419356244564,
+      "lng": -58.47067911371289,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalIgnacioPirovano.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalIgnacioPirovano.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos José María Ramos Mejía",
+      "direccion": "Gral. Urquiza 609, C1221ADC Cdad. Autónoma de Buenos Aires",
+      "lat": -34.617151218288974,
+      "lng": -58.409980474527494,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalRamosMejía.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalRamosMejía.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Bernardino Rivadavia",
+      "direccion": "Av. Gral. Las Heras 2670, C1425ASQ Cdad. Autónoma de Buenos Aires",
+      "lat": -34.58428672278099,
+      "lng": -58.401435859732466,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalRivadavia.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalRivadavia.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Donación F. Santojanni",
+      "direccion": "Pilar 950, C1408 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.64851822244534,
+      "lng": -58.51496177503628,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalSantojanni.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalSantojanni.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Teodoro Álvarez",
+      "direccion": "C. Dr. Juan Felipe Aranguren 2701, C1406 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.62299538693134,
+      "lng": -58.469740767115766,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalTeodoroÁlvarez.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalTeodoroÁlvarez.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Enrique Tornú",
+      "direccion": "Av. Combatientes de Malvinas 3002, C1427ARN Cdad. Autónoma de Buenos Aires",
+      "lat": -34.58601617126248,
+      "lng": -58.471475129043306,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalEnriqueTornú.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalEnriqueTornú.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dalmacio Vélez Sarsfield",
+      "direccion": "Pedro Calderón de la Barca 1550, C1407KQF Cdad. Autónoma de Buenos Aires",
+      "lat": -34.624877178666786,
+      "lng": -58.50778681314678,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalVélezSarsfield.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalVélezSarsfield.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dr. Abel Zubizarreta",
+      "direccion": "Nueva York 3952, C1419HDN Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59960548876061,
+      "lng": -58.51086859781855,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalZubizarreta.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalZubizarreta.jpg"
+    },
+    {
+      "nombre": "Hospital General de Agudos Dra. Cecilia Grierson",
+      "direccion": "Av. Gral. Francisco FernÁndez de la Cruz 4402, C1439 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.67139123590045,
+      "lng": -58.455647290365846,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalCeciliaGrierson.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalCeciliaGrierson.jpg"
+    },
+    {
+      "nombre": "Hospital Materno Infantil Ramón Sardá",
+      "direccion": "Esteban de Luca 2151, C1246 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.634078208588164,
+      "lng": -58.402840775045185,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalMaternoInfantilRamónSardá.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalMaternoInfantilRamónSardá.jpg"
+    },
+    {
+      "nombre": "Hospital de Pediatría Dr. Juan P. Garrahan",
+      "direccion": "Combate de Los Pozos 1881, C1245 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.630723544295925,
+      "lng": -58.39342789840602,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitaldePediatríaGarrahan.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitaldePediatríaGarrahan.jpg"
+    },
+    {
+      "nombre": "Hospital General de Niños Pedro de Elizalde",
+      "direccion": "Av. Montes de Oca 40, C1270 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.628358233500215,
+      "lng": -58.37625535970478,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalGeneraldeNiños.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalGeneraldeNiños.jpg"
+    },
+    {
+      "nombre": "Hospital de Niños Ricardo Gutiérrez",
+      "direccion": "Gallo 1330, C1425EFD Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59429143323769,
+      "lng": -58.411069329038654,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitaldeNiñosRicardoGutiérrez.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitaldeNiñosRicardoGutiérrez.jpg"
+    },
+    {
+      "nombre": "Hospital Militar Central",
+      "direccion": "Av. Luis María Campos 726, C1426 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.570558151238366,
+      "lng": -58.43678572811746,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalMilitarCentral.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalMilitarCentral.jpg"
+    },
+    {
+      "nombre": "Hospital Naval Buenos Aires",
+      "direccion": "Av. Patricias Argentinas 351, C1405 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.604363849864384,
+      "lng": -58.433108975063696,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/HospitalNavalBuenosAires.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalNavalBuenosAires.jpg"
+    },
+    {
+      "nombre": "Instituto de Oncología Ángel H. Roffo",
+      "direccion": "Av. S. Martín 5481, C1417 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.596045052892954,
+      "lng": -58.49506249782093,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/InstitutodeOncologíaRoffo.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/InstitutodeOncologíaRoffo.jpg"
+    },
+    {
+      "nombre": "Hospital de Gastroenterología Dr. Carlos B. Udaondo",
+      "direccion": "Av. Caseros 2061, C1264AAA Cdad. Autónoma de Buenos Aires",
+      "lat": -34.63351711570914,
+      "lng": -58.39137237504556,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/HospitalUdaondo.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalUdaondo.jpg"
+    },
+    {
+      "nombre": "Hospital Municipal de Oncología Marie Curie",
+      "direccion": "Av. Patricias Argentinas 150, C1405 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.60666314454097,
+      "lng": -58.43323560575046,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/HospitalMunicipaldeOncologíaMarieCurie.jpg",
+      "sector": "publico",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/HospitalMunicipaldeOncologíaMarieCurie.jpg"
+    },
+    {
+      "nombre": "CEGYR Medicina y Reproducción",
+      "direccion": "Viamonte 1432, C1055ABB Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59861016877382,
+      "lng": -58.39142508648397,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/CEGYRMedicinayReproducción.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Pregna Medicina Reproductiva",
+      "direccion": "Juncal 3490, C1425 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.58377361972987,
+      "lng": -58.41256968248458,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/Pregna.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Procrearte CABA",
+      "direccion": "Bulnes 1104, C1176ABV Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59824323151155,
+      "lng": -58.417851597819414,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/Procrearte.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "IVI Buenos Aires",
+      "direccion": "Soler 5552, C1425BYF Cdad. Autónoma de Buenos Aires",
+      "lat": -34.581248434899905,
+      "lng": -58.432358482486315,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/Ivi.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Centro Rossi",
+      "direccion": "Blanco Encalada 2557, C1428AAS Cdad. Autónoma de Buenos Aires",
+      "lat": -34.55834204153527,
+      "lng": -58.460425895903455,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/CentroRossi.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/CentroRossi.jpg"
+    },
+    {
+      "nombre": "Diagnóstico Médico S.A.",
+      "direccion": "Azcuénaga 910, C1115AAD Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59767540341477,
+      "lng": -58.40078901175509,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/DiagnósticoMédico.jpg",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/DiagnósticoMédico.jpg"
+    },
+    {
+      "nombre": "Sanatorio San Lucas",
+      "direccion": "Gral. Manuel Belgrano 363, B1642 San Isidro, Provincia de Buenos Aires",
+      "lat": -34.46971068108309,
+      "lng": -58.51041218523641,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/SanLucas.png",
+      "sector": "privado",
+      "prioridad": "blanco",
+      "logo": "LogoPin/CABA/SanLucas.jpg"
+    },
+    {
+      "nombre": "Fecunditas",
+      "direccion": "Larrea 790, C1120 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.59935082369952,
+      "lng": -58.40257548465456,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/Fecunditas.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Centro Medicus",
+      "direccion": "Azcuénaga 910, C1029 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5978353,
+      "lng": -58.4007036,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/CentroMedicus.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Centro Médico Monserrat",
+      "direccion": "Hipólito Yrigoyen 1210, C1086 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.6098,
+      "lng": -58.3836,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/CentroMonserrat.jpg",
+      "nomencladores": [
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150101",
+          "cantidad": 13,
+          "facturado": "$175.726,76"
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150102",
+          "cantidad": 45,
+          "facturado": "$1.024.305,38"
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150103",
+          "cantidad": 0,
+          "facturado": "$0"
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150104",
+          "cantidad": 0,
+          "facturado": "$0"
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150106",
+          "cantidad": 267,
+          "facturado": "$2.532.258,72"
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150111",
+          "cantidad": 0,
+          "facturado": "$0"
+        },
+        {
+          "tipo": "presencia",
+          "codigo": "Presencia Patologo",
+          "cantidad": 0
+        },
+        {
+          "tipo": "total",
+          "codigo": "Total",
+          "cantidad": 363
+        },
+        {
+          "tipo": "total facturado",
+          "codigo": "Facturacion total",
+          "cantidad": "$4.351.731,05"
+        }
+      ],
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Centro Médico Vilella",
+      "direccion": "Av. de los Incas 3536, C1426 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.574,
+      "lng": -58.4629,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/CentroVilella.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Clínica AMEBPBA",
+      "direccion": "Bartolomé Mitre 2040, C1039 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.6079,
+      "lng": -58.3956,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/AMEBPBA.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "IDIM",
+      "direccion": "Libertad 836, C1012AAR Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5987,
+      "lng": -58.3841,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/IDIM.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Instituto Quirúrgico del Callao",
+      "direccion": "Av. Callao 499, C1022AAE Cdad. Autónoma de Buenos Aires",
+      "lat": -34.6013,
+      "lng": -58.3921,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/IQDC.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Obra Social Luis Pasteur - Centro Médico Belgrano",
+      "direccion": "11 de Septiembre de 1888 2139, C1428 AIG, Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5581,
+      "lng": -58.4514,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/LP.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Obra Social Luis Pasteur - Centro Médico Congreso",
+      "direccion": "Tte. Gral. Juan Domingo Perón 1830, C1040AAB Cdad. Autónoma de Buenos Aires",
+      "lat": -34.6067,
+      "lng": -58.3926,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/CABA/LP.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Sanatorio Agote",
+      "direccion": "Dr. Luis Agote 2477, C1425EOE Cdad. Autónoma de Buenos Aires",
+      "lat": -34.5852,
+      "lng": -58.3946,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/Agote.jpg",
+      "nomencladores": [
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150101",
+          "cantidad": 0
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150102",
+          "cantidad": 0
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150103",
+          "cantidad": 0
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150104",
+          "cantidad": 0
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "150106",
+          "cantidad": 0
+        },
+        {
+          "tipo": "Nomenclador",
+          "codigo": "1501011",
+          "cantidad": 0
+        },
+        {
+          "tipo": "presencia",
+          "codigo": "Presencia Pátologo",
+          "cantidad": 0
+        },
+        {
+          "tipo": "total",
+          "codigo": "Total",
+          "cantidad": 0
+        },
+        {
+          "tipo": "total facturado",
+          "codigo": "Facturación total",
+          "cantidad": "Sin datos cargados"
+        }
+      ],
+      "sector": "privado",
+      "prioridad": "vighi"
+    },
+    {
+      "nombre": "Sanatorio de la Providencia",
+      "direccion": "Tucumán 1863, C1050 Cdad. Autónoma de Buenos Aires",
+      "lat": -34.6019496,
+      "lng": -58.3936574,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/CABA/Providencia.jpg",
+      "sector": "privado",
+      "prioridad": "vighi"
+    }
+  ],
+  "consultorios": []
+}

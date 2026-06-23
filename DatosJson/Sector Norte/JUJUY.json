@@ -1,0 +1,128 @@
+{
+  "nombre": "JUJUY",
+  "sector": "Sector Norte",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Pablo Soria",
+      "direccion": "Gral. Güemes 1345, Y4600APO San Salvador de Jujuy, Jujuy",
+      "lat": -24.18244401906803,
+      "lng": -65.31184117302243,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Jujuy/HospitalPabloSoria.jpg",
+      "logo": "LogoPin/Jujuy/HospitalPabloSoria.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Materno Infantil \"Dr. Héctor Quintana\"",
+      "direccion": "José Hernández 624, Y4600 San Salvador de Jujuy, Jujuy",
+      "lat": -24.181029319328715,
+      "lng": -65.31504803410911,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Jujuy/HospitalMaternoInfantil.jpg",
+      "logo": "LogoPin/Jujuy/HospitalMaternoInfantil.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Dr. Guillermo C. Paterson",
+      "direccion": "Av. Siria 44, Y4500 San Pedro de Jujuy, Jujuy",
+      "lat": -24.23418719574982,
+      "lng": -64.87187723438436,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Jujuy/HospitalGuillermoPaterson.jpg",
+      "logo": "LogoPin/Jujuy/HospitalGuillermoPaterson.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Nuestra Señora del Carmen",
+      "direccion": "San Martín 399, Y4603DOG El Carmen, Jujuy",
+      "lat": -24.382598663229395,
+      "lng": -65.26097551369648,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Jujuy/HospitalNuestraSeñoradelCarmen.jpg",
+      "logo": "LogoPin/Jujuy/HospitalNuestraSeñoradelCarmen.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Dr. Jorge Uro",
+      "direccion": "Patricias Argentinas 185, Y4650 La Quiaca, Jujuy",
+      "lat": -22.11020952262939,
+      "lng": -65.59758978658104,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Jujuy/HospitalJorgeUro.jpg",
+      "logo": "LogoPin/Jujuy/HospitalJorgeUro.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Los Lapachos",
+      "direccion": "Av. Hipolito Yrigoyen 596, Y4600 San Salvador de Jujuy, Jujuy",
+      "lat": -24.1901972313245,
+      "lng": -65.29719834418691,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Jujuy/ClinicaLosLapachos.jpg",
+      "logo": "LogoPin/Jujuy/ClinicaLosLapachos.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Mayo",
+      "direccion": "Gral. Álvear 1299, Y4600 San Salvador de Jujuy, Jujuy",
+      "lat": -24.184058104026644,
+      "lng": -65.3107059017104,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Jujuy/ClinicaMayo.jpg",
+      "logo": "LogoPin/Jujuy/ClinicaMayo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Arturo Zabala",
+      "direccion": "Leandro Niceforo Alem, Y4608 Perico, Jujuy",
+      "lat": -24.373722748007744,
+      "lng": -65.11861769814548,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/Jujuy/HospitalArturoZabala.jpg",
+      "logo": "LogoPin/Jujuy/HospitalArturoZabala.jpg",
+      "prioridad": "blanco",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Dr. Oscar Orias",
+      "direccion": "Registro Civil, Libertador Gral San Martín, Jujuy",
+      "lat": -23.833934339212203,
+      "lng": -64.79078119629098,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/Jujuy/HospitalRegionalOO.jpg",
+      "logo": "LogoPin/Jujuy/HospitalRegionalOO.jpg",
+      "prioridad": "blanco",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Nuestra Señora del Rosario",
+      "direccion": "Gral. Belgrano 340, Y4600 San Salvador de Jujuy, Jujuy",
+      "lat": -24.18463861690732,
+      "lng": -65.29790072327283,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/Jujuy/SanatorioNuestraSeñoradelRosario.jpg",
+      "logo": "LogoPin/Jujuy/SanatorioNuestraSeñoradelRosario.jpg",
+      "prioridad": "blanco",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto Medico del Norte",
+      "direccion": "Cnel. Otero 461, Y4600 San Salvador de Jujuy, Jujuy",
+      "lat": -24.183134803597813,
+      "lng": -65.30159465952723,
+      "tipo": "Centro Médico",
+      "imagen": "Logo/Jujuy/InstitutoMedicodelNorte.jpg",
+      "logo": "LogoPin/Jujuy/InstitutoMedicodelNorte.jpg",
+      "prioridad": "blanco",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

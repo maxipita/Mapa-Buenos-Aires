@@ -1,0 +1,62 @@
+{
+  "nombre": "TIERRA DEL FUEGO",
+  "sector": "Sector Sur",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Regional Rio Grande",
+      "direccion": "Florentino Ameghino 709, V9420 Río Grande, Tierra del Fuego",
+      "lat": -53.7817,
+      "lng": -67.6988,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tierra_del_Fuego/HospitalRegionalRG.jpg",
+      "logo": "LogoPin/Tierra_del_Fuego/HospitalRegionalRG.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Regional Gdor. Ernesto Campos",
+      "direccion": "Av. 12 de Octubre y Maipú, V9410 Ushuaia, Tierra del Fuego",
+      "lat": -54.8136,
+      "lng": -68.3236,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tierra_del_Fuego/HospitalRegionalGEC.jpg",
+      "logo": "LogoPin/Tierra_del_Fuego/HospitalRegionalGEC.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Fueguino",
+      "direccion": "Córdoba 748, V9420 Río Grande, Tierra del Fuego",
+      "lat": -53.7706,
+      "lng": -67.7098,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tierra_del_Fuego/SanatorioFuegino.jpg",
+      "logo": "LogoPin/Tierra_del_Fuego/SanatorioFuegino.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica CEMEP - Rio Grande",
+      "direccion": "Rio Grande: 20 de Junio 815, V9420 Río Grande, Tierra del Fuego",
+      "lat": -53.766,
+      "lng": -67.7123,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tierra_del_Fuego/ClinicaCemep.jpg",
+      "logo": "LogoPin/Tierra_del_Fuego/ClinicaCemep.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Privada del Oeste",
+      "direccion": "Onachaga 184, V9410BQC Ushuaia, Tierra del Fuego",
+      "lat": -54.8153,
+      "lng": -68.3258,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tierra_del_Fuego/ClinicaSanJorge.jpg",
+      "logo": "LogoPin/Tierra_del_Fuego/ClinicaSanJorge.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

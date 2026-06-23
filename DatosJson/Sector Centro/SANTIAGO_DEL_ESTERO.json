@@ -1,0 +1,139 @@
+{
+  "nombre": "SANTIAGO DEL ESTERO",
+  "sector": "Sector Centro",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Regional Ramón Carrillo",
+      "direccion": "Av. Belgrano Sur 2273, G4200 Santiago del Estero",
+      "lat": -27.804339969395542,
+      "lng": -64.25120566307031,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/HospitalRegionalRamonCarrillo.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/HospitalRegionalRamonCarrillo.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Independencia",
+      "direccion": "Av. Belgrano Nte. 660, G4200 Santiago del Estero",
+      "lat": -27.778488253373038,
+      "lng": -64.27087249430002,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/HospitalIndependencia.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/HospitalIndependencia.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Centro Provincial de Salud Infantil Eva Perón",
+      "direccion": "Misiones 1087, G4200 Santiago del Estero",
+      "lat": -27.778676607274562,
+      "lng": -64.27400093186725,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/CentroProvincialdeSaludInfantil.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/CentroProvincialdeSaludInfantil.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hogar de Madres Maternidad Dr. Faustino Herrera",
+      "direccion": "San Carlos Centro, G4300 La Banda, Santiago del Estero",
+      "lat": -27.73305881222387,
+      "lng": -64.24453096363519,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/MaternidadFaustinoHerrera.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/MaternidadFaustinoHerrera.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Zonal Añatuya",
+      "direccion": "José Ingenieros 106, G3760 Añatuya, Santiago del Estero",
+      "lat": -28.467489318320947,
+      "lng": -62.83863632463007,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/HospitalZonalAñatuya.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/HospitalZonalAñatuya.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Centro Integral de Salud La Banda",
+      "direccion": "San Martin 449, G4300 La Banda, Santiago del Estero",
+      "lat": -27.732489,
+      "lng": -64.237475,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/HospitalZonalLaBanda.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/HospitalZonalLaBanda.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Alvear",
+      "direccion": "Av. Moreno Sur 266, G4200 Santiago del Estero",
+      "lat": -27.78856492187016,
+      "lng": -64.26551027895094,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/SanatorioAlvear.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/SanatorioAlvear.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Yunes",
+      "direccion": "Av. Libertad 626, G4200 Santiago del Estero",
+      "lat": -27.78836775241763,
+      "lng": -64.26206341350326,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/ClinicaYunes.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/ClinicaYunes.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio 9 de Julio - Stgo. Del Estero",
+      "direccion": "9 de Julio 580, G4200 Santiago del Estero",
+      "lat": -27.785044202813104,
+      "lng": -64.25396477207266,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/Sanatorio9deJulio.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/Sanatorio9deJulio.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica del Sol SRL",
+      "direccion": "Av. Roca Sur 643, G4200 Santiago del Estero",
+      "lat": -27.78446783770354,
+      "lng": -64.25637347101669,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/ClinicadelSol.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/ClinicadelSol.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Galeno SRL",
+      "direccion": "Jujuy 450, G4200 Santiago del Estero",
+      "lat": -27.78158150422683,
+      "lng": -64.25967795511269,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/ClínicaGaleno.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/ClínicaGaleno.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Integral Mujer Santiago",
+      "direccion": "Sáenz Peña 120, G4300 La Banda, Santiago del Estero",
+      "lat": -27.73320533910675,
+      "lng": -64.24259420173101,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santiago_del_Estero/CentroIntegralMujer.jpg",
+      "logo": "LogoPin/Santiago_del_Estero/CentroIntegralMujer.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

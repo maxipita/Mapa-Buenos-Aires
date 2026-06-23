@@ -92,6 +92,7 @@
       "Bash(node generar_manual.js)",
       "Bash(NODE_PATH=\"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\" node generar_manual.js)",
       "Bash(node compare.js)",
+<<<<<<< HEAD
       "Bash(node create_corr_pptx.js)",
       "Bash(python __TRACKED_VAR__/scripts/office/validate.py C:/Users/tiago.baca/AppData/Local/Temp/Correcciones_QA.pptx)",
       "Bash(rm -rf corr_unpack)",
@@ -103,6 +104,26 @@
       "Bash(npm ls *)",
       "Bash(node -e \"console.log\\('pptxgenjs', require\\('pptxgenjs/package.json'\\).version\\)\")",
       "Bash(python create_corr_pptx.py)"
+=======
+      "Bash(python3)",
+      "Read(//c/Users/maximo.pita/AppData/Roaming/Claude/local-agent-mode-sessions/skills-plugin/250122e4-cf27-4937-8930-f3c16d2d8784/2b6e73e6-a142-4d81-b4e3-03d6bca5ce9c/skills/xlsx/**)",
+      "Bash(python -c \"import pandas as pd; df = pd.read_excel\\(r'C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\IHQ.xlsx'\\); print\\(df.to_string\\(\\)\\)\")",
+      "Bash(python)",
+      "Bash(cd \"C:\\\\Users\\\\maximo.pita\\\\OneDrive *)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(node crear_reporte_marcadores.js)",
+      "Bash(node crear_reporte_violeta.js)",
+      "Bash(node crear_reporte_una_hoja.js)",
+      "mcp__visualize__read_me",
+      "Bash(cd \"C:\\\\Users\\\\maximo.pita\\\\AppData\\\\Roaming\\\\Claude\\\\local-agent-mode-sessions\\\\skills-plugin\\\\250122e4-cf27-4937-8930-f3c16d2d8784\\\\2b6e73e6-a142-4d81-b4e3-03d6bca5ce9c\\\\skills\\\\pptx\" *)",
+      "Bash(\"C:\\\\Program Files\\\\LibreOffice\\\\program\\\\soffice.exe\" --headless --convert-to pdf \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Docs\\\\Ptx Javi\\\\Plan Contingencia.pptx\" --outdir .)",
+      "PowerShell(Start-Process \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagn�stico Susana Vighi SRL\\\\Escritorio\\\\Docs\\\\Ptx Javi\\\\Plan Contingencia.pptx\")",
+      "Bash(node crear_protocolo_muestras.js)",
+      "Bash(node crear_protocolo_una_hoja.js)",
+      "Bash(cp \"C:\\\\Users\\\\maximo.pita\\\\Desktop\\\\Protocolo_Muestras_Una_Hoja.pptx\" \"C:\\\\Users\\\\maximo.pita\\\\OneDrive - Centro de diagnóstico Susana Vighi SRL\\\\Escritorio\\\\Protocolo_Muestras_Una_Hoja.pptx\" && echo \"Copiado a OneDrive Escritorio\")",
+      "Bash(powershell -Command ' *)"
+>>>>>>> 66a7d09a04b25bbfcaa458fa6a147c81b2672355
     ]
   }
 }

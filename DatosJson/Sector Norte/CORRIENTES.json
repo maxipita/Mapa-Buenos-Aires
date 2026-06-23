@@ -1,0 +1,194 @@
+{
+  "nombre": "CORRIENTES",
+  "sector": "Sector Norte",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Escuela \"José de San Martín\"",
+      "direccion": "Av. 3 de Abril 1224, W3410 Corrientes",
+      "lat": -27.47515582208,
+      "lng": -58.83561443307918,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/HospitalEscuelaJoséSanMartín.jpg",
+      "logo": "LogoPin/Corrientes/HospitalEscuelaJoséSanMartín.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital José Ramón Vidal",
+      "direccion": "José Ramón Vidal 1902, W3410 Corrientes",
+      "lat": -27.479022811918917,
+      "lng": -58.838894940484934,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/HospitalJoséRamónVidal.jpg",
+      "logo": "LogoPin/Corrientes/HospitalJoséRamónVidal.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital \"Ángela Iglesia de Llano\"",
+      "direccion": "Av. Ayacucho 3298, W3402 Corrientes",
+      "lat": -27.471782336458734,
+      "lng": -58.81077828652062,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/HospitalAngelaIglesiadeLlano.jpg",
+      "logo": "LogoPin/Corrientes/HospitalAngelaIglesiadeLlano.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Pediátrico Juan Pablo II",
+      "direccion": "Av. Artigas 1435, W3400 Corrientes",
+      "lat": -27.475315418098564,
+      "lng": -58.82085838566248,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/HospitalPediátricoJuanPabloII.jpg",
+      "logo": "LogoPin/Corrientes/HospitalPediátricoJuanPabloII.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Zonal Dr. Camilo Muniagurria",
+      "direccion": "Av. Mazzanti 550, W3450 Goya, Corrientes",
+      "lat": -29.13615517148704,
+      "lng": -59.24696843961919,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/HospitalZonalGoya.jpg",
+      "logo": "LogoPin/Corrientes/HospitalZonalGoya.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Las Mercedes",
+      "direccion": "Juan Ramon Lacour 1051, W3470 Mercedes, Corrientes",
+      "lat": -29.187902092651623,
+      "lng": -58.077939785622966,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/HospitalLasMercedes.jpg",
+      "logo": "LogoPin/Corrientes/HospitalLasMercedes.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital San Jose",
+      "direccion": "Av. Di Tomaso 1700, W3230 Paso de los Libres, Corrientes",
+      "lat": -29.71132875912032,
+      "lng": -57.10560778760712,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/HospitalSanJose.jpg",
+      "logo": "LogoPin/Corrientes/HospitalSanJose.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Centro Oncológico Anna Rocca de Bonatti",
+      "direccion": "Berón de Astrada 1350, W3460 Curuzu Cuatia, Corrientes",
+      "lat": -29.789673961722624,
+      "lng": -58.06309152392088,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/CentroOncologicoAnnaRoccadeBonatti.jpg",
+      "logo": "LogoPin/Corrientes/CentroOncologicoAnnaRoccadeBonatti.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Instituto de Cardiología de Corrientes \"Juana Francisca Cabral\"",
+      "direccion": "Bolívar 1334, W3400CDS Corrientes",
+      "lat": -27.470736082291275,
+      "lng": -58.83501518255265,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/InstitutodeCardiologíadeCorrientes.JPG",
+      "logo": "LogoPin/Corrientes/InstitutodeCardiologíadeCorrientes.JPG",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio del Norte SRL",
+      "direccion": "Carlos Pellegrini 1354, W3400 Corrientes",
+      "lat": -27.465213116093175,
+      "lng": -58.83343600980406,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/SanatoriodelNorte.jpg",
+      "logo": "LogoPin/Corrientes/SanatoriodelNorte.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio San Juan",
+      "direccion": "San Juan 975, W3400CBJ Corrientes",
+      "lat": -27.46815718957653,
+      "lng": -58.836756331881105,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/SanatorioSanJuan.jpg",
+      "logo": "LogoPin/Corrientes/SanatorioSanJuan.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Maternal del Iberá",
+      "direccion": "Córdoba 420, W3400 Corrientes",
+      "lat": -27.46227049852774,
+      "lng": -58.83399293630618,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/ClínicaMaternaldelIberá.jpg",
+      "logo": "LogoPin/Corrientes/ClínicaMaternaldelIberá.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica del Sol - Corrientes",
+      "direccion": "Medrano 1612, W3408KGD Corrientes",
+      "lat": -27.481386412545554,
+      "lng": -58.79851814048364,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/ClínicadelSol.jpg",
+      "logo": "LogoPin/Corrientes/ClínicadelSol.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica El Modelo SRL",
+      "direccion": "Mariano Moreno 1343, W3400ACY Corrientes",
+      "lat": -27.47263980821701,
+      "lng": -58.834574663239884,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/ClinicaElModelo.jpg",
+      "logo": "LogoPin/Corrientes/ClinicaElModelo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio y Maternidad Mercedes",
+      "direccion": "Alvear S/N, W3470 Mercedes, Corrientes",
+      "lat": -29.182753022382872,
+      "lng": -58.078905878218215,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/SANATORIOYMATERNIDADMERCEDES.jpg",
+      "logo": "LogoPin/Corrientes/SANATORIOYMATERNIDADMERCEDES.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Curuzú Cuatiá SRL",
+      "direccion": "Juan de Vera 765, W3460 Curuzú Cuatiá, Corrientes",
+      "lat": -29.789047242148047,
+      "lng": -58.05626727503494,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/SanatorioCuruzuCuatia.jpg",
+      "logo": "LogoPin/Corrientes/SanatorioCuruzuCuatia.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica Virasoro",
+      "direccion": "Arturo Navajas S/N, W3342 Gdor. Virasoro, Corrientes",
+      "lat": -28.053280630220296,
+      "lng": -56.02357289415835,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Corrientes/ClínicaVirasoro.jpg",
+      "logo": "LogoPin/Corrientes/ClínicaVirasoro.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

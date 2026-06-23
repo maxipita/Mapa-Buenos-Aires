@@ -1,0 +1,139 @@
+{
+  "nombre": "CHUBUT",
+  "sector": "Sector Sur",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Regional Comodoro Rivadavia",
+      "direccion": "Av. Hipólito Yrigoyen 950, U9000 Comodoro Rivadavia, Chubut",
+      "lat": -45.8682,
+      "lng": -67.4875,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/HospitalRegional.jpg",
+      "logo": "LogoPin/Chubut/HospitalRegional.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Zonal Trelew Adolfo Margara",
+      "direccion": "Pellegrini, 28 de Julio &, Trelew, Chubut",
+      "lat": -43.2554,
+      "lng": -65.3108,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/HospitalZonalTrelew.jpg",
+      "logo": "LogoPin/Chubut/HospitalZonalTrelew.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Zonal Andres Isola",
+      "direccion": "Agustín Pujol 251, U9120 Puerto Madryn, Chubut",
+      "lat": -42.7588,
+      "lng": -65.0409,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/HospitalZonalAndresIsola.jpg",
+      "logo": "LogoPin/Chubut/HospitalZonalAndresIsola.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Zonal Esquel",
+      "direccion": "25 de Mayo 150, U9200 Esquel, Chubut",
+      "lat": -42.9178,
+      "lng": -71.3158,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/HospitalZonalEsquel.jpg",
+      "logo": "LogoPin/Chubut/HospitalZonalEsquel.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Alvear",
+      "direccion": "Juan Ramón Balcarce, Comodoro Rivadavia, Chubut",
+      "lat": -45.8343,
+      "lng": -67.4617,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/HospitalAlvear.jpg",
+      "logo": "LogoPin/Chubut/HospitalAlvear.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Clinica Pueyrredón",
+      "direccion": "Cnel. Jose V de Gral. Olavarría 292, U9003EXF Comodoro Rivadavia, Chubut",
+      "lat": -45.8816,
+      "lng": -67.5203,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/ClinicaPueyrredon.jpg",
+      "logo": "LogoPin/Chubut/ClinicaPueyrredon.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio La Española",
+      "direccion": "Bartolomé Mitre 860, U9000 Comodoro Rivadavia, Chubut",
+      "lat": -45.8614,
+      "lng": -67.4832,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/SanatorioLaEspañola.jpg",
+      "logo": "LogoPin/Chubut/SanatorioLaEspañola.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Trelew",
+      "direccion": "Pecoraro 460, U9100 Trelew, Chubut",
+      "lat": -43.2559,
+      "lng": -65.3147,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/SanatorioTrelew.jpg",
+      "logo": "LogoPin/Chubut/SanatorioTrelew.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica del Valle",
+      "direccion": "Av. Alsina 656, U9003AAJ Comodoro Rivadavia, Chubut",
+      "lat": -45.8635,
+      "lng": -67.4939,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/ClinicadelValle.jpg",
+      "logo": "LogoPin/Chubut/ClinicadelValle.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Esquel",
+      "direccion": "Gral. Roca 543, U9200 Esquel, Chubut",
+      "lat": -42.9151,
+      "lng": -71.3208,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/ClinicaEsquel.jpg",
+      "logo": "LogoPin/Chubut/ClinicaEsquel.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Los Alerces",
+      "direccion": "Antártida Argentina 586, U9200 Esquel, Chubut",
+      "lat": -42.9197,
+      "lng": -71.3277,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/ClinicaLosAlerces.jpg",
+      "logo": "LogoPin/Chubut/ClinicaLosAlerces.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "GES Gastroenterologia y Endoscopia del Sur",
+      "direccion": "Urquiza 675, U9002 Comodoro Rivadavia, Chubut",
+      "lat": -45.8636,
+      "lng": -67.4921,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Chubut/GES.jpg",
+      "logo": "LogoPin/Chubut/GES.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

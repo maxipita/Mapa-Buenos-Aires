@@ -1,0 +1,194 @@
+{
+  "nombre": "SALTA",
+  "sector": "Sector Norte",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Publico Materno Infantil",
+      "direccion": "Av. Sarmiento 1301, A4400 Salta",
+      "lat": -24.77137952112103,
+      "lng": -65.41531954179838,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/HospitalPublicoMaternoInfantil.jpg",
+      "logo": "LogoPin/Salta/HospitalPublicoMaternoInfantil.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital San Bernardo",
+      "direccion": "Av. José Tobias 69, A4400 Salta",
+      "lat": -24.79124268466134,
+      "lng": -65.39955476506957,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/HospitalSanBernardo.jpg",
+      "logo": "LogoPin/Salta/HospitalSanBernardo.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Señor del Milagro",
+      "direccion": "Av. Sarmiento 557, A4400 Salta",
+      "lat": -24.782531629338575,
+      "lng": -65.41609382699589,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/HospitalSeñordelMilagro.jpg",
+      "logo": "LogoPin/Salta/HospitalSeñordelMilagro.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Papa Francisco",
+      "direccion": "Calle C. Perdiguero, A4400 Salta",
+      "lat": -24.83919044833858,
+      "lng": -65.39134873670211,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/HospitalPápaFrancisco.jpg",
+      "logo": "LogoPin/Salta/HospitalPápaFrancisco.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Dr. Arturo Oñativia - Salta",
+      "direccion": "Ramón Carrillo 1339, A4400 Salta",
+      "lat": -24.78942807351492,
+      "lng": -65.39850836135493,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/HospitalArturoOñativia.jpg",
+      "logo": "LogoPin/Salta/HospitalArturoOñativia.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital de Tartagal Juan Domingo Perón",
+      "direccion": "Alberdi 855, A4560 Tartagal, Salta",
+      "lat": -22.51730604855461,
+      "lng": -63.79802727492005,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/HospitalJuanDomingoPeronTartagal.jpg",
+      "logo": "LogoPin/Salta/HospitalJuanDomingoPeronTartagal.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital San Vicente de Paul",
+      "direccion": "Pueyrredón, A4530 San Ramón de la Nueva Orán, Salta",
+      "lat": -23.143495167035102,
+      "lng": -64.32420550373776,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/HospitalSanVicentedePaulOran.jpg",
+      "logo": "LogoPin/Salta/HospitalSanVicentedePaulOran.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Santa Clara",
+      "direccion": "Urquiza 964, A4400 Salta",
+      "lat": -24.79167229714372,
+      "lng": -65.41594535950838,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/ClinicaSantaClaradeAsis.jpg",
+      "logo": "LogoPin/Salta/ClinicaSantaClaradeAsis.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio El Carmen",
+      "direccion": "Av. Belgrano 875, A4400 Salta",
+      "lat": -24.78687091296532,
+      "lng": -65.41482522421838,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/SanatorioElCarmen.jpg",
+      "logo": "LogoPin/Salta/SanatorioElCarmen.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Modelo Salta",
+      "direccion": "Gral. Mitre 484, A4400 Salta",
+      "lat": -24.783837664741075,
+      "lng": -65.41014075950861,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/SanatorioModelo.jpg",
+      "logo": "LogoPin/Salta/SanatorioModelo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio San Roque",
+      "direccion": "Av. del Bicentenario de la Batalla de Salta 1518, A4408 Salta",
+      "lat": -24.77000898487945,
+      "lng": -65.39738077526785,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/SanatorioSanRoque.jpg",
+      "logo": "LogoPin/Salta/SanatorioSanRoque.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Cruz Azul - Salta",
+      "direccion": "Alberdi 359, A4402 Salta",
+      "lat": -24.793391053019434,
+      "lng": -65.41117304049065,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/ClinicaCruzAzul.jpg",
+      "logo": "LogoPin/Salta/ClinicaCruzAzul.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto de Medicina CENESA",
+      "direccion": "Zabala 432, A4400 Salta",
+      "lat": -24.80239025064143,
+      "lng": -65.41001533621235,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/CENESA.jpg",
+      "logo": "LogoPin/Salta/CENESA.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Mater - Ginecología y Obstetricia",
+      "direccion": "12 de Octubre 254, A4400 Salta",
+      "lat": -24.774961122958675,
+      "lng": -65.40489340368502,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/MATER.jpg",
+      "logo": "LogoPin/Salta/MATER.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Privado Tres Cerritos",
+      "direccion": "Bartolomé Mitre 656, A4400 Salta",
+      "lat": -24.7818862275048,
+      "lng": -65.41021738471807,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/HospitalTresCerritos.jpg",
+      "logo": "LogoPin/Salta/HospitalTresCerritos.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro de Salud Ciudad del Milagro",
+      "direccion": "Gral. Juan Sánchez 743, A4400 Salta",
+      "lat": -24.723652105632723,
+      "lng": -65.40838143067526,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Salta/CentrodeSaludN11.jpg",
+      "logo": "LogoPin/Salta/CentrodeSaludN11.jpg",
+      "sector": "privado"
+    },
+    {
+      "lat": -24.74396605987003,
+      "prioridad": "blanco",
+      "nombre": "Centro Médico San Lorenzo",
+      "imagen": "Logo/Salta/ClinicaSanLoreno.jpg",
+      "logo": "LogoPin/Salta/ClinicaSanLoreno.jpg",
+      "direccion": "Av. San Martín 866, A4401 Villa San Lorenzo, Salta",
+      "tipo": "Centro Médico",
+      "lng": -65.48430873550498,
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

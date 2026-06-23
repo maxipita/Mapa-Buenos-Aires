@@ -1,0 +1,106 @@
+{
+  "nombre": "CATAMARCA",
+  "sector": "Sector Cordillera",
+  "sanatorios": [
+    {
+      "nombre": "Hospital San Juan Bautista",
+      "direccion": "Av. Arturo Illia, Mariano Moreno Nte. y, K4700 San Fernando del Valle de Catamarca, Catamarca",
+      "lat": -28.4614,
+      "lng": -65.7904,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Catamarca/HospitalSanJuanBautista.jpg",
+      "logo": "LogoPin/Catamarca/HospitalSanJuanBautista.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Maternidad Provincial 25 de Mayo",
+      "direccion": "Hernando de Pedraza 1550, K4700 San Fernando del Valle de Catamarca, Catamarca",
+      "lat": -28.4655,
+      "lng": -65.7625,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Catamarca/MaternidadProvincial25deMayo.jpg",
+      "logo": "LogoPin/Catamarca/MaternidadProvincial25deMayo.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital de Niños Eva Peron",
+      "direccion": "Av. Virgen del Valle 1050, K4700 San Fernando del Valle de Catamarca, Catamarca",
+      "lat": -28.4742,
+      "lng": -65.7862,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Catamarca/HospitaldeNiñosEvaPeron.jpg",
+      "logo": "LogoPin/Catamarca/HospitaldeNiñosEvaPeron.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Jose Chaín Herrera",
+      "direccion": "Andalgalá, Catamarca",
+      "lat": -27.567,
+      "lng": -66.321,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Catamarca/HospitalJoseChaínHerrera.jpg",
+      "logo": "LogoPin/Catamarca/HospitalJoseChaínHerrera.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital San José - Catamarca",
+      "direccion": "K4139 San Jose, Catamarca",
+      "lat": -26.7998,
+      "lng": -66.0687,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Catamarca/HospitalSanJosé.jpg",
+      "logo": "LogoPin/Catamarca/HospitalSanJosé.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Pasteur",
+      "direccion": "Chacabuco 675, K4703AFI San Fernando del Valle de Catamarca, Catamarca",
+      "lat": -28.4706,
+      "lng": -65.777,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Catamarca/SanatorioPasteur.jpg",
+      "logo": "LogoPin/Catamarca/SanatorioPasteur.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Junín - Catamarca",
+      "direccion": "Junín 369 K4700, K4700 San Fernando del Valle de Catamarca, Catamarca",
+      "lat": -28.4653,
+      "lng": -65.7833,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Catamarca/SanatorioJunín.jpg",
+      "logo": "LogoPin/Catamarca/SanatorioJunín.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica del Valle",
+      "direccion": "San Martín 1050, K4700 San Fernando del Valle de Catamarca, Catamarca",
+      "lat": -28.4686,
+      "lng": -65.7718,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Catamarca/ClinicadelValle.jpg",
+      "logo": "LogoPin/Chubut/ClinicadelValle.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto Medico de la Comunidad",
+      "direccion": "Salta 31, K4700 San Fernando del Valle de Catamarca, Catamarca",
+      "lat": -28.4608,
+      "lng": -65.7771,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Catamarca/InstitutoMedicodelaComunidad.jpg",
+      "logo": "LogoPin/Catamarca/InstitutoMedicodelaComunidad.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

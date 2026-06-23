@@ -1,0 +1,62 @@
+{
+  "nombre": "SAN LUIS",
+  "sector": "Sector Centro",
+  "sanatorios": [
+    {
+      "nombre": "Clínica Privada Italia",
+      "direccion": "Av. Italia 2124, D5702 San Luis",
+      "lat": -33.285569021973295,
+      "lng": -66.34270979192577,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Luis/ClínicaPrivadaItalia.jpg",
+      "logo": "LogoPin/San_Luis/ClínicaPrivadaItalia.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clínica del Aconcagua",
+      "direccion": "Gral. Paz 1516, D5732 Villa Mercedes, San Luis",
+      "lat": -33.57899816842125,
+      "lng": -65.47801833172149,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Luis/ClínicaAconcagua.jpg",
+      "logo": "LogoPin/San_Luis/ClínicaAconcagua.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio y Clínica Rivadavia",
+      "direccion": "Rivadavia 1059, D5700 San Luis",
+      "lat": -33.29751902715842,
+      "lng": -66.33714172983579,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Luis/SanatorioRivadavia.jpg",
+      "logo": "LogoPin/San_Luis/SanatorioRivadavia.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Del Valle",
+      "direccion": "Av. del Centenario 529, D5773 Tilisarao, San Luis",
+      "lat": -32.728400452891044,
+      "lng": -65.28831079239774,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Luis/ClinicadelValle.jpg",
+      "logo": "LogoPin/San_Luis/ClinicadelValle.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro de Salud \"La Pilar\" - San Luis",
+      "direccion": "Presidente Perón 911, D5700 San Luis",
+      "lat": -33.297866,
+      "lng": -66.328379,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/San_Luis/CentrodeEspecialidadesMédicas.jpg",
+      "logo": "LogoPin/San_Luis/CentrodeEspecialidadesMédicas.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

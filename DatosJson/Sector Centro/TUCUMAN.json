@@ -1,0 +1,183 @@
+{
+  "nombre": "TUCUMAN",
+  "sector": "Sector Centro",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Ángel C. Padilla",
+      "direccion": "Juan Bautista Alberdi 550, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.83566854485154,
+      "lng": -65.21571212546442,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/HospitalPadilla.jpg",
+      "logo": "LogoPin/Tucuman/HospitalPadilla.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Centro de Salud Dr. Zenón J. Santillán",
+      "direccion": "Av. Nicolás Avellaneda 750, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.821273661009638,
+      "lng": -65.19564448684741,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/HospitalCentrodeSaludZenonSantillan.jpg",
+      "logo": "LogoPin/Tucuman/HospitalCentrodeSaludZenonSantillan.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Instituto de Maternidad y Ginecología Nuestra Señora de las Mercedes",
+      "direccion": "Av. Mate de Luna 1535, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.826674361672858,
+      "lng": -65.22134324028468,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/InstitutoMaternidad.jpg",
+      "logo": "LogoPin/Tucuman/InstitutoMaternidad.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital de Clínicas Dr. Nicolás Avellaneda",
+      "direccion": "Catamarca 2000, T4001 San Miguel de Tucumán, Tucumán",
+      "lat": -26.80147243628318,
+      "lng": -65.20527593062124,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/HospitaldeClínicas.jpg",
+      "logo": "LogoPin/Tucuman/HospitaldeClínicas.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Del Este",
+      "direccion": "Camino del Carmen, Ruta Nacional 9, T4109 Banda del Río Salí, Tucumán",
+      "lat": -26.85254258575218,
+      "lng": -65.16501845667241,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/HospitalDelEste.jpg",
+      "logo": "LogoPin/Tucuman/HospitalDelEste.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Regional de Concepción",
+      "direccion": "San Luis 150, T4146 Concepción, Tucumán",
+      "lat": -27.344914945343124,
+      "lng": -65.60405936383307,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/HospitalRegionaldeConcepcion.jpg",
+      "logo": "LogoPin/Tucuman/HospitalRegionaldeConcepcion.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio 9 de Julio - Tucumán",
+      "direccion": "25 de Mayo 372, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.826062330364568,
+      "lng": -65.20383288684543,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/Sanatorio9deJulio.jpg",
+      "logo": "LogoPin/Tucuman/Sanatorio9deJulio.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio del Norte",
+      "direccion": "Maipú 617, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.8212514590551,
+      "lng": -65.20531304081551,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/SanatoriodelNorte.jpg",
+      "logo": "LogoPin/Tucuman/SanatoriodelNorte.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Rivadavia",
+      "direccion": "Virgen de la Merced 546, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.823744161996814,
+      "lng": -65.20035471753428,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/SanatorioRivadavia.jpg",
+      "logo": "LogoPin/Tucuman/SanatorioRivadavia.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Modelo Tucumán",
+      "direccion": "25 de Mayo 559, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.822799883145596,
+      "lng": -65.20320005907013,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/SanatorioModelo.jpg",
+      "logo": "LogoPin/Tucuman/SanatorioModelo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Mayo Tucumán",
+      "direccion": "9 de Julio 279, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.834304580797482,
+      "lng": -65.20581377724821,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/ClinicaMayo.jpg",
+      "logo": "LogoPin/Tucuman/ClinicaMayo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Del Sol",
+      "direccion": "Catamarca 250, T4158 Juan Bautista Alberdi, Tucumán",
+      "lat": -27.59010988155933,
+      "lng": -65.6194478705836,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/SanatoriodelSol.jpg",
+      "logo": "LogoPin/Tucuman/SanatoriodelSol.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Medico Integral Tucumán",
+      "direccion": "Marcos Paz 1366, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.81822696180184,
+      "lng": -65.21508091039296,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/CentroMedicoIntegral.jpg",
+      "logo": "LogoPin/Tucuman/CentroMedicoIntegral.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Clinica Integral para La Mujer",
+      "direccion": "Jujuy 111, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.830363,
+      "lng": -65.211003,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/ClinicaIntegralparaLaMujer.jpg",
+      "logo": "LogoPin/Tucuman/ClinicaIntegralparaLaMujer.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Médico Reproducir",
+      "direccion": "Virgen de la Merced 420, T4000 San Miguel de Tucumán, Tucumán",
+      "lat": -26.824309328772603,
+      "lng": -65.2019925780756,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/CentroMédicoReproducir.jpg",
+      "logo": "LogoPin/Tucuman/CentroMédicoReproducir.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Médico Yerba Buena",
+      "direccion": "Cariola 1681, T4107 Yerba Buena, Tucumán",
+      "lat": -26.814449287188005,
+      "lng": -65.29359638470976,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Tucuman/CentroMedicoYerbaBuena.jpg",
+      "logo": "LogoPin/Tucuman/CentroMedicoYerbaBuena.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

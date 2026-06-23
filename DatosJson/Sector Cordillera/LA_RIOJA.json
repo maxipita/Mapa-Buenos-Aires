@@ -1,0 +1,84 @@
+{
+  "nombre": "LA RIOJA",
+  "sector": "Sector Cordillera",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Regional Dr. Enrique Vera Bar",
+      "direccion": "Madre Teresa de Calcuta, F5300 La Rioja",
+      "lat": -29.4129315007368,
+      "lng": -66.83576811618993,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Rioja/Hospital Regional.jpg",
+      "logo": "LogoPin/La_Rioja/Hospital Regional.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital de la Madre y el Niño - La Rioja",
+      "direccion": "1 de Marzo, La Rioja",
+      "lat": -29.43000999605148,
+      "lng": -66.84204577014846,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Rioja/HospitaldelaMadreyelNiño.jpg",
+      "logo": "LogoPin/La_Rioja/HospitaldelaMadreyelNiño.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Eleazar Herrera Motta",
+      "direccion": "Profesor Gregorio Cavero 500, F5360 Chilecito, La Rioja",
+      "lat": -29.16876566730889,
+      "lng": -67.48854227769756,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Rioja/HospitalEleazarHerreraMotta.jpg",
+      "logo": "LogoPin/La_Rioja/HospitalEleazarHerreraMotta.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Luis Agote",
+      "direccion": "Constantino Carbel, Chamical, La Rioja",
+      "lat": -30.365899644876823,
+      "lng": -66.31747326963483,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Rioja/HospitalLuisAgote.jpg",
+      "logo": "LogoPin/La_Rioja/HospitalLuisAgote.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Rioja",
+      "direccion": "Av. Facundo Quiroga 1117, F5300 La Rioja",
+      "lat": -29.42289461764828,
+      "lng": -66.8596555542612,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Rioja/SanatorioRiojaSA.jpg",
+      "logo": "LogoPin/La_Rioja/SanatorioRiojaSA.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Incor Consultorios Médicos",
+      "direccion": "Baltazar Jaramillo 139, F5300 La Rioja",
+      "lat": -29.41070985789708,
+      "lng": -66.84932978131565,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Rioja/Incor.jpg",
+      "logo": "LogoPin/La_Rioja/Incor.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto Medico Quirurgico Mercado Luna",
+      "direccion": "Juan Bautista Alberdi 779, F5300 La Rioja",
+      "lat": -29.409581470736676,
+      "lng": -66.85946730084771,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/La_Rioja/InstitutoMedicoQuirurgicoML.jpg",
+      "logo": "LogoPin/La_Rioja/InstitutoMedicoQuirurgicoML.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}

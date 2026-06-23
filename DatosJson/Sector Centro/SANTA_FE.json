@@ -1,0 +1,271 @@
+{
+  "nombre": "SANTA FE",
+  "sector": "Sector Centro",
+  "sanatorios": [
+    {
+      "nombre": "Hospital José María Cullen",
+      "direccion": "Av. Gdor. Freyre 2138, S3000 Santa Fe",
+      "lat": -31.648423841160753,
+      "lng": -60.71877979279932,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/HospitalJoseMariaCullen.jpg",
+      "logo": "LogoPin/Santa_Fe/HospitalJoseMariaCullen.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital J.B. Iturraspe",
+      "direccion": "Berutti 5650, S3000 Santa Fe",
+      "lat": -31.583808,
+      "lng": -60.728155,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/HospitalJIturraspe.jpg",
+      "logo": "LogoPin/Santa_Fe/HospitalJIturraspe.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Dr. Orlando Alassia",
+      "direccion": "Mendoza 4151, S3000 Santa Fe",
+      "lat": -31.643773928943816,
+      "lng": -60.727622099597504,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/HospitaldeNiñosOrlandoAlassia.jpg",
+      "logo": "LogoPin/Santa_Fe/HospitaldeNiñosOrlandoAlassia.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Garay",
+      "direccion": "Rivadavia 3130, S3000 Santa Fe",
+      "lat": -31.640186393982905,
+      "lng": -60.702270848596044,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SanatorioGaray.jpg",
+      "logo": "LogoPin/Santa_Fe/SanatorioGaray.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Diagnostico Santa Fe",
+      "direccion": "25 de Mayo 3240, S3000 Santa Fe",
+      "lat": -31.638143204488117,
+      "lng": -60.70354293028879,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SanatorioDiagnostico.jpg",
+      "logo": "LogoPin/Santa_Fe/SanatorioDiagnostico.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Americano",
+      "direccion": "Candido Pujato 3098, S3000 Santa Fe",
+      "lat": -31.63265747241223,
+      "lng": -60.708101007540236,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SanatorioAmericano.jpg",
+      "logo": "LogoPin/Santa_Fe/SanatorioAmericano.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Grupo MIT - Medicina Interdisciplinaria y Trasplante",
+      "direccion": "Av. Gdor. Freyre 3074, S3000 Santa Fe",
+      "lat": -31.63791412551298,
+      "lng": -60.71602436069741,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/GrupoMIT.jpg",
+      "logo": "LogoPin/Santa_Fe/GrupoMIT.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Mayo",
+      "direccion": "Suipacha 2453, S3000 Santa Fe de la Vera Cruz, Santa Fe",
+      "lat": -31.592876677738243,
+      "lng": -60.681218237226695,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SanatorioMayo.jpg",
+      "logo": "LogoPin/Santa_Fe/SanatorioMayo.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital de Emergencias Dr. Clemente Álvarez",
+      "direccion": "Av. Pellegrini 3205, S2000 Rosario, Santa Fe",
+      "lat": -32.9520776756932,
+      "lng": -60.67030799089142,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/HECA.jpg",
+      "logo": "LogoPin/Santa_Fe/HECA.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Provincial del Centenario",
+      "direccion": "Urquiza 3101, S2002 Rosario, Santa Fe",
+      "lat": -32.93805047236526,
+      "lng": -60.66503610677196,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/HospitalProvincialdelCentenario.jpg",
+      "logo": "LogoPin/Santa_Fe/HospitalProvincialdelCentenario.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Roque Sáenz Peña",
+      "direccion": "Laprida 5381 Sur, S2011 Rosario, Santa Fe",
+      "lat": -32.998714740823665,
+      "lng": -60.64669247604757,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/HospitalRoqueSaenzPeña.jpg",
+      "logo": "LogoPin/Santa_Fe/HospitalRoqueSaenzPeña.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Parque",
+      "direccion": "Blvd. Oroño 860, S2000 Rosario, Santa Fe",
+      "lat": -32.94406608995157,
+      "lng": -60.65429752158424,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SanatorioParque.jpg",
+      "logo": "LogoPin/Santa_Fe/SanatorioParque.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Británico",
+      "direccion": "Paraguay 40, S2000 Rosario, Santa Fe",
+      "lat": -32.93626389440974,
+      "lng": -60.642241275556785,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SanatorioBritanico.jpg",
+      "logo": "LogoPin/Santa_Fe/SanatorioBritanico.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Gammalab | Grupo Gamma",
+      "direccion": "Catamarca 1367, S2000 Rosario, Santa Fe",
+      "lat": -32.93915121797311,
+      "lng": -60.64034216415355,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/GrupoGamma.jpg",
+      "logo": "LogoPin/Santa_Fe/GrupoGamma.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio de La Mujer",
+      "direccion": "San Luis 2483, S2002 Rosario, Santa Fe",
+      "lat": -32.944891,
+      "lng": -60.656941,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SanatoriodelaMujer.jpg",
+      "logo": "LogoPin/Santa_Fe/SanatoriodelaMujer.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Mapaci",
+      "direccion": "Blvd. Oroño 1458, S2000 Rosario, Santa Fe",
+      "lat": -32.95153701569548,
+      "lng": -60.65576752057019,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SanatorioMapaci.jpg",
+      "logo": "LogoPin/Santa_Fe/SanatorioMapaci.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Rosendo García | RED BASA",
+      "direccion": "3 de Febrero 754, S2000 Rosario, Santa Fe",
+      "lat": -32.953370935605264,
+      "lng": -60.634933816877094,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SRG.jpg",
+      "logo": "LogoPin/Santa_Fe/SRG.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio de Niños",
+      "direccion": "Alvear 863, S2000 Rosario, Santa Fe",
+      "lat": -32.94419819712363,
+      "lng": -60.654807618723915,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/SanatoriodeNiños.jpg",
+      "logo": "LogoPin/Santa_Fe/SanatoriodeNiños.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "CEMAR - Centro de Especialidades Médicas Ambulatorias",
+      "direccion": "San Luis 2020, S2000 Rosario, Santa Fe",
+      "lat": -32.94635001877183,
+      "lng": -60.65128900338298,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/CEMAR.jpg",
+      "logo": "LogoPin/Santa_Fe/CEMAR.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Integral de la Mujer - Santa Fe",
+      "direccion": "3 de Febrero 68, S2300 Rafaela, Santa Fe",
+      "lat": -31.250749,
+      "lng": -61.494815,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/CIM.jpg",
+      "logo": "LogoPin/Santa_Fe/CIM.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Fertya Medicina Reproductiva",
+      "direccion": "Rioja 2282, S2000 Rosario, Santa Fe",
+      "lat": -32.94426107444244,
+      "lng": -60.65448525472202,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/FERTYA.jpg",
+      "logo": "LogoPin/Santa_Fe/FERTYA.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Procrearte Rosario",
+      "direccion": "Blvd. Oroño 185 bis, S2000 Rosario, Santa Fe",
+      "lat": -32.93227380553787,
+      "lng": -60.65029159173587,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/Procrearte.jpg",
+      "logo": "LogoPin/Santa_Fe/Procrearte.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Médico Rafaela",
+      "direccion": "Maipú 708, S2300 Rafaela, Santa Fe",
+      "lat": -31.24921610897922,
+      "lng": -61.49927436953499,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Santa_Fe/CentroMedicoRafaela.jpg",
+      "logo": "LogoPin/Santa_Fe/CentroMedicoRafaela.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Dr. Orlando Alassia",
+      "direccion": "Mendoza 4151, S3000 Santa Fe de la Vera Cruz, Santa Fe",
+      "lat": -31.644322363644413,
+      "lng": -60.727506711233325,
+      "tipo": "Sanatorio",
+      "imagen": "Logo/Santa_Fe/HospitaldeNiñosOrlandoAlassia.jpg",
+      "logo": "LogoPin/Santa_Fe/HospitaldeNiñosOrlandoAlassia.jpg",
+      "prioridad": "blanco",
+      "sector": "publico"
+    }
+  ],
+  "consultorios": []
+}

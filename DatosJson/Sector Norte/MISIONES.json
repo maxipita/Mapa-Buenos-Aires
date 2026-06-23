@@ -1,0 +1,249 @@
+{
+  "nombre": "MISIONES",
+  "sector": "Sector Norte",
+  "sanatorios": [
+    {
+      "nombre": "Hospital Escuela de Agudos Dr. Ramón Madariaga",
+      "direccion": "Av. Marconi 3736, N3300 Posadas, Misiones",
+      "lat": -27.38335966342666,
+      "lng": -55.88920705083852,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/HospitalEscueladeAgudos.jpg",
+      "logo": "LogoPin/Misiones/HospitalEscueladeAgudos.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Neonatal de Posadas",
+      "direccion": "Av. López Torres 3600, N3300 Posadas, Misiones",
+      "lat": -27.382638043468695,
+      "lng": -55.888472633125886,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/HospitalNeonataldePosadas.jpg",
+      "logo": "LogoPin/Misiones/HospitalNeonataldePosadas.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Pediátrico Dr. Fernando Barreyro",
+      "direccion": "Av. Mariano Moreno 1092, N3300 Posadas, Misiones",
+      "lat": -27.381753143631077,
+      "lng": -55.89045768656623,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/HospitalPediátrico.jpg",
+      "logo": "LogoPin/Misiones/HospitalPediátrico.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Samic Eldorado",
+      "direccion": "Dr. Prieto S/N Km.10, N3380 Eldorado, Misiones",
+      "lat": -26.403702316182663,
+      "lng": -54.59739964842953,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/HospitalSAMIC.jpg",
+      "logo": "LogoPin/Misiones/HospitalSAMIC.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital Samic de Oberá",
+      "direccion": "Ave Pincen s/n, N3360 Oberá, Misiones",
+      "lat": -27.490452599443184,
+      "lng": -55.14406286375914,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/HospitalSAMICOberá.jpg",
+      "logo": "LogoPin/Misiones/HospitalSAMICOberá.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Sanatorio Boratti",
+      "direccion": "Av. Bartolomé Mitre 2330, N3300 Posadas, Misiones",
+      "lat": -27.37297462035973,
+      "lng": -55.899934848474764,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/SanatorioBoratti.JPG",
+      "logo": "LogoPin/Misiones/SanatorioBoratti.JPG",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Nosiglia",
+      "direccion": "Córdoba y 25 de Mayo, N3300 Posadas, Misiones",
+      "lat": -27.36835050875663,
+      "lng": -55.8897564693231,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/SanatorioNosiglia.jpg",
+      "logo": "LogoPin/Misiones/SanatorioNosiglia.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Integral IOT",
+      "direccion": "Bolívar 2376, N3300 Posadas, Misiones",
+      "lat": -27.36561481978992,
+      "lng": -55.8994770791665,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/SanatorioIntegralIOT.jpeg",
+      "logo": "LogoPin/Misiones/SanatorioIntegralIOT.jpeg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Buddenberg",
+      "direccion": "Claudio Rodrigo 140, N3380 Eldorado, Misiones",
+      "lat": -26.406196054455403,
+      "lng": -54.60529956377224,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/SanatorioBuddenberg.jpg",
+      "logo": "LogoPin/Misiones/SanatorioBuddenberg.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Centro Medico Integral Sanatorio",
+      "direccion": "N3315 Misiones",
+      "lat": -27.606805056051144,
+      "lng": -55.32838613301206,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/CentroMedicoIntegralSanatorio.jpg",
+      "logo": "LogoPin/Misiones/CentroMedicoIntegralSanatorio.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Montecarlo Salud",
+      "direccion": "Chacabuco 80, N3384 Montecarlo, Misiones",
+      "lat": -26.565675717319884,
+      "lng": -54.76568701766205,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/MontecarloSalud.jpg",
+      "logo": "LogoPin/Misiones/MontecarloSalud.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital Nivel III Dr. René Favaloro",
+      "direccion": "Av. Tambor de Tacuarí 7300, N3300 Posadas, Misiones",
+      "lat": -27.36468536621595,
+      "lng": -55.94923789451106,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/HospitalNivelIIIRenéFavaloro.jpg",
+      "logo": "LogoPin/Misiones/HospitalNivelIIIRenéFavaloro.jpg",
+      "sector": "publico"
+    },
+    {
+      "nombre": "Hospital SAMIC Puerto Iguazú Dra. Marta Schwarz",
+      "direccion": "Av. Victoria Aguirre 131, N3370 Puerto Iguazu, Misiones",
+      "lat": -25.600644113220266,
+      "lng": -54.57347354934589,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/HospitalSAMICMartaSchwarz.jpg",
+      "logo": "LogoPin/Misiones/HospitalSAMICMartaSchwarz.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital SAMIC Alem de autogestión nivel II",
+      "direccion": "N3315 Leandro N. Alem, Misiones",
+      "lat": -27.60748605817225,
+      "lng": -55.33037576317136,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/HospitalSAMICAlem.jpg",
+      "logo": "LogoPin/Misiones/HospitalSAMICAlem.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Hospital de Apóstoles",
+      "direccion": "Tucumán 569, N3350 Apóstoles, Misiones",
+      "lat": -27.906653928653487,
+      "lng": -55.74958679079402,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/HospitalApóstoles.jpg",
+      "logo": "LogoPin/Misiones/HospitalApóstoles.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Posadas",
+      "direccion": "Junín 1840, N3300 Posadas, Misiones",
+      "lat": -27.3664218856936,
+      "lng": -55.89770887916624,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/SanatorioPosadas.jpg",
+      "logo": "LogoPin/Misiones/SanatorioPosadas.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Sanatorio Caminos",
+      "direccion": "Junín 2459, N3301 Posadas, Misiones",
+      "lat": -27.3721077864677,
+      "lng": -55.8986555019151,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/SanatorioCamino.jpg",
+      "logo": "LogoPin/Misiones/SanatorioCamino.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto Adventista Oberá",
+      "direccion": "Catamarca 201, N3360 Oberá, Misiones",
+      "lat": -27.48451304982913,
+      "lng": -55.1286786784422,
+      "tipo": "Sanatorio",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/InstitutoAdventistaOberá.jpg",
+      "logo": "LogoPin/Misiones/InstitutoAdventistaOberá.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "CTO Centro Traumatológico Oberá",
+      "direccion": "Av. Sarmiento 1325, N3360 Oberá, Misiones",
+      "lat": -27.486584879051037,
+      "lng": -55.12626061720073,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/CTO.jpg",
+      "logo": "LogoPin/Misiones/CTO.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto Higía - Gastroenterología Integral Avanzada",
+      "direccion": "Belgrano 1942, N3301FZF Posadas, Misiones",
+      "lat": -27.36281869941358,
+      "lng": -55.89449629481251,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/InstitutoHigía.jpg",
+      "logo": "LogoPin/Misiones/InstitutoHigía.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "Instituto Gema - Diagnóstico por Imágenes",
+      "direccion": "Bolívar 2377, N3300 Posadas, Misiones",
+      "lat": -27.366429422750862,
+      "lng": -55.90003011329397,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/InstitutoGema.jpg",
+      "logo": "LogoPin/Misiones/InstitutoGema.jpg",
+      "sector": "privado"
+    },
+    {
+      "nombre": "TESAI Misiones",
+      "direccion": "Félix de Azara 2507, N3300 Posadas, Misiones",
+      "lat": -27.339964290707574,
+      "lng": -55.90614791860942,
+      "tipo": "Centro Médico",
+      "prioridad": "blanco",
+      "imagen": "Logo/Misiones/TESAI.jpg",
+      "logo": "LogoPin/Misiones/TESAI.jpg",
+      "sector": "privado"
+    }
+  ],
+  "consultorios": []
+}
