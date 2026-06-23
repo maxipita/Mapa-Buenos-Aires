@@ -91,7 +91,18 @@
       "PowerShell(Get-ChildItem \"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Local\\\\Temp\\\\flujo_qa\" -Recurse | Select-Object Name, Length, FullName | Where-Object { $_.Length -gt 10000 })",
       "Bash(node generar_manual.js)",
       "Bash(NODE_PATH=\"C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\" node generar_manual.js)",
-      "Bash(node compare.js)"
+      "Bash(node compare.js)",
+      "Bash(node create_corr_pptx.js)",
+      "Bash(python __TRACKED_VAR__/scripts/office/validate.py C:/Users/tiago.baca/AppData/Local/Temp/Correcciones_QA.pptx)",
+      "Bash(rm -rf corr_unpack)",
+      "Bash(python __TRACKED_VAR__/scripts/office/unpack.py C:/Users/tiago.baca/AppData/Local/Temp/Correcciones_QA.pptx corr_unpack)",
+      "Bash(python __TRACKED_VAR__/scripts/office/pack.py corr_unpack 'C:/Users/tiago.baca/OneDrive - Centro de diagnóstico Susana Vighi SRL/Escritorio/Correcciones_Presentacion.pptx' --original C:/Users/tiago.baca/AppData/Local/Temp/Correcciones_QA.pptx)",
+      "Bash(python __TRACKED_VAR__/scripts/office/pack.py corr_unpack C:/Users/tiago.baca/AppData/Local/Temp/Correcciones_local.pptx --original C:/Users/tiago.baca/AppData/Local/Temp/Correcciones_QA.pptx)",
+      "Bash(python -c \"from pptx import Presentation; p=Presentation\\(r'C:\\\\Users\\\\tiago.baca\\\\AppData\\\\Local\\\\Temp\\\\Correcciones_local.pptx'\\); print\\('Valid, slides:', len\\(p.slides\\)\\)\")",
+      "Bash(python repack_zip.py)",
+      "Bash(npm ls *)",
+      "Bash(node -e \"console.log\\('pptxgenjs', require\\('pptxgenjs/package.json'\\).version\\)\")",
+      "Bash(python create_corr_pptx.py)"
     ]
   }
 }
