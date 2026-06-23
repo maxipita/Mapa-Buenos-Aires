@@ -1075,13 +1075,34 @@ function mostrarTodasLasLocalidades() {
       const pobEfectiva = filtroSectorActivo === "privado" ? pob * cobPrivada
                         : filtroSectorActivo === "publico" ? pob * (1 - cobPrivada)
                         : pob;
-      const ratio = pobEfectiva > 0 ? (cantPrest / pobEfectiva) * 100000 : 0;
-      return { prov, pob, pobEfectiva, cantPrest, ratio };
+      // Facturación desde Sheet
+      let fac = 0;
+      const sheetData = (clientesProvinciasSheets[prov] || []).filter(c => {
+        if (!filtroSectorActivo) return true;
+        return (c.sector || "privado") === filtroSectorActivo;
+      });
+      if (sheetData.length) {
+        sheetData.forEach(c => {
+          const raw = (c.facturacion || "").replace(/U\$S/g, "").replace(/\s/g, "").replace(/,/g, "");
+          const val = parseFloat(raw);
+          if (!isNaN(val) && val > 0) fac += val;
+        });
+      } else if (conLocs) {
+        conLocs.locs.forEach(loc => {
+          (loc.nomencladores || []).forEach(n => {
+            if (n.tipo === "total facturado") {
+              const val = parseFloat((n.cantidad || "").replace(/[^0-9.]/g, ""));
+              if (!isNaN(val)) fac += val;
+            }
+          });
+        });
+      }
+      return { prov, pob, pobEfectiva, cantPrest, fac };
     });
 
     const dir = ordenProvinciasDireccion === "asc" ? 1 : -1;
     if (ordenProvinciasPor === "ratio") {
-      provRows.sort((a, b) => dir * (a.ratio - b.ratio));
+      provRows.sort((a, b) => dir * (a.fac - b.fac));
     } else if (ordenProvinciasPor === "prest") {
       provRows.sort((a, b) => dir * (a.cantPrest - b.cantPrest));
     } else if (ordenProvinciasPor === "nombre") {
@@ -1090,20 +1111,22 @@ function mostrarTodasLasLocalidades() {
       provRows.sort((a, b) => dir * (a.pobEfectiva - b.pobEfectiva));
     }
 
-    const pobRanking = provRows.map(({ prov, pob, pobEfectiva, cantPrest, ratio }) => {
+    const pobRanking = provRows.map(({ prov, pob, pobEfectiva, cantPrest, fac }) => {
         const nombre = PROVINCIAS_DISPLAY[prov] || toTitleCase(prov);
         const clickFn = modoMultiSeleccion
           ? `seleccionarProvincia('${prov}')`
           : `mostrarResumenProvincia('${prov}')`;
         const estaSeleccionada = modoMultiSeleccion && provinciasSeleccionadas.has(prov);
         const enSector = sectorFiltroArgentina && sectoresExpansion[sectorFiltroArgentina].provincias.includes(prov);
-        const ratioStr = cantPrest > 0 ? ratio.toFixed(2).replace('.', ',') : null;
+        const facStr = fac > 0
+          ? `U$S ${fac.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`
+          : null;
         return `
           <div class="pob-row ${cantPrest > 0 ? 'pob-row-activa' : ''} ${estaSeleccionada ? 'pob-row-seleccionada' : ''} ${enSector ? 'pob-row-en-sector' : ''}" data-prov="${prov}" data-nombre="${nombre}" ${cantPrest > 0 ? `onclick="${clickFn}"` : ''}>
             <span class="pob-nombre">${estaSeleccionada ? '✓ ' : ''}${nombre}</span>
             <span class="pob-numero">${formatPoblacion(Math.round(pobEfectiva))}</span>
             ${cantPrest > 0 ? `<span class="pob-prest">${cantPrest} prest.</span>` : ""}
-            ${ratioStr ? `<span class="pob-ratio">${ratioStr}/100k</span>` : ""}
+            ${facStr ? `<span class="pob-ratio">${facStr}</span>` : ""}
           </div>`;
       }).join("");
 
@@ -1119,7 +1142,7 @@ function mostrarTodasLasLocalidades() {
         <span class="pob-th pob-th-nombre pob-th-clickable ${ordenProvinciasPor === 'nombre' ? 'pob-th-activo' : ''}" onclick="toggleOrdenProvincias('nombre')">Provincia ${ordenProvinciasPor === 'nombre' ? (ordenProvinciasDireccion === 'desc' ? '▼' : '▲') : '↕'}</span>
         <span class="pob-th pob-th-pob pob-th-clickable ${ordenProvinciasPor === 'poblacion' ? 'pob-th-activo' : ''}" onclick="toggleOrdenProvincias('poblacion')">Población ${ordenProvinciasPor === 'poblacion' ? (ordenProvinciasDireccion === 'desc' ? '▼' : '▲') : '↕'}</span>
         <span class="pob-th pob-th-prest pob-th-clickable ${ordenProvinciasPor === 'prest' ? 'pob-th-activo' : ''}" onclick="toggleOrdenProvincias('prest')">Prest. ${ordenProvinciasPor === 'prest' ? (ordenProvinciasDireccion === 'desc' ? '▼' : '▲') : '↕'}</span>
-        <span class="pob-th pob-th-ratio pob-th-clickable ${ordenProvinciasPor === 'ratio' ? 'pob-th-activo' : ''}" onclick="toggleOrdenProvincias('ratio')">Ratio ${ordenProvinciasPor === 'ratio' ? (ordenProvinciasDireccion === 'desc' ? '▼' : '▲') : '↕'}</span>
+        <span class="pob-th pob-th-ratio pob-th-clickable ${ordenProvinciasPor === 'ratio' ? 'pob-th-activo' : ''}" onclick="toggleOrdenProvincias('ratio')">Fact. U$S ${ordenProvinciasPor === 'ratio' ? (ordenProvinciasDireccion === 'desc' ? '▼' : '▲') : '↕'}</span>
       </div>
       <div class="pob-lista">${pobRanking}</div>
     `;
