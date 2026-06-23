@@ -447,6 +447,10 @@ let regionalizacionAbierto = false; // si el box "Regionalizar" está expandido
 let comparacionBoxAbierto = false;  // si el box "Comparar" está expandido
 let infoWindowGlobal = null;
 let infoWindowSector = null;
+let _locInfoWindowAbierto = null; // localidad cuyo InfoWindow está abierto actualmente
+let _modalDesgloseAbierto = false; // si el modal de desglose está abierto
+const SHEET_POLL_MS = 30000;
+let _sheetPollTimer = null;
 let _markerAnclaSector = null; // marker invisible que ancla el InfoWindow de sector
 let categoriaActiva = null;
 let regionActiva = null;
@@ -1282,6 +1286,7 @@ function initMap() {
   });
 
   infoWindowGlobal = new google.maps.InfoWindow({ disableAutoPan: true });
+  infoWindowGlobal.addListener("closeclick", () => { _locInfoWindowAbierto = null; });
   // infoWindowSector se crea lazy en mostrarFloatingSector()
 
 
@@ -1297,7 +1302,35 @@ function initMap() {
   // Datos de prestadores y Sheet (para el panel)
   cargarDatosExternos().then(function () {
     return cargarDesdeSheetsArgentina();
+  }).then(function () {
+    iniciarPollingSheet();
   });
+}
+
+// ============================================
+// POLLING DEL GOOGLE SHEET (actualización cada 30s)
+// ============================================
+function iniciarPollingSheet() {
+  if (_sheetPollTimer) return;
+  _sheetPollTimer = setInterval(function () {
+    if (document.hidden) return; // pestaña en background: no pedir
+    cargarDesdeSheetsArgentina().then(refrescarVistaActual);
+  }, SHEET_POLL_MS);
+}
+
+function refrescarVistaActual() {
+  if (_locInfoWindowAbierto && infoWindowGlobal && infoWindowGlobal.getMap()) {
+    infoWindowGlobal.setContent(construirContenidoPopup(_locInfoWindowAbierto));
+  }
+  refrescarModalDesgloseSiAbierto();
+
+  if (regionActiva !== "argentina") return;
+
+  if (provinciaSeleccionadaId) {
+    mostrarInfoPanelProvincia(provinciaSeleccionadaId);
+  } else {
+    mostrarTodasLasLocalidades();
+  }
 }
 
 // ============================================
@@ -1486,6 +1519,66 @@ function agregarMarcadores(localidades) {
   });
 }
 
+function construirDesgloseHtml(loc) {
+  const grupos = { eficiencia: [], capacidad: [], volumen: [], "volumen total": [], "total facturado": [], otros: [] };
+  (loc.nomencladores || []).forEach(n => {
+    const t = (n.tipo || "").toLowerCase();
+    if (grupos[t]) grupos[t].push(n);
+    else grupos.otros.push(n);
+  });
+  let html = "";
+  if (grupos.capacidad.length) {
+    html += `<div class="popup-seccion-titulo">Capacidad instalada</div><table class="popup-tabla"><tbody>`;
+    grupos.capacidad.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
+    html += `</tbody></table>`;
+  }
+  if (grupos.volumen.length) {
+    html += `<div class="popup-seccion-titulo">Volumen</div><table class="popup-tabla"><tbody>`;
+    grupos.volumen.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
+    html += `</tbody></table>`;
+  }
+  if (grupos["volumen total"].length) {
+    grupos["volumen total"].forEach(n => {
+      if (n.cantidad && n.cantidad !== "0") {
+        html += `<div class="popup-seccion-total-vol">📊 Volúmenes totales por dirección: <strong>${n.cantidad}</strong></div>`;
+      }
+    });
+  }
+  if (grupos["total facturado"].length) {
+    grupos["total facturado"].forEach(n => {
+      if (n.cantidad && n.cantidad !== "-") {
+        html += `<div class="popup-seccion-fac">💰 Facturación estimada: <strong>${n.cantidad}</strong></div>`;
+      }
+    });
+  }
+  grupos.otros.forEach(n => {
+    const esTotal = n.tipo && (n.tipo.toLowerCase() === "total" || n.tipo.toLowerCase() === "total facturado");
+    const esTotalFacturado = n.tipo && n.tipo.toLowerCase() === "total facturado";
+    const etiqueta = n.tipo && n.tipo.toLowerCase() === "presencia" ? "Presencia Patólogo" : n.tipo && n.tipo.toLowerCase() === "total" ? "Total" : n.codigo;
+    const facturado = n.facturado || (esTotalFacturado ? n.cantidad : "");
+    const cantidadCell = esTotalFacturado ? (regionActiva === 'argentina' ? facturado : "") : n.cantidad;
+    html += `<table class="popup-tabla"><tbody><tr${esTotal ? ' class="popup-fila-total"' : ""}><td>${etiqueta}</td><td>${cantidadCell}</td>${regionActiva !== 'argentina' ? `<td>${facturado}</td>` : ''}</tr></tbody></table>`;
+  });
+  return html;
+}
+
+function construirContenidoPopup(loc) {
+  return `
+        <div class="popup-container">
+          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" class="popup-imagen" style="width:100%;max-height:120px;object-fit:contain;border-radius:8px;margin-bottom:10px;background:white;display:block;">` : ""}
+          <strong class="popup-nombre">${loc.nombre}</strong>
+          <p class="popup-direccion">${loc.direccion}</p>
+          <span class="popup-tipo">${loc.tipo}</span>
+          ${loc.nomencladores && loc.nomencladores.length ? `
+          <button class="popup-btn-desglose" onclick="toggleDesglose(this)">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
+          <div id="nomDesglose" class="popup-desglose">
+            ${construirDesgloseHtml(loc)}
+          </div>
+          ` : ""}
+        </div>
+      `;
+}
+
 function _colocarMarcadores(localidades, iconCache) {
   localidades.forEach(loc => {
     const logoUrl = loc.logo || "logo_vighi.png";
@@ -1500,61 +1593,8 @@ function _colocarMarcadores(localidades, iconCache) {
     });
 
     marker.addListener("click", () => {
-      infoWindowGlobal.setContent(`
-        <div class="popup-container">
-          ${loc.imagen ? `<img src="${loc.imagen}" alt="${loc.nombre}" class="popup-imagen" style="width:100%;max-height:120px;object-fit:contain;border-radius:8px;margin-bottom:10px;background:white;display:block;">` : ""}
-          <strong class="popup-nombre">${loc.nombre}</strong>
-          <p class="popup-direccion">${loc.direccion}</p>
-          <span class="popup-tipo">${loc.tipo}</span>
-          ${loc.nomencladores && loc.nomencladores.length ? `
-          <button class="popup-btn-desglose" onclick="toggleDesglose(this)">Ver desglose <span class="popup-btn-flecha">&#9660;</span></button>
-          <div id="nomDesglose" class="popup-desglose">
-            ${(() => {
-              const grupos = { eficiencia: [], capacidad: [], volumen: [], "volumen total": [], "total facturado": [], otros: [] };
-              (loc.nomencladores || []).forEach(n => {
-                const t = (n.tipo || "").toLowerCase();
-                if (grupos[t]) grupos[t].push(n);
-                else grupos.otros.push(n);
-              });
-              let html = "";
-              if (grupos.capacidad.length) {
-                html += `<div class="popup-seccion-titulo">Capacidad instalada</div><table class="popup-tabla"><tbody>`;
-                grupos.capacidad.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
-                html += `</tbody></table>`;
-              }
-              if (grupos.volumen.length) {
-                html += `<div class="popup-seccion-titulo">Volumen</div><table class="popup-tabla"><tbody>`;
-                grupos.volumen.forEach(n => { html += `<tr><td>${n.codigo}</td><td>${n.cantidad}</td></tr>`; });
-                html += `</tbody></table>`;
-              }
-              if (grupos["volumen total"].length) {
-                grupos["volumen total"].forEach(n => {
-                  if (n.cantidad && n.cantidad !== "0") {
-                    html += `<div class="popup-seccion-total-vol">📊 Volúmenes totales por dirección: <strong>${n.cantidad}</strong></div>`;
-                  }
-                });
-              }
-              if (grupos["total facturado"].length) {
-                grupos["total facturado"].forEach(n => {
-                  if (n.cantidad && n.cantidad !== "-") {
-                    html += `<div class="popup-seccion-fac">💰 Facturación estimada: <strong>${n.cantidad}</strong></div>`;
-                  }
-                });
-              }
-              grupos.otros.forEach(n => {
-                const esTotal = n.tipo && (n.tipo.toLowerCase() === "total" || n.tipo.toLowerCase() === "total facturado");
-                const esTotalFacturado = n.tipo && n.tipo.toLowerCase() === "total facturado";
-                const etiqueta = n.tipo && n.tipo.toLowerCase() === "presencia" ? "Presencia Patólogo" : n.tipo && n.tipo.toLowerCase() === "total" ? "Total" : n.codigo;
-                const facturado = n.facturado || (esTotalFacturado ? n.cantidad : "");
-                const cantidadCell = esTotalFacturado ? (regionActiva === 'argentina' ? facturado : "") : n.cantidad;
-                html += `<table class="popup-tabla"><tbody><tr${esTotal ? ' class="popup-fila-total"' : ""}><td>${etiqueta}</td><td>${cantidadCell}</td>${regionActiva !== 'argentina' ? `<td>${facturado}</td>` : ''}</tr></tbody></table>`;
-              });
-              return html;
-            })()}
-          </div>
-          ` : ""}
-        </div>
-      `);
+      _locInfoWindowAbierto = loc;
+      infoWindowGlobal.setContent(construirContenidoPopup(loc));
       map.setCenter(marker.getPosition());
       infoWindowGlobal.open(map, marker);
       google.maps.event.addListenerOnce(infoWindowGlobal, 'domready', function() {
@@ -1659,7 +1699,16 @@ function toggleDesglose(btn) {
   var nombre = nombreEl ? nombreEl.textContent : "Desglose";
 
   // Mostrar en modal lateral
+  _modalDesgloseAbierto = true;
   abrirModalDesglose(nombre, d.innerHTML);
+}
+
+function refrescarModalDesgloseSiAbierto() {
+  if (!_modalDesgloseAbierto || !_locInfoWindowAbierto) return;
+  var overlay = document.getElementById('desglose-overlay');
+  if (!overlay || overlay.style.display === 'none') return;
+  document.getElementById('desglose-modal-titulo').textContent = _locInfoWindowAbierto.nombre;
+  document.getElementById('desglose-modal-body').innerHTML = construirDesgloseHtml(_locInfoWindowAbierto);
 }
 
 function abrirModalDesglose(titulo, contenidoHtml) {
@@ -1690,6 +1739,7 @@ function abrirModalDesglose(titulo, contenidoHtml) {
 }
 
 function cerrarModalDesglose() {
+  _modalDesgloseAbierto = false;
   var overlay = document.getElementById('desglose-overlay');
   if (overlay) {
     overlay.classList.remove('desglose-visible');

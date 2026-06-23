@@ -46,11 +46,16 @@
 }
 
 function cargarDesdeSheetsArgentina() {
-  return fetch(SHEETS_CSV_URL)
+  return fetch(SHEETS_CSV_URL + "&_=" + Date.now(), { cache: "no-store" })
     .then(r => r.ok ? r.text() : Promise.reject("No se pudo cargar el Sheet"))
     .then(texto => {
       const filas = parsearCSVSheets(texto);
       if (filas.length < 2) return;
+
+      // Reset: evitar duplicar filas en cada poll (cada 30s)
+      Object.keys(clientesProvinciasSheets).forEach(k => delete clientesProvinciasSheets[k]);
+      Object.keys(clientesProvinciasDirectos).forEach(k => delete clientesProvinciasDirectos[k]);
+      Object.keys(clientesZonasBA).forEach(k => clientesZonasBA[k] = null);
 
       const COL = { cliente:0, zona:1, tipo:2, sector:3, qx:4, amb:5, salaEndo:6, ce:7, qx2:8, amb2:9, salaEndo2:10, ce2:11, volQx:12, volAmb:13, volSalaEndo:14, volCe:15, volTotal:16, facturacionUSD:18 };
 
