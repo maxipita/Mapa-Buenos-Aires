@@ -37,17 +37,14 @@
   window._facturacionPrivadaArgentina       = facturacionPrivado;
   window._facturacionPublicaArgentina       = facturacionPublico;
 
-  // Si estamos viendo Argentina, actualizar el panel con los nuevos totales
-  if (regionActiva === "argentina" && typeof mostrarTodasLasLocalidades === "function") {
-    mostrarTodasLasLocalidades();
-  }
+  // El refresco del panel lo maneja refrescarVistaActual() (respeta búsqueda/provincia activa);
+  // no se repinta acá para no pisar lo que el usuario está viendo.
 
   return facturacionTotal;
 }
 
 function cargarDesdeSheetsArgentina() {
-  return fetch(SHEETS_CSV_URL + "&_=" + Date.now(), { cache: "no-store" })
-    .then(r => r.ok ? r.text() : Promise.reject("No se pudo cargar el Sheet"))
+  return fetchSheetCSV()
     .then(texto => {
       const filas = parsearCSVSheets(texto);
       if (filas.length < 2) return;
@@ -102,8 +99,8 @@ function cargarDesdeSheetsArgentina() {
         "TUCUMAN":             "TUCUMAN",
       };
 
-      // Valor total de facturación Argentina del Sheet (fila TOTALES)
-      window._facturacionTotalArgentinaActual = 6338792.28;
+      // El total real se calcula más abajo (recalcularFacturacionTotalArgentina) a partir
+      // de las filas del Sheet — ya no se hardcodea un valor en el código fuente.
 
       // Nombres de provincias para detectar subtotales
       const PROVINCIA_NAMES = ["BUENOS AIRES", "CABA", "CATAMARCA", "CHACO", "CHUBUT", "CORDOBA", "CORRIENTES", "ENTRE RIOS", "FORMOSA", "JUJUY", "LA PAMPA", "LA RIOJA", "MENDOZA", "MISIONES", "NEUQUEN", "RIO NEGRO", "SALTA", "SAN JUAN", "SAN LUIS", "SANTA CRUZ", "SANTA FE", "SANTIAGO DEL ESTERO", "STGO. DEL ESTERO", "TIERRA DEL FUEGO", "TUCUMAN"];
@@ -1765,7 +1762,7 @@ function getLocalidadesDeProvincia(provinciaId) {
   return filtrarPorCategoria(localidades);
 }
 
-function mostrarInfoPanelProvincia(provinciaId) {
+function mostrarInfoPanelProvincia(provinciaId, actualizarMarcadores = true) {
   // Solo resetear el filtro si cambió de provincia
   if (provinciaAnteriorId !== provinciaId) {
     resetFiltroSector();
@@ -2202,8 +2199,15 @@ function mostrarInfoPanelProvincia(provinciaId) {
     }
   });
 
-  // Agregar marcadores al mapa (respetando filtro de sector activo)
-  agregarMarcadores(filtrarPorSector(filtrarPorCategoria(todasLasLocalidadesParaPins)));
+  // Agregar marcadores al mapa (respetando filtro de sector activo).
+  // En el refresco automático cada 30s NO se recrean: destruir el marcador anclado
+  // a un InfoWindow abierto lo cierra automáticamente (comportamiento propio de Google Maps),
+  // y las posiciones/iconos no cambian entre polls, solo los datos de los popups y el panel.
+  if (actualizarMarcadores) {
+    marcadoresActivos.forEach(m => m.setMap(null));
+    marcadoresActivos = [];
+    agregarMarcadores(filtrarPorSector(filtrarPorCategoria(todasLasLocalidadesParaPins)));
+  }
 
   abrirPanelMobile();
 }

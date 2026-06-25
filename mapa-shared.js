@@ -1,12 +1,19 @@
 ﻿// ============================================
 // CONFIGURACIÓN
 // ============================================
-const GEOJSON_URL = "DatosGeoJson/barriosGeoJson.json";
-const GEOJSON_AMBA_URL = "DatosGeoJson/ambaGeoJson.json";
 const GEOJSON_ARGENTINA_URL = "DatosGeoJson/agrentinaProvincesGeoJson-simplified.json";
 const GEOJSON_BA_DEPARTAMENTOS_URL = "DatosGeoJson/departamentos-buenos_aires.json";
 
-const SHEETS_CSV_URL = "https://docs.google.com/spreadsheets/d/1LWynrRdnZSB9kaYPBZsRtswAAHDJIQHDwrRRdR2jwa8/gviz/tq?tqx=out:csv&gid=269143430";
+// La URL real del Google Sheet ya NO vive en el cliente: el Worker la guarda como secret
+// y este endpoint le pega a /sheet-data. Los datos son públicos para todos los visitantes;
+// el Worker solo evita exponer el ID del Sheet y agrega caché de borde.
+const WORKER_BASE_URL = "https://vighi-sheet-proxy.sistemasvighi.workers.dev";
+const SHEETS_CSV_URL = WORKER_BASE_URL + "/sheet-data";
+
+function fetchSheetCSV() {
+  return fetch(SHEETS_CSV_URL, { cache: "no-store" })
+    .then((r) => (r.ok ? r.text() : Promise.reject(new Error("No se pudo cargar el Sheet"))));
+}
 
 // Mapeo de PROVINCIA_ZONA del Sheet a los IDs de provincia del GeoJSON
 const ZONA_A_PROVINCIA = {
@@ -130,10 +137,6 @@ const partidosData = {
 // CARGA Y MERGE DE DATOS EXTERNOS (JSON)
 // ============================================
 const DATA_URLS = {
-  sanatorios:              "DatosJson/sanatorios.json",
-  consultorios:            "DatosJson/consultorios.json",
-  sanatoriosAmba:          "DatosJson/sanatoriosAmba.json",
-  consultoriosAmba:        "DatosJson/consultoriosAmba.json",
   sanatoriosExpansion:     "DatosJson/sanatoriosExpansion.json",
   consultoriosExpansion:   "DatosJson/consultoriosExpansion.json"
 };
@@ -157,47 +160,15 @@ function cargarDatosExternos() {
       .catch(err => { console.warn("No se pudo cargar", url, err); return {}; });
 
   return Promise.all([
-    fetchJSON(DATA_URLS.sanatorios),
-    fetchJSON(DATA_URLS.consultorios),
-    fetchJSON(DATA_URLS.sanatoriosAmba),
-    fetchJSON(DATA_URLS.consultoriosAmba),
     fetchJSON(DATA_URLS.sanatoriosExpansion),
     fetchJSON(DATA_URLS.consultoriosExpansion),
     ...PROVINCIA_URLS.map(fetchJSON)
-  ]).then(function ([sanat, consult, sanatAmba, consultAmba, sanatExp, consultExp, ...provinciaFiles]) {
+  ]).then(function ([sanatExp, consultExp, ...provinciaFiles]) {
     // Helper: concat sin duplicar por nombre
     function concatSinDuplicados(existentes, nuevas) {
       const nombresExistentes = new Set(existentes.map(l => normalizarNombre(l.nombre)));
       return existentes.concat(nuevas.filter(l => !nombresExistentes.has(normalizarNombre(l.nombre))));
     }
-
-    // CABA
-    [sanat, consult].forEach(function (fuente) {
-      Object.keys(fuente).forEach(function (id) {
-        const numId = parseInt(id);
-        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
-        if (locs.length === 0) return;
-        if (comunasData[numId]) {
-          comunasData[numId].localidades = concatSinDuplicados(comunasData[numId].localidades, locs);
-        } else {
-          comunasData[numId] = { nombre: "Comuna " + numId, barrios: [], localidades: locs };
-        }
-      });
-    });
-
-    // AMBA
-    [sanatAmba, consultAmba].forEach(function (fuente) {
-      Object.keys(fuente).forEach(function (id) {
-        const locs = (fuente[id].localidades || []).filter(l => l.nombre);
-        if (locs.length === 0) return;
-        if (partidosData[id]) {
-          if (!Array.isArray(partidosData[id].localidades)) partidosData[id].localidades = [];
-          partidosData[id].localidades = concatSinDuplicados(partidosData[id].localidades, locs);
-        } else {
-          partidosData[id] = { nombre: fuente[id].nombre || id, barrios: [], localidades: locs };
-        }
-      });
-    });
 
     // ARGENTINA — un archivo por provincia
     provinciaFiles.forEach(function (provData) {
@@ -372,30 +343,28 @@ function mostrarResultadosBusqueda(query) {
   const panelBody = document.getElementById("panelBody");
 
   if (resultados.length === 0) {
-    panelBody.innerHTML = `<p class="search-sin-resultados">Sin resultados para "<strong>${query}</strong>"</p>`;
+    panelBody.innerHTML = `<div class="panel-busqueda-resultados"><p class="search-sin-resultados">Sin resultados para "<strong>${query}</strong>"</p></div>`;
     return;
   }
 
   panelBody.innerHTML = `
-    <div class="seccion-titulo">${resultados.length} resultado${resultados.length !== 1 ? "s" : ""}</div>
-    ${resultados.map(loc => `
-      <div class="search-result-item" onclick="irALocalidad('${loc.areaId}', ${loc.lat}, ${loc.lng}, '${loc.region}')">
-        <strong>${loc.nombre}</strong>
-        <small>📌 ${loc.direccion}</small>
-        <div class="result-comuna">📍 ${loc.areaNombre}</div>
-      </div>
-    `).join("")}
+    <div class="panel-busqueda-resultados">
+      <div class="seccion-titulo">${resultados.length} resultado${resultados.length !== 1 ? "s" : ""}</div>
+      ${resultados.map(loc => `
+        <div class="search-result-item" onclick="irALocalidad('${loc.areaId}', ${loc.lat}, ${loc.lng}, '${loc.region}')">
+          <strong>${loc.nombre}</strong>
+          <small>📌 ${loc.direccion}</small>
+          <div class="result-comuna">📍 ${loc.areaNombre}</div>
+        </div>
+      `).join("")}
+    </div>
   `;
 
   abrirPanelMobile();
 }
 
 function irALocalidad(areaId, lat, lng, region) {
-  const input = document.getElementById("searchInput");
-  const clearBtn = document.getElementById("searchClear");
-  input.value = "";
-  clearBtn.style.display = "none";
-
+  // No se limpia el buscador: el usuario quiere ver qué buscó mientras el marcador queda centrado
   if (region === "amba") {
     seleccionarPartido(String(areaId));
   } else if (region === "argentina") {
@@ -410,7 +379,6 @@ function irALocalidad(areaId, lat, lng, region) {
 // VARIABLES GLOBALES
 // ============================================
 let map;
-let ambaDataLayer;
 let argentinaDataLayer;
 let argentinaLoaded = false;
 // Polígonos nativos para mostrar los partidos AMBA sobre el mapa de Argentina
@@ -790,47 +758,24 @@ function seleccionarCategoria(cat, region) {
   const leyenda = document.getElementById("leyendaPrioridad");
   if (leyenda) leyenda.style.display = "block";
   document.getElementById("categoriaActualLabel").textContent =
-    regionActiva === "argentina" ? "Argentina" :
-    regionActiva === "expansion" ? "Proyecto de Expansión" :
-    catInfo.label;
-  document.getElementById("mapaTitulo").textContent =
-    (regionActiva === "argentina" || regionActiva === "expansion")
-      ? "Mapa de Argentina"
-      : "Mapa de Buenos Aires";
+    regionActiva === "argentina" ? "Argentina" : "Proyecto de Expansión";
+  document.getElementById("mapaTitulo").textContent = "Mapa de Argentina";
   document.getElementById("panelDesc").textContent =
-    (regionActiva === "argentina" || regionActiva === "expansion")
-      ? "Hacé click en una provincia para ver los prestadores que trabajan con Vighi."
-      : `Hacé click en una comuna o partido para ver los ${catInfo.label.toLowerCase()} que trabajan con Vighi.`;
+    "Hacé click en una provincia para ver los prestadores que trabajan con Vighi.";
   document.getElementById("searchInput").placeholder =
     cat === "sanatorios" ? "Buscar sanatorio o dirección..." : "Buscar consultorio o dirección...";
 
-  // Mostrar/ocultar capas según región
-  if (regionActiva === "argentina" || regionActiva === "expansion") {
-    if (map) {
-      map.data.setMap(null);
-      if (ambaDataLayer) ambaDataLayer.setMap(null);
-      // Solo mostrar si ya cargó; si no, el callback de cargarGeoJSONArgentina lo mostrará
-      if (argentinaLoaded && argentinaDataLayer) argentinaDataLayer.setMap(map);
-      // Polígonos AMBA encima de Argentina (siempre por encima de Data layers)
-      mostrarPolygonsAmbaEnArgentina();
-      map.setCenter({ lat: -38.5, lng: -65 });
-      map.setZoom(4);
-      if (regionActiva === "expansion") {
-        aplicarEstiloExpansionBase();
-        mostrarFlechasExpansion();
-      }
-    }
-  } else {
-    if (map) {
-      map.data.setMap(map);
-      if (argentinaDataLayer) argentinaDataLayer.setMap(null);
-      ocultarPolygonsAmbaEnArgentina();
-      if (ambaDataLayer) {
-        ambaDataLayer.setMap(map);
-        aplicarEstiloBaseAmba();
-      }
-      map.setCenter({ lat: -34.62, lng: -58.52 });
-      map.setZoom(11);
+  // Mostrar la capa de Argentina
+  if (map) {
+    // Solo mostrar si ya cargó; si no, el callback de cargarGeoJSONArgentina lo mostrará
+    if (argentinaLoaded && argentinaDataLayer) argentinaDataLayer.setMap(map);
+    // Polígonos AMBA encima de Argentina (siempre por encima de Data layers)
+    mostrarPolygonsAmbaEnArgentina();
+    map.setCenter({ lat: -38.5, lng: -65 });
+    map.setZoom(4);
+    if (regionActiva === "expansion") {
+      aplicarEstiloExpansionBase();
+      mostrarFlechasExpansion();
     }
   }
 
@@ -856,9 +801,6 @@ function volverAlMenu() {
   ocultarEtiquetasSector();
   ocultarFlechasExpansion();
   if (map) {
-    map.data.setMap(map);
-    aplicarEstiloBase();
-    aplicarEstiloBaseAmba();
     if (argentinaDataLayer) argentinaDataLayer.setMap(null);
     ocultarPolygonsAmbaEnArgentina();
   }
@@ -908,60 +850,50 @@ function resetFiltroSector() {
   }
 }
 
-function mostrarTodasLasLocalidades() {
-  const panelBody = document.getElementById("panelBody");
+function mostrarTodosLosMarcadores() {
+  const btn = document.getElementById("btnVerTodos");
 
-  const comunasConLocs = Object.keys(comunasData)
-    .map(id => ({
-      id: parseInt(id),
-      ...comunasData[id],
-      locs: filtrarPorCategoria(comunasData[id].localidades)
-    }))
-    .filter(c => c.locs.length > 0)
-    .sort((a, b) => a.id - b.id);
-
-  const partidosConLocs = Object.keys(partidosData)
-    .map(id => ({
-      id,
-      ...partidosData[id],
-      locs: filtrarPorCategoria(partidosData[id].localidades || [])
-    }))
-    .filter(p => p.locs.length > 0)
-    .sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
-
-  const total = comunasConLocs.reduce((s, c) => s + c.locs.length, 0)
-              + partidosConLocs.reduce((s, p) => s + p.locs.length, 0);
-
-  if (total === 0) {
-    panelBody.innerHTML = `<p class="sin-datos">Sin ubicaciones registradas para esta categoría.</p>`;
+  // Si ya están visibles, los oculta
+  if (marcadoresActivos.length > 0 && provinciaSeleccionadaId === null) {
+    marcadoresActivos.forEach(m => m.setMap(null));
+    marcadoresActivos = [];
+    if (btn) { btn.textContent = "📍 Ver todos en el mapa"; btn.classList.remove("activo"); }
     return;
   }
 
-  function renderItems(items, clickFn, region) {
-    return items.map(area => {
-      const ordenadas = [...area.locs].sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
-      const idJs = region === "caba" ? area.id : `'${area.id}'`;
-      return `
-        <div class="seccion-titulo todas-titulo" onclick="${clickFn}(${idJs})" title="Ver en el mapa">
-          ${area.nombre}
-          <span class="todas-count">${ordenadas.length}</span>
-        </div>
-        ${ordenadas.map(loc => `
-          <div class="localidad-item" onclick="irALocalidad('${area.id}', ${loc.lat}, ${loc.lng}, '${region}')">
-            <strong>${loc.nombre}</strong>
-            <small>📌 ${loc.direccion} &nbsp;•&nbsp; <span class="badge">${loc.tipo}</span></small>
-          </div>
-        `).join("")}
-      `;
-    }).join("");
-  }
+  provinciaSeleccionadaId = null;
 
-  let html = `
-    <div class="todas-header">
-      <span>${total} ubicaciones en total</span>
-      <button id="btnVerTodos" class="btn-ver-todos" onclick="mostrarTodosLosMarcadores()">📍 Ver todos en el mapa</button>
-    </div>
-  `;
+  marcadoresActivos.forEach(m => m.setMap(null));
+  marcadoresActivos = [];
+
+  // Recolectar todas las localidades filtradas (Argentina o Expansión)
+  const todasLasLocs = [];
+  const vistas = new Set();
+
+  Object.values(getProvinciasDataActivo()).forEach(prov => {
+    filtrarPorCategoria(prov.localidades || []).forEach(loc => {
+      const key = `${loc.lat},${loc.lng}`;
+      if (!vistas.has(key)) { vistas.add(key); todasLasLocs.push(loc); }
+    });
+  });
+
+  if (todasLasLocs.length === 0) return;
+
+  agregarMarcadores(todasLasLocs);
+
+  if (btn) { btn.textContent = "✕ Ocultar pins"; btn.classList.add("activo"); }
+
+  // Ajustar vista para mostrar todos los pins
+  const bounds = new google.maps.LatLngBounds();
+  todasLasLocs.forEach(loc => bounds.extend({ lat: loc.lat, lng: loc.lng }));
+  const padding = esMobile()
+    ? { top: 20, right: 20, bottom: Math.round(window.innerHeight * 0.72), left: 20 }
+    : { top: 60, right: 60, bottom: 60, left: 60 };
+  map.fitBounds(bounds, padding);
+}
+
+function mostrarTodasLasLocalidades() {
+  const panelBody = document.getElementById("panelBody");
 
   if (regionActiva === "argentina") {
     const CABA_KEY = "CIUDAD AUTONOMA DE BUENOS AIRES";
@@ -1192,38 +1124,7 @@ function mostrarTodasLasLocalidades() {
     return;
   }
 
-  if (comunasConLocs.length > 0) {
-    html += `<div class="region-subtitulo">📍 Ciudad de Buenos Aires</div>`;
-    html += renderItems(comunasConLocs, "seleccionarComuna", "caba");
-  }
-
-  if (partidosConLocs.length > 0) {
-    html += `<div class="region-subtitulo">🗺️ Conurbano Bonaerense</div>`;
-    html += `
-      <div class="amba-zona-leyenda">
-        <span class="amba-zona-chip amba-zona-norte">● Norte</span>
-        <span class="amba-zona-chip amba-zona-oeste">● Oeste</span>
-        <span class="amba-zona-chip amba-zona-sur">● Sur</span>
-      </div>`;
-    // Agrupar por zona para el panel
-    const ZONA_LABEL = { norte: "Norte", oeste: "Oeste", sur: "Sur" };
-    const ZONA_ORDEN = ["norte", "oeste", "sur"];
-    const grupos = { norte: [], oeste: [], sur: [], sin_zona: [] };
-    partidosConLocs.forEach(p => {
-      const zona = ZONA_AMBA[p.id] || "sin_zona";
-      grupos[zona].push(p);
-    });
-    ZONA_ORDEN.forEach(zona => {
-      if (grupos[zona].length === 0) return;
-      html += `<div class="amba-zona-grupo-titulo amba-zona-grupo-${zona}">${ZONA_LABEL[zona]}</div>`;
-      html += renderItems(grupos[zona], "seleccionarPartido", "amba");
-    });
-    if (grupos.sin_zona.length > 0) {
-      html += renderItems(grupos.sin_zona, "seleccionarPartido", "amba");
-    }
-  }
-
-  panelBody.innerHTML = html;
+  panelBody.innerHTML = `<p class="sin-datos">Sin ubicaciones registradas para esta categoría.</p>`;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -1290,19 +1191,16 @@ function initMap() {
   // infoWindowSector se crea lazy en mostrarFloatingSector()
 
 
-  ambaDataLayer = new google.maps.Data();
   argentinaDataLayer = new google.maps.Data();
 
-  // Cargar todos los GeoJSONs en background inmediatamente (ocultos hasta que se seleccione la región)
-  map.data.setMap(null); // CABA oculto hasta que el usuario elija CABA/AMBA
-  cargarGeoJSON();
-  cargarGeoJSONAmba();
+  // Cargar el GeoJSON de Argentina en background inmediatamente (oculto hasta que se seleccione la región)
   cargarGeoJSONArgentina();
 
   // Datos de prestadores y Sheet (para el panel)
   cargarDatosExternos().then(function () {
     return cargarDesdeSheetsArgentina();
   }).then(function () {
+    refrescarVistaActual();
     iniciarPollingSheet();
   });
 }
@@ -1324,10 +1222,24 @@ function refrescarVistaActual() {
   }
   refrescarModalDesgloseSiAbierto();
 
+  // Si el panel está mostrando resultados de búsqueda, mantenerlos (no pisarlos con el listado completo).
+  // Se detecta mirando el DOM (no un flag manual) para que cualquier otra forma de navegar
+  // (click en el polígono del mapa, en una card de provincia, etc.) lo desactive automáticamente.
+  const panelBody = document.getElementById("panelBody");
+  const enModoBusqueda = panelBody && panelBody.querySelector(":scope > .panel-busqueda-resultados");
+  if (enModoBusqueda) {
+    const searchInput = document.getElementById("searchInput");
+    const query = searchInput ? searchInput.value.trim() : "";
+    if (query.length > 0) {
+      mostrarResultadosBusqueda(query);
+      return;
+    }
+  }
+
   if (regionActiva !== "argentina") return;
 
   if (provinciaSeleccionadaId) {
-    mostrarInfoPanelProvincia(provinciaSeleccionadaId);
+    mostrarInfoPanelProvincia(provinciaSeleccionadaId, /* actualizarMarcadores */ false);
   } else {
     mostrarTodasLasLocalidades();
   }
@@ -1382,8 +1294,6 @@ function volverAlListado() {
   marcadoresActivos = [];
   ocultarEtiquetasSector();
 
-  aplicarEstiloBase();
-  aplicarEstiloBaseAmba();
   resetEstiloPolygonsAmba();
   if (regionActiva === "expansion") {
     aplicarEstiloExpansionBase();

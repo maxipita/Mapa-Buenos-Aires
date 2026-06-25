@@ -1,17 +1,15 @@
 # Mapa de Prestadores — Dra. Susana Vighi
 
-Mapa interactivo de prestadores de salud (sanatorios, centros médicos y consultorios externos) del Centro de Diagnóstico Dra. Susana Vighi. Permite explorar los prestadores en tres escalas geográficas y visualizar información de cobertura, facturación y capacidad por región.
+Mapa interactivo de prestadores de salud (sanatorios, centros médicos y consultorios externos) del Centro de Diagnóstico Dra. Susana Vighi. Permite explorar los prestadores a nivel de provincias de Argentina y visualizar información de cobertura, facturación y capacidad por región.
 
 ## Funcionalidades
 
-El menú de inicio ofrece cinco vistas:
+El menú de inicio ofrece tres vistas:
 
 | Vista | Descripción |
 |-------|-------------|
 | 🇦🇷 **Argentina** | Mapa nacional a nivel de provincias, con datos de facturación, volumen y cobertura. |
 | 🚀 **Proyecto de Expansión** | Agrupa las provincias en sectores estratégicos (Sur, Cordillera, Norte, Centro, Vighi) con flechas y comparación entre sectores. |
-| 🏥 **Sanatorios y Centros Médicos** | Prestadores propios en CABA y AMBA/GBA. |
-| 🩺 **Consultorios Externos** | Consultorios externos en CABA y AMBA/GBA. |
 | 📉 **El Costo de la Demora Diagnóstica** | Página informativa estática sobre el impacto económico de los retrasos diagnósticos. |
 
 ## Stack técnico
@@ -45,7 +43,6 @@ Se despliega como **sitio estático en GitHub Pages** (incluye `.nojekyll`).
 | `index.html` | Shell de la app, menú de inicio, carga de los scripts y la API de Google Maps. |
 | `mapa.css` | Todos los estilos. |
 | `mapa-shared.js` | Infraestructura común: estado global, carga de datos, buscador, `initMap`, marcadores e InfoWindows. |
-| `mapa-caba-amba.js` | Lógica de las capas geográficas de CABA (comunas) y AMBA/GBA (partidos). |
 | `mapa-argentina.js` | Vista Argentina: provincias, carga del Google Sheet, etiquetas de población, facturación. |
 | `mapa-expansion.js` | Proyecto de Expansión: sectores, flechas y comparación multi-sector. |
 | `mapa-costo-demora.js` | Abrir/cerrar la vista estática del Costo de la Demora Diagnóstica. |
@@ -56,8 +53,6 @@ Los scripts se cargan como `<script>` globales (no son módulos ES), por lo que 
 
 ```
 DatosJson/
-├── sanatorios.json / consultorios.json              # CABA
-├── sanatoriosAmba.json / consultoriosAmba.json      # AMBA/GBA
 ├── sanatoriosExpansion.json / consultoriosExpansion.json
 ├── Sector Sur/         (NEUQUEN, RIO_NEGRO, CHUBUT, SANTA_CRUZ, TIERRA_DEL_FUEGO)
 ├── Sector Cordillera/  (MENDOZA, SAN_JUAN, LA_RIOJA, CATAMARCA)
@@ -66,8 +61,6 @@ DatosJson/
 └── Sector Vighi/       (BUENOS_AIRES, CABA)
 
 DatosGeoJson/
-├── barriosGeoJson.json                  # Comunas de CABA
-├── ambaGeoJson.json                     # Partidos del GBA
 ├── agrentinaProvincesGeoJson-simplified.json  # Provincias de Argentina
 ├── departamentos-buenos_aires.json
 └── zonasBA.json
@@ -110,13 +103,9 @@ Cada prestador dentro de esos arrays:
 
 ## Arquitectura
 
-### Tres niveles geográficos
+### Nivel geográfico
 
-1. **CABA** — 15 comunas, renderizadas con la capa nativa `map.data`.
-2. **AMBA/GBA** — 24 partidos, renderizados con `ambaDataLayer`.
-3. **Argentina** — provincias, renderizadas con `argentinaDataLayer`.
-
-Solo un nivel de GeoJSON es visible a la vez. Al hacer click en una región se la selecciona, se la resalta, se ajustan los límites del mapa y se llena el panel lateral con los prestadores.
+**Argentina** — provincias, renderizadas con `argentinaDataLayer`. Al hacer click en una provincia se la selecciona, se la resalta, se ajustan los límites del mapa y se llena el panel lateral con los prestadores.
 
 ### Colores de prioridad de los marcadores
 
@@ -129,11 +118,11 @@ Los marcadores se generan con Canvas API y se colorean según prioridad:
 ### Estado global (en `mapa-shared.js`)
 
 - `map` — instancia de Google Maps.
-- `ambaDataLayer`, `argentinaDataLayer` — capas GeoJSON secundarias.
-- `comunaSeleccionadaId`, `partidoSeleccionadoId`, `provinciaSeleccionadaId` — selección actual por nivel.
+- `argentinaDataLayer` — capa GeoJSON de provincias.
+- `provinciaSeleccionadaId` — provincia actualmente seleccionada.
 - `marcadoresActivos` — marcadores activos (se limpian en cada nueva selección).
 - `categoriaActiva` — `"sanatorios"` o `"consultorios"`.
-- `regionActiva` — `"caba"`, `"amba"`, `"argentina"` o `"expansion"`.
+- `regionActiva` — `"argentina"` o `"expansion"`.
 
 ### Google Sheet
 
